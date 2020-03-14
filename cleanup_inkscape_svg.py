@@ -1,15 +1,18 @@
-
 '''
 Clean up an SVG file that was written by Inkscape.
 '''
 
 
 from xml.dom.minidom import parse
-import xml.dom as xmldom
+import xml.dom
+import cssutils      # pip install cssutils
+from collections import Counter
 # import svg.path
 
 
 INKSCAPE_OUTPUT_FILE="W31_0-inkscape-output.svg"
+
+SVG_URI = "http://www.w3.org/2000/svg"
 
 
 def load_inkscape(svg_file):
@@ -47,24 +50,65 @@ ATTRIBUTES_TO_REMOVE = [
     AttributeMatcher("inkscape:connector-curvature")
     ]
 
+
 def remove_attributes(element):
-    for a in element.attributes:
+    to_delete = []
+    for a in element.attributes.values():
         for delete_me in ATTRIBUTES_TO_REMOVE:
             if delete_me.match(a):
-                element.removeAttributeNode(a)
+                to_delete.append(a)
+    for a in to_delete:
+        element.removeAttributeNode(a)
 
 
 def do_elements(node, fun):
-    if node.nodeType != xmldom.Node.ELEMENT_NODE:
-        return
-    fun(node)
-    for n in node.childNodes:
-        do_elements(n, fun)
+    def walk(node):
+        if node.nodeType != xml.dom.Node.ELEMENT_NODE:
+            return
+        fun(node)
+        for n in node.childNodes:
+            walk(n)
+    if node.nodeType == xml.dom.Node.DOCUMENT_NODE:
+        walk(node.documentElement)
+    else:
+        walk(node)
+
+
+def extract_styles(doc, stylemap={}):
+    def es(elt):
+        style = elt.getAttributeNS(SVG_URI, "style")
+        if style == "":
+            return
+        print(style)
+        parsed = cssutils.parseStyle(style)
+        print(parsed)
+        key = ';'.join(["%s:%s" % (p.name, p.value)
+                        for p in sorted(parsed.getProperties(),
+                                        key=lambda x: x.name)])
+        print(key)
+        if not key in stylenmap:
+            stylename = "style%d" % len(stylemap)
+            stylemap[key] = stylename
+            stylemap.stylename = parsed
+        elt.setAttribute("class", stylemap[key])
+        elt.removeAttribute("style")
+    do_elements(doc, es)
+    return stylemap
 
 
 def main():
     doc = load_inkscape(INKSCAPE_OUTPUT_FILE)
+    # Count elements
+    element_counts = Counter()
+    def counter(elt):
+        element_counts.update([elt.tagName])
+    do_elements(doc, counter)
+    for item in element_counts.items():
+        print("%s\t%d" % item)
+    # Get rid of things we don't need
     do_elements(doc, remove_attributes)
+    print('***', extract_styles(doc))
+    # Save
     write_pretty(doc, "cleaned_up.svg")
 
 
