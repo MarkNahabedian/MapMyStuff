@@ -108,8 +108,37 @@ def add_stylesheet(doc, stylemap):
             ".%s\t{ %s }" % (c, s.getCssText(" "))))
 
 
+def add_grid(doc, minX, minY, width, height):
+    maxX = minX + width
+    maxY = minY + height
+    grid = doc.createElement("g")
+    grid.setAttribute("class", "viewportGrid")
+    doc.documentElement.appendChild(grid)
+    for x in range(minX, maxX, 100):
+        p = doc.createElement("path")
+        grid.appendChild(p)
+        p.setAttribute("d", "M %d %d V %d" % (
+            x, minY, maxY))
+    for y in range(minY, maxY, 100):
+        p = doc.createElement("path")
+        grid.appendChild(p)
+        p.setAttribute("d", "M %d %d H %d" % (
+            minX, y, maxX))
+    style = doc.createElement("style")
+    docelt = doc.documentElement
+    docelt.insertBefore(style, docelt.firstChild)
+    style.appendChild(doc.createTextNode(".%s\t{ %s; }" %
+                                         ("viewportGrid", "stroke: blue")))
+    pass
+
+
 def main():
     doc = load_inkscape(INKSCAPE_OUTPUT_FILE)
+    # Get the viewbox
+    # *** HACK: viewBox could use different delimiters.  Maybe should use a regular expression.
+    viewbox = [ int(x) for x in doc.documentElement.getAttribute("viewBox").split()]
+    print("viewBox", viewbox)
+    add_grid(doc, *viewbox)
     # Count elements
     element_counts = Counter()
     def counter(elt):
