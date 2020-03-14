@@ -76,24 +76,36 @@ def do_elements(node, fun):
 
 def extract_styles(doc, stylemap={}):
     def es(elt):
-        style = elt.getAttributeNS(SVG_URI, "style")
+        style = elt.getAttribute("style")
         if style == "":
             return
-        print(style)
         parsed = cssutils.parseStyle(style)
-        print(parsed)
         key = ';'.join(["%s:%s" % (p.name, p.value)
                         for p in sorted(parsed.getProperties(),
                                         key=lambda x: x.name)])
-        print(key)
-        if not key in stylenmap:
+        if not key in stylemap:
             stylename = "style%d" % len(stylemap)
             stylemap[key] = stylename
-            stylemap.stylename = parsed
+            stylemap[stylename] = parsed
         elt.setAttribute("class", stylemap[key])
         elt.removeAttribute("style")
     do_elements(doc, es)
     return stylemap
+
+
+def add_stylesheet(doc, stylemap):
+    style = doc.createElement("style")
+    docelt = doc.documentElement
+    docelt.insertBefore(style, docelt.firstChild)
+    classnames = []
+    for v in stylemap.values():
+        if isinstance(v, str):
+            classnames.append(v)
+    classnames.sort()
+    for c in classnames:
+        s = stylemap[c]
+        style.appendChild(doc.createTextNode(
+            ".%s\t{ %s }" % (c, s.getCssText(" "))))
 
 
 def main():
@@ -107,7 +119,7 @@ def main():
         print("%s\t%d" % item)
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
-    print('***', extract_styles(doc))
+    add_stylesheet(doc, extract_styles(doc))
     # Save
     write_pretty(doc, "cleaned_up.svg")
 
