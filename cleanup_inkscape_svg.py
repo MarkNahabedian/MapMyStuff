@@ -143,30 +143,48 @@ def svg_line(doc, parent, x0, y0, x1, y1):
     return p
 
 
-def add_grid(doc, minX, minY, width, height):
+def add_grid(doc, spacing, minX, minY, width, height):
     maxX = minX + width - 1
     maxY = minY + height - 1
     grid = doc.createElement("g")
     grid.setAttribute("class", "viewportGrid")
     doc.documentElement.appendChild(grid)
-    for x in range(minX, maxX, 100):
+    for x in range(minX, maxX, spacing):
         svg_line(doc, grid, x, minY, x, maxY)
-    for y in range(minY, maxY, 100):
+    for y in range(minY, maxY, spacing):
         svg_line(doc, grid, minX, y, maxX, y)
     style = ensure_stylesheet(doc, "decorations")
     add_srtylesheet_rule(doc, style, ".viewportGrid", "stroke: blue")
 
 
-def test_viewbox(doc, minX, minY, maxX, maxY):
-    box = doc.createElement("g")
-    box.setAttribute("class", "testViewBox")
-    doc.documentElement.appendChild(box)
-    svg_line(doc, box, minX, minY, maxX, minY)
-    svg_line(doc, box, minX, maxY, maxX, maxY)
-    svg_line(doc, box, minX, minY, minX, maxY)
-    svg_line(doc, box, maxX, minY, maxX, maxY)
+class Box (object):
+    def __init__(self, minX, minY, maxX, maxY):
+        self.minX = minX
+        self.minY = minY
+        self.maxX = maxX
+        self.maxY = maxY
+
+    def __str__(self):
+        return "x: %d..%d y: %d..%d" % (
+            self.minX, self.maxX, self.minY, self.maxY)
+
+    def within(self, x, y):
+        return (self.minx <= x and
+                self.maxX >= x and
+                self.minY <= y and
+                self.maxY >= y)
+
+
+def test_viewbox(doc, box):
+    g = doc.createElement("g")
+    g.setAttribute("class", "testViewBoxGroup")
+    doc.documentElement.appendChild(g)
+    svg_line(doc, g, box.minX, box.minY, box.maxX, box.minY)
+    svg_line(doc, g, box.minX, box.maxY, box.maxX, box.maxY)
+    svg_line(doc, g, box.minX, box.minY, box.minX, box.maxY)
+    svg_line(doc, g, box.maxX, box.minY, box.maxX, box.maxY)
     style = ensure_stylesheet(doc, "decorations")
-    add_srtylesheet_rule(doc, style, ".testViewBox", "stroke: green")
+    add_srtylesheet_rule(doc, style, ".testViewBoxGroup", "stroke: green")
 
 
 def main():
@@ -175,8 +193,9 @@ def main():
     # *** HACK: viewBox could use different delimiters.  Maybe should use a regular expression.
     viewbox = [ int(x) for x in doc.documentElement.getAttribute("viewBox").split()]
     print("viewBox", viewbox)
-    add_grid(doc, *viewbox)
-    test_viewbox(doc, 700, 450, 970, 610)
+    add_grid(doc, 100, *viewbox)
+    clip_box = Box(700, 450, 970, 610)
+    test_viewbox(doc, clip_box)
     # Count elements
     element_counts = Counter()
     def counter(elt):
