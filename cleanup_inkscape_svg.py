@@ -2,12 +2,11 @@
 Clean up an SVG file that was written by Inkscape.
 '''
 
-
-from xml.dom.minidom import parse
 import xml.dom
+from xml.dom.minidom import parse
 import cssutils      # pip install cssutils
 from collections import Counter
-# import svg.path
+import svg.path
 
 
 INKSCAPE_OUTPUT_FILE="W31_0-inkscape-output.svg"
@@ -168,6 +167,14 @@ class Box (object):
         return "x: %d..%d y: %d..%d" % (
             self.minX, self.maxX, self.minY, self.maxY)
 
+    @property
+    def width(self):
+        return self.maxX - self.minX
+
+    @property
+    def height(self):
+        return self.maxY - self.minY
+
     def within(self, x, y):
         return (self.minx <= x and
                 self.maxX >= x and
@@ -187,15 +194,28 @@ def test_viewbox(doc, box):
     add_srtylesheet_rule(doc, style, ".testViewBoxGroup", "stroke: green")
 
 
+def update_svg_viewbox(doc, box):
+    svg = doc.documentElement
+    svg.setAttribute(
+        "viewBox",
+        " ".join([str(x) for x in [box.minX, box.minY, box.width, box.height]]))
+    svg.setAttribute("width", "100%")
+    svg.removeAttribute("height")
+
+
+################################################################################
+# Main
+
 def main():
     doc = load_inkscape(INKSCAPE_OUTPUT_FILE)
     # Get the viewbox
     # *** HACK: viewBox could use different delimiters.  Maybe should use a regular expression.
     viewbox = [ int(x) for x in doc.documentElement.getAttribute("viewBox").split()]
     print("viewBox", viewbox)
-    add_grid(doc, 100, *viewbox)
     clip_box = Box(700, 450, 970, 610)
-    test_viewbox(doc, clip_box)
+    # add_grid(doc, 100, *viewbox)
+    # test_viewbox(doc, clip_box)
+    update_svg_viewbox(doc, clip_box)
     # Count elements
     element_counts = Counter()
     def counter(elt):
