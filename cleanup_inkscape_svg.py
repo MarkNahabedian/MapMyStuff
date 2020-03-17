@@ -2,11 +2,15 @@
 Clean up an SVG file that was written by Inkscape.
 '''
 
+import operator
 import xml.dom
 from xml.dom.minidom import parse
 import cssutils      # pip install cssutils
 from collections import Counter
+from functools import reduce
 import svg.path
+import re
+import numpy
 
 
 INKSCAPE_OUTPUT_FILE="W31_0-inkscape-output.svg"
@@ -175,11 +179,49 @@ class Box (object):
     def height(self):
         return self.maxY - self.minY
 
-    def within(self, x, y):
+    def complex_corners(self):
+        '''Returns the four corners of the box and complex number coordinates.'''
+        def c(x, y):
+            return x + y * 1j
+        return [ c(self.minX, self.minY),
+                 c(self.maxX, self.minY),
+                 c(self.minX, self.maxY),
+                 c(self.maxX, self.maxY) ]
+
+    # *** DO WE NEED THIS?
+    def within(self, x, y=None):
+        if y == None:
+            # svg.path uses complex numbers for coordinates.
+            y = cPointY(x)
+            x = cPointX(x)
         return (self.minx <= x and
                 self.maxX >= x and
                 self.minY <= y and
                 self.maxY >= y)
+
+    def line_intersects(self, svgLine):
+        '''Returns True iff any of svgLine is within this Box.'''
+        assert isinstance(svgLine, svg.path.Line)
+        # The line does not cross the rectangle if all four corners
+        # of self are on the same side of svgLine.
+        p1 = svgLine.start
+        p2 = svgLine.end
+        v = cToV(p2 - p1)
+        sides = [ numpy.sign(numpy.cross(v, cToV(p - p1))[2])
+                  for p in self.complex_corners() ]
+        if 4 == abs(reduce(operator.add, sides)):
+            # All four corners are on the same side
+            return False
+        # We need to check the end points of the line
+        if cPointX(p1) < self.minX and cPointX(p2) < self.minX:
+            return False
+        if cPointX(p1) > self.maxX and cPointX(p2) > self.maxX:
+            return False
+        if cPointY(p1) < self.minY and cPointY(p2) < self.minY:
+            return False
+        if cPointY(p1) > self.maxY and cPointY(p2) > self.maxY:
+            return False
+        return True
 
 
 def test_viewbox(doc, box):
@@ -204,6 +246,106 @@ def update_svg_viewbox(doc, box):
 
 
 ################################################################################
+# Clipping SVG paths
+
+def cToV(c):
+    '''Represents a complex number as a one dimensional two element numpy array.'''
+    return numpy.array([cPointX(c), cPointY(c), 1])
+
+
+def cPointX(c):
+    '''Return the X component of a coordinate represented as a complex number.'''
+    return c.real
+
+
+def cPointY(c):
+    '''Return the Y component of a coordinate represented as a complex number.'''
+    return c.imag
+
+
+def clip_paths(doc, box):
+    '''Clip all SVG paths to be within the specified bounding box.'''
+    for path in doc.getElementsByTagName("path"):
+        transform, display = svg_context(path)
+        if display:
+            parsed_path = svg.path.parse_path(path)
+            for step in parsed_path:
+                if isinstance(step, svg.path.Line):
+                    if not box.line_intersects_box(step):
+                        # Ignore step.
+                        pass
+                else:
+                    print("Unsupported path step %r" % step)
+
+
+def svg_context(path):
+    '''Go up the parent chain of path, collecting any transformations 
+    and determining if the path is in a context that is displayed.'''
+    transform = Transform.identity()
+    display = True
+    def up(elt):
+        '''Accumulate transforms from the inside out.'''
+        nonlocal transform
+        if elt.nodeType == xml.dom.Node.DOCUMENT_NODE:
+            return
+        if elt.tagName in ("clipPaths"):
+            display = False
+        t = elt.getAttribute("transform")
+        if t:
+            t = parse_transform(t)
+            if t:
+                # *** Right order?
+                transform = t.compose(transform)
+        up(elt.parentNode)
+    up(path)
+    return transform, display
+
+
+class Transform(object):
+    @classmethod
+    def identity(cls):
+        return cls(numpy.array(
+            [[1, 0, 0],
+             [0, 1, 0],
+             [0, 0, 1]]))
+
+    @classmethod
+    def matrix(cls, a, b, c, d, e, f):
+        return cls(numpy.array(
+            [[a, c, e],
+             [b, d, f],
+             [0, 0, 1]]))
+
+    def __init__(self, matrix):
+        self.matrix = matrix
+
+    def __repr__(self):
+        return "Transform(%r)" % self.matrix
+
+    def apply(self, x, y):
+        v = self.matrix * [x, y, 1]
+        return v[0], v[1]
+
+    def compose(self, other):
+        return Transform(self.matrix * other.matrix)
+
+
+# matrix(0.06,0,0,0.06,7,7)
+TRANSFORM_REGEXP = re.compile("(?P<type>[a-zA-Z-_]+)[(](?P<args>[^)]*)[)]")
+
+def parse_transform(transform_string):
+    '''Parse an SVG trransform attribute.'''
+    # *** Does not yet consider multiple transformations in a single attribute string.
+    m = TRANSFORM_REGEXP.match(transform_string)
+    if not m:
+        return
+    if m.group("type") != "matrix":
+        return
+    t = Transform.matrix(*[float(x.strip()) for x in m.group("args").split(",")])
+    return t
+
+
+################################################################################
 # Main
 
 def main():
@@ -215,6 +357,7 @@ def main():
     clip_box = Box(700, 450, 970, 610)
     # add_grid(doc, 100, *viewbox)
     # test_viewbox(doc, clip_box)
+    clip_paths(doc, clip_box)
     update_svg_viewbox(doc, clip_box)
     # Count elements
     element_counts = Counter()
