@@ -190,13 +190,8 @@ class Box (object):
                  c(self.minX, self.maxY),
                  c(self.maxX, self.maxY) ]
 
-    # *** DO WE NEED THIS?
-    def within(self, x, y=None):
-        if y == None:
-            # svg.path uses complex numbers for coordinates.
-            y = cPointY(x)
-            x = cPointX(x)
-        return (self.minx <= x and
+    def point_within(self, x, y):
+        return (self.minX <= x and
                 self.maxX >= x and
                 self.minY <= y and
                 self.maxY >= y)
@@ -250,9 +245,13 @@ def update_svg_viewbox(doc, box):
 ################################################################################
 # Clipping SVG paths
 
+def point(x, y):
+    "Constructs a point suitable for numpy arithmetic."
+    return numpy.array([x, y, 1])
+
 def cToV(c):
     '''Represents a complex number as a one dimensional two element numpy array.'''
-    return numpy.array([cPointX(c), cPointY(c), 1])
+    return poiint(cPointX(c), cPointY(c))
 
 
 def cPointX(c):
@@ -265,19 +264,46 @@ def cPointY(c):
     return c.imag
 
 
+def clip_text(doc, box):
+    remove = []
+    for text in doc.getElementsByTagName("tspan"):
+        transform, display = svg_context(text)
+        if not display:
+            continue
+        # I have no idea why but some x and y attributes of tspan
+        # elements have multiple values.
+        def just_one(s):
+            return s.split()[0]
+        x, y = transform.apply(float(just_one(text.getAttribute("x"))),
+                               float(just_one(text.getAttribute("y"))))
+        if not box.point_within(x, y):
+            remove.append(text)
+    for text in remove:
+        text.parentNode.removeChild(text)
+
+
 def clip_paths(doc, box):
     '''Clip all SVG paths to be within the specified bounding box.'''
+    remove_paths = []
     for path in doc.getElementsByTagName("path"):
         transform, display = svg_context(path)
         if display:
-            parsed_path = svg.path.parse_path(path)
+            parsed_path = svg.path.parse_path(path.getAttribute("d"))
+            new_path = svg.path.Path()
             for step in parsed_path:
+                # For now just excluded Lines that are wholly outside the Box.
                 if isinstance(step, svg.path.Line):
-                    if not box.line_intersects_box(step):
-                        # Ignore step.
-                        pass
+                    if box.line_intersects(step):
+                        new_path.append(step)
                 else:
+                    new_path.append(step)
                     print("Unsupported path step %r" % step)
+            if len(new_path) <= 0:
+                remove_paths.append(path)
+            else:
+                path.setAttribute("d", new_path.d())
+    for path in remove_paths:
+        path.parentNode.removeChild(path)
 
 
 def svg_context(path):
@@ -325,7 +351,7 @@ class Transform(object):
         return "Transform(%r)" % self.matrix
 
     def apply(self, x, y):
-        v = self.matrix * [x, y, 1]
+        v = numpy.matmul(self.matrix, point(x, y))
         return v[0], v[1]
 
     def compose(self, other):
@@ -405,7 +431,8 @@ def main():
     if clip_box and args.show_clip_box:
         test_viewbox(doc, clip_box)
     if clip_box and args.clip:
-        clip_paths(doc, clip_box)
+        clip_text(doc, clip_box)
+        # clip_paths(doc, clip_box)
     if args.clip_svg_viewbox:
         update_svg_viewbox(doc, clip_box)
     # Get rid of things we don't need
