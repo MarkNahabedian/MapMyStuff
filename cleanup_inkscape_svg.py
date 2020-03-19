@@ -2,6 +2,8 @@
 Clean up an SVG file that was written by Inkscape.
 '''
 
+import sys
+import argparse
 import operator
 import xml.dom
 from xml.dom.minidom import parse
@@ -348,27 +350,73 @@ def parse_transform(transform_string):
 ################################################################################
 # Main
 
-def main():
-    doc = load_inkscape(INKSCAPE_OUTPUT_FILE)
-    # Get the viewbox
-    # *** HACK: viewBox could use different delimiters.  Maybe should use a regular expression.
-    viewbox = [ int(x) for x in doc.documentElement.getAttribute("viewBox").split()]
-    print("viewBox", viewbox)
-    clip_box = Box(700, 450, 970, 610)
-    # add_grid(doc, 100, *viewbox)
-    # test_viewbox(doc, clip_box)
-    clip_paths(doc, clip_box)
-    update_svg_viewbox(doc, clip_box)
-    # Count elements
+parser = argparse.ArgumentParser(
+    description='''Cleanup an SVG file that was converted from PDF by Inkscape. ''')
+
+parser.add_argument('--input_file', type=str, nargs=None, action='store',
+                    default=INKSCAPE_OUTPUT_FILE,
+                    help='the input SVG file as written by Inkscape.')
+
+parser.add_argument('--grid_spacing', type=int, nargs=1, action='store',
+                    default=0,
+                    help='If positive, the spacing of a superimposed reference grid.')
+
+parser.add_argument("--clip_box", type=float, nargs=4, action="store",
+                    help="The following four command line arguments specify the left, top, right, and bottom coordinates of the proposed clip box.")
+
+parser.add_argument('--show_clip_box',
+                    # action="sture_true",    NOT WORKING
+                    action=argparse._StoreTrueAction,
+                    help="Show the clip box if one has been specified.")
+
+parser.add_argument("--clip_svg_viewbox",
+                    # action="sture_true",    NOT WORKIING
+                    action=argparse._StoreTrueAction,
+                    help="Set the viewBox SVG attribute to the specified clip box.")
+
+parser.add_argument('--clip',
+                    # action="sture_true",    NOT WORKING
+                    action=argparse._StoreTrueAction,
+                    help="Clip SVG paths to within the clip box.")
+
+
+def show_element_counts(doc):
     element_counts = Counter()
     def counter(elt):
         element_counts.update([elt.tagName])
     do_elements(doc, counter)
     for item in element_counts.items():
         print("%s\t%d" % item)
+
+
+def main():
+    args = parser.parse_args()
+    doc = load_inkscape(args.input_file)
+    # Count elements
+    show_element_counts(doc)
+    # Get the viewbox
+    # *** HACK: viewBox could use different delimiters.  Maybe should use a regular expression.
+    viewbox = [ int(x) for x in doc.documentElement.getAttribute("viewBox").split()]
+    print("viewBox", viewbox)
+    clip_box = Box(*args.clip_box) if args.clip_box else None
+    print(clip_box)
+    if args.grid_spacing:
+        add_grid(doc, args.grid_spacing[0], *viewbox)
+    if clip_box and args.show_clip_box:
+        test_viewbox(doc, clip_box)
+    if clip_box and args.clip:
+        clip_paths(doc, clip_box)
+    if args.clip_svg_viewbox:
+        update_svg_viewbox(doc, clip_box)
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
     add_stylesheet(doc, extract_styles(doc))
+    # Add a comment about processing
+    # This is done last so that the comment appears before any other
+    # added frontmatter line stylesheets.
+    doc.documentElement.insertBefore(doc.createComment(
+        '\n' + (' '.join(sys.argv).replace('--', '-') +'\n')),
+        doc.documentElement.firstChild)
     # Save
     write_pretty(doc, "cleaned_up.svg")
 
