@@ -266,16 +266,20 @@ def cPointY(c):
 
 def clip_text(doc, box):
     remove = []
-    for text in doc.getElementsByTagName("tspan"):
-        transform, display = svg_context(text)
+    for text in doc.getElementsByTagName("text"):
+        # We assume there will only be one.
+        # Element counts shows the same number of text and tspan elements.
+        ts = text.getElementsByTagName("tspan")
+        txt = ts[0] if ts else text
+        transform, display = svg_context(txt)
         if not display:
             continue
         # I have no idea why but some x and y attributes of tspan
         # elements have multiple values.
         def just_one(s):
             return s.split()[0]
-        x, y = transform.apply(float(just_one(text.getAttribute("x"))),
-                               float(just_one(text.getAttribute("y"))))
+        x, y = transform.apply(float(just_one(txt.getAttribute("x"))),
+                               float(just_one(txt.getAttribute("y"))))
         if not box.point_within(x, y):
             remove.append(text)
     for text in remove:
@@ -419,7 +423,11 @@ def main():
     args = parser.parse_args()
     doc = load_inkscape(args.input_file)
     # Count elements
+    print("\nBEFORE CHANGES")
     show_element_counts(doc)
+    # Extract styles before any document modifications so that class
+    # names will be consistent from run to run.
+    add_stylesheet(doc, extract_styles(doc))
     # Get the viewbox
     # *** HACK: viewBox could use different delimiters.  Maybe should use a regular expression.
     viewbox = [ int(x) for x in doc.documentElement.getAttribute("viewBox").split()]
@@ -437,7 +445,6 @@ def main():
         update_svg_viewbox(doc, clip_box)
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
-    add_stylesheet(doc, extract_styles(doc))
     # Add a comment about processing
     # This is done last so that the comment appears before any other
     # added frontmatter line stylesheets.
@@ -445,6 +452,8 @@ def main():
         '\n' + (' '.join(sys.argv).replace('--', '-') +'\n')),
         doc.documentElement.firstChild)
     # Save
+    print("\nAFTER ALL CHANGES")
+    show_element_counts(doc)
     write_pretty(doc, "cleaned_up.svg")
 
 
