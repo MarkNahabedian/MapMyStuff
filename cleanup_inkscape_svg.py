@@ -181,42 +181,45 @@ class Box (object):
     def height(self):
         return self.maxY - self.minY
 
-    def complex_corners(self):
-        '''Returns the four corners of the box and complex number coordinates.'''
-        def c(x, y):
-            return x + y * 1j
-        return [ c(self.minX, self.minY),
-                 c(self.maxX, self.minY),
-                 c(self.minX, self.maxY),
-                 c(self.maxX, self.maxY) ]
+    def corners(self):
+        '''Returns the four corners of the box as points (satisfying isPoint).'''
+        return [ point(self.minX, self.minY),
+                 point(self.maxX, self.minY),
+                 point(self.minX, self.maxY),
+                 point(self.maxX, self.maxY) ]
 
-    def point_within(self, x, y):
+    def point_within(self, point):
+        assert isPoint(point)
+        x = point[0]
+        y = point[1]
         return (self.minX <= x and
                 self.maxX >= x and
                 self.minY <= y and
                 self.maxY >= y)
 
-    def line_intersects(self, svgLine):
+    def line_intersects(self, transform, svgLine):
         '''Returns True iff any of svgLine is within this Box.'''
         assert isinstance(svgLine, svg.path.Line)
         # The line does not cross the rectangle if all four corners
         # of self are on the same side of svgLine.
-        p1 = svgLine.start
-        p2 = svgLine.end
-        v = cToV(p2 - p1)
-        sides = [ numpy.sign(numpy.cross(v, cToV(p - p1))[2])
-                  for p in self.complex_corners() ]
+        p1 = transform.apply(cToV(svgLine.start))
+        p2 = transform.apply(cToV(svgLine.end))
+        v = p2 - p1
+        sides = [ numpy.sign(numpy.cross(v, p - p1)[2])
+                  for p in self.corners() ]
         if 4 == abs(reduce(operator.add, sides)):
             # All four corners are on the same side
             return False
         # We need to check the end points of the line
-        if cPointX(p1) < self.minX and cPointX(p2) < self.minX:
+        def x(p): return p[0]
+        def y(p): return p[1]
+        if x(p1) < self.minX and x(p2) < self.minX:
             return False
-        if cPointX(p1) > self.maxX and cPointX(p2) > self.maxX:
+        if x(p1) > self.maxX and x(p2) > self.maxX:
             return False
-        if cPointY(p1) < self.minY and cPointY(p2) < self.minY:
+        if y(p1) < self.minY and y(p2) < self.minY:
             return False
-        if cPointY(p1) > self.maxY and cPointY(p2) > self.maxY:
+        if y(p1) > self.maxY and y(p2) > self.maxY:
             return False
         return True
 
@@ -249,9 +252,15 @@ def point(x, y):
     "Constructs a point suitable for numpy arithmetic."
     return numpy.array([x, y, 1])
 
+
+def isPoint(p):
+    return (isinstance(p, numpy.ndarray) and
+            p.shape == (3,))
+
+
 def cToV(c):
     '''Represents a complex number as a one dimensional two element numpy array.'''
-    return poiint(cPointX(c), cPointY(c))
+    return point(cPointX(c), cPointY(c))
 
 
 def cPointX(c):
@@ -278,9 +287,9 @@ def clip_text(doc, box):
         # elements have multiple values.
         def just_one(s):
             return s.split()[0]
-        x, y = transform.apply(float(just_one(txt.getAttribute("x"))),
-                               float(just_one(txt.getAttribute("y"))))
-        if not box.point_within(x, y):
+        p = transform.apply(point(float(just_one(txt.getAttribute("x"))),
+                                  float(just_one(txt.getAttribute("y")))))
+        if not box.point_within(p):
             remove.append(text)
     for text in remove:
         text.parentNode.removeChild(text)
@@ -297,8 +306,10 @@ def clip_paths(doc, box):
             for step in parsed_path:
                 # For now just excluded Lines that are wholly outside the Box.
                 if isinstance(step, svg.path.Line):
-                    if box.line_intersects(step):
+                    if box.line_intersects(transform, step):
                         new_path.append(step)
+                elif isinstance(step, svg.path.CubicBezier):
+                    pass    # ***** IGNORING CubicBezier
                 else:
                     new_path.append(step)
                     print("Unsupported path step %r" % step)
@@ -354,9 +365,9 @@ class Transform(object):
     def __repr__(self):
         return "Transform(%r)" % self.matrix
 
-    def apply(self, x, y):
-        v = numpy.matmul(self.matrix, point(x, y))
-        return v[0], v[1]
+    def apply(self, point):
+        assert isPoint(point)
+        return numpy.matmul(self.matrix, point)
 
     def compose(self, other):
         return Transform(self.matrix * other.matrix)
@@ -440,7 +451,7 @@ def main():
         test_viewbox(doc, clip_box)
     if clip_box and args.clip:
         clip_text(doc, clip_box)
-        # clip_paths(doc, clip_box)
+        clip_paths(doc, clip_box)
     if args.clip_svg_viewbox:
         update_svg_viewbox(doc, clip_box)
     # Get rid of things we don't need
