@@ -445,15 +445,17 @@ def main():
     print("viewBox", viewbox)
     clip_box = Box(*args.clip_box) if args.clip_box else None
     print(clip_box)
+    if clip_box and args.clip:
+        clip_text(doc, clip_box)
+        clip_paths(doc, clip_box)
+        print("\nAFTER CLIPPING")
+        show_element_counts(doc)
+    if args.clip_svg_viewbox:
+        update_svg_viewbox(doc, clip_box)
     if args.grid_spacing:
         add_grid(doc, args.grid_spacing[0], *viewbox)
     if clip_box and args.show_clip_box:
         test_viewbox(doc, clip_box)
-    if clip_box and args.clip:
-        clip_text(doc, clip_box)
-        clip_paths(doc, clip_box)
-    if args.clip_svg_viewbox:
-        update_svg_viewbox(doc, clip_box)
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
     # Add a comment about processing
