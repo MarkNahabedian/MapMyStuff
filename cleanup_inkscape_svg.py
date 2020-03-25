@@ -389,6 +389,28 @@ def parse_transform(transform_string):
 
 
 ################################################################################
+
+def add_test_lines(doc, cx, cy, delta):
+    '''Draw a square spiral centered at cx, cy to provide lines to test clipping.'''
+    xy = cx + cy * 1j
+    path = svg.path.Path()
+    deltas = (1, 1j, -1, -1j)
+    def path_end():
+        if len(path) == 0:
+            return xy
+        return path[-1].end
+    for count in range(1, 20):
+        path.append(svg.path.Line(path_end(), xy + count * delta * deltas[count % 4]))
+    g = doc.createElement("g")
+    g.setAttribute("class", "testPaths")
+    g.setAttribute("style", "fill:none;stroke:orange;stroke-width:5;")
+    doc.documentElement.appendChild(g)
+    p = doc.createElement("path")
+    p.setAttribute("d", path.d())
+    g.appendChild(p)
+
+
+################################################################################
 # Main
 
 parser = argparse.ArgumentParser(
@@ -445,6 +467,10 @@ def main():
     print("viewBox", viewbox)
     clip_box = Box(*args.clip_box) if args.clip_box else None
     print(clip_box)
+    ############################################################
+    # Add Sone lines to test clipping.
+    add_test_lines(doc, 750, 500, 10)
+    ############################################################
     if clip_box and args.clip:
         clip_text(doc, clip_box)
         clip_paths(doc, clip_box)
