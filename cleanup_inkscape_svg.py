@@ -30,6 +30,8 @@ def write_pretty(document, filepath):
 
 
 class AttributeMatcher (object):
+    '''AttributeMatcher provide a way to test if an XML attribute
+    node's qualified name matches the name specified.'''
     def __init__(self, attrstring):
         split = attrstring.split(":")
         if len(split) == 1:
@@ -77,6 +79,10 @@ def do_elements(node, fun):
         walk(node.documentElement)
     else:
         walk(node)
+
+
+################################################################################
+# Stylesheet manipulation
 
 
 def extract_styles(doc, stylemap={}):
@@ -140,6 +146,10 @@ def add_srtylesheet_rule(doc, style, selector, properties):
                                          (selector, properties)))
 
 
+################################################################################
+# Grid
+
+
 def svg_line(doc, parent, x0, y0, x1, y1):
     p = doc.createElement("path")
     parent.appendChild(p)
@@ -160,6 +170,10 @@ def add_grid(doc, spacing, minX, minY, width, height):
         svg_line(doc, grid, minX, y, maxX, y)
     style = ensure_stylesheet(doc, "decorations")
     add_srtylesheet_rule(doc, style, ".viewportGrid", "stroke: blue")
+
+
+################################################################################
+# ViewBox support
 
 
 class Box (object):
@@ -283,7 +297,7 @@ def clip_text(doc, box):
         transform, display = svg_context(txt)
         if not display:
             continue
-        # I have no idea why but some x and y attributes of tspan
+        # *** I have no idea why but some x and y attributes of tspan
         # elements have multiple values.
         def just_one(s):
             return s.split()[0]
@@ -377,7 +391,7 @@ class Transform(object):
 TRANSFORM_REGEXP = re.compile("(?P<type>[a-zA-Z-_]+)[(](?P<args>[^)]*)[)]")
 
 def parse_transform(transform_string):
-    '''Parse an SVG trransform attribute.'''
+    '''Parse an SVG trransform attribute.  Returns a Transform.'''
     # *** Does not yet consider multiple transformations in a single attribute string.
     m = TRANSFORM_REGEXP.match(transform_string)
     if not m:
@@ -390,7 +404,7 @@ def parse_transform(transform_string):
 
 ################################################################################
 
-def add_test_lines(doc, cx, cy, delta):
+def add_test_lines(doc, context, cx, cy, delta):
     '''Draw a square spiral centered at cx, cy to provide lines to test clipping.'''
     xy = cx + cy * 1j
     path = svg.path.Path()
@@ -404,7 +418,7 @@ def add_test_lines(doc, cx, cy, delta):
     g = doc.createElement("g")
     g.setAttribute("class", "testPaths")
     g.setAttribute("style", "fill:none;stroke:orange;stroke-width:5;")
-    doc.documentElement.appendChild(g)
+    context.appendChild(g)
     p = doc.createElement("path")
     p.setAttribute("d", path.d())
     g.appendChild(p)
@@ -469,7 +483,9 @@ def main():
     print(clip_box)
     ############################################################
     # Add Sone lines to test clipping.
-    add_test_lines(doc, 750, 500, 10)
+    # add_test_lines(doc, doc.documentElement, 750, 500, 10)
+    add_test_lines(doc, doc.getElementById("g22358"),
+                   9300, 7000, 10)
     ############################################################
     if clip_box and args.clip:
         clip_text(doc, clip_box)
