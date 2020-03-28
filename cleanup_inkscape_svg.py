@@ -13,6 +13,7 @@ from functools import reduce
 import svg.path
 import re
 import numpy
+import numpy.linalg
 
 
 INKSCAPE_OUTPUT_FILE="W31_0-inkscape-output.svg"
@@ -404,7 +405,7 @@ class Transform(object):
         assert False, "Unsupported point type: %r" % point
 
     def compose(self, other):
-        return Transform(self.matrix * other.matrix)
+        return Transform(numpy.matmul(self.matrix, other.matrix))
 
 
 # matrix(0.06,0,0,0.06,7,7)
@@ -429,7 +430,7 @@ def add_test_lines(doc, context, cx, cy, delta):
     assert context.nodeType == xml.dom.Node.ELEMENT_NODE, repr(context)
     transform, _ = svg_context(context)
     xy = cx + cy * 1j
-    print("add_test_lines centered at %r, %r %d %d" % (
+    print("add_test_lines centered at %r\n%r %d %d" % (
         transform.apply(point(cx, cy)),
         transform.matrix,
         cx, cy))
@@ -448,6 +449,21 @@ def add_test_lines(doc, context, cx, cy, delta):
     p = doc.createElement("path")
     p.setAttribute("d", path.d())
     g.appendChild(p)
+
+
+def locator_circle(doc, parent, x, y, radius):
+    transform, _ = svg_context(parent)
+    center = transform.apply(point(x, y))
+    print("locator_circle centered at %r\n%r %d %d" % (
+        center,
+        transform.matrix,
+        x, y))
+    c = g = doc.createElement("circle")
+    c.setAttribute("cx", "%d" %  center[0])
+    c.setAttribute("cy", "%d" % center[1])
+    c.setAttribute("r", "%d" % radius)
+    c.setAttribute("style", "fill:yellow; stroke:red; stroke-width:2; opacity:0.5")
+    parent.appendChild(c)
 
 
 ################################################################################
@@ -512,8 +528,10 @@ def main():
     # add_test_lines(doc, doc.documentElement, 750, 500, 10)
     # add_test_lines(doc, doc.getElementById("g22358"),
     #                9300, 7000, 10)
-    add_test_lines(doc, getElementById(doc, "g22358"),
-                   9300, 7000, 10)  # 6697,5740
+    # add_test_lines(doc, getElementById(doc, "g22358"),
+    #                9300, 7000, 10)  # 6697,5740
+    locator_circle(doc, getElementById(doc, "g22358"),
+                   6697, 5740, 50)
     ############################################################
     if clip_box and args.clip:
         clip_text(doc, clip_box)
