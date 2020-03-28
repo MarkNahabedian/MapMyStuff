@@ -81,6 +81,21 @@ def do_elements(node, fun):
         walk(node)
 
 
+def getElementById(doc, id):
+    '''The getDocumentById methods in xml.dom depend on having a
+    document schema that identifies an ID attribute..  This function
+    is a workaround for that.'''
+    found = []
+    def f(node):
+        eid = node.getAttribute("id")
+        if eid and eid == id:
+            found.append(node)
+    do_elements(doc.documentElement, f)
+    if len(found) == 1:
+        return found[0]
+    return None
+
+
 ################################################################################
 # Stylesheet manipulation
 
@@ -116,9 +131,9 @@ def add_stylesheet(doc, stylemap):
     classnames.sort()
     for c in classnames:
         s = stylemap[c]
-        add_srtylesheet_rule(doc, style,
-                             "." + c,
-                             s.getCssText(" "))
+        add_stylesheet_rule(doc, style,
+                            "." + c,
+                            s.getCssText(" "))
 
 
 # *** TODO: getElementById isn't finding existing elements, presumably
@@ -127,7 +142,8 @@ def add_stylesheet(doc, stylemap):
 # The SVG namespace URI doesn't point to an XML schema.
 def ensure_stylesheet(doc, id):
     '''Ensure that doc has a styleseet with id id and return it.'''
-    style = doc.getElementById(id)
+    # style = doc.getElementById(id)
+    style = getElementById(doc, id)
     if not style:
         style = new_stylesheet(doc)
         style.setAttribute("ID", id)
@@ -141,7 +157,7 @@ def new_stylesheet(doc):
     return style
 
 
-def add_srtylesheet_rule(doc, style, selector, properties):
+def add_stylesheet_rule(doc, style, selector, properties):
     style.appendChild(doc.createTextNode("%s\t{ %s; }" %
                                          (selector, properties)))
 
@@ -169,7 +185,7 @@ def add_grid(doc, spacing, minX, minY, width, height):
     for y in range(minY, maxY, spacing):
         svg_line(doc, grid, minX, y, maxX, y)
     style = ensure_stylesheet(doc, "decorations")
-    add_srtylesheet_rule(doc, style, ".viewportGrid", "stroke: blue")
+    add_stylesheet_rule(doc, style, ".viewportGrid", "stroke: blue")
 
 
 ################################################################################
@@ -247,7 +263,7 @@ def test_viewbox(doc, box):
     svg_line(doc, g, box.minX, box.minY, box.minX, box.maxY)
     svg_line(doc, g, box.maxX, box.minY, box.maxX, box.maxY)
     style = ensure_stylesheet(doc, "decorations")
-    add_srtylesheet_rule(doc, style, ".testViewBoxGroup", "stroke: green")
+    add_stylesheet_rule(doc, style, ".testViewBoxGroup", "stroke: green")
 
 
 def update_svg_viewbox(doc, box):
@@ -380,8 +396,12 @@ class Transform(object):
         return "Transform(%r)" % self.matrix
 
     def apply(self, point):
-        assert isPoint(point)
-        return numpy.matmul(self.matrix, point)
+        if isPoint(point):
+            return numpy.matmul(self.matrix, point)
+        if isinstance(cpoint, complex):
+            result = self.apply(cToV(cpoint))
+            return result[0] + result[1] ^ 1j
+        assert False, "Unsupported point type: %r" % point
 
     def compose(self, other):
         return Transform(self.matrix * other.matrix)
@@ -406,7 +426,13 @@ def parse_transform(transform_string):
 
 def add_test_lines(doc, context, cx, cy, delta):
     '''Draw a square spiral centered at cx, cy to provide lines to test clipping.'''
+    assert context.nodeType == xml.dom.Node.ELEMENT_NODE, repr(context)
+    transform, _ = svg_context(context)
     xy = cx + cy * 1j
+    print("add_test_lines centered at %r, %r %d %d" % (
+        transform.apply(point(cx, cy)),
+        transform.matrix,
+        cx, cy))
     path = svg.path.Path()
     deltas = (1, 1j, -1, -1j)
     def path_end():
@@ -484,8 +510,10 @@ def main():
     ############################################################
     # Add Sone lines to test clipping.
     # add_test_lines(doc, doc.documentElement, 750, 500, 10)
-    add_test_lines(doc, doc.getElementById("g22358"),
-                   9300, 7000, 10)
+    # add_test_lines(doc, doc.getElementById("g22358"),
+    #                9300, 7000, 10)
+    add_test_lines(doc, getElementById(doc, "g22358"),
+                   9300, 7000, 10)  # 6697,5740
     ############################################################
     if clip_box and args.clip:
         clip_text(doc, clip_box)
