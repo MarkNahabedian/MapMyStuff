@@ -473,7 +473,6 @@ def locator_circle(doc, parent, x, y, radius):
     c.setAttribute("style", "fill:blue; stroke:none; stroke-width:2; opacity:0.5")
     parent.appendChild(c)
     transform, _ = svg_context(parent, trace_transforms=True)
-    # transform = transform.inverse()
     center = transform.apply(point(x, y))
     print("locator_circle centered at %r\n%r %d %d" % (
         center,
