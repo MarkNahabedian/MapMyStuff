@@ -352,9 +352,11 @@ def clip_paths(doc, box):
         path.parentNode.removeChild(path)
 
 
-def svg_context(path):
+def svg_context(path, trace_transforms=False):
     '''Go up the parent chain of path, collecting any transformations 
     and determining if the path is in a context that is displayed.'''
+    if trace_transforms:
+        print("svg_context")
     transform = Transform.identity()
     display = True
     def up(elt):
@@ -368,7 +370,15 @@ def svg_context(path):
         if t:
             t = parse_transform(t)
             if t:
-                # *** Right order?
+                if trace_transforms:
+                    print(t)
+                # See https://www.w3.org/TR/2010/WD-SVG11-20100622/coords.html, 7.5 Nested Transformations
+                # It says that as you descend the SVG tree, an inner
+                # transformation is post-multiplied to the outer
+                # transformation.
+                # Here we are ascending the tree from the inside out,
+                # so the outer matrix is premultiplied with the inner
+                # matrix.
                 transform = t.compose(transform)
         up(elt.parentNode)
     up(path)
@@ -396,6 +406,9 @@ class Transform(object):
     def __repr__(self):
         return "Transform(%r)" % self.matrix
 
+    def inverse(self):
+        return Transform(numpy.linalg.inv(self.matrix))
+
     def apply(self, point):
         if isPoint(point):
             return numpy.matmul(self.matrix, point)
@@ -418,6 +431,7 @@ def parse_transform(transform_string):
     if not m:
         return
     if m.group("type") != "matrix":
+        print("Unsupported transform %s" % trransform_string)
         return
     t = Transform.matrix(*[float(x.strip()) for x in m.group("args").split(",")])
     return t
@@ -452,7 +466,14 @@ def add_test_lines(doc, context, cx, cy, delta):
 
 
 def locator_circle(doc, parent, x, y, radius):
-    transform, _ = svg_context(parent)
+    c = g = doc.createElement("circle")
+    c.setAttribute("cx", "%d" % x)
+    c.setAttribute("cy", "%d" % y)
+    c.setAttribute("r", "%d" % radius)
+    c.setAttribute("style", "fill:blue; stroke:none; stroke-width:2; opacity:0.5")
+    parent.appendChild(c)
+    transform, _ = svg_context(parent, trace_transforms=True)
+    # transform = transform.inverse()
     center = transform.apply(point(x, y))
     print("locator_circle centered at %r\n%r %d %d" % (
         center,
@@ -461,9 +482,9 @@ def locator_circle(doc, parent, x, y, radius):
     c = g = doc.createElement("circle")
     c.setAttribute("cx", "%d" %  center[0])
     c.setAttribute("cy", "%d" % center[1])
-    c.setAttribute("r", "%d" % radius)
-    c.setAttribute("style", "fill:yellow; stroke:red; stroke-width:2; opacity:0.5")
-    parent.appendChild(c)
+    c.setAttribute("r", "%d" % 20)
+    c.setAttribute("style", "fill:none; stroke:red; stroke-width:2; opacity:0.5")
+    doc.documentElement.appendChild(c)
 
 
 ################################################################################
@@ -530,8 +551,8 @@ def main():
     #                9300, 7000, 10)
     # add_test_lines(doc, getElementById(doc, "g22358"),
     #                9300, 7000, 10)  # 6697,5740
-    locator_circle(doc, getElementById(doc, "g22358"),
-                   6697, 5740, 50)
+    locator_circle(doc, getElementById(doc, "g22832"),
+                   0.00858, -89, 100)
     ############################################################
     if clip_box and args.clip:
         clip_text(doc, clip_box)
