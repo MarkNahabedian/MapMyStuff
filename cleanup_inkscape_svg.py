@@ -431,7 +431,7 @@ def parse_transform(transform_string):
     if not m:
         return
     if m.group("type") != "matrix":
-        print("Unsupported transform %s" % trransform_string)
+        print("Unsupported transform %s" % transform_string)
         return
     t = Transform.matrix(*[float(x.strip()) for x in m.group("args").split(",")])
     return t
