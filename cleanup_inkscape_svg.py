@@ -322,8 +322,7 @@ def clip_text(doc, box):
                                   float(just_one(txt.getAttribute("y")))))
         if not box.point_within(p):
             remove.append(text)
-    for text in remove:
-        text.parentNode.removeChild(text)
+    remove_elements(remove)
 
 
 def clip_paths(doc, box):
@@ -335,12 +334,13 @@ def clip_paths(doc, box):
             parsed_path = svg.path.parse_path(path.getAttribute("d"))
             new_path = svg.path.Path()
             for step in parsed_path:
-                # For now just excluded Lines that are wholly outside the Box.
+                # For now just exclude Lines that are wholly outside the Box.
                 if isinstance(step, svg.path.Line):
                     if box.line_intersects(transform, step):
                         new_path.append(step)
                 elif isinstance(step, svg.path.CubicBezier):
-                    pass    # ***** IGNORING CubicBezier
+                    # ***** Not clipping cubic bezier for now.
+                    new_path.append(step)
                 else:
                     new_path.append(step)
                     print("Unsupported path step %r" % step)
@@ -348,8 +348,7 @@ def clip_paths(doc, box):
                 remove_paths.append(path)
             else:
                 path.setAttribute("d", new_path.d())
-    for path in remove_paths:
-        path.parentNode.removeChild(path)
+    remove_elements(remove_paths)
 
 
 def svg_context(path, trace_transforms=False):
@@ -400,6 +399,13 @@ class Transform(object):
              [b, d, f],
              [0, 0, 1]]))
 
+    @classmethod
+    def translate(cls, x, y):
+        return cls(numpy.array(
+            [[1, 0, x],
+             [0, 1, y],
+             [0, 0, 1]]))
+
     def __init__(self, matrix):
         self.matrix = matrix
 
@@ -430,11 +436,41 @@ def parse_transform(transform_string):
     m = TRANSFORM_REGEXP.match(transform_string)
     if not m:
         return
-    if m.group("type") != "matrix":
-        print("Unsupported transform %s" % transform_string)
-        return
-    t = Transform.matrix(*[float(x.strip()) for x in m.group("args").split(",")])
-    return t
+    if m.group("type") == "matrix":
+        return Transform.matrix(*[float(x.strip()) for x in m.group("args").split(",")])
+    if m.group("type") == "translate":
+        return Transform.translate(*[float(x.strip()) for x in m.group("args").split(",")])
+    print("Unsupported transform %s" % transform_string)
+    return
+
+
+################################################################################
+
+def remove_enpty_groups(doc):
+    '''Remove any g elements that contain nothing but whitespace text.'''
+    def empty(node):
+        if node in (xml.dom.Node.TEXT_NODE,
+                    xml.dom.Node.CDATA_SECTION_NODE):
+            if len(node.data.strip()) == 0:
+                return True
+        return False
+    def walk(node):
+        keep = False
+        for child in node.childNodes:
+            walk(child)
+            if not empty(child):
+                keep = True
+        if (node.nodeType == xml.dom.Node.ELEMENT_NODE and
+            node.tagName == "g"):
+            if not keep:
+                node.parentNode.removeChild(node)
+    walk(doc.documentElement)
+
+
+def remove_elements(elements):
+    '''Remove each of the XML element nodes in elements from their respective parent nodes.'''
+    for r in elements:
+        r.parentNode.removeChild(r)
 
 
 ################################################################################
@@ -543,19 +579,10 @@ def main():
     print("viewBox", viewbox)
     clip_box = Box(*args.clip_box) if args.clip_box else None
     print(clip_box)
-    ############################################################
-    # Add Sone lines to test clipping.
-    # add_test_lines(doc, doc.documentElement, 750, 500, 10)
-    # add_test_lines(doc, doc.getElementById("g22358"),
-    #                9300, 7000, 10)
-    # add_test_lines(doc, getElementById(doc, "g22358"),
-    #                9300, 7000, 10)  # 6697,5740
-    locator_circle(doc, getElementById(doc, "g22832"),
-                   0.00858, -89, 100)
-    ############################################################
     if clip_box and args.clip:
         clip_text(doc, clip_box)
         clip_paths(doc, clip_box)
+        remove_enpty_groups(doc)
         print("\nAFTER CLIPPING")
         show_element_counts(doc)
     if args.clip_svg_viewbox:
