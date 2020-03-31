@@ -446,7 +446,7 @@ def parse_transform(transform_string):
 
 ################################################################################
 
-def remove_enpty_groups(doc):
+def remove_empty_groups(doc):
     '''Remove any g elements that contain nothing but whitespace text.'''
     def empty(node):
         if node in (xml.dom.Node.TEXT_NODE,
@@ -582,7 +582,7 @@ def main():
     if clip_box and args.clip:
         clip_text(doc, clip_box)
         clip_paths(doc, clip_box)
-        remove_enpty_groups(doc)
+        remove_empty_groups(doc)
         print("\nAFTER CLIPPING")
         show_element_counts(doc)
     if args.clip_svg_viewbox:
