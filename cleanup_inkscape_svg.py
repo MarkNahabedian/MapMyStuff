@@ -449,20 +449,31 @@ def parse_transform(transform_string):
 def remove_empty_groups(doc):
     '''Remove any g elements that contain nothing but whitespace text.'''
     def empty(node):
-        if node in (xml.dom.Node.TEXT_NODE,
-                    xml.dom.Node.CDATA_SECTION_NODE):
+        if node.nodeType in (xml.dom.Node.TEXT_NODE,
+                             xml.dom.Node.CDATA_SECTION_NODE):
             if len(node.data.strip()) == 0:
+                return True
+            else:
+                return False
+        if (node.nodeType == xml.dom.Node.ELEMENT_NODE and
+            node.tagName == "g"):
+            if len(node.childNodes) > 0:
+                return False
+            else:
                 return True
         return False
     def walk(node):
-        keep = False
-        for child in node.childNodes:
+        # childNodes iteration is compilcated because nodes in the
+        # childNodes NodeList might get deleted during the iteration
+        # and NodeList iteration doesn';t seem to cope with that.
+        i = 0
+        previous_node = None
+        while i < len(node.childNodes):
+            child = node.childNodes.item(i)
             walk(child)
-            if not empty(child):
-                keep = True
-        if (node.nodeType == xml.dom.Node.ELEMENT_NODE and
-            node.tagName == "g"):
-            if not keep:
+            if node.childNodes.item(i) == child:
+                i += 1
+        if empty(node):
                 node.parentNode.removeChild(node)
     walk(doc.documentElement)
 
