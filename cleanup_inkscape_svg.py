@@ -364,7 +364,7 @@ def svg_context(path, trace_transforms=False):
     display = True
     def up(elt):
         '''Accumulate transforms from the inside out.'''
-        nonlocal transform
+        nonlocal transform, display
         if elt.nodeType == xml.dom.Node.DOCUMENT_NODE:
             return
         if elt.tagName in ("clipPaths"):
