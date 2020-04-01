@@ -15,6 +15,10 @@ import re
 import numpy
 import numpy.linalg
 
+# Suppress "WARNING	Property: Unknown Property name" from cssutils.
+import logging
+cssutils.log.setLevel(logging.CRITICAL)
+
 
 INKSCAPE_OUTPUT_FILE="W31_0-inkscape-output.svg"
 
