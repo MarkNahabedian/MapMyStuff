@@ -87,8 +87,23 @@ elements.
 
 I found that all of this text uses the same CSS styling and it
 doesn't look line any other floor plan elements use that same
-styleing.  I tested this by editing the output file to make style4
-graphics invisible and that seemed to do what we wanted.
+styleing.
+
+<pre>
+    .style4 {
+            fill: none;
+            stroke: #000;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 10;
+            stroke-dasharray: none;
+            stroke-opacity: 1;
+    }
+</pre>
+
+I tested this by editing the output file to make style4 graphics
+invisible and that seemed to do what we wanted.
 
 The command line argument --purge_css_classes can be used to provide a
 comma separated list of CSS class names. any SVG elements that use any
@@ -99,21 +114,3 @@ of those classes will be removed.
 
 
 
-
-
-def main():
-
-    # Add comments about processing
-    # This is done last so that the comment appears before any other
-    # added frontmatter line stylesheets.
-    if boxes_to_purge:
-        doc.documentElement.insertBefore(doc.createComment(
-            "\nPurge boxes:\n%r\n" % boxes_to_purge),
-        doc.documentElement.firstChild)
-    doc.documentElement.insertBefore(doc.createComment(
-        '\n' + (' '.join(sys.argv).replace('--', '-') +'\n')),
-        doc.documentElement.firstChild)
-    # Save
-    print("\nAFTER ALL CHANGES")
-    show_element_counts(doc)
-    write_pretty(doc, "cleaned_up.svg")
