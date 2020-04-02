@@ -239,6 +239,14 @@ class Box (object):
                  point(self.minX, self.maxY),
                  point(self.maxX, self.maxY) ]
 
+    def d(self):
+        '''Return an SVG path d attribute value for drawing the box.'''
+        return "M %f %f H %f V %f H %f z" % (
+            self.minX, self.minY,
+            self.maxX,
+            self.maxY,
+            self.minX)
+
     def point_within(self, point):
         assert isPoint(point)
         x = point[0]
@@ -277,15 +285,17 @@ class Box (object):
 
 def show_boxes(doc, boxes):
     g = doc.createElement("g")
-    g.setAttribute("class", "purgeBox")
+    g.setAttribute("class", "showBox")
     doc.documentElement.appendChild(g)
     for box in boxes:
-        svg_line(doc, g, box.minX, box.minY, box.maxX, box.minY)
-        svg_line(doc, g, box.minX, box.maxY, box.maxX, box.maxY)
-        svg_line(doc, g, box.minX, box.minY, box.minX, box.maxY)
-        svg_line(doc, g, box.maxX, box.minY, box.maxX, box.maxY)
+        path = doc.createElement("path")
+        path.setAttribute("class", "box")
+        path.setAttribute("d", box.d())
+        g.appendChild(path)
+        path.appendChild(doc.createComment(repr(box)))
     style = ensure_stylesheet(doc, "decorations")
-    add_stylesheet_rule(doc, style, ".purgeBox", "stroke: orange; stroke_width: 2px; stroke-opacity: 0.5")    
+    add_stylesheet_rule(doc, style, ".showBox",
+                        "fill: none; stroke: orange; stroke_width: 2px;")    
 
 
 def test_viewbox(doc, box):
@@ -340,22 +350,25 @@ def cPointY(c):
 def clip_text(doc, box):
     remove = []
     for text in doc.getElementsByTagName("text"):
-        # We assume there will only be one.
-        # Element counts shows the same number of text and tspan elements.
-        ts = text.getElementsByTagName("tspan")
-        txt = ts[0] if ts else text
-        transform, display = svg_context(txt)
-        if not display:
-            continue
-        # *** I have no idea why but some x and y attributes of tspan
-        # elements have multiple values.
-        def just_one(s):
-            return s.split()[0]
-        p = transform.apply(point(float(just_one(txt.getAttribute("x"))),
-                                  float(just_one(txt.getAttribute("y")))))
-        if not box.point_within(p):
+        if not text_in_box(text, box):
             remove.append(text)
     remove_elements(remove)
+
+
+def text_in_box(text, box):
+    '''Returns True iff text is within box.'''
+    # We assume there will only be one.
+    # Element counts shows the same number of text and tspan elements.
+    ts = text.getElementsByTagName("tspan")
+    txt = ts[0] if ts else text
+    transform, _ = svg_context(txt)
+    # *** I have no idea why but some x and y attributes of tspan
+    # elements have multiple values.
+    def just_one(s):
+        return s.split()[0]
+    p = transform.apply(point(float(just_one(txt.getAttribute("x"))),
+                              float(just_one(txt.getAttribute("y")))))
+    return box.point_within(p)
 
 
 def clip_paths(doc, box):
@@ -588,6 +601,7 @@ in global coordinates, of a box, delimited by whitespace.'''
 
 def tag_boxes(doc, boxes):
     '''Tag any SVG paths that are wholly contained within any of boxes by adding an XML comment.'''
+    # Tag paths
     for path in doc.getElementsByTagName("path"):
         transform, _ = svg_context(path)
         parsed_path = svg.path.parse_path(path.getAttribute("d"))
@@ -604,13 +618,25 @@ def tag_boxes(doc, boxes):
                         box.point_within(transform.apply(step.control1)) and
                         box.point_within(transform.apply(step.control2)) and
                         box.point_within(transform.apply(step.end))):
-                        matched_boxes = matched_boxes.adjoin(box)
+                        matched_boxes.add(box)
                         continue
         if len(matched_boxes) > 0:
-            path.appendChild(doc.createComment(
-                "  TAGGED BOXES:\n" +
-                "\n".join([ repr(box) for box in matched_boxes ]) +
-                "\n"))
+            add_tagged_box_comment(doc, path, matched_boxes)
+    # Tag text
+    for text in doc.getElementsByTagName("text"):
+        matched_boxes = []
+        for box in boxes:
+            if text_in_box(text, box):
+                matched_boxes.append(box)
+        if len(matched_boxes) > 0:
+            add_tagged_box_comment(doc, text, matched_boxes)
+
+
+def add_tagged_box_comment(doc, element, matching_boxes):
+    element.appendChild(doc.createComment(
+        "  TAGGED BOXES:\n" +
+        "\n".join([ repr(box) for box in matching_boxes ]) +
+        "\n"))
 
 
 ################################################################################
@@ -687,8 +713,8 @@ def main():
         add_grid(doc, args.grid_spacing[0], *viewbox)
     if clip_box and args.show_clip_box:
         test_viewbox(doc, clip_box)
-    show_boxes(doc, boxes_to_show)
     tag_boxes(doc, boxes_to_show)
+    show_boxes(doc, boxes_to_show)
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
     # Add comments about processing
