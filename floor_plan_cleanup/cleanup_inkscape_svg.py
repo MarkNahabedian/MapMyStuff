@@ -35,7 +35,7 @@ def write_pretty(document, filepath):
 
 
 class AttributeMatcher (object):
-    '''AttributeMatcher provide a way to test if an XML attribute
+    '''AttributeMatcher provides a way to test if an XML attribute
     node's qualified name matches the name specified.'''
     def __init__(self, attrstring):
         split = attrstring.split(":")
@@ -204,6 +204,15 @@ class Box (object):
         self.maxX = maxX
         self.maxY = maxY
 
+    def __eq__(self, other):
+        return (self.minX == other.minX and
+                self.minY == other.minY and
+                self.maxX == other.maxX and
+                self.maxY == other.maxY)
+
+    def __hash__(self):
+        return hash(repr(self))
+
     def __str__(self):
         return "x: %d..%d y: %d..%d" % (
             self.minX, self.maxX, self.minY, self.maxY)
@@ -264,6 +273,19 @@ class Box (object):
         if y(p1) > self.maxY and y(p2) > self.maxY:
             return False
         return True
+
+
+def show_boxes(doc, boxes):
+    g = doc.createElement("g")
+    g.setAttribute("class", "purgeBox")
+    doc.documentElement.appendChild(g)
+    for box in boxes:
+        svg_line(doc, g, box.minX, box.minY, box.maxX, box.minY)
+        svg_line(doc, g, box.minX, box.maxY, box.maxX, box.maxY)
+        svg_line(doc, g, box.minX, box.minY, box.minX, box.maxY)
+        svg_line(doc, g, box.maxX, box.minY, box.maxX, box.maxY)
+    style = ensure_stylesheet(doc, "decorations")
+    add_stylesheet_rule(doc, style, ".purgeBox", "stroke: orange; stroke_width: 2px; stroke-opacity: 0.5")    
 
 
 def test_viewbox(doc, box):
@@ -338,30 +360,28 @@ def clip_text(doc, box):
 
 def clip_paths(doc, box):
     '''Clip all SVG paths to be within the specified bounding box.'''
-    path_cleanup(doc, ClipPathsToBoxPredicate(box))
-
-
-class ClipPathsToBoxPredicate(object):
-    '''A step_removal_predicate to be used with path_cleanup to remove
-any paths that aren't incident on the specified Box.'''
-    def __init__(self, box):
-        self.box = box
-
-    def __repr__(self):
-        return "ClipPathsToBoxPredicate(%r)" % self.box
-
-    def __call__(self, step, transform):
-        '''Returns True iff step should be removed from its containing SVG path.'''
-        # For now just exclude Lines that are wholly outside the Box.
-        if isinstance(step, svg.path.Line):
-            if self.box.line_intersects(transform, step):
-                return False
-            return True
-        elif isinstance(step, svg.path.CubicBezier):
-            # ***** Not clipping cubic bezier for now.
-            return False
-        print("Unsupported path step %r" % step)
-        return False
+    remove_paths = []
+    for path in doc.getElementsByTagName("path"):
+        transform, display = svg_context(path)
+        if display:
+            parsed_path = svg.path.parse_path(path.getAttribute("d"))
+            new_path = svg.path.Path()
+            for step in parsed_path:
+                # For now just exclude Lines that are wholly outside the Box.
+                if isinstance(step, svg.path.Line):
+                    if box.line_intersects(transform, step):
+                        new_path.append(step)
+                elif isinstance(step, svg.path.CubicBezier):
+                    # ***** Not clipping cubic bezier for now.
+                    new_path.append(step)
+                else:
+                    new_path.append(step)
+                    print("Unsupported path step %r" % step)
+            if len(new_path) <= 0:
+                remove_paths.append(path)
+            else:
+                path.setAttribute("d", new_path.d())
+    remove_elements(remove_paths)
 
 
 def svg_context(path, trace_transforms=False):
@@ -566,54 +586,31 @@ in global coordinates, of a box, delimited by whitespace.'''
     return boxes
 
 
-def purge_boxes(doc, boxes):
-    '''Remove any path steps that are wholly contained in any of boxes.'''
-    # This is somewhat similar to clip_paths above, but the conditions are different.
-    path_cleanup(doc, PurgePathsPredicate(boxes))
-
-
-class PurgePathsPredicate(object):
-    '''A step_removal_predicate to be used with purge_boxes to remove
-any paths that are wholly within any of the specified boxes.'''
-    def __init__(self, boxes):
-        self.boxes = boxes
-
-    def __repr__(self):
-        return "PurgePathsPredicate(%r)" % self.boxes
-
-    def __call__(self, step, transform):
-        '''Returns True iff step should be removed from its containing SVG path.'''
-        for box in self.boxes:
-            if isinstance(step, svg.path.Line):
-                if (box.point_within(transform.apply(step.start)) and
-                    box.point_within(transform.apply(step.end))):
-                    return True
-            elif isinstance(step, svg.path.CubicBezier):
-                if (box.point_within(transform.apply(step.start)) and
-                    box.point_within(transform.apply(step.control1)) and
-                    box.point_within(transform.apply(step.control2)) and
-                    box.point_within(transform.apply(step.end))):
-                    return True
-        return False
-
-
-def path_cleanup(doc, step_removal_predicate):
-    '''Remove any SVG path elements from doc that satisfy step_removal_predicate.
-Remove the path if it's empty.'''
-    remove_paths = []
+def tag_boxes(doc, boxes):
+    '''Tag any SVG paths that are wholly contained within any of boxes by adding an XML comment.'''
     for path in doc.getElementsByTagName("path"):
-        transform, display = svg_context(path)
-        if display:
-            parsed_path = svg.path.parse_path(path.getAttribute("d"))
-            new_path = svg.path.Path()
+        transform, _ = svg_context(path)
+        parsed_path = svg.path.parse_path(path.getAttribute("d"))
+        matched_boxes = set([])
+        for box in boxes:
             for step in parsed_path:
-                if not step_removal_predicate(step, transform):
-                    new_path.append(step)
-            if len(new_path) <= 0:
-                remove_paths.append(path)
-            else:
-                path.setAttribute("d", new_path.d())
-    remove_elements(remove_paths)
+                if isinstance(step, svg.path.Line):
+                    if (box.point_within(transform.apply(step.start)) and
+                        box.point_within(transform.apply(step.end))):
+                        matched_boxes.add(box)
+                        continue
+                elif isinstance(step, svg.path.CubicBezier):
+                    if (box.point_within(transform.apply(step.start)) and
+                        box.point_within(transform.apply(step.control1)) and
+                        box.point_within(transform.apply(step.control2)) and
+                        box.point_within(transform.apply(step.end))):
+                        matched_boxes = matched_boxes.adjoin(box)
+                        continue
+        if len(matched_boxes) > 0:
+            path.appendChild(doc.createComment(
+                "  TAGGED BOXES:\n" +
+                "\n".join([ repr(box) for box in matched_boxes ]) +
+                "\n"))
 
 
 ################################################################################
@@ -633,9 +630,9 @@ parser.add_argument('--grid_spacing', type=int, nargs=1, action='store',
 parser.add_argument("--clip_box", type=float, nargs=4, action="store",
                     help="The following four command line arguments specify the left, top, right, and bottom coordinates of the proposed clip box.")
 
-parser.add_argument("--purge_boxes_file", type=str, nargs=None, action="store",
+parser.add_argument("--boxes_file", type=str, nargs=None, action="store",
                     help='''A file, each line of which contains four global coordinates describing a box.
-Any SVG paths wholy contained in one of these boxes is removed.''')
+Draws an orange box for each one.''')
 
 parser.add_argument('--show_clip_box',
                     # action="sture_true",    NOT WORKING
@@ -677,11 +674,10 @@ def main():
     print("viewBox", viewbox)
     clip_box = Box(*args.clip_box) if args.clip_box else None
     print(clip_box)
-    boxes_to_purge = read_box_file(args.purge_boxes_file)
+    boxes_to_show = read_box_file(args.boxes_file)
     if clip_box and args.clip:
         clip_text(doc, clip_box)
         clip_paths(doc, clip_box)
-        purge_boxes(doc, boxes_to_purge)
         remove_empty_groups(doc)
         print("\nAFTER CLIPPING")
         show_element_counts(doc)
@@ -691,14 +687,16 @@ def main():
         add_grid(doc, args.grid_spacing[0], *viewbox)
     if clip_box and args.show_clip_box:
         test_viewbox(doc, clip_box)
+    show_boxes(doc, boxes_to_show)
+    tag_boxes(doc, boxes_to_show)
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
     # Add comments about processing
     # This is done last so that the comment appears before any other
     # added frontmatter line stylesheets.
-    if boxes_to_purge:
+    if boxes_to_show:
         doc.documentElement.insertBefore(doc.createComment(
-            "\nPurge boxes:\n%r\n" % boxes_to_purge),
+            "\nShow boxes:\n%r\n" % boxes_to_show),
         doc.documentElement.firstChild)
     doc.documentElement.insertBefore(doc.createComment(
         '\n' + (' '.join(sys.argv).replace('--', '-') +'\n')),
