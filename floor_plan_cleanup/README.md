@@ -63,10 +63,12 @@ after drawing elements are removed are also removed.
 The --boxes_file command line argument can be used to identify
 rectangular regions of the drawing (as X and Y bounds in the SVG
 viewBox coordinate system).  This can be helpful for finding various
-regious of the drawing.  This was helpful in identifying which CSS
-style was used to remove the meaningless text described below, and
-also to find the graphics responsible for shoing the scale of the
-drawing.
+regious of the drawing.  an XML comment is added to any SVG path
+element that is within any of the specified boxes.
+
+This was helpful in identifying which CSS style was used to remove the
+meaningless text described below, and also to find the graphics
+responsible for shoing the scale of the drawing.
 
 
 ## Meaningless Text
