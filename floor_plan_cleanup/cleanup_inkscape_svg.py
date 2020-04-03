@@ -190,7 +190,7 @@ def add_grid(doc, spacing, minX, minY, width, height):
     for y in range(minY, maxY, spacing):
         svg_line(doc, grid, minX, y, maxX, y)
     style = ensure_stylesheet(doc, "decorations")
-    add_stylesheet_rule(doc, style, ".viewportGrid", "stroke: blue")
+    add_stylesheet_rule(doc, style, ".viewportGrid", "stroke: blue; stroke-width: 1px;")
 
 
 ################################################################################
@@ -666,38 +666,38 @@ def add_tagged_box_comment(doc, element, matching_boxes):
 parser = argparse.ArgumentParser(
     description='''Cleanup an SVG file that was converted from PDF by Inkscape.''')
 
-parser.add_argument('--input_file', type=str, nargs=None, action='store',
+parser.add_argument('-input_file', type=str, nargs=None, action='store',
                     default=INKSCAPE_OUTPUT_FILE,
                     help='the input SVG file as written by Inkscape.')
 
-parser.add_argument('--grid_spacing', type=int, nargs=1, action='store',
+parser.add_argument('-grid_spacing', type=int, nargs=1, action='store',
                     default=0,
                     help='If positive, the spacing of a superimposed reference grid.')
 
-parser.add_argument("--clip_box", type=float, nargs=4, action="store",
+parser.add_argument("-clip_box", type=float, nargs=4, action="store",
                     help="The following four command line arguments specify the left, top, right, and bottom coordinates of the proposed clip box.")
 
-parser.add_argument("--boxes_file", type=str, nargs=None, action="store",
+parser.add_argument("-boxes_file", type=str, nargs=None, action="store",
                     help='''A file, each line of which contains four global coordinates describing a box.
 Draws an orange box for each one.''')
 
-parser.add_argument("--drawing_scale_box", type=float, nargs=4, action="store",
+parser.add_argument("-drawing_scale_box", type=float, nargs=4, action="store",
                     help='''The following four command line arguments specify the left, top, right, and bottom coordinates of the portion of the drawing that shows the drawing's scale.''')
 
-parser.add_argument("--scale_relocation", type=float, nargs=2, action="store",
+parser.add_argument("-scale_relocation", type=float, nargs=2, action="store",
                     help='''X and Y coordinates for how much to move the drawing scale from its original location.''')
 
-parser.add_argument('--show_clip_box',
+parser.add_argument('-show_clip_box',
                     # action="sture_true",    NOT WORKING
                     action=argparse._StoreTrueAction,
                     help="Show the clip box if one has been specified.")
 
-parser.add_argument("--clip_svg_viewbox",
+parser.add_argument("-clip_svg_viewbox",
                     # action="sture_true",    NOT WORKIING
                     action=argparse._StoreTrueAction,
                     help="Set the viewBox SVG attribute to the specified clip box.")
 
-parser.add_argument('--clip',
+parser.add_argument('-clip',
                     # action="sture_true",    NOT WORKING
                     action=argparse._StoreTrueAction,
                     help="Clip SVG paths to within the clip box.")
