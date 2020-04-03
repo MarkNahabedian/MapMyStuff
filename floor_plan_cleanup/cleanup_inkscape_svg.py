@@ -284,6 +284,8 @@ class Box (object):
 
 
 def show_boxes(doc, boxes):
+    if not boxes:
+        return
     g = doc.createElement("g")
     g.setAttribute("class", "showBox")
     doc.documentElement.appendChild(g)
@@ -461,6 +463,19 @@ class Transform(object):
     def inverse(self):
         return Transform(numpy.linalg.inv(self.matrix))
 
+    def toSVG(self):
+        a = self.matrix[0][0]
+        b = self.matrix[1][0]
+        c = self.matrix[0][1]
+        d = self.matrix[1][1]
+        e = self.matrix[0][2]
+        f = self.matrix[1][2]
+        if (a == 1 and b == 0 and
+            c == 0 and d == 1 and
+            (list(self.matrix[2]) == [0, 0, 1])):
+            return "translate(%f,%f)" % (e, f)
+        return "matrix(%f,%f,%f,%f,%f,%f)" % (a, b, c, d, e, f)
+
     def apply(self, point):
         '''Applies the transform to the point, returning a point that satisfies isPoint.'''
         if isPoint(point):
@@ -599,7 +614,7 @@ in global coordinates, of a box, delimited by whitespace.'''
     return boxes
 
 
-def tag_boxes(doc, boxes):
+def tag_boxes(doc, boxes, comment=True):
     '''Tag any SVG paths that are wholly contained within any of boxes by adding an XML comment.
     Returns a dict mapping each Box to a list of the elements that have been tagged for it.'''
     # Tag paths
@@ -624,7 +639,7 @@ def tag_boxes(doc, boxes):
                         matched_boxes.add(box)
                         map[box].append(path)
                         continue
-        if len(matched_boxes) > 0:
+        if comment and len(matched_boxes) > 0:
             add_tagged_box_comment(doc, path, matched_boxes)
     # Tag text
     for text in doc.getElementsByTagName("text"):
@@ -633,7 +648,7 @@ def tag_boxes(doc, boxes):
             if text_in_box(text, box):
                 matched_boxes.append(box)
                 map[box].append(text)
-        if len(matched_boxes) > 0:
+        if comment and len(matched_boxes) > 0:
             add_tagged_box_comment(doc, text, matched_boxes)
     return map
 
@@ -665,6 +680,12 @@ parser.add_argument("--clip_box", type=float, nargs=4, action="store",
 parser.add_argument("--boxes_file", type=str, nargs=None, action="store",
                     help='''A file, each line of which contains four global coordinates describing a box.
 Draws an orange box for each one.''')
+
+parser.add_argument("--drawing_scale_box", type=float, nargs=4, action="store",
+                    help='''The following four command line arguments specify the left, top, right, and bottom coordinates of the portion of the drawing that shows the drawing's scale.''')
+
+parser.add_argument("--scale_relocation", type=float, nargs=2, action="store",
+                    help='''X and Y coordinates for how much to move the drawing scale from its original location.''')
 
 parser.add_argument('--show_clip_box',
                     # action="sture_true",    NOT WORKING
@@ -707,6 +728,12 @@ def main():
     clip_box = Box(*args.clip_box) if args.clip_box else None
     print(clip_box)
     boxes_to_show = read_box_file(args.boxes_file)
+    # Find the drawing elements that show the drawing's scale and
+    # capture the transfomation matrix from each's cuttent SVG context
+    scale_elements = [
+        (elt, svg_context(elt)[0])
+        for elt in tag_boxes(doc, [Box(*args.drawing_scale_box)], False).values().__iter__().__next__()]
+    # Remove elements that are outside the clip box.
     if clip_box and args.clip:
         clip_text(doc, clip_box)
         clip_paths(doc, clip_box)
@@ -719,10 +746,18 @@ def main():
         add_grid(doc, args.grid_spacing[0], *viewbox)
     if clip_box and args.show_clip_box:
         test_viewbox(doc, clip_box)
+    # Show and tag the boxes we've been told to.
     box_elements_map = tag_boxes(doc, boxes_to_show)
     show_boxes(doc, boxes_to_show)
-    # Try to find the elements that describe the scale of the drawing.
-    find_common_ancestor(box_elements_map[box_elements_map.keys()[0]])
+    # Relocate the scale elements by putting them into a new SVG group and translating them.
+    scale_group = doc.createElement("g")
+    doc.documentElement.appendChild(scale_group)
+    scale_group.setAttribute("class", "drawingScale")
+    for element, transform in scale_elements:
+        scale_group.appendChild(element)
+        element.setAttribute("transform", transform.toSVG())
+    scale_group.setAttribute("transform",
+                             Transform.translate(*args.scale_relocation).toSVG())
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
     # Add comments about processing
