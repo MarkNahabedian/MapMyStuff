@@ -8,7 +8,7 @@ import operator
 import xml.dom
 from xml.dom.minidom import parse
 import cssutils      # pip install cssutils
-from collections import Counter
+from collections import Counter, defaultdict
 from functools import reduce
 import svg.path
 import re
@@ -600,8 +600,10 @@ in global coordinates, of a box, delimited by whitespace.'''
 
 
 def tag_boxes(doc, boxes):
-    '''Tag any SVG paths that are wholly contained within any of boxes by adding an XML comment.'''
+    '''Tag any SVG paths that are wholly contained within any of boxes by adding an XML comment.
+    Returns a dict mapping each Box to a list of the elements that have been tagged for it.'''
     # Tag paths
+    map = defaultdict(list)
     for path in doc.getElementsByTagName("path"):
         transform, _ = svg_context(path)
         parsed_path = svg.path.parse_path(path.getAttribute("d"))
@@ -612,6 +614,7 @@ def tag_boxes(doc, boxes):
                     if (box.point_within(transform.apply(step.start)) and
                         box.point_within(transform.apply(step.end))):
                         matched_boxes.add(box)
+                        map[box].append(path)
                         continue
                 elif isinstance(step, svg.path.CubicBezier):
                     if (box.point_within(transform.apply(step.start)) and
@@ -619,6 +622,7 @@ def tag_boxes(doc, boxes):
                         box.point_within(transform.apply(step.control2)) and
                         box.point_within(transform.apply(step.end))):
                         matched_boxes.add(box)
+                        map[box].append(path)
                         continue
         if len(matched_boxes) > 0:
             add_tagged_box_comment(doc, path, matched_boxes)
@@ -628,8 +632,10 @@ def tag_boxes(doc, boxes):
         for box in boxes:
             if text_in_box(text, box):
                 matched_boxes.append(box)
+                map[box].append(text)
         if len(matched_boxes) > 0:
             add_tagged_box_comment(doc, text, matched_boxes)
+    return map
 
 
 def add_tagged_box_comment(doc, element, matching_boxes):
@@ -713,8 +719,10 @@ def main():
         add_grid(doc, args.grid_spacing[0], *viewbox)
     if clip_box and args.show_clip_box:
         test_viewbox(doc, clip_box)
-    tag_boxes(doc, boxes_to_show)
+    box_elements_map = tag_boxes(doc, boxes_to_show)
     show_boxes(doc, boxes_to_show)
+    # Try to find the elements that describe the scale of the drawing.
+    find_common_ancestor(box_elements_map[box_elements_map.keys()[0]])
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
     # Add comments about processing
