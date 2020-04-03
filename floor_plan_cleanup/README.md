@@ -122,3 +122,37 @@ By examining the transforms of the text elements in the g.drawingScale
 element it can be determined that 16 real world feet correspond to 45
 units in the SVG viewBox coordinate system.
 
+
+## Manual Post-Processing of the Converted SVG File
+
+There are several improvements that are east to make by manual editing
+of the output SVG file.
+
+### Meaningsless Text Removal
+
+As descrribed above there is meaningless text we would like to remove.
+The easiest way to do this is to copy the ".style4" rule from the
+stylesheet and rename the copy to "style4x".  We then change the class
+attributes of the path elements in the g.drawingScale group to use
+style4x instead.  Then we can change the stroke and stroke-opacity
+properties of the .style4 rule to
+
+<pre>
+    stroke: #FFF;
+    stroke-opacity: 0;
+</pre>
+
+to make that "text" invisible.
+
+
+### Revised SVG Viewbox.
+
+The -clip_svg_viewbox command line argument changes the viewBox
+attribute of the svg element to the same box that the image is clipped
+to.  This would niot include the scale however, so instead we alter
+the viewBox manually.
+
+
+### Making the Drawing Lines Heavier
+
+
