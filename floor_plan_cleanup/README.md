@@ -103,14 +103,22 @@ styleing.
 </pre>
 
 I tested this by editing the output file to make style4 graphics
-invisible and that seemed to do what we wanted.
+invisible and that seemed to do what we wanted, except that part of
+the srawing scale graphic also uses style4.
 
 The command line argument --purge_css_classes can be used to provide a
 comma separated list of CSS class names. any SVG elements that use any
 of those classes will be removed.
 
 
-## REal-World Scaling
+## Real-World Scaling
 
+Box probing as described above was used to identify the graphical
+elements that depict the scale of the drawing.  These elements can be
+extracted to a separate group and translated to be closer to the part
+of the drawing that we intend to keep.
 
+By examining the transforms of the text elements in the g.drawingScale
+element it can be determined that 16 real world feet correspond to 45
+units in the SVG viewBox coordinate system.
 
