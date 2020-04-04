@@ -163,7 +163,7 @@ def new_stylesheet(doc):
     return style
 
 
-cssutils.ser.prefs.omitLeadingZero  = False
+cssutils.ser.prefs.omitLastSemicolon = False
 
 def add_stylesheet_rule(doc, style, selector, properties):
     '''Add a CSS rule to the specified style element.  selector and properties are strings.'''
