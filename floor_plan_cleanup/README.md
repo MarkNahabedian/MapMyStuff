@@ -125,8 +125,22 @@ units in the SVG viewBox coordinate system.
 
 ## Manual Post-Processing of the Converted SVG File
 
-There are several improvements that are east to make by manual editing
-of the output SVG file.
+Here's the command that was used to process the Inkscape output:
+
+<pre>
+python3 cleanup_inkscape_svg.py \
+    -grid_spacing 45 \
+    -clip_box 705 465 965 605 \
+    -drawing_scale_box 490 900 650 950 \
+    -scale_relocation 250 -290 \
+    -clip -clip_svg_viewbox \
+    -increase_viewbox_height 60
+</pre>
+
+There are improvements that can be made on the output of this command
+that are easier to do by manual editing than by thring to figure out
+useful command line arguments.
+
 
 ### Meaningsless Text Removal
 
@@ -143,14 +157,6 @@ properties of the .style4 rule to
 </pre>
 
 to make that "text" invisible.
-
-
-### Revised SVG Viewbox.
-
-The -clip_svg_viewbox command line argument changes the viewBox
-attribute of the svg element to the same box that the image is clipped
-to.  This would niot include the scale however, so instead we alter
-the viewBox manually.
 
 
 ### Making the Drawing Lines Heavier
