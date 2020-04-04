@@ -317,11 +317,12 @@ def test_viewbox(doc, box):
     add_stylesheet_rule(doc, style, ".testViewBoxGroup", "stroke: green")
 
 
-def update_svg_viewbox(doc, box):
+def update_svg_viewbox(doc, box, increased_height = 0):
     svg = doc.documentElement
     svg.setAttribute(
         "viewBox",
-        " ".join([str(x) for x in [box.minX, box.minY, box.width, box.height]]))
+        " ".join([str(x) for x in [box.minX, box.minY, box.width,
+                                   box.height + increased_height]]))
     svg.setAttribute("width", "100%")
     svg.removeAttribute("height")
 
@@ -702,6 +703,10 @@ parser.add_argument("-clip_svg_viewbox",
                     action=argparse._StoreTrueAction,
                     help="Set the viewBox SVG attribute to the specified clip box.")
 
+parser.add_argument("-increase_viewbox_height", type=float, nargs=1, action="store",
+                    default=[0],
+                    help='''Increase SVG viewBox height specified by -clip_svg_viewbox by this amount. ''')
+
 parser.add_argument('-clip',
                     # action="sture_true",    NOT WORKING
                     action=argparse._StoreTrueAction,
@@ -746,7 +751,7 @@ def main():
         print("\nAFTER CLIPPING")
         show_element_counts(doc)
     if args.clip_svg_viewbox:
-        update_svg_viewbox(doc, clip_box)
+        update_svg_viewbox(doc, clip_box, args.increase_viewbox_height[0])
     if args.grid_spacing:
         add_grid(doc, args.grid_spacing[0], *viewbox)
     if clip_box and args.show_clip_box:
