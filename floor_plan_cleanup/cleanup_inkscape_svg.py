@@ -722,6 +722,15 @@ def show_element_counts(doc):
         print("%s\t%d" % item)
 
 
+def show_css_class_counts(doc):
+    class_counts = Counter()
+    def counter(elt):
+        class_counts.update([elt.getAttribute("class")])
+    do_elements(doc, counter)
+    for item in class_counts.items():
+        print("%s\t%d" % item)
+
+
 def main():
     args = parser.parse_args()
     doc = load_inkscape(args.input_file)
@@ -783,6 +792,8 @@ def main():
     # Save
     print("\nAFTER ALL CHANGES")
     show_element_counts(doc)
+    print("\nCSS classes:")
+    show_css_class_counts(doc)
     write_pretty(doc, "cleaned_up.svg")
 
 
