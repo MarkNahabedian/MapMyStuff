@@ -7,7 +7,8 @@ import argparse
 import operator
 import xml.dom
 from xml.dom.minidom import parse
-import cssutils      # pip install cssutils
+import cssutils                        # pip install cssutils
+import cssutils.css
 from collections import Counter, defaultdict
 from functools import reduce
 import svg.path
@@ -162,9 +163,13 @@ def new_stylesheet(doc):
     return style
 
 
+cssutils.ser.prefs.omitLeadingZero  = False
+
 def add_stylesheet_rule(doc, style, selector, properties):
-    style.appendChild(doc.createTextNode("%s\t{ %s; }" %
-                                         (selector, properties)))
+    '''Add a CSS rule to the specified style element.  selector and properties are strings.'''
+    rule = cssutils.css.CSSStyleRule(selector,
+                                     cssutils.parseStyle(properties))
+    style.appendChild(doc.createTextNode("\n" + rule.cssText))
 
 
 ################################################################################
