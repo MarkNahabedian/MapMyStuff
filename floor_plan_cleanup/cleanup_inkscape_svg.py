@@ -127,8 +127,7 @@ def extract_styles(doc, stylemap={}):
 
 def add_stylesheet(doc, stylemap):
     '''Updates the stylesheet inkscape_styles (creating it if not present)
-    with tyle styles from stylemap.
-    '''
+    with styles from stylemap.'''
     style = ensure_stylesheet(doc, "inkscape_styles")
     classnames = []
     for v in stylemap.values():
@@ -152,7 +151,8 @@ def ensure_stylesheet(doc, id):
     style = getElementById(doc, id)
     if not style:
         style = new_stylesheet(doc)
-        style.setAttribute("ID", id)
+        style.setAttribute("id", id)
+        style.setAttribute("type", "text/css")
     return style
 
 
@@ -167,9 +167,39 @@ cssutils.ser.prefs.omitLastSemicolon = False
 
 def add_stylesheet_rule(doc, style, selector, properties):
     '''Add a CSS rule to the specified style element.  selector and properties are strings.'''
-    rule = cssutils.css.CSSStyleRule(selector,
-                                     cssutils.parseStyle(properties))
+    parsed = (cssutils.parseStyle(properties)
+              if isinstance(properties, str)
+              else properties)
+    rule = cssutils.css.CSSStyleRule(selector, parsed)
     style.appendChild(doc.createTextNode("\n" + rule.cssText))
+
+
+def scope_styles(doc, node, styles_map):
+    '''Find all of the CSS classes referenced in node or its descendents,
+    and create copies of the style rules associated with those classes in
+    stylemap into a new stylesheet.  Use the id attribute of node to
+    rewstrict those style rules.'''
+    classes = set([])
+    def collect_class(elt):
+        c = elt.getAttribute("class")
+        if c:
+            classes.add(c)
+    do_elements(node, collect_class)
+    id = node.getAttribute("id")
+    assert id
+    stylesheet = ensure_stylesheet(doc, id + "-styles")
+    for c in classes:
+        add_stylesheet_rule(doc, stylesheet,
+                            "#%s .%s" % (id, c),
+                            styles_map[c])
+
+
+def hide_classes(styles_map, class_names):
+    for c in class_names:
+        p = styles_map[c]
+        assert isinstance(p, cssutils.css.CSSStyleDeclaration)
+        p.setProperty("stroke", "#FFF")
+        p.setProperty("stroke-opacity", 0)
 
 
 ################################################################################
@@ -693,6 +723,10 @@ parser.add_argument("-drawing_scale_box", type=float, nargs=4, action="store",
 parser.add_argument("-scale_relocation", type=float, nargs=2, action="store",
                     help='''X and Y coordinates for how much to move the drawing scale from its original location.''')
 
+parser.add_argument("-hide_classes", type=str, nargs=None, action="store",
+                    default="",
+                    help='''Alter the style rules for these CSS classes o that they are invisible.''')
+
 parser.add_argument('-show_clip_box',
                     # action="sture_true",    NOT WORKING
                     action=argparse._StoreTrueAction,
@@ -739,7 +773,7 @@ def main():
     show_element_counts(doc)
     # Extract styles before any document modifications so that class
     # names will be consistent from run to run.
-    add_stylesheet(doc, extract_styles(doc))
+    styles_map = extract_styles(doc)
     # Get the viewbox
     # *** HACK: viewBox could use different delimiters.  Maybe should use a regular expression.
     viewbox = [ int(x) for x in doc.documentElement.getAttribute("viewBox").split()]
@@ -771,12 +805,21 @@ def main():
     # Relocate the scale elements by putting them into a new SVG group and translating them.
     scale_group = doc.createElement("g")
     doc.documentElement.appendChild(scale_group)
-    scale_group.setAttribute("class", "drawingScale")
+    scale_group.setAttribute("id", "drawingScale")
     for element, transform in scale_elements:
         scale_group.appendChild(element)
         element.setAttribute("transform", transform.toSVG())
     scale_group.setAttribute("transform",
                              Transform.translate(*args.scale_relocation).toSVG())
+    # Replicate any style rules referenced by the scale group so that
+    # we can modify the style rules of the drawiing proper without
+    # affecting the sacale graphics.
+    scope_styles(doc, scale_group, styles_map)
+    # Now that we've copied whatever styles we need for the scale
+    # graphics, we can modify the rules of the hide_styles classes and
+    # then write that stylesheet.
+    hide_classes(styles_map, args.hide_classes.split(","))
+    add_stylesheet(doc, styles_map)
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
     # Add comments about processing

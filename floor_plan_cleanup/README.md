@@ -85,30 +85,13 @@ any SVG path elements that are wholly contained in those boxes.  This
 didn't work though since the "text" overlaps useful floorplan
 elements.
 
-I found that all of this text uses the same CSS styling and it
-doesn't look line any other floor plan elements use that same
-styleing.
+I found that all of this text uses the same CSS styling.
+Unfortunately that same styleiing is used in the drawingf scale
+graphic.
 
-<pre>
-    .style4 {
-            fill: none;
-            stroke: #000;
-            stroke-width: 4;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-miterlimit: 10;
-            stroke-dasharray: none;
-            stroke-opacity: 1;
-    }
-</pre>
-
-I tested this by editing the output file to make style4 graphics
-invisible and that seemed to do what we wanted, except that part of
-the srawing scale graphic also uses style4.
-
-The command line argument --purge_css_classes can be used to provide a
-comma separated list of CSS class names. any SVG elements that use any
-of those classes will be removed.
+We deal with this problem by creating copies of any CSS classes used
+to style the drawing scale graphic and using the -hide_classes command
+line argument to make anything styled with class style4 invisible.
 
 
 ## Real-World Scaling
@@ -132,31 +115,17 @@ python3 cleanup_inkscape_svg.py \
     -grid_spacing 45 \
     -clip_box 705 465 965 605 \
     -drawing_scale_box 490 900 650 950 \
-    -scale_relocation 250 -290 \
-    -clip -clip_svg_viewbox \
-    -increase_viewbox_height 60
+    -scale_relocation 250 \
+    -290 \
+    -clip \
+    -clip_svg_viewbox \
+    -increase_viewbox_height 200 \
+    -hide_classes=style4
 </pre>
 
 There are improvements that can be made on the output of this command
 that are easier to do by manual editing than by thring to figure out
 useful command line arguments.
-
-
-### Meaningsless Text Removal
-
-As descrribed above there is meaningless text we would like to remove.
-The easiest way to do this is to copy the ".style4" rule from the
-stylesheet and rename the copy to "style4x".  We then change the class
-attributes of the path elements in the g.drawingScale group to use
-style4x instead.  Then we can change the stroke and stroke-opacity
-properties of the .style4 rule to
-
-<pre>
-    stroke: #FFF;
-    stroke-opacity: 0;
-</pre>
-
-to make that "text" invisible.
 
 
 ### Making the Drawing Lines Heavier
