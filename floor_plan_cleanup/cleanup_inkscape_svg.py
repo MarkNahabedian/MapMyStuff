@@ -312,18 +312,15 @@ class Box (object):
             # All four corners are on the same side
             return False
         # We need to check the end points of the line
-        def x(p): return p[0]
-        def y(p): return p[1]
-        if x(p1) < self.minX and x(p2) < self.minX:
-            return False
-        if x(p1) > self.maxX and x(p2) > self.maxX:
-            return False
-        if y(p1) < self.minY and y(p2) < self.minY:
-            return False
-        if y(p1) > self.maxY and y(p2) > self.maxY:
-            return False
-        return True
+        return self.point_within(p1) or self.point_within(p2)
 
+    def cubicBezier_intersects(self, transform, cb):
+        assert isinstance(cb, svg.path.CubicBezier)
+        return (self.point_within(transform.apply(cToV(cb.start))) or
+                self.point_within(transform.apply(cToV(cb.control1))) or
+                self.point_within(transform.apply(cToV(cb.control2))) or
+                self.point_within(transform.apply(cToV(cb.end))))
+        
 
 def show_boxes(doc, boxes):
     if not boxes:
@@ -430,8 +427,8 @@ def clip_paths(doc, box):
                     if box.line_intersects(transform, step):
                         new_path.append(step)
                 elif isinstance(step, svg.path.CubicBezier):
-                    # ***** Not clipping cubic bezier for now.
-                    new_path.append(step)
+                    if box.cubicBezier_intersects(transform, step):
+                        new_path.append(step)
                 else:
                     new_path.append(step)
                     print("Unsupported path step %r" % step)
