@@ -125,6 +125,12 @@ def extract_styles(doc, stylemap={}):
     return stylemap
 
 
+def modify_styles(styles_map):
+    for v in styles_map.values():
+        if isinstance(v, cssutils.css.CSSStyleDeclaration):
+            v.setProperty("vector-effect", "non-scaling-stroke")
+
+
 def add_stylesheet(doc, stylemap):
     '''Updates the stylesheet inkscape_styles (creating it if not present)
     with styles from stylemap.'''
@@ -819,6 +825,7 @@ def main():
     # graphics, we can modify the rules of the hide_styles classes and
     # then write that stylesheet.
     hide_classes(styles_map, args.hide_classes.split(","))
+    modify_styles(styles_map)
     add_stylesheet(doc, styles_map)
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)

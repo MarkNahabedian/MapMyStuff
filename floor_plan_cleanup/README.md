@@ -94,6 +94,18 @@ to style the drawing scale graphic and using the -hide_classes command
 line argument to make anything styled with class style4 invisible.
 
 
+## Making the Drawing Lines Heavier
+
+The lines in the floor plan come out too light.  By adding
+
+<pre>
+    vector-effect: non-scaling-stroke;
+</pre>
+
+the lines come out a bit darker.  Further improvements might be made
+by manual editing of stroke-width.
+
+
 ## Real-World Scaling
 
 Box probing as described above was used to identify the graphical
@@ -128,6 +140,6 @@ that are easier to do by manual editing than by thring to figure out
 useful command line arguments.
 
 
-### Making the Drawing Lines Heavier
+
 
 
