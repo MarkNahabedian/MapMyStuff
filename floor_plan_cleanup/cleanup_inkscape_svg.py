@@ -221,18 +221,26 @@ def svg_line(doc, parent, x0, y0, x1, y1):
     return p
 
 
-def add_grid(doc, spacing, minX, minY, width, height):
-    maxX = minX + width - 1
-    maxY = minY + height - 1
+def add_grid(doc, spacing, box):
+    print("GRID BOX", box)
     grid = doc.createElement("g")
     grid.setAttribute("class", "viewportGrid")
     doc.documentElement.appendChild(grid)
-    for x in range(minX, maxX, spacing):
-        svg_line(doc, grid, x, minY, x, maxY)
-    for y in range(minY, maxY, spacing):
-        svg_line(doc, grid, minX, y, maxX, y)
+    # Draw X coordinates from right tyo left.
+    grid.appendChild(doc.createComment("Vertical rules"))
+    x = box.maxX
+    while x >= box.minX:
+        svg_line(doc, grid, x, box.minY, x, box.maxY)
+        x -= spacing
+    # Y coordinates from top to bottom.
+    grid.appendChild(doc.createComment("horizontal rules"))
+    y = box.minY
+    while y <= box.maxY:
+        svg_line(doc, grid, box.minX, y, box.maxX, y)
+        y += spacing
     style = ensure_stylesheet(doc, "decorations")
-    add_stylesheet_rule(doc, style, ".viewportGrid", "stroke: yellow; stroke-width: 1px;")
+    add_stylesheet_rule(doc, style,
+                        ".viewportGrid", "stroke: yellow; stroke-width: 1px;")
 
 
 ################################################################################
@@ -240,6 +248,10 @@ def add_grid(doc, spacing, minX, minY, width, height):
 
 
 class Box (object):
+    @classmethod
+    def xywh(x, y, width, height):
+        return Box(x, y, x + width, y + height)
+
     def __init__(self, minX, minY, maxX, maxY):
         self.minX = minX
         self.minY = minY
@@ -800,7 +812,12 @@ def main():
     if args.clip_svg_viewbox:
         update_svg_viewbox(doc, clip_box, args.increase_viewbox_height[0])
     if args.grid_spacing:
-        add_grid(doc, args.grid_spacing[0], *viewbox)
+        # If we're shrinking the SVG viewBox to the useful part of the
+        # floor plan then alighn the grid to the top right corner,
+        # otherwise to the global coordinate system.
+        add_grid(doc, args.grid_spacing[0],
+                 clip_box if args.clip_svg_viewbox
+                 else Box.xywh(*viewbox))
     if clip_box and args.show_clip_box:
         test_viewbox(doc, clip_box)
     # Show and tag the boxes we've been told to.
