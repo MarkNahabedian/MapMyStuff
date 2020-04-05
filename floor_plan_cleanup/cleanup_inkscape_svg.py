@@ -232,7 +232,7 @@ def add_grid(doc, spacing, minX, minY, width, height):
     for y in range(minY, maxY, spacing):
         svg_line(doc, grid, minX, y, maxX, y)
     style = ensure_stylesheet(doc, "decorations")
-    add_stylesheet_rule(doc, style, ".viewportGrid", "stroke: blue; stroke-width: 1px;")
+    add_stylesheet_rule(doc, style, ".viewportGrid", "stroke: yellow; stroke-width: 1px;")
 
 
 ################################################################################
