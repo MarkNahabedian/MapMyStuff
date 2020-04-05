@@ -178,9 +178,10 @@ def add_stylesheet_rule(doc, style, selector, properties):
               else properties)
     rule = cssutils.css.CSSStyleRule(selector, parsed)
     style.appendChild(doc.createTextNode("\n" + rule.cssText))
+    return rule
 
 
-def scope_styles(doc, node, styles_map):
+def scope_styles(doc, node, styles_map, modified_properties=""):
     '''Find all of the CSS classes referenced in node or its descendents,
     and create copies of the style rules associated with those classes in
     stylemap into a new stylesheet.  Use the id attribute of node to
@@ -197,7 +198,7 @@ def scope_styles(doc, node, styles_map):
     for c in classes:
         add_stylesheet_rule(doc, stylesheet,
                             "#%s .%s" % (id, c),
-                            styles_map[c])
+                            modified_properties + styles_map[c].cssText)
 
 
 def hide_classes(styles_map, class_names):
@@ -820,7 +821,7 @@ def main():
     # Replicate any style rules referenced by the scale group so that
     # we can modify the style rules of the drawiing proper without
     # affecting the sacale graphics.
-    scope_styles(doc, scale_group, styles_map)
+    scope_styles(doc, scale_group, styles_map, "vector-effect: none; ")
     # Now that we've copied whatever styles we need for the scale
     # graphics, we can modify the rules of the hide_styles classes and
     # then write that stylesheet.
