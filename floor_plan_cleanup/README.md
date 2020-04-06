@@ -117,6 +117,10 @@ By examining the transforms of the text elements in the g.drawingScale
 element it can be determined that 16 real world feet correspond to 45
 units in the SVG viewBox coordinate system.
 
+The -grid_real_world_size command line argument can be used to specify
+how many real world units (e.g. feet) is represented by the space
+between two successive grid lines.
+
 
 ## Manual Post-Processing of the Converted SVG File
 
@@ -129,9 +133,10 @@ python3 cleanup_inkscape_svg.py \
     -drawing_scale_box 490 900 650 950 \
     -scale_relocation 250 -290 \
     -clip \
-    -clip_svg_viewbox \
+    -hide_classes=style4 \
+   -clip_svg_viewbox \
     -increase_viewbox_height 200 \
-    -hide_classes=style4
+    -grid_real_world_size 16
 </pre>
 
 There are improvements that can be made on the output of this command

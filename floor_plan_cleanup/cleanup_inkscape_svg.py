@@ -244,6 +244,21 @@ def add_grid(doc, spacing, box):
         ".viewportGrid", "stroke: yellow; stroke-width: 1px; stroke-opacity: 0.5;")
 
 
+def add_real_world_group(doc, grid_spacing, grid_real_world_size, box):
+    '''Add an SVG group to doc whose coordinate system origin is at the 
+    top right of the clip grid with positive X pointing left and positive
+    Y pointing down, and scaled so that the spacing between grid lines
+    represents grid_real_world_size real world units.'''
+    real_world = doc.createElement("g")
+    doc.documentElement.appendChild(real_world)
+    real_world.setAttribute("id", "real-world")
+    scale = grid_spacing / grid_real_world_size
+    real_world.setAttribute(
+        "transform",
+        Transform.translate(box.maxX, box.minY).toSVG() + " " +
+        Transform.scale(-scale, scale).toSVG())
+
+
 ################################################################################
 # ViewBox support
 
@@ -507,6 +522,13 @@ class Transform(object):
              [0, 1, y],
              [0, 0, 1]]))
 
+    @classmethod
+    def scale(cls, scaleX, scaleY):
+        return cls(numpy.array(
+            [[scaleX, 0, 0],
+             [0, scaleY, 0],
+             [0, 0, 1]]))
+
     def __init__(self, matrix):
         self.matrix = matrix
 
@@ -527,6 +549,10 @@ class Transform(object):
             c == 0 and d == 1 and
             (list(self.matrix[2]) == [0, 0, 1])):
             return "translate(%f,%f)" % (e, f)
+        if (c == 0 and e == 0 and
+            b == 0 and f == 0 and
+            (list(self.matrix[2]) == [0, 0, 1])):
+            return "scale(%f,%f)" % (a, d)
         return "matrix(%f,%f,%f,%f,%f,%f)" % (a, b, c, d, e, f)
 
     def apply(self, point):
@@ -723,9 +749,11 @@ parser.add_argument('-input_file', type=str, nargs=None, action='store',
                     default=INKSCAPE_OUTPUT_FILE,
                     help='the input SVG file as written by Inkscape.')
 
-parser.add_argument('-grid_spacing', type=int, nargs=1, action='store',
-                    default=0,
+parser.add_argument('-grid_spacing', type=float, nargs=1, action='store',
                     help='If positive, the spacing of a superimposed reference grid.')
+
+parser.add_argument("-grid_real_world_size", type=float, nargs=1, action="store",
+                    help='''How many real world units (e.g. feet) a single grid line represents.''')
 
 parser.add_argument("-clip_box", type=float, nargs=4, action="store",
                     help="The following four command line arguments specify the left, top, right, and bottom coordinates of the proposed clip box.")
@@ -845,6 +873,11 @@ def main():
     add_stylesheet(doc, styles_map)
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
+    if args.grid_real_world_size:
+        add_real_world_group(doc,
+                             args.grid_spacing[0],
+                             args.grid_real_world_size[0],
+                             clip_box)
     # Add comments about processing
     # This is done last so that the comment appears before any other
     # added frontmatter line stylesheets.
