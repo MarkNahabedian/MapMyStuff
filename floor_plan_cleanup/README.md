@@ -125,10 +125,9 @@ Here's the command that was used to process the Inkscape output:
 <pre>
 python3 cleanup_inkscape_svg.py \
     -grid_spacing 45 \
-    -clip_box 705 465 965 605 \
+    -clip_box 705 467 964 605 \
     -drawing_scale_box 490 900 650 950 \
-    -scale_relocation 250 \
-    -290 \
+    -scale_relocation 250 -290 \
     -clip \
     -clip_svg_viewbox \
     -increase_viewbox_height 200 \

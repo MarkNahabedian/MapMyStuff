@@ -239,8 +239,9 @@ def add_grid(doc, spacing, box):
         svg_line(doc, grid, box.minX, y, box.maxX, y)
         y += spacing
     style = ensure_stylesheet(doc, "decorations")
-    add_stylesheet_rule(doc, style,
-                        ".viewportGrid", "stroke: yellow; stroke-width: 1px;")
+    add_stylesheet_rule(
+        doc, style,
+        ".viewportGrid", "stroke: yellow; stroke-width: 1px; stroke-opacity: 0.5;")
 
 
 ################################################################################
@@ -630,7 +631,7 @@ def locator_circle(doc, parent, x, y, radius):
     c.setAttribute("cx", "%d" % x)
     c.setAttribute("cy", "%d" % y)
     c.setAttribute("r", "%d" % radius)
-    c.setAttribute("style", "fill:blue; stroke:none; stroke-width:2; opacity:0.5")
+    c.setAttribute("style", "fill:blue; stroke:none; stroke-width:2; stroke-opacity:0.5")
     parent.appendChild(c)
     transform, _ = svg_context(parent, trace_transforms=True)
     center = transform.apply(point(x, y))
@@ -642,7 +643,7 @@ def locator_circle(doc, parent, x, y, radius):
     c.setAttribute("cx", "%d" %  center[0])
     c.setAttribute("cy", "%d" % center[1])
     c.setAttribute("r", "%d" % 20)
-    c.setAttribute("style", "fill:none; stroke:red; stroke-width:2; opacity:0.5")
+    c.setAttribute("style", "fill:none; stroke:red; stroke-width:2; stroke-opacity:0.5")
     doc.documentElement.appendChild(c)
 
 
