@@ -1,0 +1,18 @@
+
+(
+cd floor_plan_cleanup
+
+python3 cleanup_inkscape_svg.py \
+    -grid_spacing 45 \
+    -clip_box 705 467 964 605 \
+    -drawing_scale_box 490 900 650 950 \
+    -scale_relocation 250 -290 \
+    -clip \
+    -hide_classes=style4 \
+   -clip_svg_viewbox \
+    -increase_viewbox_height 200 \
+    -grid_real_world_size 16
+)
+
+python3 place_things.py
+
