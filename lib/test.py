@@ -6,7 +6,8 @@ import unittest
 
 from svg.path import Line
 
-from .cleanup_inkscape_svg import Box, Transform
+from box import Box
+from transform import Transform
 
 
 class TestBox (unittest.TestCase):

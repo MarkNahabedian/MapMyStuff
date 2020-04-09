@@ -3,7 +3,7 @@
 
 import cssutils
 
-from .xml_utils import *
+from xml_utils import *
 
 
 # *** TODO: getElementById isn't finding existing elements, presumably

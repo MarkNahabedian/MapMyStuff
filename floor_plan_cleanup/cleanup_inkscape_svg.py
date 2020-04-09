@@ -2,21 +2,21 @@
 Clean up an SVG file that was written by Inkscape.
 '''
 
-import sys
 import argparse
-import operator
+import numpy
+import sys
 import xml.dom
+from collections import Counter, defaultdict
 from xml.dom.minidom import parse
+
 import cssutils                        # pip install cssutils
 import cssutils.css
-from collections import Counter, defaultdict
-from functools import reduce
 import svg.path
-import numpy
-from xml_utils import *
-from points import *
-from transform import *
-from stylesheet import *
+
+from lib.xml_utils import *
+from lib.points import *
+from lib.transform import *
+from lib.stylesheet import *
 
 
 # Suppress "WARNING	Property: Unknown Property name" from cssutils.
@@ -197,93 +197,6 @@ def add_real_world_group(doc, grid_spacing, grid_real_world_size, box):
 
 ################################################################################
 # ViewBox support
-
-
-class Box (object):
-    @classmethod
-    def xywh(x, y, width, height):
-        return Box(x, y, x + width, y + height)
-
-    def __init__(self, minX, minY, maxX, maxY):
-        self.minX = minX
-        self.minY = minY
-        self.maxX = maxX
-        self.maxY = maxY
-
-    def __eq__(self, other):
-        return (self.minX == other.minX and
-                self.minY == other.minY and
-                self.maxX == other.maxX and
-                self.maxY == other.maxY)
-
-    def __hash__(self):
-        return hash(repr(self))
-
-    def __str__(self):
-        return "x: %d..%d y: %d..%d" % (
-            self.minX, self.maxX, self.minY, self.maxY)
-
-    def __repr__(self):
-        return("Box(%r, %r, %r, %r)" % (
-            self.minX,
-            self.minY,
-            self.maxX,
-            self.maxY))
-
-    @property
-    def width(self):
-        return self.maxX - self.minX
-
-    @property
-    def height(self):
-        return self.maxY - self.minY
-
-    def corners(self):
-        '''Returns the four corners of the box as points (satisfying isPoint).'''
-        return [ point(self.minX, self.minY),
-                 point(self.maxX, self.minY),
-                 point(self.minX, self.maxY),
-                 point(self.maxX, self.maxY) ]
-
-    def d(self):
-        '''Return an SVG path d attribute value for drawing the box.'''
-        return "M %f %f H %f V %f H %f z" % (
-            self.minX, self.minY,
-            self.maxX,
-            self.maxY,
-            self.minX)
-
-    def point_within(self, point):
-        assert isPoint(point)
-        x = point[0]
-        y = point[1]
-        return (self.minX <= x and
-                self.maxX >= x and
-                self.minY <= y and
-                self.maxY >= y)
-
-    def line_intersects(self, transform, svgLine):
-        '''Returns True iff any of svgLine is within this Box.'''
-        assert isinstance(svgLine, svg.path.Line)
-        # The line does not cross the rectangle if all four corners
-        # of self are on the same side of svgLine.
-        p1 = transform.apply(cToV(svgLine.start))
-        p2 = transform.apply(cToV(svgLine.end))
-        v = p2 - p1
-        sides = [ numpy.sign(numpy.cross(v, p - p1)[2])
-                  for p in self.corners() ]
-        if 4 == abs(reduce(operator.add, sides)):
-            # All four corners are on the same side
-            return False
-        # We need to check the end points of the line
-        return self.point_within(p1) or self.point_within(p2)
-
-    def cubicBezier_intersects(self, transform, cb):
-        assert isinstance(cb, svg.path.CubicBezier)
-        return (self.point_within(transform.apply(cToV(cb.start))) or
-                self.point_within(transform.apply(cToV(cb.control1))) or
-                self.point_within(transform.apply(cToV(cb.control2))) or
-                self.point_within(transform.apply(cToV(cb.end))))
         
 
 def show_boxes(doc, boxes):

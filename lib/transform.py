@@ -5,7 +5,7 @@ import math
 import numpy
 import numpy.linalg
 
-from .points import *
+from points import *
 
 
 class Transform(object):
