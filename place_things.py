@@ -1,12 +1,21 @@
 
 import json
+import os.path
+import sys
 import xml.dom
 import xml.dom.minidom
 import cssutils                        # pip install cssutils
 import cssutils.css
-from floor_plan_cleanup.transform import *
-from floor_plan_cleanup.xml_utils import *
-from floor_plan_cleanup.stylesheet import *
+
+# What's the right way to load these?
+sys.path.insert(
+    0, os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        "lib"))
+
+from transform import *
+from xml_utils import *
+from stylesheet import *
 
 
 INPUT = "floor_plan_cleanup/cleaned_up.svg"

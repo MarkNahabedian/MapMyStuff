@@ -20,7 +20,6 @@ sys.path.insert(
         os.path.dirname(
             os.path.dirname(os.path.abspath(__file__))),
         "lib"))
-print(sys.path)
 
 from box import *
 from points import *
