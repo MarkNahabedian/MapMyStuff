@@ -4,7 +4,8 @@ import re
 import math
 import numpy
 import numpy.linalg
-from points import *
+
+from .points import *
 
 
 class Transform(object):
@@ -39,6 +40,7 @@ class Transform(object):
              [0, scaleY, 0],
              [0, 0, 1]]))
 
+    @classmethod
     def rotate(cls, angle):
         '''Angle specified in degrees.'''
         a = angle / cls.DEGREES_PER_RADIAN

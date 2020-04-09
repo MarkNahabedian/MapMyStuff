@@ -13,8 +13,10 @@ from collections import Counter, defaultdict
 from functools import reduce
 import svg.path
 import numpy
+from xml_utils import *
 from points import *
 from transform import *
+from stylesheet import *
 
 
 # Suppress "WARNING	Property: Unknown Property name" from cssutils.
@@ -29,11 +31,6 @@ SVG_URI = "http://www.w3.org/2000/svg"
 
 def load_inkscape(svg_file):
     return parse(svg_file)
-
-
-def write_pretty(document, filepath):
-    with open(filepath, "w") as f:
-        document.writexml(f, addindent="  ", newl="\n")
 
 
 class AttributeMatcher (object):
@@ -73,34 +70,6 @@ def remove_attributes(element):
                 to_delete.append(a)
     for a in to_delete:
         element.removeAttributeNode(a)
-
-
-def do_elements(node, fun):
-    def walk(node):
-        if node.nodeType != xml.dom.Node.ELEMENT_NODE:
-            return
-        fun(node)
-        for n in node.childNodes:
-            walk(n)
-    if node.nodeType == xml.dom.Node.DOCUMENT_NODE:
-        walk(node.documentElement)
-    else:
-        walk(node)
-
-
-def getElementById(doc, id):
-    '''The getDocumentById methods in xml.dom depend on having a
-    document schema that identifies an ID attribute..  This function
-    is a workaround for that.'''
-    found = []
-    def f(node):
-        eid = node.getAttribute("id")
-        if eid and eid == id:
-            found.append(node)
-    do_elements(doc.documentElement, f)
-    if len(found) == 1:
-        return found[0]
-    return None
 
 
 ################################################################################
@@ -146,40 +115,6 @@ def add_stylesheet(doc, stylemap):
         add_stylesheet_rule(doc, style,
                             "." + c,
                             s.getCssText(" "))
-
-
-# *** TODO: getElementById isn't finding existing elements, presumably
-# because xml.dom doesn't know what the declared ID type attribute is
-# because it doesn't have the DTD.
-# The SVG namespace URI doesn't point to an XML schema.
-def ensure_stylesheet(doc, id):
-    '''Ensure that doc has a styleseet with id id and return it.'''
-    # style = doc.getElementById(id)
-    style = getElementById(doc, id)
-    if not style:
-        style = new_stylesheet(doc)
-        style.setAttribute("id", id)
-        style.setAttribute("type", "text/css")
-    return style
-
-
-def new_stylesheet(doc):
-    style = doc.createElement("style")
-    docelt = doc.documentElement
-    docelt.insertBefore(style, docelt.firstChild)
-    return style
-
-
-cssutils.ser.prefs.omitLastSemicolon = False
-
-def add_stylesheet_rule(doc, style, selector, properties):
-    '''Add a CSS rule to the specified style element.  selector and properties are strings.'''
-    parsed = (cssutils.parseStyle(properties)
-              if isinstance(properties, str)
-              else properties)
-    rule = cssutils.css.CSSStyleRule(selector, parsed)
-    style.appendChild(doc.createTextNode("\n" + rule.cssText))
-    return rule
 
 
 def scope_styles(doc, node, styles_map, modified_properties=""):

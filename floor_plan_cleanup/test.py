@@ -3,8 +3,10 @@
 #  python -m unittest test
 
 import unittest
-from cleanup_inkscape_svg import Box, Transform
+
 from svg.path import Line
+
+from .cleanup_inkscape_svg import Box, Transform
 
 
 class TestBox (unittest.TestCase):

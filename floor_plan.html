@@ -2,18 +2,20 @@
 <html lang="en">
   <head>
     <title>Hobby Shop Floor Plan</title>
+    <script type="text/javascript" src="placement.js"/>
     <script type="text/javascript">
 //<![CDATA[
+document.addEventListener("DOMContentLoaded", contentLoaded, false);
 //]]>
-
     </script>
   </head>
   <body>
     <h1>MIT Hobby Shop</h1>
     <p>
-      Each grid box is 8 feet by 8 feet.
+      Each grid box is 16 feet by 16 feet.
     </p>
-    <img src="floor_plan.svg"
-         alt="Floor plan of the Hobby Shop showing the locations of machines, furnature, tools, etc."/>
+    <object data="floor_plan.svg"
+            type="image/svg+xml"
+            alt="Floor plan of the Hobby Shop showing the locations of machines, furnature, tools, etc."/>
   </body>
 </html>
