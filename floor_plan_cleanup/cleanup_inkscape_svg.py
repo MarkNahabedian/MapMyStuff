@@ -4,6 +4,7 @@ Clean up an SVG file that was written by Inkscape.
 
 import argparse
 import numpy
+import os.path
 import sys
 import xml.dom
 from collections import Counter, defaultdict
@@ -13,10 +14,19 @@ import cssutils                        # pip install cssutils
 import cssutils.css
 import svg.path
 
-from lib.xml_utils import *
-from lib.points import *
-from lib.transform import *
-from lib.stylesheet import *
+# What's the right way to load these?
+sys.path.insert(
+    0, os.path.join(
+        os.path.dirname(
+            os.path.dirname(os.path.abspath(__file__))),
+        "lib"))
+print(sys.path)
+
+from box import *
+from points import *
+from stylesheet import *
+from transform import *
+from xml_utils import *
 
 
 # Suppress "WARNING	Property: Unknown Property name" from cssutils.
@@ -308,7 +318,7 @@ def svg_context(path, trace_transforms=False):
             display = False
         t = elt.getAttribute("transform")
         if t:
-            t = parse_transform(t)
+            t = Transform.parseSVG(t)
             if t:
                 if trace_transforms:
                     print(t)
