@@ -97,6 +97,21 @@ class TestBox (unittest.TestCase):
 # ++++++++++++++++++++++++++++++  50
 
 
+class TestTransform (unittest.TestCase):
+    def test_parse_serialize(self):
+        '''Test that parsing and serializing SVG transforms are inverses.'''
+        transforms = [
+            (Transform.rotate(45), "rotate(45)"),
+            (Transform.translate(2, 5), "translate(2,5)"),
+            (Transform.scale(2, -1), "scale(2,-1)")
+            ]
+        for (trans, string) in transforms:
+            svg = trans.toSVG()
+            parsed = Transform.parseSVG(string)
+            self.assertEqual(trans, parsed)
+            self.assertEqual(trans, parsed)
+
+
 if __name__ == "__main__":
     unittest.main()
 

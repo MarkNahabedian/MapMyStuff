@@ -57,8 +57,37 @@ class Transform(object):
     def __repr__(self):
         return "Transform(%r)" % self.matrix
 
+    def __eq__(self, other):
+        for i in range(3):
+            for j in range(3):
+                if self.matrix[i][j] != other.matrix[i][j]:
+                    return False
+        return True
+
     def inverse(self):
         return Transform(numpy.linalg.inv(self.matrix))
+
+    # matrix(0.06,0,0,0.06,7,7)
+    TRANSFORM_REGEXP = re.compile("(?P<type>[a-zA-Z-_]+)[(](?P<args>[^)]*)[)]")
+
+    @classmethod
+    def parseSVG(cls, transform_string):
+        '''Parse an SVG trransform attribute.  Returns a Transform.'''
+        # *** Does not yet consider multiple transformations in a single attribute string.
+        m = cls.TRANSFORM_REGEXP.match(transform_string)
+        if not m:
+            return
+        args = [float(x.strip()) for x in m.group("args").split(",")]
+        if m.group("type") == "matrix":
+            return cls.matrix(*args)
+        if m.group("type") == "translate":
+            return cls.translate(*args)
+        if m.group("type") == "scale":
+            return cls.scale(*args)
+        if m.group("type") == "rotate":
+            return cls.rotate(*args)
+        print("Unsupported transform %s" % transform_string)
+        return
 
     def toSVG(self):
         a = self.matrix[0][0]
@@ -92,21 +121,5 @@ class Transform(object):
     def compose(self, other):
         return Transform(numpy.matmul(self.matrix, other.matrix))
 
-
-# matrix(0.06,0,0,0.06,7,7)
-TRANSFORM_REGEXP = re.compile("(?P<type>[a-zA-Z-_]+)[(](?P<args>[^)]*)[)]")
-
-def parse_transform(transform_string):
-    '''Parse an SVG trransform attribute.  Returns a Transform.'''
-    # *** Does not yet consider multiple transformations in a single attribute string.
-    m = TRANSFORM_REGEXP.match(transform_string)
-    if not m:
-        return
-    if m.group("type") == "matrix":
-        return Transform.matrix(*[float(x.strip()) for x in m.group("args").split(",")])
-    if m.group("type") == "translate":
-        return Transform.translate(*[float(x.strip()) for x in m.group("args").split(",")])
-    print("Unsupported transform %s" % transform_string)
-    return
 
              
