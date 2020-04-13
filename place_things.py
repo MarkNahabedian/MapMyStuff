@@ -1,3 +1,7 @@
+# This script places the things described in furnashings/things.json
+# onto floor_plan_cleanup/cleaned_up.svg to produce a static
+# floor_plan.svg file.  This is an interim measure until I can get
+# things running as a web service.
 
 import json
 import os.path
