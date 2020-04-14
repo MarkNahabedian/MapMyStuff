@@ -74,7 +74,7 @@ responsible for shoing the scale of the drawing.
 ## Meaningless Text
 
 The Facilities floor plan contains text that, though presumably
-meaningful to Facilities staff, are meaningless to me and just add
+meaningful to Facilities staff, are meaningless to me, and just add
 clutter.
 
 Unfortunately, these are not SVG text elements but instead are drawn
@@ -86,7 +86,7 @@ didn't work though since the "text" overlaps useful floorplan
 elements.
 
 I found that all of this text uses the same CSS styling.
-Unfortunately that same styleiing is used in the drawingf scale
+Unfortunately that same styleiing is used in the drawing of the scale
 graphic.
 
 We deal with this problem by creating copies of any CSS classes used
