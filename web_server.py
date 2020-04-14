@@ -22,15 +22,19 @@ STATIC_RESOURCES = [
     "floor_plan.svg",
     "furnashings/things.json",
     "merged_floor_plan.html",
-    "placement.js"
+    "placement.js",
+    "floor_plan_cleanup/cleaned_up.svg",
+    "floor_plan_cleanup/0-inkscape-output.svg",
+    "floor_plan_cleanup/0.svg"
     ]
 
 
 CONTENT_TYPE = {
+    "css": "text/css",
     "html": "text/html",
+    "js": "text/javascript",
+    "json": "application/json",
     "svg": "image/svg+xml",
-    "json": "text/json",
-    "js": "text/javascript"
     }
 
 

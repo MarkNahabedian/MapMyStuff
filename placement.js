@@ -21,19 +21,36 @@ function draw_thing(g, thing, index) {
   g.appendChild(rect);
 }
 
-function draw_things() {
+function draw_things(things) {
   console.log('draw_things');
-  var g = document.getElementById("real-world");
+  var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
+  var g = svgdoc.getElementById("real-world");
   var index = 0;
-  while (index < THINGS.length) {
-    thing = THINGS[index];
+  while (index < things.length) {
+    thing = things[index];
     draw_thing(g, thing, index);
     index += 1;
   }
 }
 
+function fetch_things(path) {
+  console.log("fetch_things " + path)
+  fetch(path).then(function(response) {
+    if (!response.ok) {
+      console.log(response.statusText);
+      return;
+    }
+    response.text().then(
+      function(txt) {
+        things = JSON.parse(txt);
+        draw_things(things);
+      },
+      console.log);
+  });
+}
+
 function contentLoaded() {
   console.log('contentLoaded');
-  draw_things();
+  fetch_things("furnashings/things.json");
 }
 
