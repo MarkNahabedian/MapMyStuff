@@ -150,7 +150,8 @@ def hide_classes(styles_map, class_names):
     for c in class_names:
         p = styles_map[c]
         assert isinstance(p, cssutils.css.CSSStyleDeclaration)
-        p.setProperty("stroke", "#FFF")
+        p.setProperty("stroke", "none")
+        p.setProperty("fill", "none")
         p.setProperty("stroke-opacity", 0)
 
 
