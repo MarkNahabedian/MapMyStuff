@@ -4,7 +4,7 @@ function draw_thing(g, thing, index) {
   console.log("draw_thing " + thing.name);
   var rect = document.createElement("rect");
   var title = document.createElement("title");
-    title.textContent = thing.name;
+  title.textContent = thing.name;
   rect.setAttribute("Class", thing.cssClass);
   rect.setAttribute("x", thing.x);
   rect.setAttribute("y", thing.y);
