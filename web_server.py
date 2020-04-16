@@ -24,8 +24,8 @@ STATIC_RESOURCES = [
     "merged_floor_plan.html",
     "placement.js",
     "floor_plan_cleanup/cleaned_up.svg",
-    "floor_plan_cleanup/0-inkscape-output.svg",
-    "floor_plan_cleanup/0.svg"
+    "floor_plan_cleanup/W31_0-inkscape-output.svg",
+    "floor_plan_cleanup/W31_0.svg"
     ]
 
 
