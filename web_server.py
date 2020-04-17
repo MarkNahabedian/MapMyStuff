@@ -57,6 +57,7 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
     self.send_header('Content-type','text/html')
     self.end_headers()
     self.flush_headers()
+    logger().info("HEAD Done.")
 
   def do_GET(self):
     self.error_message_format = "eRRoR"
@@ -73,7 +74,10 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
     except Exception as e:
       logger().info("exception " + str(e))
       # Callees are responsible for their own error responses.
-      pass
+    finally:
+      self.wfile.flush()
+      logger().info("GET Done.")
+
 
   def default(self):
     logger().info("Default response")
