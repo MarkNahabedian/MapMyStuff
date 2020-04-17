@@ -1,0 +1,6 @@
+.thing {
+  stroke: red;
+  fill: lightgray;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
