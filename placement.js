@@ -49,8 +49,8 @@ function fetch_things(path) {
   });
 }
 
-function contentLoaded() {
-  console.log('contentLoaded');
+function load_and_draw_things() {
+  console.log(load_and_draw_things);
   fetch_things("furnashings/things.json");
 }
 
