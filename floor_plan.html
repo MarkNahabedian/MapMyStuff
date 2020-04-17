@@ -2,12 +2,19 @@
 <html lang="en">
   <head>
     <title>Hobby Shop Floor Plan</title>
-    <script type="text/javascript" src="placement.js"/>
+    <script type="text/javascript" src="placement.js"></script>
     <script type="text/javascript">
-//<![CDATA[
-window.onload = contentLoaded;
-//]]>
+
+console.log("inline javascript");
+
+window.onload = function() {
+  console.log("onload handler.")
+  load_and_draw_things();
+};
+
     </script>
+    <link href="furnashings/thing_styles.css"
+          rel="stylesheet"/>
   </head>
   <body>
     <h1>MIT Hobby Shop</h1>
