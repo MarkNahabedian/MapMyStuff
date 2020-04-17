@@ -21,6 +21,7 @@ STATIC_RESOURCES = [
     "floor_plan.html",
     "floor_plan.svg",
     "furnashings/things.json",
+    "furnashings/thing_styles.css",
     "merged_floor_plan.html",
     "placement.js",
     "floor_plan_cleanup/cleaned_up.svg",
@@ -103,13 +104,16 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
       with open(path) as f:
         contents = f.read()
         self.send_response(200, "Ok")
-        self.send_header('Content-type',
-                         CONTENT_TYPE[path.rsplit(".", 1)[-1]])
+        tag = path.rsplit(".", 1)[-1];
+        ct = CONTENT_TYPE[tag]
+        logger().info("%s: %s %s" % (path, tag, ct))
+        self.send_header('Content-type', ct)
         self.end_headers()
         self.flush_headers()
         self.wfile.write(bytes(contents, "utf8"))
         self.wfile.flush()
     except Exception as e:
+      logger().error(e)
       self.send_error(404, str(e))
 
 
