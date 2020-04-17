@@ -5,7 +5,7 @@ function draw_thing(svgdoc, g, thing, index) {
   var rect = svgdoc.createElementNS(g.namespaceURI, "rect");
   var title = svgdoc.createElementNS(g.namespaceURI, "title");
   title.textContent = thing.name;
-  rect.setAttribute("Class", thing.cssClass);
+  rect.setAttribute("class", thing.cssClass);
   rect.setAttribute("x", thing.x);
   rect.setAttribute("y", thing.y);
   rect.setAttribute("width", thing.width);
