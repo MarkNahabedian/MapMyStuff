@@ -1,9 +1,9 @@
 // Place things onto the floorplan.
 
-function draw_thing(g, thing, index) {
+function draw_thing(svgdoc, g, thing, index) {
   console.log("draw_thing " + thing.name);
-  var rect = document.createElement("rect");
-  var title = document.createElement("title");
+  var rect = svgdoc.createElementNS(g.namespaceURI, "rect");
+  var title = svgdoc.createElementNS(g.namespaceURI, "title");
   title.textContent = thing.name;
   rect.setAttribute("Class", thing.cssClass);
   rect.setAttribute("x", thing.x);
@@ -28,7 +28,7 @@ function draw_things(things) {
   var index = 0;
   while (index < things.length) {
     thing = things[index];
-    draw_thing(g, thing, index);
+    draw_thing(svgdoc, g, thing, index);
     index += 1;
   }
 }
