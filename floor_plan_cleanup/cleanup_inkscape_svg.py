@@ -155,6 +155,12 @@ def hide_classes(styles_map, class_names):
         p.setProperty("stroke-opacity", 0)
 
 
+def thing_styles(doc):
+    stylesheet = ensure_stylesheet(doc, "thing-styles") 
+    stylesheet.appendChild(doc.createCDATASection(
+        "\n@import url(../furnashings/thing_styles.css);\n"))
+
+
 ################################################################################
 # Grid
 
@@ -629,9 +635,11 @@ def main():
                              args.grid_spacing[0],
                              args.grid_real_world_size[0],
                              clip_box)
+    # Thing styles
+    thing_styles(doc)
     # Add comments about processing
     # This is done last so that the comment appears before any other
-    # added frontmatter line stylesheets.
+    # added frontmatter like stylesheets.
     if boxes_to_show:
         doc.documentElement.insertBefore(doc.createComment(
             "\nShow boxes:\n%r\n" % boxes_to_show),
