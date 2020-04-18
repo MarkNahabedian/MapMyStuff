@@ -21,20 +21,27 @@ function draw_thing(svgdoc, g, thing, index) {
   g.appendChild(rect);
 }
 
-function draw_things(things) {
-  console.log('draw_things');
+var item_unique_id_counter = 1;
+
+var ALL_THINGS = [];
+
+function draw_things(things, from_path) {
+  console.log('draw_things from ', from_path);
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   var g = svgdoc.getElementById("real-world");
   var index = 0;
   while (index < things.length) {
     thing = things[index];
+    thing["from_file"] = from_path;
+    thing["unique_id"] = item_unique_id_counter++;
+    ALL_THINGS.push(things[index]);
     draw_thing(svgdoc, g, thing, index);
     index += 1;
   }
 }
 
 function fetch_things(path) {
-  console.log("fetch_things " + path)
+  console.log("fetch_things " + path);
   fetch(path).then(function(response) {
     if (!response.ok) {
       console.log(response.statusText);
@@ -43,14 +50,17 @@ function fetch_things(path) {
     response.text().then(
       function(txt) {
         things = JSON.parse(txt);
-        draw_things(things);
+        for(var i = 0; i < things.lengtrh; i++) {
+          ALL_THINGS.push(things[i]);
+        }
+        draw_things(things, path);
       },
       console.log);
   });
 }
 
 function load_and_draw_things() {
-  console.log(load_and_draw_things);
+  console.log("load_and_draw_things");
   fetch_things("furnashings/things.json");
 }
 
