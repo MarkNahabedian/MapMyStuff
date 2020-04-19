@@ -14,7 +14,7 @@ function fetch_things(path) {
     }
     response.text().then(
       function(txt) {
-        things = JSON.parse(txt);
+        var things = JSON.parse(txt);
         for(var i = 0; i < things.lengtrh; i++) {
           ALL_THINGS.push(things[i]);
         }
@@ -32,7 +32,7 @@ function draw_things(things, from_path) {
   // g.onclick = enptySpaceClicked;
   var index = 0;
   while (index < things.length) {
-    thing = things[index];
+    var thing = things[index];
     thing["from_file"] = from_path;
     thing["unique_id"] = item_unique_id_counter++;
     ALL_THINGS.push(things[index]);
@@ -82,16 +82,17 @@ function getThing(id) {
   }
 }
 
-function thingRectClicked(thing_id) {
-  console.log("thingRectClicked");
-  var thing = getThing(thing_id);
-  console.log("clicked", thing);
-  if (!thing)
-      return;
+// Show thing's description in the description element.  With no
+// thing, just clear the description element.
+function show_description(thing_id) {
+  // Clear description:
   var desc_elt = document.getElementById("description");
   while (desc_elt.hasChildNodes()) {
     desc_elt.removeChild(desc_elt.firstChild);
   }
+  if (!thing_id)
+    return;
+  var thing = getThing(thing_id);  
   var d = document.createElement("div");
   d.setAttribute("class", "description");
   desc_elt.appendChild(d);
@@ -106,10 +107,13 @@ function thingRectClicked(thing_id) {
   }
 }
 
+function thingRectClicked(thing_id) {
+  console.log("clicked", thing_id);
+  show_description(thing_id);
+}
+
 function enptySpaceClicked() {
   console.log("enptySpaceClicked");
   var desc_elt = document.getElementById("description");
-  while (desc_elt.hasChildNodes()) {
-    desc_elt.removeChild(desc_elt.firstChild);
-  }
+  show_description(false);
  }
