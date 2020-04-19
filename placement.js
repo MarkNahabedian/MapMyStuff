@@ -28,6 +28,8 @@ function draw_things(things, from_path) {
   console.log('draw_things from ', from_path);
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   var g = svgdoc.getElementById("real-world");
+  // Adding this click handler breaks the click to describe behavior.
+  // g.onclick = enptySpaceClicked;
   var index = 0;
   while (index < things.length) {
     thing = things[index];
@@ -81,6 +83,7 @@ function getThing(id) {
 }
 
 function thingRectClicked(thing_id) {
+  console.log("thingRectClicked");
   var thing = getThing(thing_id);
   console.log("clicked", thing);
   if (!thing)
@@ -89,10 +92,24 @@ function thingRectClicked(thing_id) {
   while (desc_elt.hasChildNodes()) {
     desc_elt.removeChild(desc_elt.firstChild);
   }
-  var d = document.createElement("p");
+  var d = document.createElement("div");
   d.setAttribute("class", "description");
   desc_elt.appendChild(d);
-  d.appendChild(document.createTextNode(thing.name));
+  var name = document.createElement("div");
+  name.setAttribute("class", "name");
+  d.appendChild(name);
+  name.appendChild(document.createTextNode(thing.name));
+  if (thing.description) {
+    var content = document.createElement("div");
+    d.appendChild(content);
+    content.appendChild(document.createTextNode(thing.description));
+  }
 }
 
-
+function enptySpaceClicked() {
+  console.log("enptySpaceClicked");
+  var desc_elt = document.getElementById("description");
+  while (desc_elt.hasChildNodes()) {
+    desc_elt.removeChild(desc_elt.firstChild);
+  }
+ }

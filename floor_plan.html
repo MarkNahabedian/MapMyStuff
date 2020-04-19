@@ -6,11 +6,16 @@
       #description:empty {
           display: none;
       }
-      #description:not:empty {
+      #description {
           display: block;
           border-style: solid;
           border-color: black;
-          border-width: 1;
+          border-width: 1px;
+          margin: 4ex;
+      }
+      .description .name {
+          text-align: center;
+          font-weight: bolder;
       }
     </style>
     <script type="text/javascript" src="placement.js"></script>
@@ -30,14 +35,18 @@ window.onload = function() {
     <p>
       Each grid box is 16 feet by 16 feet.
     </p>
-    <div id="description">
-    </div>
+    <div id="description"></div>
     <div>
+      <!-- 
+      We use object instead of img so that code in placement.js can
+      get access to the loaded SVG document.
+      -->
       <object id="floor_plan_svg"
               data="floor_plan_cleanup/cleaned_up.svg"
               type="image/svg+xml"
               alt="Floor plan of the Hobby Shop showing the locations of
                    machines, furnature, tools, etc.">
+        The Hobby Shop floor plan should appearf here.
       </object>
     </div>
     <p>Foo</p>
