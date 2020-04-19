@@ -1,38 +1,47 @@
 [
   {
-     "name":"table saw",
-     "cssClass": "thing",
-     "width": 6,
-     "depth": 5,
-     "x": 9.25,
-     "y": 18.5,
-     "rotation": 0
+    "name":"table saw",
+    "cssClass": "thing",
+    "width": 6,
+    "depth": 5,
+    "x": 9.25,
+    "y": 18.5,
+    "rotation": 0
   },
   {
-     "name": "Water Bubbler",
-     "cssClass": "thing",
-     "width": 1,
-     "depth": 1,
-     "x": 37.5,
-     "y": 39.5,
-     "rotation": 0.5
+    "name": "Water Bubbler",
+    "cssClass": "thing",
+    "width": 1,
+    "depth": 1,
+    "x": 37.5,
+    "y": 39.5,
+    "rotation": 0.5
   },
   {
-     "name": "Hayami's Desk",
-     "cssClass": "thing",
-     "width": 5,
-     "depth": 2.5,
-     "x": 44.6,
-     "y": 40,
-     "rotation": 0.5
+    "name": "Hayami's Desk",
+    "cssClass": "thing",
+    "width": 5,
+    "depth": 2.5,
+    "x": 44.6,
+    "y": 40,
+    "rotation": 0.5
   },
   {
-     "name": "Coby's Desk",
-     "cssClass": "thing",
-     "width": 5,
-     "depth": 2.5,
-     "x": 55,
-     "y": 40,
-     "rotation": 0.5
+    "name": "Coby's Desk",
+    "cssClass": "thing",
+    "width": 5,
+    "depth": 2.5,
+    "x": 55,
+    "y": 40,
+    "rotation": 0.5
+  },
+  {
+    "name": "Sink and Eye Wash",
+    "cssClass": "thing",
+    "width": 5,
+    "depth": 3,
+    "x": 74.5,
+    "y": 14,
+    "rotation": 0.25
   }
 ]
