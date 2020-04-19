@@ -2,7 +2,7 @@
   {
      "name":"table saw",
      "cssClass": "thing",
-     "width":6,
+     "width": 6,
      "depth": 5,
      "x": 9.25,
      "y": 18.5,

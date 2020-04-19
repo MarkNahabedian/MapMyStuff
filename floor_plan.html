@@ -2,13 +2,24 @@
 <html lang="en">
   <head>
     <title>Hobby Shop Floor Plan</title>
+    <style type="text/css">
+      #description:empty {
+          display: none;
+      }
+      #description:not:empty {
+          display: block;
+          border-style: solid;
+          border-color: black;
+          border-width: 1;
+      }
+    </style>
     <script type="text/javascript" src="placement.js"></script>
     <script type="text/javascript">
 
 console.log("inline javascript");
 
 window.onload = function() {
-  console.log("onload handler.")
+  console.log("onload handler.");
   load_and_draw_things();
 };
 
@@ -19,9 +30,18 @@ window.onload = function() {
     <p>
       Each grid box is 16 feet by 16 feet.
     </p>
-    <object id="floor_plan_svg"
-            data="floor_plan_cleanup/cleaned_up.svg"
-            type="image/svg+xml"
-            alt="Floor plan of the Hobby Shop showing the locations of machines, furnature, tools, etc."/>
+    <div id="description">
+    </div>
+    <div>
+      <object id="floor_plan_svg"
+              data="floor_plan_cleanup/cleaned_up.svg"
+              type="image/svg+xml"
+              alt="Floor plan of the Hobby Shop showing the locations of
+                   machines, furnature, tools, etc.">
+      </object>
+    </div>
+    <p>Foo</p>
+    <div id="items">
+    </div>
   </body>
 </html>
