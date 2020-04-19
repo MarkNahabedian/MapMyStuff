@@ -89,6 +89,8 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
     doc = xml.dom.minidom.parseString(DEFAULT_PAGE_TEMPLATE)
     ul = doc.getElementsByTagName("ul")[0]
     for filename in STATIC_RESOURCES:
+      if not os.path.exists(filename):
+        continue
       li = doc.createElement("li")
       ul.appendChild(li)
       a = doc.createElement("a")
