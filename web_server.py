@@ -79,7 +79,6 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
       self.wfile.flush()
       logger().info("GET Done.")
 
-
   def default(self):
     logger().info("Default response")
     self.send_response(200, "Ok")
