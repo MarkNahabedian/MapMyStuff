@@ -55,11 +55,10 @@ function draw_thing(svgdoc, g, thing, index) {
   rect.onclick = function() {
     thingRectClicked(thing.unique_id);
   };
-  // We should eventually figure out how to simplify drawing using cx
-  // and cy for the rotation transformation.
-  rect.setAttribute("transform",
-                    "rotate(" + thing.rotation + ", 0, 0)" +
-                    "translate(" + thing.x + ", " + thing.y + ")")
+  rect.setAttribute(
+    "transform",
+    "rotate(" + thing.rotation * 360 + ", " + thing.x + ", " + thing.y + ")" +
+      "translate(" + thing.x + ", " + thing.y + ")")
   rect.appendChild(title);
   g.appendChild(rect);
 }
