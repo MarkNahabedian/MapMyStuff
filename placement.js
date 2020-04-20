@@ -84,15 +84,14 @@ function getThing(id) {
 
 // Show thing's description in the description element.  With no
 // thing, just clear the description element.
-function show_description(thing_id) {
+function show_description(thing) {
   // Clear description:
   var desc_elt = document.getElementById("description");
   while (desc_elt.hasChildNodes()) {
     desc_elt.removeChild(desc_elt.firstChild);
   }
-  if (!thing_id)
+  if (!thing)
     return;
-  var thing = getThing(thing_id);  
   var d = document.createElement("div");
   d.setAttribute("class", "description");
   desc_elt.appendChild(d);
@@ -126,13 +125,41 @@ function show_description(thing_id) {
   }
 }
 
+var selected_thing = null;
+
+function select_item(thing_id) {
+  var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
+  if (!thing_id) {
+    // Clear selection
+    if (selected_thing) {
+      var elt = svgdoc.getElementById(thing_svg_id(selected_thing));
+      if (elt) {
+        elt.setAttribute("class", selected_thing.cssClass);
+      }
+    }
+    selected_thing = null;
+    show_description(false);
+    return
+  }
+  var thing = getThing(thing_id);
+  if (!thing) {
+    console.log("No item found for ", thing_id);
+    return;
+  }
+  selected_thing = thing;
+  show_description(thing);
+  var elt = svgdoc.getElementById(thing_svg_id(selected_thing));
+  if (elt) {
+    elt.setAttribute("class", selected_thing.cssClass + " selected");
+  }
+}
+
 function thingRectClicked(thing_id) {
   console.log("clicked", thing_id);
-  show_description(thing_id);
+  select_item(thing_id);
 }
 
 function enptySpaceClicked() {
   console.log("enptySpaceClicked");
-  var desc_elt = document.getElementById("description");
-  show_description(false);
+  select_item();
  }
