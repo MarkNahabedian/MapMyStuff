@@ -42,7 +42,17 @@
     "depth": 3,
     "x": 74.5,
     "y": 14,
-    "rotation": 0.25,
+    "rotation": 0.75,
     "description": "Rotate the spout upwards to use as an eye waSH."
+  },
+  {
+    "name": "CNC Metal Lathe",
+    "cssClass": "thing",
+    "width": 6,
+    "depth": 2.5,
+    "x": 58.8,
+    "y": 6.5,
+    "rotation": 0.25,
+    "description": "CNC_metal_lathe-SI_154CH089.html"
   }
 ]

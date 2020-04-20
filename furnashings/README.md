@@ -17,8 +17,9 @@ The name property, e.g.
      "name":"table saw",
 </pre>
 
-gives a brief descriptive name for the item.
-
+gives a brief descriptive name for the item.  This property is
+presentged in the tooltip when hovering over the item and is centered
+at the top of the description box when the item is clicked on.
 
 ## width
 

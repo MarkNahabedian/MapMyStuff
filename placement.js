@@ -103,7 +103,26 @@ function show_description(thing_id) {
   if (thing.description) {
     var content = document.createElement("div");
     d.appendChild(content);
-    content.appendChild(document.createTextNode(thing.description));
+    // Description might be text or a URI.  We attempt to fetch it.
+    // If that fails we insert it as text, otherwise we insert the
+    // content if that makes sense.
+    fetch("furnashings/" + thing.description).then(
+      function(response) {
+        console.log(response.status, response.statusText);
+        if (!response.ok) {
+          content.appendChild(document.createTextNode(thing.description));
+          return;
+        }
+        response.text().then(
+          function(txt) {
+            // Assume HTML
+            var dp = new DOMParser();
+            var doc = dp.parseFromString(txt, "text/html");
+            d.appendChild(doc.documentElement);
+          }
+        );
+      },
+      console.log);
   }
 }
 
