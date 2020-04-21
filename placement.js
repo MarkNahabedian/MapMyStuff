@@ -63,6 +63,7 @@ function draw_thing(svgdoc, g, thing, index) {
       "translate(" + thing.x + ", " + thing.y + ")")
   rect.appendChild(title);
   g.appendChild(rect);
+  thing.svg_element = rect;
 }
 
 function thing_svg_id(thing) {
@@ -128,16 +129,17 @@ function show_description(thing) {
 var selected_thing = null;
 
 function select_item(thing_id) {
+  console.log("select_item", thing_id);
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
-  if (!thing_id) {
-    // Clear selection
-    if (selected_thing) {
-      var elt = svgdoc.getElementById(thing_svg_id(selected_thing));
-      if (elt) {
-        elt.setAttribute("class", selected_thing.cssClass);
-      }
+  // Clear existing selection
+  if (selected_thing) {
+    var elt = selected_thing.svg_element;
+    if (elt) {
+      elt.setAttribute("class", selected_thing.cssClass);
     }
     selected_thing = null;
+  }
+  if (!thing_id) {
     show_description(false);
     return
   }
@@ -148,7 +150,7 @@ function select_item(thing_id) {
   }
   selected_thing = thing;
   show_description(thing);
-  var elt = svgdoc.getElementById(thing_svg_id(selected_thing));
+  var elt = selected_thing.svg_element;
   if (elt) {
     elt.setAttribute("class", selected_thing.cssClass + " selected");
   }
