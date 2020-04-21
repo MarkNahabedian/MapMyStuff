@@ -1,3 +1,23 @@
+/* Animate the selected item. */
+
+.selected {
+  animation-name: selected;
+  animation-duration: 2000ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes selected {
+  50% {
+    fill: orange;
+  }
+}
+
+
+/* Definitions for the classes referred to by the "cssClass" property
+   in our JSON files.
+*/
+
 .thing {
   stroke: red;
   fill: lightgray;
