@@ -35,12 +35,12 @@ function draw_things(things, from_path) {
     thing["from_file"] = from_path;
     thing["unique_id"] = item_unique_id_counter++;
     ALL_THINGS.push(things[index]);
-    draw_thing(svgdoc, g, thing, index);
+    draw_thing(svgdoc, g, thing);
     index += 1;
   }
 }
 
-function draw_thing(svgdoc, g, thing, index) {
+function draw_thing(svgdoc, g, thing) {
   console.log("draw_thing " + thing.name);
   var rect = svgdoc.createElementNS(g.namespaceURI, "rect");
   var title = svgdoc.createElementNS(g.namespaceURI, "title");
