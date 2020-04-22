@@ -28,8 +28,7 @@ function draw_things(things, from_path) {
   console.log('draw_things from ', from_path);
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   var g = svgdoc.getElementById("real-world");
-  // Adding this click handler breaks the click to describe behavior.
-  // g.onclick = enptySpaceClicked;
+  g.onclick = enptySpaceClicked;
   var index = 0;
   while (index < things.length) {
     var thing = things[index];
@@ -46,6 +45,7 @@ function draw_thing(svgdoc, g, thing, index) {
   var rect = svgdoc.createElementNS(g.namespaceURI, "rect");
   var title = svgdoc.createElementNS(g.namespaceURI, "title");
   title.textContent = thing.name;
+  rect.appendChild(title);
   rect.setAttribute("class", thing.cssClass);
   rect.setAttribute("id", thing_svg_id(thing));
   rect.setAttribute("x", thing.x);
@@ -54,14 +54,17 @@ function draw_thing(svgdoc, g, thing, index) {
   rect.setAttribute("height", thing.depth);
   rect.setAttribute("x", - thing.width / 2);
   rect.setAttribute("y", - thing.depth / 2);
-  rect.onclick = function() {
-    thingRectClicked(thing.unique_id);
+  rect.onclick = function(event) {
+    if (!event)
+      event = window.event;
+    if (event.target !== this)
+      return;
+    thingRectClicked(thing);
   };
   rect.setAttribute(
     "transform",
     "rotate(" + thing.rotation * 360 + ", " + thing.x + ", " + thing.y + ")" +
       "translate(" + thing.x + ", " + thing.y + ")")
-  rect.appendChild(title);
   g.appendChild(rect);
   thing.svg_element = rect;
 }
@@ -100,53 +103,52 @@ function show_description(thing) {
   name.setAttribute("class", "name");
   d.appendChild(name);
   name.appendChild(document.createTextNode(thing.name));
-  if (thing.description) {
-    var content = document.createElement("div");
-    d.appendChild(content);
-    // Description might be text or a URI.  We attempt to fetch it.
-    // If that fails we insert it as text, otherwise we insert the
-    // content if that makes sense.
-    fetch("furnashings/" + thing.description).then(
-      function(response) {
-        console.log(response.status, response.statusText);
-        if (!response.ok) {
-          content.appendChild(document.createTextNode(thing.description));
-          return;
-        }
-        response.text().then(
-          function(txt) {
-            // Assume HTML
-            var dp = new DOMParser();
-            var doc = dp.parseFromString(txt, "text/html");
-            d.appendChild(doc.documentElement);
-          }
-        );
-      },
-      console.log);
+  var description = thing.description;
+  if (!description)
+    return;
+  var content = document.createElement("div");
+  d.appendChild(content);
+  // Description might be text or a URI.  If it contains whitespace
+  // (likely in a textual description) then we know it's not a URI.
+  if (description.indexOf(" ") >= 0) {
+    content.appendChild(document.createTextNode(description));
+    return;
   }
+  // Otherwise, we attempt to fetch it.  If that fails we insert it as
+  // text, otherwise we insert the content of the fetched document.
+  fetch("furnashings/" + thing.description).then(
+    function(response) {
+      console.log(response.status, response.statusText);
+      if (!response.ok) {
+        content.appendChild(document.createTextNode(thing.description));
+        return;
+      }
+      response.text().then(
+        function(txt) {
+          // Assume HTML
+          var dp = new DOMParser();
+          var doc = dp.parseFromString(txt, "text/html");
+          d.appendChild(doc.documentElement);
+        }
+      );
+    },
+    console.log);
 }
 
 var selected_thing = null;
 
-function select_item(thing_id) {
-  console.log("select_item", thing_id);
+function select_item(thing) {
+  console.log("select_item", thing);
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   // Clear existing selection
   if (selected_thing) {
     var elt = selected_thing.svg_element;
-    if (elt) {
-      elt.setAttribute("class", selected_thing.cssClass);
-    }
+    elt.setAttribute("class", selected_thing.cssClass);
     selected_thing = null;
   }
-  if (!thing_id) {
+  if (!thing) {
     show_description(false);
     return
-  }
-  var thing = getThing(thing_id);
-  if (!thing) {
-    console.log("No item found for ", thing_id);
-    return;
   }
   selected_thing = thing;
   show_description(thing);
@@ -156,12 +158,16 @@ function select_item(thing_id) {
   }
 }
 
-function thingRectClicked(thing_id) {
-  console.log("clicked", thing_id);
-  select_item(thing_id);
+function thingRectClicked(thing) {
+  console.log("clicked", thing);
+  select_item(thing);
 }
 
-function enptySpaceClicked() {
+function enptySpaceClicked(event) {
+  if (!event)
+    event = window.event;
+  if (event.target !== this)
+    return;
   console.log("enptySpaceClicked");
   select_item();
  }
