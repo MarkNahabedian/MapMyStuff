@@ -28,7 +28,7 @@ function draw_things(things, from_path) {
   console.log('draw_things from ', from_path);
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   var g = svgdoc.getElementById("real-world");
-  g.onclick = enptySpaceClicked;
+  svgdoc.documentElement.onclick = enptySpaceClicked;
   var index = 0;
   while (index < things.length) {
     var thing = things[index];
