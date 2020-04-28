@@ -18,7 +18,7 @@ The name property, e.g.
 </pre>
 
 gives a brief descriptive name for the item.  This property is
-presentged in the tooltip when hovering over the item and is centered
+presented in the tooltip when hovering over the item and is centered
 at the top of the description box when the item is clicked on.
 
 ## width
@@ -27,7 +27,8 @@ To draw an item on the floor plan we need to know its size.  The width
 property describes how wide the item is in feet, from the point of
 view of someone standing at the item and using it.  For a workbench
 this can be subjective, but for a machine like a table saw the width
-is measured perpendicular to the rip fence.
+is measured perpendicular to the rip fence from the infeed side of the
+saw,
 
 <pre>
      "width": 6,
@@ -36,12 +37,12 @@ is measured perpendicular to the rip fence.
 ## Depth
 
 The dept of an item is the distance between the edge of the item
-closest to the user to the edge firthest away.
+closest to the user to the edge farthest away.
 
 
 ## cssClass
 
-The cssClass property provides a way tocontrol the appearance of the
+The cssClass property provides a way to control the appearance of the
 item on the floor plan.  The CSS presentation properties associated
 with these classes are defined in the stylesheet thing_styles.css.
 
@@ -70,13 +71,13 @@ plan.
 
 The x property is expressed in feet and measures the distance from the
 left wall of the shop to the center of the item.  We measure to the
-center so that specifying a rotation for the item does not also its
-position.
+center so that specifying a rotation for the item does not also change
+its position.
 
 
 ## y
 
-Like the x property, the y property is expresse3d in feet.  The y
+Like the x property, the y property is expressed in feet.  The y
 property measures the distance from the front wall of theHobby Shop to
 the center of the item.
 
@@ -95,6 +96,18 @@ be 0.25:
 A rotation of 0 orients the item such that its width is parallel to
 the x axis of the coordinate grid that's used for item placement and
 the user of the item's back is towards the front wall of the shop.
+
+
+# Other Properties
+
+
+## description
+
+The description is used to provide further information about the item.
+If it is a plain text string then that text is displayed in a
+description box above the map when the item is selected (by clicking
+on it).  If the description is a URL then the target is assumed to be
+an HTML fragment that will be displayed in the description box.
 
 
 # Special Purpose Properties
