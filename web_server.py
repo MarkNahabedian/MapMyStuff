@@ -15,9 +15,18 @@ def logger():
   return logging.getLogger(__name__)
 
 
+class NoCacheRequestHandler (http.server.SimpleHTTPRequestHandler):
+  # Cribbed from https://gist.github.com/aallan/9416763d42534ae99f6f0228f54160c9
+  def end_headers(self):
+    self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+    self.send_header("Pragma", "no-cache")
+    self.send_header("Expires", "0")
+    super().end_headers()
+
+
 def run(port):
   server_address = ('', port)
-  httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+  httpd = http.server.HTTPServer(server_address, NoCacheRequestHandler)
   try: 
     logger().info("Starting Webserver.")
     httpd.serve_forever()
