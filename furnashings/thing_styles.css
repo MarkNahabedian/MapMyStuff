@@ -14,6 +14,12 @@
 }
 
 
+.direction-indicator {
+  fill: none;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
 /* Definitions for the classes referred to by the "cssClass" property
    in our JSON files.
 */
@@ -24,3 +30,4 @@
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
+

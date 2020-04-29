@@ -42,14 +42,15 @@ function draw_things(things, from_path) {
 
 function draw_thing(svgdoc, g, thing) {
   console.log("draw_thing " + thing.name);
+  var thing_group = svgdoc.createElementNS(g.namespaceURI, "g");
+  thing_group.setAttribute("class", thing.cssClass);
+  thing_group.setAttribute("id", thing_svg_id(thing));
   var rect = svgdoc.createElementNS(g.namespaceURI, "rect");
   var title = svgdoc.createElementNS(g.namespaceURI, "title");
   title.textContent = thing.name;
   rect.appendChild(title);
+  // The vector-effect CSS property doesn't cascade.
   rect.setAttribute("class", thing.cssClass);
-  rect.setAttribute("id", thing_svg_id(thing));
-  rect.setAttribute("x", thing.x);
-  rect.setAttribute("y", thing.y);
   rect.setAttribute("width", thing.width);
   rect.setAttribute("height", thing.depth);
   rect.setAttribute("x", - thing.width / 2);
@@ -61,12 +62,20 @@ function draw_thing(svgdoc, g, thing) {
       return;
     thingRectClicked(thing);
   };
-  rect.setAttribute(
+  thing_group.setAttribute(
     "transform",
     "rotate(" + thing.rotation * 360 + ", " + thing.x + ", " + thing.y + ")" +
       "translate(" + thing.x + ", " + thing.y + ")")
-  g.appendChild(rect);
-  thing.svg_element = rect;
+  var direction_tick = svgdoc.createElementNS(g.namespaceURI, "path");
+  direction_tick.setAttribute("class", "direction-indicator");
+  direction_tick.setAttribute(
+    "d",
+    "M 0 0 v " + (- thing.depth / 2)
+  );
+  thing_group.appendChild(rect);
+  thing_group.appendChild(direction_tick);
+  g.appendChild(thing_group);
+  thing.svg_element = thing_group;
 }
 
 function thing_svg_id(thing) {
