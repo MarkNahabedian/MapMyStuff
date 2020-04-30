@@ -2,6 +2,8 @@
 
 function load_and_draw_things() {
   console.log("load_and_draw_things");
+  var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
+  svgdoc.addEventListener("mousemove", Show_event_location);
   fetch_things("furnashings/things.json");
 }
 
@@ -170,6 +172,7 @@ function select_item(thing) {
 function thingRectClicked(thing) {
   console.log("clicked", thing);
   select_item(thing);
+  Show_event_location(event);
 }
 
 function enptySpaceClicked(event) {
@@ -179,4 +182,19 @@ function enptySpaceClicked(event) {
     return;
   console.log("enptySpaceClicked");
   select_item();
+  Show_event_location(event);
  }
+
+function Show_event_location(event) {
+  var container = document.getElementById("floor_plan_svg");
+  var svgdoc = container.contentDocument;
+  var showX = document.getElementById("show-pointer-x");
+  var showY = document.getElementById("show-pointer-y");
+  var g = svgdoc.getElementById("real-world");
+  var trans = g.getScreenCTM().inverse();
+  var point = new DOMPoint(event.clientX, event.clientY);
+  xformed = point.matrixTransform(trans);
+  showX.textContent = xformed.x.toFixed(3);
+  showY.textContent = xformed.y.toFixed(3);
+}
+
