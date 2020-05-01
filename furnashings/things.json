@@ -38,10 +38,10 @@
   {
     "name": "Sink and Eye Wash",
     "cssClass": "thing",
-    "width": 5,
+    "width": 6,
     "depth": 3,
-    "x": 74.5,
-    "y": 14,
+    "x": 77.5,
+    "y": 7.6,
     "rotation": 0.75,
     "description": "Rotate the spout upwards to use as an eye wash."
   },
