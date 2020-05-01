@@ -162,5 +162,186 @@
     "x": 14.5,
     "y": 20,
     "rotation": 0.25
+  },
+  {
+    "name": "Thickness Sander",
+    "cssClass": "machine",
+    "width": 4,
+    "depth": 3,
+    "x": 24.5,
+    "y": 16.5,
+    "rotation": 0.5
+  },
+  {
+    "name": "Scroll Saw",
+    "cssClass": "machine",
+    "width": 1.5,
+    "depth": 2,
+    "x": 19,
+    "y": 4.5,
+    "rotation": 0.75
+  },
+  {
+    "name": "Work Bench",
+    "cssClass": "furnature",
+    "width": 6,
+    "depth": 2.5,
+    "x": 16,
+    "y": 10,
+    "rotation": 0.5
+  },
+  {
+    "name": "Work Bench",
+    "cssClass": "furnature",
+    "width": 6,
+    "depth": 2.5,
+    "x": 23,
+    "y": 10,
+    "rotation": 0.25
+  },
+  {
+    "name": "Work Bench",
+    "cssClass": "furnature",
+    "width": 5,
+    "depth": 2,
+    "x": 37.5,
+    "y": 8.5,
+    "rotation": 0.75
+  },
+  {
+    "name": "Work Bench",
+    "cssClass": "furnature",
+    "width": 5,
+    "depth": 2,
+    "x": 39.5,
+    "y": 8.5,
+    "rotation": 0.25
+  },
+  {
+    "name": "Pens, Pencils, Pencil Sharpener",
+    "cssClass": "thing",
+    "width": 1,
+    "depth": 0.25,
+    "x": 40,
+    "y": 0.4,
+    "rotation": 0.5
+  },
+  {
+    "name": "ID Reader",
+    "cssClass": "thing",
+    "width": 0.25,
+    "depth": 0.25,
+    "x": 43.2,
+    "y": 4.9,
+    "rotation": 0.25
+  },
+  {
+    "name": "Router Table",
+    "cssClass": "machine",
+    "width": 2,
+    "depth": 2,
+    "x": 40,
+    "y": 17.5,
+    "rotation": 0.75
+  },
+  {
+    "name": "Router Bits",
+    "cssClass": "storage",
+    "width": 3,
+    "depth": 2,
+    "x": 41.5,
+    "y": 20.5,
+    "rotation": 0.75
+  },
+  {
+    "name": "Spindle Sander",
+    "cssClass": "machine",
+    "width": 1.5,
+    "depth": 1.5,
+    "x": 26,
+    "y": 32,
+    "rotation": 0.75
+  },
+  {
+    "name": "Disc Sander",
+    "cssClass": "machine",
+    "width": 1.5,
+    "depth": 1.5,
+    "x": 25.75,
+    "y": 29.5,
+    "rotation": 0.75
+  },
+  {
+    "name": "Belt Sander",
+    "cssClass": "machine",
+    "width": 4,
+    "depth": 3,
+    "x": 27,
+    "y": 23,
+    "rotation": 0.75
+  },
+  {
+    "name": "Thickness Planer",
+    "cssClass": "machine",
+    "width": 3,
+    "depth": 3,
+    "x": 31,
+    "y": 32,
+    "rotation": 0.625
+  },
+  {
+    "name": "Jointer",
+    "cssClass": "machine",
+    "width": 6,
+    "depth": 2,
+    "x": 40,
+    "y": 26,
+    "rotation": 0.75
+  },
+  {
+    "name": "Miter Saw",
+    "cssClass": "machine",
+    "width": 6,
+    "depth": 2,
+    "x": 31,
+    "y": 20,
+    "rotation": 0.25
+  },
+  {
+    "name": "Radial Arm Saw",
+    "cssClass": "machine",
+    "width": 6,
+    "depth": 2,
+    "x": 31,
+    "y": 26,
+    "rotation": 0.25
+  },
+  {
+    "name": "Computers and 3d Printers",
+    "cssClass": "thing",
+    "width": 10,
+    "depth": 3,
+    "x": 35,
+    "y": 47,
+    "rotation": 0
+  },
+  {
+    "name": "Books",
+    "cssClass": "thing",
+    "width": 4,
+    "depth": 1,
+    "x": 28,
+    "y": 43,
+    "rotation": 0.25
+  },
+  {
+    "name": "Couch",
+    "cssClass": "furnature",
+    "width": 6,
+    "depth": 2.5,
+    "x": 33,
+    "y": 40,
+    "rotation": 0.5
   }
 ]
+ 
