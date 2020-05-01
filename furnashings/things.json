@@ -1,7 +1,7 @@
 [
   {
     "name":"table saw",
-    "cssClass": "thing",
+    "cssClass": "machine",
     "width": 6,
     "depth": 5,
     "x": 9.25,
@@ -19,7 +19,7 @@
   },
   {
     "name": "Hayami's Desk",
-    "cssClass": "thing",
+    "cssClass": "furnature",
     "width": 5,
     "depth": 2.5,
     "x": 44.6,
@@ -28,7 +28,7 @@
   },
   {
     "name": "Coby's Desk",
-    "cssClass": "thing",
+    "cssClass": "furnature",
     "width": 5,
     "depth": 2.5,
     "x": 55,
@@ -47,7 +47,7 @@
   },
   {
     "name": "CNC Metal Lathe",
-    "cssClass": "thing",
+    "cssClass": "machine",
     "width": 6,
     "depth": 2.5,
     "x": 58.8,
@@ -57,11 +57,110 @@
   },
   {
     "name": "OMAX MicroMax Water Jet Machining Center",
-    "cssClass": "thing",
+    "cssClass": "machine",
     "width": 6.166,
     "depth": 7,
     "x": 70,
     "y": 24,
     "rotation": 0.75
+  },
+  {
+    "name": "Wood Scraps",
+    "cssClass": "storage",
+    "width": 3,
+    "depth": 1.5,
+    "x": 2.7,
+    "y": 1.8,
+    "rotation": 0.45
+  },
+  {
+    "name": "Project Storage",
+    "cssClass": "storage",
+    "width": 8,
+    "depth": 2,
+    "x": 1,
+    "y": 12,
+    "rotation": 0.25
+  },
+  {
+    "name": "Project Storage",
+    "cssClass": "storage",
+    "width": 8,
+    "depth": 2,
+    "x": 1,
+    "y": 27,
+    "rotation": 0.25
+  },
+  {
+    "name": "CNC Router",
+    "cssClass": "machine",
+    "width": 9,
+    "depth": 4.5,
+    "x": 13,
+    "y": 41,
+    "rotation": 0
+  },
+  {
+    "name": "Wood Lathe",
+    "cssClass": "machine",
+    "width": 6,
+    "depth": 2,
+    "x": 9.5,
+    "y": 32.5,
+    "rotation": 0
+  },
+  {
+    "name": "5 Axis CNC Mill",
+    "cssClass": "machine",
+    "width": 6,
+    "depth": 3,
+    "x": 24.5,
+    "y": 43,
+    "rotation": 0.75
+  },
+  {
+    "name": "Bridgeport Mill (for wood)",
+    "cssClass": "machine",
+    "width": 5,
+    "depth": 4,
+    "x": 17.5,
+    "y": 33,
+    "rotation": 0.5
+  },
+  {
+    "name": "Drill Press (for wood)",
+    "cssClass": "machine",
+    "width": 2,
+    "depth": 2.5,
+    "x": 17,
+    "y": 29,
+    "rotation": 0.2
+  },
+  {
+    "name": "Drill Bits, etc.",
+    "cssClass": "storage",
+    "width": 2,
+    "depth": 1,
+    "x": 14,
+    "y": 28.5,
+    "rotation": 0
+  },
+  {
+    "name": "Mortiser",
+    "cssClass": "machine",
+    "width": 2,
+    "depth": 2,
+    "x": 11.5,
+    "y": 28.5,
+    "rotation": 0
+  },
+  {
+    "name": "Band Saw",
+    "cssClass": "machine",
+    "width": 4,
+    "depth": 3,
+    "x": 14.5,
+    "y": 20,
+    "rotation": 0.25
   }
 ]

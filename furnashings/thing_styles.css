@@ -31,3 +31,24 @@
   vector-effect: non-scaling-stroke;
 }
 
+.machine {
+  stroke: red;
+  fill: cornflowerblue;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.storage {
+  stroke: red;
+  fill: lightgray;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.furnature {
+  stroke: red;
+  fill: gray;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
