@@ -1,0 +1,21 @@
+[
+  {
+    "name": "CNC Metal Lathe",
+    "cssClass": "machine",
+    "width": 6,
+    "depth": 2.5,
+    "x": 58.8,
+    "y": 6.5,
+    "rotation": 0.25,
+    "description": "CNC_metal_lathe-SI_154CH089.html"
+  },
+  {
+    "name": "OMAX MicroMax Water Jet Machining Center",
+    "cssClass": "machine",
+    "width": 6.166,
+    "depth": 7,
+    "x": 70,
+    "y": 24,
+    "rotation": 0.75
+  }
+]

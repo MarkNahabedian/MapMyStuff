@@ -5,10 +5,12 @@ function load_and_draw_things() {
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   svgdoc.addEventListener("mousemove", Show_event_location);
   fetch_things("furnashings/things.json");
+  fetch_things("furnashings/metal_shop.json");
+  fetch_things("furnashings/wood_shop.json");
+  fetch_things("furnashings/offices.json");
 }
 
 function fetch_things(path) {
-  console.log("fetch_things " + path);
   fetch(path).then(function(response) {
     if (!response.ok) {
       console.log(response.statusText);
@@ -16,11 +18,16 @@ function fetch_things(path) {
     }
     response.text().then(
       function(txt) {
-        var things = JSON.parse(txt);
-        for(var i = 0; i < things.lengtrh; i++) {
-          ALL_THINGS.push(things[i]);
+        try {
+          var things = JSON.parse(txt);
+          for(var i = 0; i < things.lengtrh; i++) {
+            ALL_THINGS.push(things[i]);
+          }
+          draw_things(things, path);
         }
-        draw_things(things, path);
+        catch (error) {
+          console.log(path + ": " + error);
+        }
       },
       console.log);
   });
@@ -43,7 +50,6 @@ function draw_things(things, from_path) {
 }
 
 function draw_thing(svgdoc, g, thing) {
-  console.log("draw_thing " + thing.name);
   var thing_group = svgdoc.createElementNS(g.namespaceURI, "g");
   thing_group.setAttribute("class", thing.cssClass);
   thing_group.setAttribute("id", thing_svg_id(thing));
@@ -170,7 +176,6 @@ function select_item(thing) {
 }
 
 function thingRectClicked(thing) {
-  console.log("clicked", thing);
   select_item(thing);
   Show_event_location(event);
 }
@@ -180,7 +185,6 @@ function enptySpaceClicked(event) {
     event = window.event;
   if (event.target !== this)
     return;
-  console.log("enptySpaceClicked");
   select_item();
   Show_event_location(event);
  }

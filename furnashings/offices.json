@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Hayami's Desk",
+    "cssClass": "furnature",
+    "width": 5,
+    "depth": 2.5,
+    "x": 44.6,
+    "y": 40,
+    "rotation": 0.5
+  },
+  {
+    "name": "Coby's Desk",
+    "cssClass": "furnature",
+    "width": 5,
+    "depth": 2.5,
+    "x": 55,
+    "y": 40,
+    "rotation": 0.5
+  },
+  {
+    "name": "Water Bubbler",
+    "cssClass": "thing",
+    "width": 1,
+    "depth": 1,
+    "x": 37.5,
+    "y": 39.5,
+    "rotation": 0.5
+  },
+  {
+    "name": "Computers and 3d Printers",
+    "cssClass": "thing",
+    "width": 10,
+    "depth": 3,
+    "x": 35,
+    "y": 47,
+    "rotation": 0
+  },
+  {
+    "name": "Books",
+    "cssClass": "thing",
+    "width": 4,
+    "depth": 1,
+    "x": 28,
+    "y": 43,
+    "rotation": 0.25
+  },
+  {
+    "name": "Couch",
+    "cssClass": "furnature",
+    "width": 6,
+    "depth": 2.5,
+    "x": 33,
+    "y": 40,
+    "rotation": 0.5
+  }
+]
