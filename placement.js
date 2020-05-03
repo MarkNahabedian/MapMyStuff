@@ -4,10 +4,10 @@ function load_and_draw_things() {
   console.log("load_and_draw_things");
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   svgdoc.addEventListener("mousemove", Show_event_location);
-//  fetch_things("furnashings/things.json");
-//  fetch_things("furnashings/metal_shop.json");
+  fetch_things("furnashings/things.json");
+  fetch_things("furnashings/metal_shop.json");
   fetch_things("furnashings/wood_shop.json");
-//  fetch_things("furnashings/offices.json");
+  fetch_things("furnashings/offices.json");
 }
 
 function fetch_things(path) {
