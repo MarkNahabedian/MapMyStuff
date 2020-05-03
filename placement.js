@@ -4,10 +4,10 @@ function load_and_draw_things() {
   console.log("load_and_draw_things");
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   svgdoc.addEventListener("mousemove", Show_event_location);
-  fetch_things("furnashings/things.json");
-  fetch_things("furnashings/metal_shop.json");
+//  fetch_things("furnashings/things.json");
+//  fetch_things("furnashings/metal_shop.json");
   fetch_things("furnashings/wood_shop.json");
-  fetch_things("furnashings/offices.json");
+//  fetch_things("furnashings/offices.json");
 }
 
 function fetch_things(path) {
@@ -26,7 +26,7 @@ function fetch_things(path) {
           draw_things(things, path);
         }
         catch (error) {
-          console.log(path + ": " + error);
+          throw (path + ": " + error);
         }
       },
       console.log);
@@ -44,7 +44,14 @@ function draw_things(things, from_path) {
     thing["from_file"] = from_path;
     thing["unique_id"] = item_unique_id_counter++;
     ALL_THINGS.push(things[index]);
-    draw_thing(svgdoc, g, thing);
+    try {
+      draw_thing(svgdoc, g, thing);
+    }
+    catch (error) {
+      console.log("Error while drawing " + thing.name +
+                  "(" + from_path + " #" + index + "):" +
+                  error);
+    }
     index += 1;
   }
 }
@@ -53,17 +60,32 @@ function draw_thing(svgdoc, g, thing) {
   var thing_group = svgdoc.createElementNS(g.namespaceURI, "g");
   thing_group.setAttribute("class", thing.cssClass);
   thing_group.setAttribute("id", thing_svg_id(thing));
-  var rect = svgdoc.createElementNS(g.namespaceURI, "rect");
+  var shape;
   var title = svgdoc.createElementNS(g.namespaceURI, "title");
   title.textContent = thing.name;
-  rect.appendChild(title);
+  if (thing.path_d) {
+    shape = svgdoc.createElementNS(g.namespaceURI, "path");
+    shape.setAttribute("d", thing.path_d);
+    thing_group.appendChild(shape);
+  } else {
+    shape = svgdoc.createElementNS(g.namespaceURI, "rect");
+    shape.setAttribute("width", thing.width);
+    shape.setAttribute("height", thing.depth);
+    shape.setAttribute("x", - thing.width / 2);
+    shape.setAttribute("y", - thing.depth / 2);
+    var direction_tick = svgdoc.createElementNS(g.namespaceURI, "path");
+    direction_tick.setAttribute("class", "direction-indicator");
+    direction_tick.setAttribute(
+      "d",
+      "M 0 0 v " + (- thing.depth / 2)
+    );
+    thing_group.appendChild(shape);
+    thing_group.appendChild(direction_tick);
+  }
+  shape.appendChild(title);
   // The vector-effect CSS property doesn't cascade.
-  rect.setAttribute("class", thing.cssClass);
-  rect.setAttribute("width", thing.width);
-  rect.setAttribute("height", thing.depth);
-  rect.setAttribute("x", - thing.width / 2);
-  rect.setAttribute("y", - thing.depth / 2);
-  rect.onclick = function(event) {
+  shape.setAttribute("class", thing.cssClass);
+  shape.onclick = function(event) {
     if (!event)
       event = window.event;
     if (event.target !== this)
@@ -74,14 +96,6 @@ function draw_thing(svgdoc, g, thing) {
     "transform",
     "rotate(" + thing.rotation * 360 + ", " + thing.x + ", " + thing.y + ")" +
       "translate(" + thing.x + ", " + thing.y + ")")
-  var direction_tick = svgdoc.createElementNS(g.namespaceURI, "path");
-  direction_tick.setAttribute("class", "direction-indicator");
-  direction_tick.setAttribute(
-    "d",
-    "M 0 0 v " + (- thing.depth / 2)
-  );
-  thing_group.appendChild(rect);
-  thing_group.appendChild(direction_tick);
   g.appendChild(thing_group);
   thing.svg_element = thing_group;
 }

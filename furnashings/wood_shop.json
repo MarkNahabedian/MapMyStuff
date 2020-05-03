@@ -250,5 +250,13 @@
     "x": 31,
     "y": 26,
     "rotation": 0.25
+  },
+  {
+    "name": "Sharpening Station",
+    "cssClass": "machine",
+    "path_d": "M 0 0 h 2 v -1 h -3 v 3 h 1 z",
+    "x": 26.7,
+    "y": 5.8,
+    "rotation": 0.75
   }
 ]

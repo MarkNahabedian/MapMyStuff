@@ -21,24 +21,6 @@ gives a brief descriptive name for the item.  This property is
 presented in the tooltip when hovering over the item and is centered
 at the top of the description box when the item is clicked on.
 
-## width
-
-To draw an item on the floor plan we need to know its size.  The width
-property describes how wide the item is in feet, from the point of
-view of someone standing at the item and using it.  For a workbench
-this can be subjective, but for a machine like a table saw the width
-is measured perpendicular to the rip fence from the infeed side of the
-saw,
-
-<pre>
-     "width": 6,
-</pre>
-
-## Depth
-
-The dept of an item is the distance between the edge of the item
-closest to the user to the edge farthest away.
-
 
 ## cssClass
 
@@ -51,11 +33,65 @@ of "thing".
 
      "cssClass": "thing",
 
-We envision defining different appearances for machines versus
+This allows us to define different appearances for machines versus
 workbenches, for example.
 
 
-# Locatioon Properties
+# Shape
+
+## Rectangle
+
+We assume that most items are rectangular, or at least can be
+represented by a rectangular footprint.
+
+We draw those items that can be represented by a rectangle with an SVG
+rect element for which we must provide a width and height.
+
+We also add an indicator to show the rotational orientation of the
+item.  This is just a line drawn from the center of the rectangle to
+the "operator" side of the item.  Using the table saw as an example,
+this would be the infeed side.
+
+
+### width
+
+To draw an item on the floor plan we need to know its size.  The width
+property describes how wide the item is in feet, from the point of
+view of someone standing at the item and using it.  For a workbench
+this can be subjective, but for a machine like a table saw the width
+is measured perpendicular to the rip fence from the infeed side of the
+saw,
+
+<pre>
+     "width": 6,
+</pre>
+
+### depth
+
+The dept of an item is the distance between the edge of the item
+closest to the user to the edge farthest away.
+
+
+## Non-rectangular Shapes
+
+For items that can't be modeled by a rectange we use a closed SVG path
+element.  That path element's origin will be placed at the specified X
+and Y coordinate and the shape of the path should consider what
+
+<pre>
+  "direction": 0
+</pre>
+
+is.
+
+
+### path_d
+
+The path_d property provides the "d" attribute of the SVG path
+representing the item.
+
+
+# Location Properties
 
 An item's location properties are used to position it on the floor plan.
 
