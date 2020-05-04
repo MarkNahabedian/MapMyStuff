@@ -175,6 +175,7 @@ function select_item(thing) {
   if (selected_thing) {
     var elt = selected_thing.svg_element;
     elt.setAttribute("class", selected_thing.cssClass);
+    target(selected_thing, false);
     selected_thing = null;
   }
   if (!thing) {
@@ -182,6 +183,7 @@ function select_item(thing) {
     return
   }
   selected_thing = thing;
+  target(thing, true);
   show_description(thing);
   var elt = selected_thing.svg_element;
   if (elt) {
@@ -203,6 +205,37 @@ function enptySpaceClicked(event) {
   Show_event_location(event);
  }
 
+// Draw (or remove) a target circle around the specified item.
+function target(item, doit=false) {
+  console.log("TARGET", item, doit);
+  if (doit) {
+    var item_elt = item.svg_element;
+    var doc = item_elt.ownerDocument;
+    var bbox = item_elt.getBBox();
+    var centerX = bbox.x + bbox.width / 2;
+    var centerY = bbox.y + bbox.height / 2;
+    var radius = Math.max(bbox.width, bbox.height) / 2;
+    var g = doc.createElementNS(item_elt.namespaceURI, "g");
+    var circle = function(multiplier, cls) {
+      var c = doc.createElementNS(item_elt.namespaceURI, "circle");
+      g.appendChild(c);
+      c.setAttribute("cx", centerX);
+      c.setAttribute("cy", centerY);
+      c.setAttribute("r", radius * multiplier);
+      c.setAttribute("class", cls);
+    };
+    circle(1.3, "target");
+    // circle(1.6, "target");
+    item_elt.appendChild(g);
+    item.target_indicator = g;
+  } else {
+    if (item.target_indicator) {
+      item.target_indicator.parentElement.removeChild(item.target_indicator);
+      item.target_indicator = null;
+    }
+  }
+}
+
 function Show_event_location(event) {
   var container = document.getElementById("floor_plan_svg");
   var svgdoc = container.contentDocument;
@@ -215,4 +248,3 @@ function Show_event_location(event) {
   showX.textContent = xformed.x.toFixed(3);
   showY.textContent = xformed.y.toFixed(3);
 }
-
