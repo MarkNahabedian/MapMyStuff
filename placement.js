@@ -10,10 +10,20 @@ function load_and_draw_things() {
     fetch_things("furnashings/wood_shop.json"),
     fetch_things("furnashings/offices.json")
   ]).then(function() {
+    ALL_THINGS.sort(sort_item_item_compare);
+    update_items_list(ALL_THINGS);
     if (document.location.hash) {
       select_item(document.location.hash.substring(1));
     }
   }, console.log);
+}
+
+function sort_item_item_compare(item1, item2) {
+  var name1 = item1.name;
+  var name2 = item2.name;
+  if (name1 < name2) return -1;
+  if (name1 > name2) return 1;
+  return 0;
 }
 
 function fetch_things(path) {
@@ -22,7 +32,7 @@ function fetch_things(path) {
       console.log(response.statusText);
       return;
     }
-    response.text().then(
+    return response.text().then(
       function(txt) {
         try {
           var things = JSON.parse(txt);
@@ -34,9 +44,29 @@ function fetch_things(path) {
         catch (error) {
           throw (path + ": " + error);
         }
+        return true;
       },
       console.log);
   });
+}
+
+function update_items_list(items) {
+  var list_elt = document.getElementById("items");
+  while (list_elt.hasChildNodes()) {
+    list_elt.removeChild(list_elt.firstChild);
+  }
+  for (var i = 0; i < items.length; i++) {
+    var item = items[i];
+    var item_elt = document.createElement("div");
+    item_elt.setAttribute("class", "item");
+    var a = document.createElement("a");
+    a.setAttribute("href", "#" + item.unique_id);
+    a.setAttribute("onclick",
+                   "select_item('" + item.unique_id + "')");
+    a.textContent = item.name;
+    item_elt.appendChild(a);
+    list_elt.appendChild(item_elt);
+  }
 }
 
 function draw_things(things, from_path) {
