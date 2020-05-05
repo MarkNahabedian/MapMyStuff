@@ -4,14 +4,20 @@ function load_and_draw_things() {
   console.log("load_and_draw_things");
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   svgdoc.addEventListener("mousemove", Show_event_location);
-  fetch_things("furnashings/things.json");
-  fetch_things("furnashings/metal_shop.json");
-  fetch_things("furnashings/wood_shop.json");
-  fetch_things("furnashings/offices.json");
+  Promise.all([
+    fetch_things("furnashings/things.json"),
+    fetch_things("furnashings/metal_shop.json"),
+    fetch_things("furnashings/wood_shop.json"),
+    fetch_things("furnashings/offices.json")
+  ]).then(function() {
+    if (document.location.hash) {
+      select_item(document.location.hash.substring(1));
+    }
+  }, console.log);
 }
 
 function fetch_things(path) {
-  fetch(path).then(function(response) {
+  return fetch(path).then(function(response) {
     if (!response.ok) {
       console.log(response.statusText);
       return;
@@ -42,7 +48,9 @@ function draw_things(things, from_path) {
   while (index < things.length) {
     var thing = things[index];
     thing["from_file"] = from_path;
-    thing["unique_id"] = item_unique_id_counter++;
+    if (!thing.unique_id) {
+      thing["unique_id"] = item_unique_id_counter++;
+    }
     ALL_THINGS.push(things[index]);
     try {
       draw_thing(svgdoc, g, thing);
@@ -101,7 +109,7 @@ function draw_thing(svgdoc, g, thing) {
 }
 
 function thing_svg_id(thing) {
-  return "thingrect" + thing.unique_id;
+  return "" + thing.unique_id;
 }
 
 var item_unique_id_counter = 1;
@@ -169,6 +177,11 @@ function show_description(thing) {
 var selected_thing = null;
 
 function select_item(thing) {
+  // thing can be an item object or the unique_id of an item.
+  // If null than any current selection is unselected.
+  if (typeof(thing) === "string") {
+    thing = getThing(thing);
+  }
   console.log("select_item", thing);
   var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   // Clear existing selection
@@ -203,7 +216,7 @@ function enptySpaceClicked(event) {
     return;
   select_item();
   Show_event_location(event);
- }
+}
 
 // Draw (or remove) a target circle around the specified item.
 function target(item, doit=false) {
