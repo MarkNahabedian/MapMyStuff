@@ -37,6 +37,25 @@ This allows us to define different appearances for machines versus
 workbenches, for example.
 
 
+## unique_id
+
+A unique_id can be provided So that items can be referred to from the
+descriptions of other items.  The unique_id will be used as the "id"
+attribute of the SVG group element that represents the item on the
+floor plan.
+
+Here's an example of how to link to another item from an HTML
+description so that that item will be selected when its link is
+clicked on:
+
+<pre> <![CDATA[
+  <a href="#"
+     onclick="select_item('unique_id')">
+    anchor text
+  </a>.
+]]></pre>
+
+
 # Shape
 
 ## Rectangle

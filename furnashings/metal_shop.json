@@ -1,6 +1,7 @@
 [
   {
     "name": "CNC Metal Lathe",
+    "unique_id": "SI_154CH089",
     "cssClass": "machine",
     "width": 6,
     "depth": 2.5,
@@ -8,6 +9,17 @@
     "y": 6.5,
     "rotation": 0.25,
     "description": "CNC_metal_lathe-SI_154CH089.html"
+  },
+  {
+    "name": "Lathe Cutters",
+    "unique_id": "SI_154CH089-cutters",
+    "cssClass": "storage",
+    "width": 3,
+    "depth": 0.5,
+    "x": 58,
+    "y": 0.4,
+    "rotation": 0.5,
+    "description": "Do these work with the other metal lathe as well?"
   },
   {
     "name": "OMAX MicroMax Water Jet Machining Center",
