@@ -9,6 +9,15 @@
     "rotation": 0
   },
   {
+    "name": "Table Saw Crosscut Sled",
+    "cssClass": "storage",
+    "width": 2,
+    "depth": 0.5,
+    "x": 13.6,
+    "y": 3.25,
+    "rotation": 0.5
+  },
+  {
     "name": "Wood Scraps",
     "cssClass": "storage",
     "width": 3,
@@ -69,7 +78,8 @@
     "depth": 4,
     "x": 17.5,
     "y": 33,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "description": "wood_mill.html"
   },
   {
     "name": "Drill Press (for wood)",
@@ -104,7 +114,7 @@
     "width": 4,
     "depth": 3,
     "x": 14.5,
-    "y": 20,
+    "y": 20.6,
     "rotation": 0.25
   },
   {
@@ -181,6 +191,7 @@
   },
   {
     "name": "Router Bits",
+    "unique_id": "router_bit_cabinet",
     "cssClass": "storage",
     "width": 3,
     "depth": 2,
