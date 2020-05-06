@@ -49,11 +49,21 @@ description so that that item will be selected when its link is
 clicked on:
 
 <pre> <![CDATA[
-  <a href="#"
+  <a href="#unique_id"
      onclick="select_item('unique_id')">
     anchor text
   </a>.
 ]]></pre>
+
+NOTE: For links within item descriptions, the onclick attribute is
+required since I've not yet figured out what event to handle to terget
+fragent links within the current document to refer to SVG elements.
+
+Items with permanent unique_id properties can be linked to directly
+using that unique id as a URL fragment, for example
+<a href="../floor_plan.html#SI_154CH089">
+../floor_plan.html#SI_154CH089
+</a>.
 
 
 # Shape
