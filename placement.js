@@ -55,18 +55,32 @@ function update_items_list(items) {
   while (list_elt.hasChildNodes()) {
     list_elt.removeChild(list_elt.firstChild);
   }
-  for (var i = 0; i < items.length; i++) {
-    var item = items[i];
-    var item_elt = document.createElement("div");
-    item_elt.setAttribute("class", "item");
-    var a = document.createElement("a");
-    a.setAttribute("href", "#" + item.unique_id);
-    a.setAttribute("onclick",
-                   "select_item('" + item.unique_id + "')");
-    a.textContent = item.name;
-    item_elt.appendChild(a);
-    list_elt.appendChild(item_elt);
-  }
+  var do_list = function(container, things) {
+    // things is a list containing item objects and strings.
+    for (var i = 0; i < things.length; i++) {
+      var item = things[i];
+      var item_elt = document.createElement("div");
+      item_elt.setAttribute("class", "item");
+      if (typeof(item) === "string") {
+        item_elt.textContent = item;
+      } else {
+        var a = document.createElement("a");
+        a.setAttribute("href", "#" + item.unique_id);
+        a.setAttribute("onclick",
+                       "select_item('" + item.unique_id + "')");
+        a.textContent = item.name;
+        item_elt.appendChild(a);
+        if (item.contents && item.contents.length > 0) {
+          var contents_elt = document.createElement("div");
+          contents_elt.setAttribute("class", "container");
+          item_elt.appendChild(contents_elt);
+          do_list(contents_elt, item.contents);
+        }
+      }
+      container.appendChild(item_elt);
+    }
+  };
+  do_list(list_elt, items);
 }
 
 function draw_things(things, from_path) {

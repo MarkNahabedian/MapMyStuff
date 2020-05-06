@@ -179,3 +179,13 @@ an HTML fragment that will be displayed in the description box.
 
 Additional properties might be provided to provide a more detailed etc.,
 descriptionof an item,link to user manuals
+
+
+## contents
+
+Some items are storage cabinents which are not interesting in
+themselves but are interesting because of their contents.  The value
+of the contents property is a list, each element of which can be a
+simple string, e.g. "sandpaper", or an item.  The contents of an item
+is included in outline form in the list of all items below the floor
+plan.

@@ -29,5 +29,25 @@
     "x": 70,
     "y": 24,
     "rotation": 0.75
+  },
+  {
+    "name": "Milling Machine Accessories",
+    "cssClass": "storage",
+    "width": 2,
+    "depth": 1.5,
+    "x": 42.5,
+    "y": 26,
+    "rotation": 0.25,
+    "contents": [
+      "Top surface: drill bits",
+      "1st (top) drawer: end mills",
+      "2nd (top) drawer: ?",
+      "3rd (top) drawer: ?",
+      "4th (top) drawer: ?",
+      "5th (top) drawer: ?",
+      "6th (top) drawer: ?",
+      "7th (top) drawer: ?",
+      "8th (top) drawer: ?"
+      ]
   }
 ]
