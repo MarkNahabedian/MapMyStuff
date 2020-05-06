@@ -62,25 +62,75 @@ function update_items_list(items) {
       var item_elt = document.createElement("div");
       item_elt.setAttribute("class", "item");
       if (typeof(item) === "string") {
-        item_elt.textContent = item;
-      } else {
+        // Turn it into an item.
+        item = {
+          "name": item
+        };
+        things[i] = item;
+      }
+      item.list_element = item_elt;
+      if (container == list_elt) {
         var a = document.createElement("a");
         a.setAttribute("href", "#" + item.unique_id);
         a.setAttribute("onclick",
                        "select_item('" + item.unique_id + "')");
         a.textContent = item.name;
         item_elt.appendChild(a);
-        if (item.contents && item.contents.length > 0) {
-          var contents_elt = document.createElement("div");
-          contents_elt.setAttribute("class", "container");
-          item_elt.appendChild(contents_elt);
-          do_list(contents_elt, item.contents);
-        }
+      } else {
+        item_elt.textContent = item.name;
+      }
+      if (item.contents && item.contents.length > 0) {
+        var contents_elt = document.createElement("div");
+        contents_elt.setAttribute("class", "container");
+        item_elt.appendChild(contents_elt);
+        do_list(contents_elt, item.contents);
       }
       container.appendChild(item_elt);
     }
   };
   do_list(list_elt, items);
+}
+
+function filter_items_list(filter_string) {
+  // Initially we just test for mindless substring inclusion.
+  filter_string = filter_string.toLowerCase();
+  filter_items_list_(function(item) {
+    return item.name.toLowerCase().indexOf(filter_string) >= 0;    
+  });
+}
+
+function filter_items_list_(filter) {
+  var show = function(item) {
+    var elt = item.list_element;
+    elt.setAttribute(
+      "class", elt.getAttribute("class").replace(" hidden-item", ""));
+  };
+  var hide = function(item) {
+    var elt = item.list_element;
+    elt.setAttribute(
+      "class", elt.getAttribute("class") + " hidden-item");
+  };
+  var do_item = function(item) {
+    // Returns true iff item should be visible
+    var any = false;
+    if (filter(item)) {
+      any = true;
+    }
+    if (item.contents) {
+      for (var i = 0; i < item.contents.length; i++) {
+        var itm = item.contents[i];
+        if (do_item(itm)) {
+          any = true;
+        }
+      }
+    }
+    if (any)
+      show(item);
+    else
+      hide(item);
+    return any;
+  };
+  ALL_THINGS.forEach(do_item);
 }
 
 function draw_things(things, from_path) {
@@ -264,7 +314,6 @@ function enptySpaceClicked(event) {
 
 // Draw (or remove) a target circle around the specified item.
 function target(item, doit=false) {
-  console.log("TARGET", item, doit);
   if (doit) {
     var item_elt = item.svg_element;
     var doc = item_elt.ownerDocument;
