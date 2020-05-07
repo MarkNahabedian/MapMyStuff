@@ -17,6 +17,24 @@
     "x": 43.2,
     "y": 4.9,
     "rotation": 0.25
+  },
+  {
+    "name": "Coat Rod",
+    "cssClass": "storage",
+    "width": 1,
+    "depth": 0.1,
+    "x": 55,
+    "y": 1,
+    "rotation": 0.5
+  },
+  {
+    "name": "Day Storage & Backpacks",
+    "cssClass": "storage",
+    "width": 5,
+    "depth": 1.5,
+    "x": 51.5,
+    "y": 1,
+    "rotation": 0.5
   }
 ]
 
