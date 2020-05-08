@@ -52,9 +52,7 @@ function fetch_things(path) {
 
 function update_items_list(items) {
   var list_elt = document.getElementById("items");
-  while (list_elt.hasChildNodes()) {
-    list_elt.removeChild(list_elt.firstChild);
-  }
+  make_empty(list_elt);
   var do_list = function(container, things) {
     // things is a list containing item objects and strings.
     for (var i = 0; i < things.length; i++) {
@@ -224,9 +222,7 @@ function getThing(id) {
 function show_description(thing) {
   // Clear description:
   var desc_elt = document.getElementById("description");
-  while (desc_elt.hasChildNodes()) {
-    desc_elt.removeChild(desc_elt.firstChild);
-  }
+  make_empty(desc_elt);
   if (!thing)
     return;
   var d = document.createElement("div");
@@ -355,4 +351,10 @@ function Show_event_location(event) {
   xformed = point.matrixTransform(trans);
   showX.textContent = xformed.x.toFixed(3);
   showY.textContent = xformed.y.toFixed(3);
+}
+
+function make_empty(element) {
+  while (element.hasChildNodes()) {
+    element.removeChild(element.firstChild);
+  }
 }
