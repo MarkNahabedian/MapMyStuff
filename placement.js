@@ -287,10 +287,12 @@ function select_item(thing) {
   }
   if (!thing) {
     show_description(false);
-    return
+    document.location.hash = "";
+    return;
   }
   selected_thing = thing;
   target(thing, true);
+  document.location.hash = "#" + thing.unique_id;
   show_description(thing);
   var elt = selected_thing.svg_element;
   if (elt) {
