@@ -1,3 +1,5 @@
+//   -*- js-indent-level: 2; -*-
+
 // Place things onto the floorplan.
 
 function load_and_draw_things() {
@@ -219,6 +221,11 @@ function getThing(id) {
 
 // Show thing's description in the description element.  With no
 // thing, just clear the description element.
+//
+// Because drawing the selected item indicator in the page overlay
+// requires that the display box already be sized, this returns a
+// Promise whose resolution can be used to trigger drawing of the
+// selected item indicator.
 function show_description(thing) {
   // Clear description:
   var desc_elt = document.getElementById("description");
@@ -234,23 +241,23 @@ function show_description(thing) {
   name.appendChild(document.createTextNode(thing.name));
   var description = thing.description;
   if (!description)
-    return;
+    return Promise.resolve(null);
   var content = document.createElement("div");
   d.appendChild(content);
   // Description might be text or a URI.  If it contains whitespace
   // (likely in a textual description) then we know it's not a URI.
   if (description.indexOf(" ") >= 0) {
     content.appendChild(document.createTextNode(description));
-    return;
+    return Promise.resolve(null);
   }
   // Otherwise, we attempt to fetch it.  If that fails we insert it as
   // text, otherwise we insert the content of the fetched document.
-  fetch("furnashings/" + thing.description).then(
+  return fetch("furnashings/" + thing.description).then(
     function(response) {
       console.log(response.status, response.statusText);
       if (!response.ok) {
         content.appendChild(document.createTextNode(thing.description));
-        return;
+        return Promise.resolve(null);
       }
       response.text().then(
         function(txt) {
@@ -287,9 +294,10 @@ function select_item(thing) {
     return;
   }
   selected_thing = thing;
-  target(thing, true);
+  show_description(thing).then(wait(100)).then(() => target(thing, true));
+  // Give the layout a chance to update before this:
+  // window.setTimeout(target, 300, thing, true);
   document.location.hash = "#" + thing.unique_id;
-  show_description(thing);
   var elt = selected_thing.svg_element;
   if (elt) {
     elt.setAttribute("class", selected_thing.cssClass + " selected");
@@ -310,34 +318,42 @@ function enptySpaceClicked(event) {
   Show_event_location(event);
 }
 
-// Draw (or remove) a target circle around the specified item.
+// Make it easy to find the selected item on the floor plan.
 function target(item, doit=false) {
-  if (doit) {
-    var item_elt = item.svg_element;
-    var doc = item_elt.ownerDocument;
-    var bbox = item_elt.getBBox();
-    var centerX = bbox.x + bbox.width / 2;
-    var centerY = bbox.y + bbox.height / 2;
-    var radius = Math.max(bbox.width, bbox.height) / 2;
-    var g = doc.createElementNS(item_elt.namespaceURI, "g");
-    var circle = function(multiplier, cls) {
-      var c = doc.createElementNS(item_elt.namespaceURI, "circle");
-      g.appendChild(c);
-      c.setAttribute("cx", centerX);
-      c.setAttribute("cy", centerY);
-      c.setAttribute("r", radius * multiplier);
-      c.setAttribute("class", cls);
-    };
-    circle(1.3, "target");
-    // circle(1.6, "target");
-    item_elt.appendChild(g);
-    item.target_indicator = g;
-  } else {
-    if (item.target_indicator) {
-      item.target_indicator.parentElement.removeChild(item.target_indicator);
-      item.target_indicator = null;
-    }
+  var overlay = document.getElementById("selection-overlay");
+  make_empty(overlay);
+  if (!doit) {
+    return;
   }
+  var desc_box = document.getElementById("description");
+  var desc_bbox = desc_box.getBoundingClientRect();
+  var obj_bbox = document.getElementById("floor_plan_svg").getBoundingClientRect();
+  // selected_bbox is in a different document (contained within an
+  // object element).  We need to offset by the edges of the object
+  // element.
+  var selected_bbox = item.svg_element.getBoundingClientRect();
+  var sel_centerX = (selected_bbox.left + selected_bbox.right) / 2;
+  var sel_centerY = (selected_bbox.top + selected_bbox.bottom) / 2;
+  var centerX = window.scrollX + sel_centerX; // + obj_bbox.left;   WHY DOES ADDIING THIS NOT GIVE THE RIGHT X?
+  var centerY = window.scrollY + sel_centerY + obj_bbox.top;
+  // WHY DO WE NEED THIS KLUDGE TO GET THE Y COORDINATE RIGHT
+  centerY -= 20;
+  var radius = 1.2 * bbox_radius(selected_bbox);
+  var c = document.createElementNS(overlay.namespaceURI, "circle");
+  c.setAttribute("cx", centerX);
+  c.setAttribute("cy", centerY);
+  c.setAttribute("r", radius);
+  overlay.appendChild(c);
+  var anchorX = window.scrollX + ((desc_bbox.left + desc_bbox.right) / 2);
+  var anchorY = window.scrollY + desc_bbox.bottom;
+  var cpp = circle_perimeter_point(centerX, centerY, radius, anchorX, anchorY)
+  var p = document.createElementNS(overlay.namespaceURI, "path");
+  p.setAttribute("d",
+                 "M " + anchorX + " " + anchorY +
+                 " L " +
+                 (centerX - cpp[0]) + " " + (centerY - cpp[1])
+                );
+  overlay.appendChild(p);
 }
 
 function Show_event_location(event) {
@@ -358,3 +374,22 @@ function make_empty(element) {
     element.removeChild(element.firstChild);
   }
 }
+
+function wait(ms) {
+  return function(x) {
+    return new Promise(resolve => setTimeout(resolve, ms, x));
+  };
+}
+
+function bbox_radius(bbox) {
+  var hw = bbox.width / 2;
+  var hh = bbox.height / 2;
+  return Math.sqrt(hw * hw + hh * hh);
+}
+
+function circle_perimeter_point(centerX, centerY, radius, otherX, otherY) {
+  var angle = Math.atan2(centerY - otherY, centerX - otherX);
+  return [radius * Math.cos(angle),
+          radius * Math.sin(angle)];
+}
+

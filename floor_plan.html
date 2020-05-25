@@ -3,6 +3,24 @@
   <head>
     <title>Hobby Shop Floor Plan</title>
     <style type="text/css">
+      html, body {
+          position: relative;
+          min-height: 100%;
+      }
+      #selection-overlay {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          overflow: visible;
+          min-width: 100%;
+          min-height: 100%;
+          z-index: 5;
+          pointer-events: none;
+          stroke: blue;
+          fill: none;
+          stroke-width: 1px;
+      }
       #description:empty {
           display: none;
       }
@@ -47,19 +65,23 @@ window.onload = function() {
     </script>
   </head>
   <body>
+    <svg xmlns="http://www.w3.org/2000/svg"
+             id="selection-overlay">
+    </svg>
+
     <h1>MIT Hobby Shop</h1>
     <p>
       Each grid box is 16 feet by 16 feet.
     </p>
-    <div id="description"></div>
-    <div class="pointer-position">
-      X: <span id="show-pointer-x"></span>,
-      Y: <span id="show-pointer-y"></span>
-    </div>
     <div>
+      <div id="description"></div>
+      <div class="pointer-position">
+        X: <span id="show-pointer-x"></span>,
+        Y: <span id="show-pointer-y"></span>
+      </div>
       <!-- 
-      We use object instead of img so that code in placement.js can
-      get access to the loaded SVG document.
+        We use object instead of img so that code in placement.js can
+        get access to the loaded SVG document.
       -->
       <object id="floor_plan_svg"
               data="floor_plan_cleanup/cleaned_up.svg"
@@ -75,5 +97,6 @@ window.onload = function() {
              onchange="filter_items_list(this.value)"/>
     </div>
     <div id="items"></div>
+</div>
   </body>
 </html>

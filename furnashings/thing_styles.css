@@ -13,23 +13,6 @@
   }
 }
 
-.target {
-  fill: none;
-  stroke: blue;
-  stroke-width: 2;
-  vector-effect: non-scaling-stroke;
-  animation-name: target;
-  animation-duration: 800ms;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;  
-}
-
-@keyframes target {
-  50% {
-    transform: scale(3);
-  }
-}
-
 .direction-indicator {
   fill: none;
   stroke-width: 2;
