@@ -15,7 +15,8 @@
     "depth": 0.5,
     "x": 13.6,
     "y": 3.25,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "description": "The crosscut sled for the table saw hangs on a hook from this column."
   },
   {
     "name": "Wood Scraps",
