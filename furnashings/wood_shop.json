@@ -57,10 +57,10 @@
   {
     "name": "CNC Router",
     "cssClass": "machine",
-    "width": 9,
-    "depth": 4.5,
-    "x": 13,
-    "y": 41,
+    "width": 10,
+    "depth": 5,
+    "x": 12,
+    "y": 44,
     "rotation": 0
   },
   {
@@ -86,8 +86,8 @@
     "cssClass": "machine",
     "width": 5,
     "depth": 4,
-    "x": 17,
-    "y": 33.5,
+    "x": 16,
+    "y": 34.5,
     "rotation": 0.4,
     "description": "wood_mill.html"
   },
@@ -96,8 +96,8 @@
     "cssClass": "machine",
     "width": 2,
     "depth": 2.5,
-    "x": 17,
-    "y": 29,
+    "x": 16,
+    "y": 27.5,
     "rotation": 0.2
   },
   {
@@ -105,17 +105,17 @@
     "cssClass": "storage",
     "width": 2,
     "depth": 1,
-    "x": 14,
-    "y": 28.5,
-    "rotation": 0
+    "x": 15.8,
+    "y": 30.5,
+    "rotation": 0.25
   },
   {
     "name": "Mortiser",
     "cssClass": "machine",
     "width": 2,
     "depth": 2,
-    "x": 11.5,
-    "y": 28.5,
+    "x": 12.5,
+    "y": 28.4,
     "rotation": 0
   },
   {
