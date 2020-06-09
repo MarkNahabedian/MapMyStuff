@@ -37,6 +37,13 @@
   vector-effect: non-scaling-stroke;
 }
 
+.station {
+  stroke: blue;
+  fill: cyan;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;    
+}
+
 .storage {
   stroke: red;
   fill: lightgray;

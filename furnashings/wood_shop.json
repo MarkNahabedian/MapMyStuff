@@ -46,6 +46,15 @@
     "rotation": 0.25
   },
   {
+    "name": "Project Storage",
+    "cssClass": "storage",
+    "width": 8,
+    "depth": 2,
+    "x": 1,
+    "y": 35,
+    "rotation": 0.25
+  },
+  {
     "name": "CNC Router",
     "cssClass": "machine",
     "width": 9,
@@ -77,9 +86,9 @@
     "cssClass": "machine",
     "width": 5,
     "depth": 4,
-    "x": 17.5,
-    "y": 33,
-    "rotation": 0.5,
+    "x": 17,
+    "y": 33.5,
+    "rotation": 0.4,
     "description": "wood_mill.html"
   },
   {

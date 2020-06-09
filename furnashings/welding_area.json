@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Welding Table",
+    "cssClass": "station",
+    "width": 4,
+    "depth": 4,
+    "x": 80,
+    "y": 42,
+    "rotation": 0
+  },
+  {
+    "name": "Metal Shear",
+    "cssClass": "machine",
+    "width": 4,
+    "depth": 2.5,
+    "x": 80,
+    "y": 34,
+    "rotation": 0.5
+  },
+  {
+    "name": "Metal Break",
+    "cssClass": "machine",
+    "width": 4,
+    "depth": 2.5,
+    "x": 86,
+    "y": 34,
+    "rotation": 0.5
+  },
+  {
+    "name": "Grinder",
+    "cssClass": "machine",
+    "width": 4,
+    "depth": 2.5,
+    "x": 89,
+    "y": 47,
+    "rotation": 0
+  },
+  {
+    "name": "Metal Storage",
+    "cssClass": "storage",
+    "width": 6,
+    "depth": 2,
+    "x": 90,
+    "y": 41,
+    "rotation": 0.75
+  }
+]

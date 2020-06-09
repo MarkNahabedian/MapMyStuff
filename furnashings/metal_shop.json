@@ -31,6 +31,15 @@
     "rotation": 0.75
   },
   {
+    "name": "OMAX Mystery Support Box",
+    "cssClass": "machine",
+    "width": 3,
+    "depth": 2.5,
+    "x": 68,
+    "y": 29.5,
+    "rotation": 0.75
+  },
+  {
     "name": "Milling Machine Accessories",
     "cssClass": "storage",
     "width": 2,
@@ -49,5 +58,149 @@
       "7th (top) drawer: ?",
       "8th (top) drawer: ?"
       ]
+  },
+  {
+    "name": "Desk, Finishing Rag Storage",
+    "cssClass": "furnature",
+    "width": 5,
+    "depth": 2.5,
+    "x": 60,
+    "y": 47,
+    "rotation": 0
+  },
+  {
+    "name": "Laser Cutter",
+    "cssClass": "machine",
+    "width": 5,
+    "depth": 3,
+    "x": 65,
+    "y": 47,
+    "rotation": 0
+  },
+  {
+    "name": "Plastic Storage",
+    "cssClass": "storage",
+    "width": 3,
+    "depth": 2.5,
+    "x": 74.5,
+    "y": 47,
+    "rotation": 0.75
+  },
+  {
+    "name": "Bridgeport Mill (for metal)",
+    "cssClass": "machine",
+    "width": 5,
+    "depth": 4,
+    "x": 46,
+    "y": 31,
+    "rotation": 0.30
+  },
+  {
+    "name": "Trak Mill",
+    "cssClass": "machine",
+    "width": 5,
+    "depth": 4,
+    "x": 45,
+    "y": 21.25,
+    "rotation": 0.25
+  },
+  {
+    "name": "Workbench",
+    "cssClass": "furnature",
+    "width": 4,
+    "depth": 2.5,
+    "x": 51,
+    "y": 7,
+    "rotation": 0.5
+  },
+  {
+    "name": "Tormack CNC Mill",
+    "cssClass": "machine",
+    "width": 4,
+    "depth": 4,
+    "x": 55.2,
+    "y": 8,
+    "rotation": 0.5
+  },
+  {
+    "name": "Drill Press",
+    "cssClass": "machine",
+    "width": 2,
+    "depth": 2.5,
+    "x": 68.5,
+    "y": 5,
+    "rotation": 0.75
+  },
+  {
+    "name": "Machine Accessories and Random Hardware",
+    "cssClass": "storage",
+    "width": 10,
+    "depth": 2.5,
+    "x": 68,
+    "y": 1.8,
+    "rotation": 0.5
+  },
+  {
+    "name": "Tap Drill Press",
+    "cssClass": "machine",
+    "width": 2,
+    "depth": 2,
+    "x": 60,
+    "y": 15,
+    "rotation": 0
+  },
+  {
+    "name": "Tapping and Filing Bench",
+    "cssClass": "station",
+    "width": 5,
+    "depth": 2.5,
+    "x": 56,
+    "y": 15,
+    "rotation": 0
+  },
+  {
+    "name": "Surface Plate",
+    "cssClass": "station",
+    "width": 2,
+    "depth": 2,
+    "x": 54,
+    "y": 17.5,
+    "rotation": 0.75
+  },
+  {
+    "name": "CNC Metal Lathe",
+    "cssClass": "machine",
+    "width": 6,
+    "depth": 2.5,
+    "x": 58.5,
+    "y": 20.5,
+    "rotation": 0.5
+  },
+  {
+    "name": "Band Saw",
+    "cssClass": "machine",
+    "width": 3,
+    "depth": 2.5,
+    "x": 59,
+    "y": 29,
+    "rotation": 0
+  },
+  {
+    "name": "Horizontal Band Saw",
+    "cssClass": "machine",
+    "width": 4,
+    "depth": 2,
+    "x": 58.5,
+    "y": 32.75,
+    "rotation": 0.5
+  },
+  {
+    "name": "Cold Saw",
+    "cssClass": "machine",
+    "width": 4,
+    "depth": 2,
+    "x": 72,
+    "y": 34,
+    "rotation": 0.8
   }
 ]

@@ -10,7 +10,8 @@ function load_and_draw_things() {
     fetch_things("furnashings/things.json"),
     fetch_things("furnashings/metal_shop.json"),
     fetch_things("furnashings/wood_shop.json"),
-    fetch_things("furnashings/offices.json")
+    fetch_things("furnashings/offices.json"),
+    fetch_things("furnashings/welding_area.json")
   ]).then(function() {
     ALL_THINGS.sort(sort_item_item_compare);
     update_items_list(ALL_THINGS);
