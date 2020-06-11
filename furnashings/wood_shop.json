@@ -1,12 +1,33 @@
 [
   {
+    "name": "Clamp Storage",
+    "cssClass": "storage",
+    "width": 2.58,
+    "depth": 1,
+    "x": 11.75,
+    "y": 0.9,
+    "rotation": 0.5,
+    "measured": "2020-06-10"
+  },
+  {
     "name":"Table Saw",
     "cssClass": "machine",
-    "width": 6,
-    "depth": 5,
-    "x": 9.25,
+    "width": 7.17,
+    "depth": 3,
+    "x": 9,
     "y": 18.5,
-    "rotation": 0
+    "rotation": 0,
+    "measured": "2020-06-10"
+  },
+  {
+    "name": "Table Saw Outfeed Table",
+    "cssClass": "furnature",
+    "width": 4,
+    "depth": 4.08,
+    "x": 7.3,
+    "y": 22.3,
+    "rotation": 0,
+    "measured": "2020-06-10"
   },
   {
     "name": "Table Saw Crosscut Sled",
@@ -30,38 +51,72 @@
   {
     "name": "Project Storage",
     "cssClass": "storage",
-    "width": 8,
-    "depth": 2,
-    "x": 1,
-    "y": 12,
-    "rotation": 0.25
+    "width": 5.75,
+    "depth": 2.33,
+    "x": 1.5,
+    "y": 7.1,
+    "rotation": 0.25,
+    "measured": "2020-06-11"
   },
   {
     "name": "Project Storage",
     "cssClass": "storage",
-    "width": 8,
-    "depth": 2,
+    "width": 7.5,
+    "depth": 1.33,
     "x": 1,
-    "y": 27,
-    "rotation": 0.25
+    "y": 26.5,
+    "rotation": 0.25,
+    "measured": "2020-06-11"
   },
   {
-    "name": "Project Storage",
+    "name": "Project Storage (Yellow Edges)",
     "cssClass": "storage",
     "width": 8,
-    "depth": 2,
+    "depth": 1.5,
     "x": 1,
-    "y": 35,
-    "rotation": 0.25
+    "y": 34.5,
+    "rotation": 0.25,
+    "measured": "2020-06-11"
+  },
+  {
+    "name": "Vertical Wood Storage (Yellow Edges",
+    "cssClass": "storage",
+    "width": 5.83,
+    "depth": 1.33,
+    "x": 1,
+    "y": 41.5,
+    "rotation": 0.25,
+    "measured": "2020-06-11"
+  },
+  {
+    "name": "Flat Wood Storage",
+    "cssClass": "storage",
+    "width": 3.5,
+    "depth": 2.17,
+    "x": 1.15,
+    "y": 46.4,
+    "rotation": 0.25,
+    "measured": "2020-06-11"
+  },
+  {
+    "name": "Dust Collector",
+    "cssClass": "machine",
+    "width": 3,
+    "depth": 1.75,
+    "x": 4.66,
+    "y": 47.33,
+    "rotation": 0,
+    "measured": "2020-06-11"    
   },
   {
     "name": "CNC Router",
     "cssClass": "machine",
-    "width": 10,
-    "depth": 5,
+    "width": 10.75,
+    "depth": 6,
     "x": 12,
     "y": 44,
-    "rotation": 0
+    "rotation": 0,
+    "measured": "2020-06-11"
   },
   {
     "name": "Wood Lathe",
@@ -148,11 +203,12 @@
   {
     "name": "Work Bench",
     "cssClass": "furnature",
-    "width": 6,
-    "depth": 2.5,
+    "width": 7,
+    "depth": 2.66,
     "x": 16,
     "y": 10,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "measured": "2020-06-11"
   },
   {
     "name": "Work Bench",
