@@ -30,6 +30,23 @@
     "measured": "2020-06-10"
   },
   {
+    "name": "Cabinet Under Table Saw Outfeed Table",
+    "cssClass": "storage",
+    "width": 2.5,
+    "depth": 2.33,
+    "x": 7.0,
+    "y": 23,
+    "rotation": 0.5,
+    "measured": "2020-06-10",
+    "contents": [
+      "1st (top) drawer: Wood drill bits, Masonry bits",
+      "2nd drawer: ???",
+      "3rd drawer: Oneway Lathe Accessories",
+      "4th drawer: Forstner bits",
+      "5th (bottom) drawer: Hole saws, Fly cutters"
+    ]
+  },
+  {
     "name": "Table Saw Crosscut Sled",
     "cssClass": "storage",
     "width": 2,

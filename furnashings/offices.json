@@ -21,36 +21,40 @@
     "name": "Water Bubbler",
     "cssClass": "thing",
     "width": 1,
-    "depth": 1,
-    "x": 37.5,
+    "depth": 1.17,
+    "x": 30.5,
     "y": 39.5,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "measured": "2020-06-11"
   },
   {
     "name": "Computers and 3d Printers",
     "cssClass": "thing",
-    "width": 10,
-    "depth": 3,
-    "x": 35,
-    "y": 47,
-    "rotation": 0
+    "width": 12.5,
+    "depth": 2.5,
+    "x": 35.35,
+    "y": 47.1,
+    "rotation": 0,
+    "measured": "2020-06-11"
   },
   {
     "name": "Books",
     "cssClass": "thing",
-    "width": 4,
-    "depth": 1,
-    "x": 28,
-    "y": 43,
-    "rotation": 0.25
+    "width": 6.6,
+    "depth": 1.5,
+    "x": 28.1,
+    "y": 42.1,
+    "rotation": 0.25,
+    "measured": "2020-06-11"
   },
   {
     "name": "Couch",
     "cssClass": "furnature",
-    "width": 6,
+    "width": 5.33,
     "depth": 2.5,
-    "x": 33,
+    "x": 34,
     "y": 40,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "measured": "2020-06-11"
   }
 ]
