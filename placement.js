@@ -241,35 +241,48 @@ function show_description(thing) {
   d.appendChild(name);
   name.appendChild(document.createTextNode(thing.name));
   var description = thing.description;
-  if (!description)
-    return Promise.resolve(null);
-  var content = document.createElement("div");
-  d.appendChild(content);
-  // Description might be text or a URI.  If it contains whitespace
-  // (likely in a textual description) then we know it's not a URI.
-  if (description.indexOf(" ") >= 0) {
-    content.appendChild(document.createTextNode(description));
-    return Promise.resolve(null);
-  }
-  // Otherwise, we attempt to fetch it.  If that fails we insert it as
-  // text, otherwise we insert the content of the fetched document.
-  return fetch("furnashings/" + thing.description).then(
-    function(response) {
-      console.log(response.status, response.statusText);
-      if (!response.ok) {
-        content.appendChild(document.createTextNode(thing.description));
-        return Promise.resolve(null);
-      }
-      response.text().then(
-        function(txt) {
-          // Assume HTML
-          var dp = new DOMParser();
-          var doc = dp.parseFromString(txt, "text/html");
-          d.appendChild(doc.documentElement);
+  if (description) {
+    var content = document.createElement("div");
+    d.appendChild(content);
+    // Description might be text or a URI.  If it contains whitespace
+    // (likely in a textual description) then we know it's not a URI.
+    if (description.indexOf(" ") >= 0) {
+      content.appendChild(document.createTextNode(description));
+      return Promise.resolve(null);
+    }
+    // Otherwise, we attempt to fetch it.  If that fails we insert it as
+    // text, otherwise we insert the content of the fetched document.
+    return fetch("furnashings/" + thing.description).then(
+      function(response) {
+        console.log(response.status, response.statusText);
+        if (!response.ok) {
+          content.appendChild(document.createTextNode(thing.description));
+          return Promise.resolve(null);
         }
-      );
-    },
-    console.log);
+        response.text().then(
+          function(txt) {
+            // Assume HTML
+            var dp = new DOMParser();
+            var doc = dp.parseFromString(txt, "text/html");
+            d.appendChild(doc.documentElement);
+          }
+        );
+      },
+      console.log);
+  }
+  // If no description, then show contents
+  var contents = thing.contents;
+  if (contents) {
+    var list = document.createElement("ul");
+    d.appendChild(list);
+    for (c of contents) {
+      var li = document.createElement("li");
+      list.appendChild(li);
+      li.textContent = c.name;
+    }
+    // Drop through to return resolved Promise.
+  }
+  return Promise.resolve(null);
 }
 
 var selected_thing = null;
