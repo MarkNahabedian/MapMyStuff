@@ -381,7 +381,46 @@ function Show_event_location(event) {
   xformed = point.matrixTransform(trans);
   showX.textContent = xformed.x.toFixed(3);
   showY.textContent = xformed.y.toFixed(3);
+  if (LOG_PATHS_AT_POINT) {
+    find_surrounding_paths(svgdoc, point, PATHS_AT_POINT_METRIC);
+  }
 }
+
+function bbox_size(bbox) {
+  return Math.max(Math.Abs(bbox.right - bbox.left),
+                  Math.abs(bbox.bottom - bbox.top));
+}
+
+function bbox_area(bbox) {
+  return (bbox.right - bbox.left) * (bbox.bottom - bbox.top);
+}
+
+var LOG_PATHS_AT_POINT = true;
+var PATHS_AT_POINT_METRIC = bbox_area;
+
+function find_surrounding_paths(svgdoc, point, metric) {
+  var x = point.x;
+  var y = point.y;
+  var found = [];
+  function cmp(a, b) {
+    if (metric(a) < metric(b)) return -1;
+    if (metric(a) > metric(b)) return 1;
+    return 0;
+  }
+  for (var path of svgdoc.getElementsByTagName("path")) {
+    var bbox = path.getBoundingClientRect();
+    if (x < bbox.left) continue;
+    if (x > bbox.right) continue;
+    if (y < bbox.top) continue;
+    if (y > bbox.bottom) continue;
+    found.push(path);
+  }
+  found.sort(cmp);
+  for (var path of found) {
+    console.log(path);
+  }
+}
+
 
 function make_empty(element) {
   while (element.hasChildNodes()) {
