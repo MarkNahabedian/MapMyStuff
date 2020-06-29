@@ -287,6 +287,10 @@ function show_description(thing) {
 
 var selected_thing = null;
 
+window.onresize = function () {
+  select_item(selected_thing);
+};
+
 function select_item(thing) {
   // thing can be an item object or the unique_id of an item.
   // If null than any current selection is unselected.
