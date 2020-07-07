@@ -18,6 +18,7 @@ function load_and_draw_things() {
     if (document.location.hash) {
       select_item(document.location.hash.substring(1));
     }
+    add_download_link();
   }, console.log);
 }
 
@@ -132,6 +133,19 @@ function filter_items_list_(filter) {
     return any;
   };
   ALL_THINGS.forEach(do_item);
+}
+
+function add_download_link() {
+  var svgdoc = document.getElementById("floor_plan_svg").contentDocument;
+  var link = document.getElementById("download_floor_plan");
+  if (link == null)
+    return;
+  var serializer = new XMLSerializer(); 
+  var svg = serializer.serializeToString(svgdoc);
+  var data = new Blob([svg], { type: "image/svg+xml" });
+  var url = window.URL.createObjectURL(data);
+  link.href = url;
+  console.log("Download link set");
 }
 
 function draw_things(things, from_path) {
@@ -399,7 +413,7 @@ function bbox_area(bbox) {
   return (bbox.right - bbox.left) * (bbox.bottom - bbox.top);
 }
 
-var LOG_PATHS_AT_POINT = true;
+var LOG_PATHS_AT_POINT = false;
 var PATHS_AT_POINT_METRIC = bbox_area;
 
 function find_surrounding_paths(svgdoc, point, metric) {
