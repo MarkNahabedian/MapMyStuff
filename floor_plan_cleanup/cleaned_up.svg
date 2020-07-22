@@ -362,7 +362,10 @@
 	<text transform="matrix(1 0 0 1 389.5381 846.1826)" font-family="'ArialNarrow'" font-size="25.3915">T</text>
 	<text transform="matrix(1 0 0 1 402.2588 846.1826)" font-family="'ArialNarrow'" font-size="25.3915">     </text>
 </g>
-<g id="real-world" transform="translate(964.000000,467.000000) scale(-2.812500,2.812500)">
+<g id="real-world" transform="translate(964.000000,467.000000)
+                              scale(-2.812500,2.812500)
+                              scale(3.27, 3.27)
+                              translate(4.8, -46)">
 </g>
 <path id="path27132_1_" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
 	M89.5,361.029V333.44"/>
