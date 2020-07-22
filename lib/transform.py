@@ -77,7 +77,7 @@ class Transform(object):
         m = cls.TRANSFORM_REGEXP.match(transform_string)
         if not m:
             return
-        args = [float(x.strip()) for x in m.group("args").split(",")]
+        args = [float(x.strip()) for x in m.group("args").replace(" ", ",").split(",")]
         if m.group("type") == "matrix":
             return cls.matrix(*args)
         if m.group("type") == "translate":
