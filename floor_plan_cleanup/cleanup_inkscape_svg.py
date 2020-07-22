@@ -148,7 +148,9 @@ def scope_styles(doc, node, styles_map, modified_properties=""):
 
 def hide_classes(styles_map, class_names):
     for c in class_names:
-        p = styles_map[c]
+        p = styles_map.get(c, None)
+        if p == None:
+            continue
         assert isinstance(p, cssutils.css.CSSStyleDeclaration)
         p.setProperty("stroke", "none")
         p.setProperty("fill", "none")
@@ -270,13 +272,21 @@ def text_in_box(text, box):
     '''Returns True iff text is within box.'''
     # We assume there will only be one.
     # Element counts shows the same number of text and tspan elements.
+    # That was true of Inkscape's output, the output from Acrobat has
+    # no tspan elements.
     ts = text.getElementsByTagName("tspan")
-    txt = ts[0] if ts else text
+    if ts:
+        txt = ts[0]
+    else:
+        txt = text
     transform, _ = svg_context(txt)
     # *** I have no idea why but some x and y attributes of tspan
     # elements have multiple values.
     def just_one(s):
-        return s.split()[0]
+        if s:
+            return s[0]
+        else:
+            return 0
     p = transform.apply(point(float(just_one(txt.getAttribute("x"))),
                               float(just_one(txt.getAttribute("y")))))
     return box.point_within(p)
@@ -584,10 +594,10 @@ def main():
     print(clip_box)
     boxes_to_show = read_box_file(args.boxes_file)
     # Find the drawing elements that show the drawing's scale and
-    # capture the transfomation matrix from each's cuttent SVG context
+    # capture the transfomation matrix from each's current SVG context
     scale_elements = [
         (elt, svg_context(elt)[0])
-        for elt in tag_boxes(doc, [Box(*args.drawing_scale_box)], False).values().__iter__().__next__()]
+        for elt in tag_boxes(doc, [Box(*args.drawing_scale_box)], False).values()]
     # Remove elements that are outside the clip box.
     if clip_box and args.clip:
         clip_text(doc, clip_box)
