@@ -540,13 +540,11 @@ parser.add_argument("-hide_classes", type=str, nargs=None, action="store",
                     help='''Alter the style rules for these CSS classes o that they are invisible.''')
 
 parser.add_argument('-show_clip_box',
-                    # action="sture_true",    NOT WORKING
-                    action=argparse._StoreTrueAction,
+                    action="store_true",
                     help="Show the clip box if one has been specified.")
 
 parser.add_argument("-clip_svg_viewbox",
-                    # action="sture_true",    NOT WORKIING
-                    action=argparse._StoreTrueAction,
+                    action="store_true",
                     help="Set the viewBox SVG attribute to the specified clip box.")
 
 parser.add_argument("-increase_viewbox_height", type=float, nargs=1, action="store",
@@ -554,8 +552,7 @@ parser.add_argument("-increase_viewbox_height", type=float, nargs=1, action="sto
                     help='''Increase SVG viewBox height specified by -clip_svg_viewbox by this amount. ''')
 
 parser.add_argument('-clip',
-                    # action="sture_true",    NOT WORKING
-                    action=argparse._StoreTrueAction,
+                    action="store_true",
                     help="Clip SVG paths to within the clip box.")
 
 
