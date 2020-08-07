@@ -9,31 +9,34 @@
     "rotation": 0
   },
   {
-    "name": "Metal Shear",
+    "name": "Sheet Metal Shear",
     "cssClass": "machine",
     "width": 4,
     "depth": 2.5,
     "x": 80,
     "y": 34,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "description": "Peck Stow and Wilcox 36 inch Shear (old model)"
   },
   {
-    "name": "Metal Break",
+    "name": "Sheet Metal Break",
     "cssClass": "machine",
     "width": 4,
     "depth": 2.5,
     "x": 86,
     "y": 34,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "description": "MAGNETIC SHEET METAL BRAKE BB-4816M https://www.baileigh.com/magnetic-brake-bb-4816m"
   },
   {
-    "name": "Grinder",
+    "name": "Bench Grinder",
     "cssClass": "machine",
     "width": 4,
     "depth": 2.5,
     "x": 89,
     "y": 47,
-    "rotation": 0
+    "rotation": 0,
+    "description": "Rockwell 250W (old model)"
   },
   {
     "name": "Metal Storage",
@@ -43,5 +46,16 @@
     "x": 90,
     "y": 41,
     "rotation": 0.75
+  },
+
+  {
+    "name": "MIG Welder",
+    "cssClass": "machine",
+    "description": "Millermatic_350P_MIG_welder.html"
+  },
+  {
+    "name": "Tig Welder",
+    "cssClass": "machine",
+    "description": "MillerDynasty_TIG_welder.html"
   }
 ]

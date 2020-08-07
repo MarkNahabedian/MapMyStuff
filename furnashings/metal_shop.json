@@ -28,10 +28,11 @@
     "depth": 7,
     "x": 70,
     "y": 24,
-    "rotation": 0.75
+    "rotation": 0.75,
+    "description": "OMAX_MicroMax.html"
   },
   {
-    "name": "OMAX Mystery Support Box",
+    "name": "OMAX Mystery Support Box (Pump)",
     "cssClass": "machine",
     "width": 3,
     "depth": 2.5,
@@ -75,7 +76,8 @@
     "depth": 3,
     "x": 65,
     "y": 47,
-    "rotation": 0
+    "rotation": 0,
+    "description": "Epilog_laser_cutter.html"
   },
   {
     "name": "Plastic Storage",
@@ -93,7 +95,8 @@
     "depth": 4,
     "x": 46,
     "y": 31,
-    "rotation": 0.30
+    "rotation": 0.30,
+    "description": "Old model Bridgeport J head vertical milling machine with power lateral feed"
   },
   {
     "name": "Trak Mill",
@@ -102,7 +105,8 @@
     "depth": 4,
     "x": 45,
     "y": 21.25,
-    "rotation": 0.25
+    "rotation": 0.25,
+    "description": "TRAK_CNC_mill.html"
   },
   {
     "name": "Workbench",
@@ -129,7 +133,8 @@
     "depth": 2.5,
     "x": 68.5,
     "y": 5,
-    "rotation": 0.75
+    "rotation": 0.75,
+    "description": "Jet_20VS_drill_press.html"
   },
   {
     "name": "Machine Accessories and Random Hardware",
@@ -177,13 +182,14 @@
     "rotation": 0.5
   },
   {
-    "name": "Band Saw",
+    "name": "Vertical Band Saw",
     "cssClass": "machine",
     "width": 3,
     "depth": 2.5,
     "x": 59,
     "y": 29,
-    "rotation": 0
+    "rotation": 0,
+    "description": "Grob 4V-18 (old model) https://grobbandsaw.com/product/grob-4v-18-band-saw-machine/"
   },
   {
     "name": "Horizontal Band Saw",
@@ -192,7 +198,8 @@
     "depth": 2,
     "x": 58.5,
     "y": 32.75,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "description": "Kalamazoo Machine Tools (old model)"
   },
   {
     "name": "Cold Saw",
@@ -202,5 +209,24 @@
     "x": 72,
     "y": 34,
     "rotation": 0.8
+  },
+  {
+    "name": "Arbor Press",
+    "cssClass": "machine",
+    "width": 2,
+    "depth": 2,
+    "x": 72,
+    "y": 13,
+    "rotation": 0.8,
+    "description": "12 Ton Arbor Press (old model)"
+  },
+
+
+
+  {
+    "name": "Manual Mill",
+    "cssClass": "machine",
+    "rotation": 0,
+    "description": "Harrison Alpha 330s"
   }
 ]
