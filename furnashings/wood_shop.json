@@ -17,6 +17,7 @@
     "x": 9,
     "y": 18.5,
     "rotation": 0,
+    "description": "SawStop_cabinet_saw.html",
     "measured": "2020-06-10"
   },
   {
@@ -133,6 +134,7 @@
     "x": 12,
     "y": 44,
     "rotation": 0,
+    "description": "Techno CNC LC 4896.  Maybe you can find some documentation here: https://technocnc.com/older-models/",
     "measured": "2020-06-11"
   },
   {
@@ -145,13 +147,14 @@
     "rotation": 0
   },
   {
-    "name": "5 Axis CNC Mill",
+    "name": "ShopBot Buddy 4 Axis CNC Mill",
     "cssClass": "machine",
     "width": 6,
     "depth": 3,
     "x": 24.5,
     "y": 43,
-    "rotation": 0.75
+    "rotation": 0.75,
+    "description": "ShopBotBuddy.html"
   },
   {
     "name": "Bridgeport Mill (for wood)",
@@ -197,7 +200,8 @@
     "depth": 3,
     "x": 14.5,
     "y": 20.6,
-    "rotation": 0.25
+    "rotation": 0.25,
+    "description": "Tannewitz_band_saw.html"
   },
   {
     "name": "Thickness Sander",
@@ -206,7 +210,8 @@
     "depth": 3,
     "x": 24.5,
     "y": 16.5,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "description": "TimeSaves Speed Sander 42 inch wide.  General info at http://timesaversinc.com/catalog/wood/speedsander-wide-belt-sander"
   },
   {
     "name": "Scroll Saw",
@@ -270,7 +275,8 @@
     "depth": 2,
     "x": 40,
     "y": 17.5,
-    "rotation": 0.75
+    "rotation": 0.75,
+    "description": "PorterCable_router_table.html"
   },
   {
     "name": "Router Bits",
@@ -289,16 +295,18 @@
     "depth": 1.5,
     "x": 26,
     "y": 32,
-    "rotation": 0.75
+    "rotation": 0.75,
+    "description": "Delta_spindle_sander.html"
   },
   {
-    "name": "Disc Sander",
+    "name": "Disk Sander",
     "cssClass": "machine",
     "width": 1.5,
     "depth": 1.5,
     "x": 25.75,
     "y": 29.5,
-    "rotation": 0.75
+    "rotation": 0.75,
+    "description": "Leland and Faraday 12 inch disk"
   },
   {
     "name": "Belt Sander",
@@ -307,7 +315,8 @@
     "depth": 3,
     "x": 27,
     "y": 23,
-    "rotation": 0.75
+    "rotation": 0.75,
+    "description": "Bridgewood 42 inch oscillating sander"
   },
   {
     "name": "Thickness Planer",
@@ -316,7 +325,8 @@
     "depth": 3,
     "x": 31,
     "y": 32,
-    "rotation": 0.625
+    "rotation": 0.625,
+    "description": "Northfield_planer.html"
   },
   {
     "name": "Jointer",
@@ -325,16 +335,18 @@
     "depth": 2,
     "x": 40,
     "y": 26,
-    "rotation": 0.75
+    "rotation": 0.75,
+    "description": "Northfield_jointer.html"
   },
   {
-    "name": "Miter Saw",
+    "name": "Compound Miter Saw",
     "cssClass": "machine",
     "width": 6,
     "depth": 2,
     "x": 31,
     "y": 20,
-    "rotation": 0.25
+    "rotation": 0.25,
+    "description": "Festool_Kapex_miter_saw.html"
   },
   {
     "name": "Radial Arm Saw",
@@ -343,7 +355,8 @@
     "depth": 2,
     "x": 31,
     "y": 26,
-    "rotation": 0.25
+    "rotation": 0.25,
+    "description": "Dewalt 14 inch radial arm saw (old model)"
   },
   {
     "name": "Sharpening Station",
