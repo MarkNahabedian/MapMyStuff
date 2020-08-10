@@ -40,8 +40,9 @@ function fetch_things(path) {
       function(txt) {
         try {
           var things = JSON.parse(txt);
-          for(var i = 0; i < things.lengtrh; i++) {
-            ALL_THINGS.push(things[i]);
+          for (let thing of things) {
+            thing.from_file = path;
+            ALL_THINGS.push(thing);
           }
           draw_things(things, path);
         }
@@ -156,7 +157,6 @@ function draw_things(things, from_path) {
   var index = 0;
   while (index < things.length) {
     var thing = things[index];
-    thing["from_file"] = from_path;
     if (!thing.unique_id) {
       thing["unique_id"] = item_unique_id_counter++;
     }
