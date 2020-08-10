@@ -41,7 +41,7 @@ function fetch_things(path) {
         try {
           var things = JSON.parse(txt);
           for (let thing of things) {
-            thing.from_file = path;
+            thing.from_file = response.url;
             ALL_THINGS.push(thing);
           }
           draw_things(things, path);
