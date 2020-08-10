@@ -268,7 +268,8 @@ function show_description(thing) {
     }
     // Otherwise, we attempt to fetch it.  If that fails we insert it as
     // text, otherwise we insert the content of the fetched document.
-    return fetch("furnashings/" + thing.description).then(
+    let test_uri = new URL(thing.description, thing.from_file);
+    return fetch(test_uri /*, method: "HEAD" */ ).then(
       function(response) {
         console.log(response.status, response.statusText);
         if (!response.ok) {
