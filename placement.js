@@ -180,6 +180,8 @@ function draw_thing(svgdoc, g, thing) {
   var shape;
   var title = svgdoc.createElementNS(g.namespaceURI, "title");
   title.textContent = thing.name;
+  if (!(isNumber(thing.x) && isNumber(thing.y)))
+    return;
   if (thing.path_d) {
     shape = svgdoc.createElementNS(g.namespaceURI, "path");
     shape.setAttribute("d", thing.path_d);
@@ -462,5 +464,9 @@ function circle_perimeter_point(centerX, centerY, radius, otherX, otherY) {
   var angle = Math.atan2(centerY - otherY, centerX - otherX);
   return [radius * Math.cos(angle),
           radius * Math.sin(angle)];
+}
+
+function isNumber(n) {
+  return (typeof n == "number");
 }
 
