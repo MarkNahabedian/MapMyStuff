@@ -43,6 +43,9 @@ function fetch_things(path) {
           for (let thing of things) {
             thing.from_file = response.url;
             ALL_THINGS.push(thing);
+            if (!thing.unique_id) {
+              thing["unique_id"] = ALL_THINGS.length;
+            }
           }
           draw_things(things, path);
         }
@@ -157,10 +160,6 @@ function draw_things(things, from_path) {
   var index = 0;
   while (index < things.length) {
     var thing = things[index];
-    if (!thing.unique_id) {
-      thing["unique_id"] = item_unique_id_counter++;
-    }
-    ALL_THINGS.push(things[index]);
     try {
       draw_thing(svgdoc, g, thing);
     }
@@ -222,8 +221,6 @@ function draw_thing(svgdoc, g, thing) {
 function thing_svg_id(thing) {
   return "" + thing.unique_id;
 }
-
-var item_unique_id_counter = 1;
 
 var ALL_THINGS = [];
 
