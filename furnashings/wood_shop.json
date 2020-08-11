@@ -227,9 +227,9 @@
     "cssClass": "furnature",
     "width": 7,
     "depth": 2.66,
-    "x": 16,
+    "x": 14,
     "y": 10,
-    "rotation": 0.5,
+    "rotation": 0,
     "measured": "2020-06-11"
   },
   {
@@ -237,28 +237,29 @@
     "cssClass": "furnature",
     "width": 6,
     "depth": 2.5,
-    "x": 23,
+    "x": 26.5,
     "y": 10,
-    "rotation": 0.25
+    "rotation": 0
   },
   {
     "name": "Work Bench",
     "cssClass": "furnature",
     "width": 5,
     "depth": 2,
-    "x": 37.5,
-    "y": 8.5,
-    "rotation": 0.75
+    "x": 38,
+    "y": 10,
+    "rotation": 0
   },
   {
     "name": "Work Bench",
     "cssClass": "furnature",
     "width": 5,
     "depth": 2,
-    "x": 39.5,
-    "y": 8.5,
-    "rotation": 0.25
+    "x": 7,
+    "y": 28,
+    "rotation": 0
   },
+
   {
     "name": "Pens, Pencils, Pencil Sharpener",
     "cssClass": "thing",
@@ -423,7 +424,7 @@
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
-    "x": 25,
+    "x": 19,
     "y": 1.5,
     "rotation": 0.5,
     "contents": [
