@@ -34,17 +34,17 @@
     "name": "Cabinet Under Table Saw Outfeed Table",
     "cssClass": "storage",
     "width": 2.5,
-    "depth": 2.33,
+    "depth": 2.25,
     "x": 7.0,
     "y": 23,
     "rotation": 0.5,
     "measured": "2020-06-10",
     "contents": [
       "1st (top) drawer: Wood drill bits, Masonry bits",
-      "2nd drawer: ???",
-      "3rd drawer: Oneway Lathe Accessories",
-      "4th drawer: Forstner bits",
-      "5th (bottom) drawer: Hole saws, Fly cutters"
+      "2nd drawer: plug cutters",
+      "3rd drawer: dowels",
+      "4th drawer: lathe accessories",
+      "5th (bottom) drawer: Hole saws"
     ]
   },
   {
@@ -211,7 +211,7 @@
     "x": 24.5,
     "y": 16.5,
     "rotation": 0.5,
-    "description": "TimeSaves Speed Sander 42 inch wide.  General info at http://timesaversinc.com/catalog/wood/speedsander-wide-belt-sander"
+    "description": "TimeSavers Speed Sander 42 inch wide.  General info at http://timesaversinc.com/catalog/wood/speedsander-wide-belt-sander"
   },
   {
     "name": "Scroll Saw",
@@ -365,5 +365,73 @@
     "x": 26.7,
     "y": 5.8,
     "rotation": 0.75
+  },
+  {
+    "name": "Cabinet/Drawers",
+    "cssClass": "storage",
+    "width": 2.5,
+    "depth": 2.25,
+    "x": 36.5,
+    "y": 1.5,    
+    "rotation": 0.5,
+    "contents": [
+      "1st (top) drawer: screw drivers, please keep sorted by phillips, straight or square drive",
+      "2nd drawer: knives, scissors, scrapers",
+      "3rd drawer: rasps and files",
+      "4th drawer: pliers, snips, nail pullers",
+      "5th drawer: brushes and applicators",
+      "6th drawer: wrenches and nut drivers",
+      "7th (bottom) drawer: wrench sets"
+    ]
+  },
+  {
+    "name": "Cabinet/Drawers",
+    "cssClass": "storage",
+    "width": 2.5,
+    "depth": 2.25,
+    "x": 34,
+    "y": 1.5,
+    "rotation": 0.5,
+    "contents": [
+      "1st (top) drawer: hex and torx keys and drivers",
+      "2nd drawer: stencils",
+      "3rd drawer:hex hey overflow ",
+      "4th drawer: gloves",
+      "5th drawer: sand paper for orbital sanders",
+      "6th (bottom) drawer: sand paper for hand sanding"
+    ]
+  },
+  {
+    "name": "Cabinet/Drawers",
+    "cssClass": "storage",
+    "width": 2.5,
+    "depth": 2.25,
+    "x": 27.5,
+    "y": 1.5,
+    "rotation": 0.5,
+    "contents": [
+      "1st (top) drawer: hot glue, rubber bands",
+      "2nd drawer: tape",
+      "3rd drawer: strap clamps",
+      "4th drawer: spring clamps, hose clamps, clothes pins",
+      "5th drawer: large spring clamps",
+      "6th (bottom) drawer: misc. clamps"
+    ]
+  },
+  {
+    "name": "Cabinet/Drawers",
+    "cssClass": "storage",
+    "width": 2.5,
+    "depth": 2.25,
+    "x": 25,
+    "y": 1.5,
+    "rotation": 0.5,
+    "contents": [
+      "1st (top) drawer: metal detectors",
+      "2nd drawer: soldering supplies",
+      "3rd drawer: soldering supplies",
+      "4th drawer: spoke shaves",
+      "5th (bottom) drawer: hand planes"
+    ]
   }
 ]

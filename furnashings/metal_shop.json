@@ -89,6 +89,24 @@
     "rotation": 0.75
   },
   {
+    "name": "Cabinet/Drawers",
+    "cssClass": "storage",
+    "width": 2.5,
+    "depth": 2.25,
+    "x": 54,
+    "y": 30,
+    "rotation": 0.75,
+    "contents": [
+      "on top: parallels",
+      "1st (top) drawer: mill accessories",
+      "2nd drawer: power tool maintenance 1",
+      "3rd drawer: power tool maintenance 2",
+      "4th drawer: fixturing",
+      "5th drawer: drill chucks and tapers",
+      "6th (bottom) drawer: power tool maintenance 3"
+    ]
+  },
+  {
     "name": "Bridgeport Mill (for metal)",
     "cssClass": "machine",
     "width": 5,
@@ -107,6 +125,23 @@
     "y": 21.25,
     "rotation": 0.25,
     "description": "TRAK_CNC_mill.html"
+  },
+  {
+    "name": "Cabinet/Drawers",
+    "cssClass": "storage",
+    "width": 2.5,
+    "depth": 2.25,
+    "x": 54,
+    "y": 20,
+    "rotation": 0.75,
+    "contents": [
+      "on top: parallels",
+      "1st (top) drawer: calculators and gauges",
+      "2nd drawer: edge finders, calipers",
+      "3rd drawer:  punches, scribes",
+      "4th drawer: stencils, templates",
+      "5th (bottom) drawer: micrometers, squares"
+    ]
   },
   {
     "name": "Workbench",
@@ -137,13 +172,41 @@
     "description": "Jet_20VS_drill_press.html"
   },
   {
-    "name": "Machine Accessories and Random Hardware",
+    "name": "Cabinet/Drawers",
     "cssClass": "storage",
-    "width": 10,
-    "depth": 2.5,
+    "width": 2.5,
+    "depth": 2.25,
+    "x": 73,
+    "y": 1.5,
+    "rotation": 0.5,
+    "contents": [
+      "on top: ",
+      "1st (top) drawer: bearings, pins, rods",
+      "2nd drawer: gears, pulleys, springs, magnets",
+      "3rd drawer: rivets",
+      "4th drawer: misc. hardware",
+      "5th (bottom) casters and wheels"
+    ]
+  },
+  {
+    "name": "Cabinet/Drawers",
+    "cssClass": "storage",
+    "width": 2.5,
+    "depth": 2.25,
+    "x": 70.5,
+    "y": 1.5,
+    "rotation": 0.5,
+    "description": "nuts and bolts"
+  },
+  {
+    "name": "Cabinet/Drawers",
+    "cssClass": "storage",
+    "width": 2.5,
+    "depth": 2.25,
     "x": 68,
-    "y": 1.8,
-    "rotation": 0.5
+    "y": 1.5,
+    "rotation": 0.5,
+    "description": "wood screws"
   },
   {
     "name": "Tap Drill Press",
@@ -220,7 +283,6 @@
     "rotation": 0.8,
     "description": "12 Ton Arbor Press (old model)"
   },
-
 
 
   {
