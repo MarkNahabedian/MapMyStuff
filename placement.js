@@ -323,7 +323,7 @@ function select_item(thing) {
     target(selected_thing, false);
     selected_thing = null;
   }
-  if (!thing) {
+  if (!thing || !isPlaced(thing)) {
     show_description(false);
     document.location.hash = "";
     return;
@@ -469,5 +469,10 @@ function circle_perimeter_point(centerX, centerY, radius, otherX, otherY) {
 
 function isNumber(n) {
   return (typeof n == "number");
+}
+
+function isPlaced(thing) {
+  return (isNumber(thing.x) && isNumber(thing.y) &&
+          isNumber(thing.width) && isNumber(thing.depth));
 }
 
