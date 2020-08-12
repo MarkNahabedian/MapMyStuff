@@ -118,13 +118,13 @@ function filter_items_list_(filter) {
   }
   function do_item(item) {
     // Returns true iff item should be visible
-    var any = false;
+    let any = false;
     if (filter(item)) {
       any = true;
     }
     if (item.contents) {
-      for (var i = 0; i < item.contents.length; i++) {
-        var itm = item.contents[i];
+      for (let i = 0; i < item.contents.length; i++) {
+        let itm = item.contents[i];
         if (do_item(itm)) {
           any = true;
         }
