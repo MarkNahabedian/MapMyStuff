@@ -1,0 +1,12 @@
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+img {
+    object-fit: contain;
+    max-width: 100%;
+    margin-top: 3ex;
+}

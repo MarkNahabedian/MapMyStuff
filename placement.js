@@ -233,6 +233,8 @@ function getThing(id) {
   }
 }
 
+var IFRAME;
+
 // Show thing's description in the description element.  With no
 // thing, just clear the description element.
 //
@@ -240,6 +242,7 @@ function getThing(id) {
 // requires that the display box already be sized, this returns a
 // Promise whose resolution can be used to trigger drawing of the
 // selected item indicator.
+
 function show_description(thing) {
   // Clear description:
   let desc_elt = document.getElementById("description");
@@ -249,42 +252,54 @@ function show_description(thing) {
   let d = document.createElement("div");
   d.setAttribute("class", "description");
   desc_elt.appendChild(d);
-  let name = document.createElement("div");
-  name.setAttribute("class", "name");
-  d.appendChild(name);
-  name.appendChild(document.createTextNode(thing.name));
+  function literal_descriprion() {
+    let name = document.createElement("div");
+    name.setAttribute("class", "name");
+    d.appendChild(name);
+    let content = document.createElement("div");
+    content.textContent = thing.description;
+    d.appendChild(content)
+  }
   let description = thing.description;
   if (description) {
-    let content = document.createElement("div");
-    d.appendChild(content);
     // Description might be text or a URI.  If it contains whitespace
     // (likely in a textual description) then we know it's not a URI.
     if (description.indexOf(" ") >= 0) {
-      content.appendChild(document.createTextNode(description));
+      literal_descriprion()
       return Promise.resolve(null);
     }
     // Otherwise, we attempt to fetch it.  If that fails we insert it as
-    // text, otherwise we insert the content of the fetched document.
+    // text, otherwise we embed the target document.
     let test_uri = new URL(thing.description, thing.from_file);
-    return fetch(test_uri /*, method: "HEAD" */ ).then(
+    // ??? Is the resolution of the fetch promise still relevant to
+    // our caller since we can't call target until the iframe is
+    // resized?
+    return fetch(test_uri, { method: "HEAD" }).then(
       function(response) {
         console.log(response.status, response.statusText);
         if (!response.ok) {
-          content.appendChild(document.createTextNode(thing.description));
+          literal_descriprion()
           return Promise.resolve(null);
         }
-        response.text().then(
-          function(txt) {
-            // Assume HTML
-            let dp = new DOMParser();
-            let doc = dp.parseFromString(txt, "text/html");
-            d.appendChild(doc.documentElement);
-          }
+        // HEAD verified that the resource exists.
+        let iframe = document.createElement("iframe");
+        IFRAME = iframe;
+        iframe.textContent = ("Selected item's description from " +
+                              test_uri + " should appear here.");
+        iframe.setAttribute("src", test_uri);
+        iframe.setAttribute("width", "100%");
+        iframe.setAttribute(
+          "onload",
+          "this.style.height = " +
+            "(this.contentWindow.document.body.scrollHeight + 20) + 'px';" +
+            "target(selected_thing);"
         );
+        d.appendChild(iframe);
       },
       console.log);
   }
-  // If no description, then show contents
+  // If no description, then show contents.  This is used for drawers
+  // and other storeage.
   let contents = thing.contents;
   if (contents) {
     let list = document.createElement("ul");
@@ -327,8 +342,6 @@ function select_item(thing) {
   }
   selected_thing = thing;
   show_description(thing).then(wait(100)).then(() => target(thing, true));
-  // Give the layout a chance to update before this:
-  // window.setTimeout(target, 300, thing, true);
   document.location.hash = "#" + thing.unique_id;
   let elt = selected_thing.svg_element;
   if (elt) {

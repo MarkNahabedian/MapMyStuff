@@ -134,7 +134,7 @@
     "x": 12,
     "y": 44,
     "rotation": 0,
-    "description": "Techno CNC LC 4896.  Maybe you can find some documentation here: https://technocnc.com/older-models/",
+    "description": "Techno_CNC_LC_4896.html",
     "measured": "2020-06-11"
   },
   {
@@ -307,7 +307,7 @@
     "x": 25.75,
     "y": 29.5,
     "rotation": 0.75,
-    "description": "Leland and Faraday 12 inch disk"
+    "description": "Leland and Faraday 12 inch disk sander"
   },
   {
     "name": "Belt Sander",
