@@ -3,7 +3,6 @@
 // Place things onto the floorplan.
 
 function load_and_draw_things() {
-  console.log("load_and_draw_things");
   let svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   svgdoc.addEventListener("mousemove", Show_event_location);
   Promise.all([
@@ -149,7 +148,6 @@ function add_download_link() {
   let data = new Blob([svg], { type: "image/svg+xml" });
   let url = window.URL.createObjectURL(data);
   link.href = url;
-  console.log("Download link set");
 }
 
 function draw_things(things, from_path) {
@@ -247,6 +245,7 @@ function show_description(thing) {
   // Clear description:
   let desc_elt = document.getElementById("description");
   make_empty(desc_elt);
+  IFRAME = null;
   if (!thing)
     return;
   let d = document.createElement("div");
@@ -271,17 +270,18 @@ function show_description(thing) {
     // Otherwise, we attempt to fetch it.  If that fails we insert it as
     // text, otherwise we embed the target document.
     let test_uri = new URL(thing.description, thing.from_file);
-    // ??? Is the resolution of the fetch promise still relevant to
-    // our caller since we can't call target until the iframe is
-    // resized?
-    return fetch(test_uri, { method: "HEAD" }).then(
+    // Though resolution of the fetch promise is no longer the factor
+    // that determines when to call target for the external resource
+    // description case, it is still the appropriate trigger for
+    // direct text descriptions.
+    return fetch(test_uri, { method: "GET" }).then(
       function(response) {
         console.log(response.status, response.statusText);
         if (!response.ok) {
           literal_descriprion()
           return Promise.resolve(null);
         }
-        // HEAD verified that the resource exists.
+        // We have verified that the description resource exists.
         let iframe = document.createElement("iframe");
         IFRAME = iframe;
         iframe.textContent = ("Selected item's description from " +
@@ -290,9 +290,7 @@ function show_description(thing) {
         iframe.setAttribute("width", "100%");
         iframe.setAttribute(
           "onload",
-          "this.style.height = " +
-            "(this.contentWindow.document.body.scrollHeight + 20) + 'px';" +
-            "target(selected_thing);"
+          "window.parent.postMessage('iframe_loaded', document.location);"
         );
         d.appendChild(iframe);
       },
@@ -313,6 +311,22 @@ function show_description(thing) {
   }
   return Promise.resolve(null);
 }
+
+function messageHandler(event) {
+  if (event.origin.host != document.location.hoost) {
+    return;
+  }
+  if (event.data != 'iframe_loaded') {
+    return;
+  }
+  console.log("message received");
+  let iframe = document.querySelector("#description iframe");
+  iframe.style.height = 
+    (iframe.contentWindow.document.body.scrollHeight + 20) + 'px';
+  target(selected_thing, true);
+}
+
+window.addEventListener("message", messageHandler, false);
 
 var selected_thing = null;
 
