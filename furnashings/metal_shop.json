@@ -114,7 +114,7 @@
     "x": 46,
     "y": 31,
     "rotation": 0.30,
-    "description": "Old model Bridgeport J head vertical milling machine with power lateral feed"
+    "description": "metal_shop_Bridgeport_mill.html"
   },
   {
     "name": "Trak Mill",
@@ -159,7 +159,8 @@
     "depth": 4,
     "x": 55.2,
     "y": 8,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "description": "Tormach_CNC_mill.html"
   },
   {
     "name": "Drill Press",
@@ -242,7 +243,8 @@
     "depth": 2.5,
     "x": 58.5,
     "y": 20.5,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "description": "Harrison_CNC_metal_lathe.html"
   },
   {
     "name": "Vertical Band Saw",
@@ -252,7 +254,7 @@
     "x": 59,
     "y": 29,
     "rotation": 0,
-    "description": "Grob 4V-18 (old model) https://grobbandsaw.com/product/grob-4v-18-band-saw-machine/"
+    "description": "Grob_4V-18_band_saw.html"
   },
   {
     "name": "Horizontal Band Saw",
@@ -262,16 +264,17 @@
     "x": 58.5,
     "y": 32.75,
     "rotation": 0.5,
-    "description": "Kalamazoo Machine Tools (old model)"
+    "description": "Kalamazoo_horizontal_band_saw.html"
   },
   {
-    "name": "Cold Saw",
+    "name": "BaileighCold Saw",
     "cssClass": "machine",
     "width": 4,
     "depth": 2,
     "x": 72,
     "y": 34,
-    "rotation": 0.8
+    "rotation": 0.8,
+    "description": "Baileigh_cold_saw.html"
   },
   {
     "name": "Arbor Press",

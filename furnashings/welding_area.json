@@ -16,7 +16,7 @@
     "x": 80,
     "y": 34,
     "rotation": 0.5,
-    "description": "Peck Stow and Wilcox 36 inch Shear (old model)"
+    "description": "PSW36_sheet_metal_shear.html"
   },
   {
     "name": "Sheet Metal Break",
@@ -26,7 +26,7 @@
     "x": 86,
     "y": 34,
     "rotation": 0.5,
-    "description": "MAGNETIC SHEET METAL BRAKE BB-4816M https://www.baileigh.com/magnetic-brake-bb-4816m"
+    "description": "Baileigh_sheet_metal_brake.html"
   },
   {
     "name": "Bench Grinder",

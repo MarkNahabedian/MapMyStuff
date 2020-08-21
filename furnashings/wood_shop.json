@@ -144,7 +144,8 @@
     "depth": 2,
     "x": 9.5,
     "y": 32.5,
-    "rotation": 0
+    "rotation": 0,
+    "description": "wood_lathe.html"
   },
   {
     "name": "ShopBot Buddy 4 Axis CNC Mill",
@@ -173,7 +174,8 @@
     "depth": 2.5,
     "x": 16,
     "y": 27.5,
-    "rotation": 0.2
+    "rotation": 0.2,
+    "description": "clausing_drill_press.html"
   },
   {
     "name": "Drill Bits, etc.",
@@ -191,7 +193,8 @@
     "depth": 2,
     "x": 12.5,
     "y": 28.4,
-    "rotation": 0
+    "rotation": 0,
+    "description": "Laguna_mortiser.html"
   },
   {
     "name": "Band Saw",
@@ -350,14 +353,14 @@
     "description": "Festool_Kapex_miter_saw.html"
   },
   {
-    "name": "Radial Arm Saw",
+    "name": "DeWaltRadial Arm Saw",
     "cssClass": "machine",
     "width": 6,
     "depth": 2,
     "x": 31,
     "y": 26,
     "rotation": 0.25,
-    "description": "Dewalt 14 inch radial arm saw (old model)"
+    "description": "DeWalt_radial_arm_saw.html"
   },
   {
     "name": "Sharpening Station",
