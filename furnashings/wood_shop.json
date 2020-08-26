@@ -1,6 +1,7 @@
 [
   {
     "name": "Clamp Storage",
+    "unique_id": "_x_0041",
     "cssClass": "storage",
     "width": 2.58,
     "depth": 1,
@@ -10,7 +11,8 @@
     "measured": "2020-06-10"
   },
   {
-    "name":"Table Saw",
+    "name": "Table Saw",
+    "unique_id": "_x_0042",
     "cssClass": "machine",
     "width": 7.17,
     "depth": 3,
@@ -22,6 +24,7 @@
   },
   {
     "name": "Table Saw Outfeed Table",
+    "unique_id": "_x_0043",
     "cssClass": "furnature",
     "width": 4,
     "depth": 4.08,
@@ -32,6 +35,7 @@
   },
   {
     "name": "Cabinet Under Table Saw Outfeed Table",
+    "unique_id": "_x_0044",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
@@ -49,6 +53,7 @@
   },
   {
     "name": "Table Saw Crosscut Sled",
+    "unique_id": "_x_0045",
     "cssClass": "storage",
     "width": 2,
     "depth": 0.5,
@@ -59,6 +64,7 @@
   },
   {
     "name": "Wood Scraps",
+    "unique_id": "_x_0046",
     "cssClass": "storage",
     "width": 3,
     "depth": 1.5,
@@ -68,6 +74,7 @@
   },
   {
     "name": "Project Storage",
+    "unique_id": "_x_0047",
     "cssClass": "storage",
     "width": 5.75,
     "depth": 2.33,
@@ -78,6 +85,7 @@
   },
   {
     "name": "Project Storage",
+    "unique_id": "_x_0048",
     "cssClass": "storage",
     "width": 7.5,
     "depth": 1.33,
@@ -88,6 +96,7 @@
   },
   {
     "name": "Project Storage (Yellow Edges)",
+    "unique_id": "_x_0049",
     "cssClass": "storage",
     "width": 8,
     "depth": 1.5,
@@ -98,6 +107,7 @@
   },
   {
     "name": "Vertical Wood Storage (Yellow Edges",
+    "unique_id": "_x_0050",
     "cssClass": "storage",
     "width": 5.83,
     "depth": 1.33,
@@ -108,6 +118,7 @@
   },
   {
     "name": "Flat Wood Storage",
+    "unique_id": "_x_0051",
     "cssClass": "storage",
     "width": 3.5,
     "depth": 2.17,
@@ -118,16 +129,18 @@
   },
   {
     "name": "Dust Collector",
+    "unique_id": "_x_0052",
     "cssClass": "machine",
     "width": 3,
     "depth": 1.75,
     "x": 4.66,
     "y": 47.33,
     "rotation": 0,
-    "measured": "2020-06-11"    
+    "measured": "2020-06-11"
   },
   {
     "name": "CNC Router",
+    "unique_id": "_x_0053",
     "cssClass": "machine",
     "width": 10.75,
     "depth": 6,
@@ -139,6 +152,7 @@
   },
   {
     "name": "Wood Lathe",
+    "unique_id": "_x_0054",
     "cssClass": "machine",
     "width": 6,
     "depth": 2,
@@ -149,6 +163,7 @@
   },
   {
     "name": "ShopBot Buddy 4 Axis CNC Mill",
+    "unique_id": "_x_0055",
     "cssClass": "machine",
     "width": 6,
     "depth": 3,
@@ -159,6 +174,7 @@
   },
   {
     "name": "Bridgeport Mill (for wood)",
+    "unique_id": "_x_0056",
     "cssClass": "machine",
     "width": 5,
     "depth": 4,
@@ -169,6 +185,7 @@
   },
   {
     "name": "Drill Press (for wood)",
+    "unique_id": "_x_0057",
     "cssClass": "machine",
     "width": 2,
     "depth": 2.5,
@@ -179,6 +196,7 @@
   },
   {
     "name": "Drill Bits, etc.",
+    "unique_id": "_x_0058",
     "cssClass": "storage",
     "width": 2,
     "depth": 1,
@@ -188,6 +206,7 @@
   },
   {
     "name": "Mortiser",
+    "unique_id": "_x_0059",
     "cssClass": "machine",
     "width": 2,
     "depth": 2,
@@ -198,6 +217,7 @@
   },
   {
     "name": "Band Saw",
+    "unique_id": "_x_0060",
     "cssClass": "machine",
     "width": 4,
     "depth": 3,
@@ -208,6 +228,7 @@
   },
   {
     "name": "Thickness Sander",
+    "unique_id": "_x_0061",
     "cssClass": "machine",
     "width": 4,
     "depth": 3,
@@ -218,6 +239,7 @@
   },
   {
     "name": "Scroll Saw",
+    "unique_id": "_x_0062",
     "cssClass": "machine",
     "width": 1.5,
     "depth": 2,
@@ -227,6 +249,7 @@
   },
   {
     "name": "Work Bench",
+    "unique_id": "_x_0063",
     "cssClass": "furnature",
     "width": 7,
     "depth": 2.66,
@@ -237,6 +260,7 @@
   },
   {
     "name": "Work Bench",
+    "unique_id": "_x_0064",
     "cssClass": "furnature",
     "width": 6,
     "depth": 2.5,
@@ -246,6 +270,7 @@
   },
   {
     "name": "Work Bench",
+    "unique_id": "_x_0065",
     "cssClass": "furnature",
     "width": 5,
     "depth": 2,
@@ -255,6 +280,7 @@
   },
   {
     "name": "Work Bench",
+    "unique_id": "_x_0066",
     "cssClass": "furnature",
     "width": 5,
     "depth": 2,
@@ -262,9 +288,9 @@
     "y": 28,
     "rotation": 0
   },
-
   {
     "name": "Pens, Pencils, Pencil Sharpener",
+    "unique_id": "_x_0067",
     "cssClass": "thing",
     "width": 1,
     "depth": 0.25,
@@ -274,6 +300,7 @@
   },
   {
     "name": "Router Table",
+    "unique_id": "_x_0068",
     "cssClass": "machine",
     "width": 2,
     "depth": 2,
@@ -294,6 +321,7 @@
   },
   {
     "name": "Spindle Sander",
+    "unique_id": "_x_0069",
     "cssClass": "machine",
     "width": 1.5,
     "depth": 1.5,
@@ -304,6 +332,7 @@
   },
   {
     "name": "Disk Sander",
+    "unique_id": "_x_0070",
     "cssClass": "machine",
     "width": 1.5,
     "depth": 1.5,
@@ -314,6 +343,7 @@
   },
   {
     "name": "Belt Sander",
+    "unique_id": "_x_0071",
     "cssClass": "machine",
     "width": 4,
     "depth": 3,
@@ -324,6 +354,7 @@
   },
   {
     "name": "Thickness Planer",
+    "unique_id": "_x_0072",
     "cssClass": "machine",
     "width": 3,
     "depth": 3,
@@ -334,6 +365,7 @@
   },
   {
     "name": "Jointer",
+    "unique_id": "_x_0073",
     "cssClass": "machine",
     "width": 6,
     "depth": 2,
@@ -344,6 +376,7 @@
   },
   {
     "name": "Compound Miter Saw",
+    "unique_id": "_x_0074",
     "cssClass": "machine",
     "width": 6,
     "depth": 2,
@@ -354,6 +387,7 @@
   },
   {
     "name": "DeWaltRadial Arm Saw",
+    "unique_id": "_x_0075",
     "cssClass": "machine",
     "width": 6,
     "depth": 2,
@@ -364,6 +398,7 @@
   },
   {
     "name": "Sharpening Station",
+    "unique_id": "_x_0076",
     "cssClass": "machine",
     "path_d": "M 0 0 h 2 v -1 h -3 v 3 h 1 z",
     "x": 26.7,
@@ -372,11 +407,12 @@
   },
   {
     "name": "Cabinet/Drawers",
+    "unique_id": "_x_0077",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
     "x": 36.5,
-    "y": 1.5,    
+    "y": 1.5,
     "rotation": 0.5,
     "contents": [
       "1st (top) drawer: screw drivers, please keep sorted by phillips, straight or square drive",
@@ -390,6 +426,7 @@
   },
   {
     "name": "Cabinet/Drawers",
+    "unique_id": "_x_0078",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
@@ -407,6 +444,7 @@
   },
   {
     "name": "Cabinet/Drawers",
+    "unique_id": "_x_0079",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
@@ -424,6 +462,7 @@
   },
   {
     "name": "Cabinet/Drawers",
+    "unique_id": "_x_0080",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,

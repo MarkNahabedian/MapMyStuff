@@ -23,6 +23,7 @@
   },
   {
     "name": "OMAX MicroMax Water Jet Machining Center",
+    "unique_id": "_x_0001",
     "cssClass": "machine",
     "width": 6.166,
     "depth": 7,
@@ -33,6 +34,7 @@
   },
   {
     "name": "OMAX Mystery Support Box (Pump)",
+    "unique_id": "_x_0002",
     "cssClass": "machine",
     "width": 3,
     "depth": 2.5,
@@ -42,6 +44,7 @@
   },
   {
     "name": "Milling Machine Accessories",
+    "unique_id": "_x_0003",
     "cssClass": "storage",
     "width": 2,
     "depth": 1.5,
@@ -58,10 +61,11 @@
       "6th (top) drawer: ?",
       "7th (top) drawer: ?",
       "8th (top) drawer: ?"
-      ]
+    ]
   },
   {
     "name": "Desk, Finishing Rag Storage",
+    "unique_id": "_x_0004",
     "cssClass": "furnature",
     "width": 5,
     "depth": 2.5,
@@ -71,6 +75,7 @@
   },
   {
     "name": "Laser Cutter",
+    "unique_id": "_x_0005",
     "cssClass": "machine",
     "width": 5,
     "depth": 3,
@@ -81,6 +86,7 @@
   },
   {
     "name": "Plastic Storage",
+    "unique_id": "_x_0006",
     "cssClass": "storage",
     "width": 3,
     "depth": 2.5,
@@ -90,6 +96,7 @@
   },
   {
     "name": "Cabinet/Drawers",
+    "unique_id": "_x_0007",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
@@ -108,16 +115,18 @@
   },
   {
     "name": "Bridgeport Mill (for metal)",
+    "unique_id": "_x_0008",
     "cssClass": "machine",
     "width": 5,
     "depth": 4,
     "x": 46,
     "y": 31,
-    "rotation": 0.30,
+    "rotation": 0.3,
     "description": "metal_shop_Bridgeport_mill.html"
   },
   {
     "name": "Trak Mill",
+    "unique_id": "_x_0009",
     "cssClass": "machine",
     "width": 5,
     "depth": 4,
@@ -128,6 +137,7 @@
   },
   {
     "name": "Cabinet/Drawers",
+    "unique_id": "_x_0010",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
@@ -145,6 +155,7 @@
   },
   {
     "name": "Workbench",
+    "unique_id": "_x_0011",
     "cssClass": "furnature",
     "width": 4,
     "depth": 2.5,
@@ -154,6 +165,7 @@
   },
   {
     "name": "Tormach CNC Mill",
+    "unique_id": "_x_0012",
     "cssClass": "machine",
     "width": 4,
     "depth": 4,
@@ -164,6 +176,7 @@
   },
   {
     "name": "Drill Press",
+    "unique_id": "_x_0013",
     "cssClass": "machine",
     "width": 2,
     "depth": 2.5,
@@ -174,6 +187,7 @@
   },
   {
     "name": "Cabinet/Drawers",
+    "unique_id": "_x_0014",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
@@ -191,6 +205,7 @@
   },
   {
     "name": "Cabinet/Drawers",
+    "unique_id": "_x_0015",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
@@ -201,6 +216,7 @@
   },
   {
     "name": "Cabinet/Drawers",
+    "unique_id": "_x_0016",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
@@ -211,6 +227,7 @@
   },
   {
     "name": "Tap Drill Press",
+    "unique_id": "_x_0017",
     "cssClass": "machine",
     "width": 2,
     "depth": 2,
@@ -220,6 +237,7 @@
   },
   {
     "name": "Tapping and Filing Bench",
+    "unique_id": "_x_0018",
     "cssClass": "station",
     "width": 5,
     "depth": 2.5,
@@ -229,6 +247,7 @@
   },
   {
     "name": "Surface Plate",
+    "unique_id": "_x_0019",
     "cssClass": "station",
     "width": 2,
     "depth": 2,
@@ -238,6 +257,7 @@
   },
   {
     "name": "CNC Metal Lathe",
+    "unique_id": "_x_0020",
     "cssClass": "machine",
     "width": 6,
     "depth": 2.5,
@@ -248,6 +268,7 @@
   },
   {
     "name": "Vertical Band Saw",
+    "unique_id": "_x_0021",
     "cssClass": "machine",
     "width": 3,
     "depth": 2.5,
@@ -258,6 +279,7 @@
   },
   {
     "name": "Horizontal Band Saw",
+    "unique_id": "_x_0022",
     "cssClass": "machine",
     "width": 4,
     "depth": 2,
@@ -268,6 +290,7 @@
   },
   {
     "name": "BaileighCold Saw",
+    "unique_id": "_x_0023",
     "cssClass": "machine",
     "width": 4,
     "depth": 2,
@@ -278,6 +301,7 @@
   },
   {
     "name": "Arbor Press",
+    "unique_id": "_x_0024",
     "cssClass": "machine",
     "width": 2,
     "depth": 2,
@@ -286,8 +310,6 @@
     "rotation": 0.8,
     "description": "12 Ton Arbor Press (old model)"
   },
-
-
   {
     "name": "Manual Mill",
     "cssClass": "machine",

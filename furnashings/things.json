@@ -1,6 +1,7 @@
 [
   {
     "name": "Sink and Eye Wash",
+    "unique_id": "_x_0032",
     "cssClass": "thing",
     "width": 6,
     "depth": 3,
@@ -11,6 +12,7 @@
   },
   {
     "name": "ID Reader",
+    "unique_id": "_x_0033",
     "cssClass": "thing",
     "width": 0.25,
     "depth": 0.25,
@@ -20,6 +22,7 @@
   },
   {
     "name": "Coat Rod",
+    "unique_id": "_x_0034",
     "cssClass": "storage",
     "width": 1,
     "depth": 0.1,
@@ -29,6 +32,7 @@
   },
   {
     "name": "Day Storage & Backpacks",
+    "unique_id": "_x_0035",
     "cssClass": "storage",
     "width": 5,
     "depth": 1.5,
@@ -37,4 +41,3 @@
     "rotation": 0.5
   }
 ]
-

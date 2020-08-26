@@ -1,6 +1,7 @@
 [
   {
     "name": "Welding Table",
+    "unique_id": "_x_0036",
     "cssClass": "station",
     "width": 4,
     "depth": 4,
@@ -10,6 +11,7 @@
   },
   {
     "name": "Sheet Metal Shear",
+    "unique_id": "_x_0037",
     "cssClass": "machine",
     "width": 4,
     "depth": 2.5,
@@ -20,6 +22,7 @@
   },
   {
     "name": "Sheet Metal Break",
+    "unique_id": "_x_0038",
     "cssClass": "machine",
     "width": 4,
     "depth": 2.5,
@@ -30,6 +33,7 @@
   },
   {
     "name": "Bench Grinder",
+    "unique_id": "_x_0039",
     "cssClass": "machine",
     "width": 4,
     "depth": 2.5,
@@ -40,6 +44,7 @@
   },
   {
     "name": "Metal Storage",
+    "unique_id": "_x_0040",
     "cssClass": "storage",
     "width": 6,
     "depth": 2,
@@ -47,7 +52,6 @@
     "y": 41,
     "rotation": 0.75
   },
-
   {
     "name": "MIG Welder",
     "cssClass": "machine",

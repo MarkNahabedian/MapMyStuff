@@ -1,6 +1,7 @@
 [
   {
     "name": "Hayami's Desk",
+    "unique_id": "_x_0025",
     "cssClass": "furnature",
     "width": 5,
     "depth": 2.5,
@@ -10,6 +11,7 @@
   },
   {
     "name": "Coby's pre-Covid Desk",
+    "unique_id": "_x_0026",
     "cssClass": "furnature",
     "width": 5,
     "depth": 2.5,
@@ -19,6 +21,7 @@
   },
   {
     "name": "Coby's Chair",
+    "unique_id": "_x_0027",
     "cssClass": "furnature",
     "width": 2,
     "depth": 2,
@@ -28,6 +31,7 @@
   },
   {
     "name": "Water Bubbler",
+    "unique_id": "_x_0028",
     "cssClass": "thing",
     "width": 1,
     "depth": 1.17,
@@ -38,6 +42,7 @@
   },
   {
     "name": "Computers and 3d Printers",
+    "unique_id": "_x_0029",
     "cssClass": "thing",
     "width": 12.5,
     "depth": 2.5,
@@ -48,6 +53,7 @@
   },
   {
     "name": "Books",
+    "unique_id": "_x_0030",
     "cssClass": "thing",
     "width": 6.6,
     "depth": 1.5,
@@ -58,6 +64,7 @@
   },
   {
     "name": "Couch",
+    "unique_id": "_x_0031",
     "cssClass": "furnature",
     "width": 5.33,
     "depth": 2.5,
