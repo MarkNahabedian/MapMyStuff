@@ -17,7 +17,7 @@ improve.
 
 ## Spurious Attributes
 
-Inkscape addes attributes that are not relevant to most SVG
+Inkscape adds attributes that are not relevant to most SVG
 processors.  ATTRIBUTES_TO_REMOVE is a list of such attributes which
 are to be removed to decrease the amount of noise in the SVG file we
 wish to produce.
@@ -44,7 +44,7 @@ stylesheet to the output file.
 
 The floor plan we were given covers all of the basement of W31
 (DuPont).  We only care about the Hobby Shop.  The rest is unnecessary
-and removing it reduces the side of the SVG file by an order of
+and removing it reduces the size of the SVG file by an order of
 magnitude.
 
 The command line arguments --grid_spacing, --clip_box, and
@@ -54,7 +54,7 @@ expressed in top level SVG viewBox coordinates.
 Once a suitable box is identified, the --clip_svg_viewbox agument can
 be used to update the viewBox attribute of the SVG element to that box
 and the --clip argument can be used to remove drawing elements that
-are outsie of that box.  Any SVG group elements that are left empty
+are outside of that box.  Any SVG group elements that are left empty
 after drawing elements are removed are also removed.
 
 
@@ -68,7 +68,7 @@ element that is within any of the specified boxes.
 
 This was helpful in identifying which CSS style was used to remove the
 meaningless text described below, and also to find the graphics
-responsible for shoing the scale of the drawing.
+responsible for showing the scale of the drawing.
 
 
 ## Meaningless Text
