@@ -58,7 +58,7 @@
     "description": "Millermatic_350P_MIG_welder.html"
   },
   {
-    "name": "Tig Welder",
+    "name": "TIG Welder",
     "cssClass": "machine",
     "description": "MillerDynasty_TIG_welder.html"
   }
