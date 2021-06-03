@@ -3,7 +3,7 @@
 
 import glob
 import json
-import parse
+import parse    # pip install parse
 
 NEXT_ID = 1
 
@@ -48,7 +48,7 @@ def main():
         if uid == "":
           any = True
         else:
-          # After we've read alll the JSON files, NEXT_ID should be
+          # After we've read all the JSON files, NEXT_ID should be
           # greater than any unique id previously assigned by this
           # program.
           try:
