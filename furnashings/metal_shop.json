@@ -136,24 +136,6 @@
     "description": "TRAK_CNC_mill.html"
   },
   {
-    "name": "Cabinet/Drawers",
-    "unique_id": "_x_0010",
-    "cssClass": "storage",
-    "width": 2.5,
-    "depth": 2.25,
-    "x": 54,
-    "y": 20,
-    "rotation": 0.75,
-    "contents": [
-      "on top: parallels",
-      "1st (top) drawer: calculators and gauges",
-      "2nd drawer: edge finders, calipers",
-      "3rd drawer:  punches, scribes",
-      "4th drawer: stencils, templates",
-      "5th (bottom) drawer: micrometers, squares"
-    ]
-  },
-  {
     "name": "Workbench",
     "unique_id": "_x_0011",
     "cssClass": "furnature",
@@ -161,7 +143,17 @@
     "depth": 2.5,
     "x": 51,
     "y": 7,
-    "rotation": 0.5
+    "rotation": 0.5,
+    "contents": [
+      "right 1st (top) drawer: air and plumbing parts",
+      "right, 2nd drawer: air and plumbing parts",
+      "right 3rd drawer: gaskets",
+      "right 4th (bottom) draweer: burlap, etc",
+      "left 1st (top) drawer: ???",
+      "left, 2nd drawer: ???",
+      "left 3rd drawer: painting supplies",
+      "left 4th (bottom) drawer: painting supplies"
+    ]
   },
   {
     "name": "Tormach CNC Mill",
@@ -212,7 +204,16 @@
     "x": 70.5,
     "y": 1.5,
     "rotation": 0.5,
-    "description": "nuts and bolts"
+    "contents": [
+      "1sth (top) drawer: nuts and bolts: 5-40, 4-40, 5-44, 8-32,6-36, 6-40, 8-32",
+      "2nd drawer: nuts and bolts: 10-24, 10-32, 12-24, 12-28,12-32",
+      "3rd drawer: nuts and bolts: 1/4-20, 1/4-28, 1/4-32, 5/16-18, 5/16-24, 5/16-32",
+      "4th drawer: nuts and bolts: 3/8-16, 3/8-24, 7/16-20, 7/16-20",
+      "5th drawer: nuts and bolts: 1/2-13, 1/2-20, 5/8-11, 3/4-10, 3/4-16",
+      "6th drawer: washers, retaining rings",
+      "7th drawer: thread repair, set scres, threaded inserts, nuts, anchors",
+      "8th (bottom) drawer: metric"
+    ]
   },
   {
     "name": "Cabinet/Drawers",
@@ -223,7 +224,16 @@
     "x": 68,
     "y": 1.5,
     "rotation": 0.5,
-    "description": "wood screws"
+    "contents": [
+      "1st (top) drrawer: wood screws: #1, #2, #3, #4",
+      "2nd drawer: wood screws: #5, #6",
+      "3rd drawer: wood screws: #8",
+      "4th drawer: wood screws: #10, #12",
+      "5th drawer: wood screws: 1/4, 5/16, 3/8",
+      "6th drawer: wood screws: 1/2",
+      "7th drawer: needles, nails, staples",
+      "8th (bottom) drawer: ???"
+    ]
   },
   {
     "name": "Tap Drill Press",
@@ -231,29 +241,80 @@
     "cssClass": "machine",
     "width": 2,
     "depth": 2,
-    "x": 60,
+    "x": 60.5,
     "y": 15,
     "rotation": 0
+  },
+  {
+    "name": "Storage under filing bench",
+    "unique_id": "_x_0088",
+    "cssClass": "storage",
+    "width": 3,
+    "depth": 2.5,
+    "x": 55,
+    "y": 15,
+    "rotation": 0,
+    "contents": [
+      "1st (top) drawer: more hammers",
+      "2nd (bottom) drawer: punches"
+    ]
+  },
+  {
+    "name": "Storage under filing bench",
+    "unique_id": "_x_0089",
+    "cssClass": "storage",
+    "width": 3,
+    "depth": 2.5,
+    "x": 58,
+    "y": 15,
+    "rotation": 0,
+    "contents": [
+      "1st (top) drawer: files",
+      "2nd (bottom) drawer: dies"
+    ]
   },
   {
     "name": "Tapping and Filing Bench",
     "unique_id": "_x_0018",
     "cssClass": "station",
-    "width": 5,
+    "width": 7,
     "depth": 2.5,
     "x": 56,
     "y": 15,
-    "rotation": 0
+    "rotation": 0,
+    "description": "Filing and tapping bench with two metal vises",
+    "measured": "2021-06-23"
+  },
+  {
+    "name": "Measurement and Layout Tools",
+    "unique_id": "_x_0010",
+    "cssClass": "storage",
+    "width": 2,
+    "depth": 2,
+    "x": 54,
+    "y": 17.5,
+    "rotation": 0.75,
+    "contents": [
+      "on top: Surface Plate",
+      "1st (top) drawer: calculators, gauges",
+      "2nd drawer: edge finders, dial indicators, calipers",
+      "3rd drawer: punches, scribes",
+      "4th drawer: stencils, templates",
+      "5th drawer: micrometers, squares, angle blocks",
+      "6th (bottom) drawer: ???"
+    ],
+    "measured": "2021-06-23"
   },
   {
     "name": "Surface Plate",
     "unique_id": "_x_0019",
     "cssClass": "station",
     "width": 2,
-    "depth": 2,
+    "depth": 1.5,
     "x": 54,
     "y": 17.5,
-    "rotation": 0.75
+    "rotation": 0.75,
+    "measured": "2021-06-23"
   },
   {
     "name": "CNC Metal Lathe",
