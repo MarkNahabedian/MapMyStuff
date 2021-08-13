@@ -34,7 +34,6 @@ def feet_to_inches(feet):
 
 SPREADSHET_HEADINGS = [
     Heading("name", "name"),
-    Heading("empty"),
     Heading("id", "unique_id"),
     Heading("width", "width", feet_to_inches),
     Heading("depth", "depth", feet_to_inches)
