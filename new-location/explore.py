@@ -85,8 +85,11 @@ def main():
     show_element_counts(doc)
     # Collect distribution of line lengths and angles
     lines = make_lines(doc)
-    print(numpy.histogram([line.length for line in lines],
-                          bins=(0,10, 100, 1000)))
+    counts, buckets = numpy.histogram([line.length for line in lines],
+                                      bins=(0,10, 100, 1000))
+    for i in range(0, len(counts)):
+        print("  {:6d}  {:8.2f}  {:6d}".format(buckets[i], counts[i], buckets[i+1]))
+
     longest = lines[0]
     shortest = lines[0]
     for line in lines:
