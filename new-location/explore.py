@@ -7,10 +7,12 @@
 # identify the scale.
 
 import argparse
+import math
 import xml.dom
 from xml.dom.minidom import parse
 from collections import Counter
 import svg.path
+import numpy
 
 
 def do_elements(e, f):
@@ -31,6 +33,42 @@ def show_element_counts(doc):
     pass
 pass
 
+class Line:
+    def __init__(self, elt):
+        assert elt.nodeType == xml.dom.Node.ELEMENT_NODE
+        assert elt.tagName == "line"
+        x1 = float(elt.getAttribute("x1"))
+        x2 = float(elt.getAttribute("x2"))
+        y1 = float(elt.getAttribute("y1"))
+        y2 = float(elt.getAttribute("y2"))
+        self.center = ((x1 + x2)/2, (y1 + y2)/2)
+        self.length = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+        d1 = math.sqrt(x1**2 + y1**2)
+        d2 = math.sqrt(x2**2 + y2**2)
+        if d1 > d2:
+            self.start = (x2, y2)
+            self.end = (x1, y1)
+        else:
+            self.start = (x1, y1)
+            self.end = (x2, y2)
+
+    def __str__(self):
+        return "Line %f %s-%s" % (
+            self.length,
+            self.start,
+            self.end
+            )
+pass
+
+def make_lines(doc):
+    lines = []
+    def line(elt):
+        if elt.nodeType == xml.dom.Node.ELEMENT_NODE and elt.tagName == "line":
+            lines.append(Line(elt))
+    do_elements(doc, line)
+    return lines
+pass
+
 
 ################################################################################
 
@@ -46,7 +84,17 @@ def main():
     doc = parse(args.input_file)
     show_element_counts(doc)
     # Collect distribution of line lengths and angles
-    pass
+    lines = make_lines(doc)
+    print(numpy.histogram([line.length for line in lines],
+                          bins=(0,10, 100, 1000)))
+    longest = lines[0]
+    shortest = lines[0]
+    for line in lines:
+        if line.length > longest.length:
+            longest = line
+        if line.length < shortest.length:
+            shortest = line
+    print("shortest: ", shortest, "\nlongest: ", longest)
 
 
 if __name__ == "__main__":
