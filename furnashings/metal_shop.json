@@ -9,7 +9,7 @@
     "x": 58.8,
     "y": 6.5,
     "rotation": 0.25,
-    "description": "CNC_metal_lathe-SI_154CH089.html"
+    "description_uri": "CNC_metal_lathe-SI_154CH089.html"
   },
   {
     "name": "Lathe Cutters",
@@ -32,7 +32,7 @@
     "x": 70,
     "y": 24,
     "rotation": 0.75,
-    "description": "MicroMax.html"
+    "description_uri": "MicroMax.html"
   },
   {
     "name": "OMAX Mystery Support Box (Pump)",
@@ -85,7 +85,7 @@
     "x": 65,
     "y": 47,
     "rotation": 0,
-    "description": "Epilog_laser_cutter.html"
+    "description_uri": "Epilog_laser_cutter.html"
   },
   {
     "name": "Plastic Storage",
@@ -126,7 +126,7 @@
     "x": 46,
     "y": 31,
     "rotation": 0.3,
-    "description": "metal_shop_Bridgeport_mill.html"
+    "description_uri": "metal_shop_Bridgeport_mill.html"
   },
   {
     "name": "Trak Mill",
@@ -138,7 +138,7 @@
     "x": 45,
     "y": 21.25,
     "rotation": 0.25,
-    "description": "TRAK_CNC_mill.html"
+    "description_uri": "TRAK_CNC_mill.html"
   },
   {
     "name": "Workbench",
@@ -170,7 +170,7 @@
     "x": 55.2,
     "y": 8,
     "rotation": 0.5,
-    "description": "Tormach_CNC_mill.html"
+    "description_uri": "Tormach_CNC_mill.html"
   },
   {
     "name": "Drill Press",
@@ -181,7 +181,7 @@
     "x": 68.5,
     "y": 5,
     "rotation": 0.75,
-    "description": "Jet_20VS_drill_press.html"
+    "description_uri": "Jet_20VS_drill_press.html"
   },
   {
     "name": "Cabinet/Drawers",
@@ -332,7 +332,7 @@
     "x": 58.5,
     "y": 20.5,
     "rotation": 0.5,
-    "description": "Harrison_CNC_metal_lathe.html"
+    "description_uri": "Harrison_CNC_metal_lathe.html"
   },
   {
     "name": "Vertical Band Saw",
@@ -343,7 +343,7 @@
     "x": 59,
     "y": 29,
     "rotation": 0,
-    "description": "Grob_4V-18_band_saw.html"
+    "description_uri": "Grob_4V-18_band_saw.html"
   },
   {
     "name": "Horizontal Band Saw",
@@ -354,7 +354,7 @@
     "x": 58.5,
     "y": 32.75,
     "rotation": 0.5,
-    "description": "Kalamazoo_horizontal_band_saw.html"
+    "description_uri": "Kalamazoo_horizontal_band_saw.html"
   },
   {
     "name": "BaileighCold Saw",
@@ -365,7 +365,7 @@
     "x": 72,
     "y": 34,
     "rotation": 0.8,
-    "description": "Baileigh_cold_saw.html"
+    "description_uri": "Baileigh_cold_saw.html"
   },
   {
     "name": "Arbor Press",

@@ -251,25 +251,24 @@ function show_description(thing) {
   let d = document.createElement("div");
   d.setAttribute("class", "description");
   desc_elt.appendChild(d);
-  function literal_descriprion() {
+  function literal_descriprion(desc) {
     let name = document.createElement("div");
     name.setAttribute("class", "name");
     d.appendChild(name);
     let content = document.createElement("div");
-    content.textContent = thing.description;
+    content.textContent = desc;
     d.appendChild(content)
   }
-  let description = thing.description;
-  if (description) {
-    // Description might be text or a URI.  If it contains whitespace
-    // (likely in a textual description) then we know it's not a URI.
-    if (description.indexOf(" ") >= 0) {
-      literal_descriprion()
-      return Promise.resolve(null);
-    }
-    // Otherwise, we attempt to fetch it.  If that fails we insert it as
-    // text, otherwise we embed the target document.
-    let test_uri = new URL(thing.description, thing.from_file);
+  // The contents of the description element could come from the
+  // `description` property, the `description_uri` property, or the
+  // `contents` property.
+  if (thing.description) {
+    literal_descriprion(thing.description)
+    return Promise.resolve(null);
+  } else if (thing.description_uri) {
+    // Fetch the specified resource and embed the target document
+    // If the fetch fails we insert the URI as text.
+    let test_uri = new URL(thing.description_uri, thing.from_file);
     // Though resolution of the fetch promise is no longer the factor
     // that determines when to call target for the external resource
     // description case, it is still the appropriate trigger for
@@ -278,7 +277,7 @@ function show_description(thing) {
       function(response) {
         console.log(response.status, response.statusText);
         if (!response.ok) {
-          literal_descriprion()
+          literal_descriprion(thing.description_uri)
           return Promise.resolve(null);
         }
         // We have verified that the description resource exists.
@@ -295,19 +294,20 @@ function show_description(thing) {
         d.appendChild(iframe);
       },
       console.log);
-  }
-  // If no description, then show contents.  This is used for drawers
-  // and other storeage.
-  let contents = thing.contents;
-  if (contents) {
-    let list = document.createElement("ul");
-    d.appendChild(list);
-    for (c of contents) {
-      let li = document.createElement("li");
-      list.appendChild(li);
-      li.textContent = c.name;
+  } else {
+    // If no description, then show contents.  This is used for drawers
+    // and other storeage.
+    let contents = thing.contents;
+    if (contents) {
+      let list = document.createElement("ul");
+      d.appendChild(list);
+      for (c of contents) {
+        let li = document.createElement("li");
+        list.appendChild(li);
+        li.textContent = c.name;
+      }
+      // Drop through to return resolved Promise.
     }
-    // Drop through to return resolved Promise.
   }
   return Promise.resolve(null);
 }

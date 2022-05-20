@@ -41,7 +41,7 @@
     "x": 9,
     "y": 18.5,
     "rotation": 0,
-    "description": "SawStop_cabinet_saw.html",
+    "description_uri": "SawStop_cabinet_saw.html",
     "measured": "2020-06-10"
   },
   {
@@ -169,7 +169,7 @@
     "x": 12,
     "y": 44,
     "rotation": 0,
-    "description": "Techno_CNC_LC_4896.html",
+    "description_uri": "Techno_CNC_LC_4896.html",
     "measured": "2020-06-11"
   },
   {
@@ -181,7 +181,7 @@
     "x": 9.5,
     "y": 32.5,
     "rotation": 0,
-    "description": "wood_lathe.html",
+    "description_uri": "wood_lathe.html",
     "measured": "2021-06-01"
   },
   {
@@ -193,7 +193,7 @@
     "x": 24.5,
     "y": 43,
     "rotation": 0.75,
-    "description": "ShopBotBuddy.html",
+    "description_uri": "ShopBotBuddy.html",
     "measured": "2021-06-01"
   },
   {
@@ -217,7 +217,7 @@
     "x": 16,
     "y": 34.5,
     "rotation": 0.4,
-    "description": "wood_mill.html"
+    "description_uri": "wood_mill.html"
   },
   {
     "name": "Drill Press (for wood)",
@@ -228,7 +228,7 @@
     "x": 16,
     "y": 27.5,
     "rotation": 0.2,
-    "description": "clausing_drill_press.html"
+    "description_uri": "clausing_drill_press.html"
   },
   {
     "name": "Drill and Mortise Bit Storage Shelf",
@@ -251,7 +251,7 @@
     "x": 12.5,
     "y": 28.4,
     "rotation": 0,
-    "description": "Laguna_mortiser.html",
+    "description_uri": "Laguna_mortiser.html",
     "measured": "2021-06_23"
   },
   {
@@ -263,7 +263,7 @@
     "x": 14.5,
     "y": 20.6,
     "rotation": 0.25,
-    "description": "Tannewitz_band_saw.html"
+    "description_uri": "Tannewitz_band_saw.html"
   },
   {
     "name": "Thickness Sander",
@@ -274,7 +274,7 @@
     "x": 24.5,
     "y": 16.5,
     "rotation": 0.5,
-    "description": "Timesavers_speed_sander.html"
+    "description_uri": "Timesavers_speed_sander.html"
   },
   {
     "name": "Scroll Saw",
@@ -354,7 +354,7 @@
     "x": 40,
     "y": 17.5,
     "rotation": 0.75,
-    "description": "PorterCable_router_table.html"
+    "description_uri": "PorterCable_router_table.html"
   },
   {
     "name": "Router Bits",
@@ -375,7 +375,7 @@
     "x": 26,
     "y": 32,
     "rotation": 0.75,
-    "description": "Delta_spindle_sander.html"
+    "description_uri": "Delta_spindle_sander.html"
   },
   {
     "name": "Central Dust Collection On/Off Swicth",
@@ -419,7 +419,7 @@
     "x": 31,
     "y": 32,
     "rotation": 0.625,
-    "description": "Northfield_planer.html"
+    "description_uri": "Northfield_planer.html"
   },
   {
     "name": "Jointer",
@@ -430,7 +430,7 @@
     "x": 40,
     "y": 26,
     "rotation": 0.75,
-    "description": "Northfield_jointer.html"
+    "description_uri": "Northfield_jointer.html"
   },
   {
     "name": "Compound Miter Saw",
@@ -441,7 +441,7 @@
     "x": 31,
     "y": 20,
     "rotation": 0.25,
-    "description": "Festool_Kapex_miter_saw.html"
+    "description_uri": "Festool_Kapex_miter_saw.html"
   },
   {
     "name": "DeWaltRadial Arm Saw",
@@ -452,7 +452,7 @@
     "x": 31,
     "y": 26,
     "rotation": 0.25,
-    "description": "DeWalt_radial_arm_saw.html"
+    "description_uri": "DeWalt_radial_arm_saw.html"
   },
   {
     "name": "Sharpening Station",

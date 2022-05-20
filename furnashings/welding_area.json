@@ -18,7 +18,7 @@
     "x": 80,
     "y": 34,
     "rotation": 0.5,
-    "description": "PSW36_sheet_metal_shear.html"
+    "description_uri": "PSW36_sheet_metal_shear.html"
   },
   {
     "name": "Sheet Metal Break",
@@ -29,7 +29,7 @@
     "x": 86,
     "y": 34,
     "rotation": 0.5,
-    "description": "Baileigh_sheet_metal_brake.html"
+    "description_uri": "Baileigh_sheet_metal_brake.html"
   },
   {
     "name": "Bench Grinder",
@@ -55,11 +55,11 @@
   {
     "name": "MIG Welder",
     "cssClass": "machine",
-    "description": "Millermatic_350P_MIG_welder.html"
+    "description_uri": "Millermatic_350P_MIG_welder.html"
   },
   {
     "name": "TIG Welder",
     "cssClass": "machine",
-    "description": "MillerDynasty_TIG_welder.html"
+    "description_uri": "MillerDynasty_TIG_welder.html"
   }
 ]
