@@ -251,9 +251,11 @@ function show_description(thing) {
   let d = document.createElement("div");
   d.setAttribute("class", "description");
   desc_elt.appendChild(d);
-  function literal_descriprion(desc) {
+  function literal_descriprion(thing, desc) {
+    // Description is the text of the item's `description` property.
     let name = document.createElement("div");
     name.setAttribute("class", "name");
+    name.textContent = thing.name;
     d.appendChild(name);
     let content = document.createElement("div");
     content.textContent = desc;
@@ -263,7 +265,7 @@ function show_description(thing) {
   // `description` property, the `description_uri` property, or the
   // `contents` property.
   if (thing.description) {
-    literal_descriprion(thing.description)
+    literal_descriprion(thing, thing.description)
     return Promise.resolve(null);
   } else if (thing.description_uri) {
     // Fetch the specified resource and embed the target document
@@ -277,7 +279,7 @@ function show_description(thing) {
       function(response) {
         console.log(response.status, response.statusText);
         if (!response.ok) {
-          literal_descriprion(thing.description_uri)
+          literal_descriprion(thing, thing.description_uri)
           return Promise.resolve(null);
         }
         // We have verified that the description resource exists.
