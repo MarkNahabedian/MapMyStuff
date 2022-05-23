@@ -234,6 +234,14 @@ function getThing(id) {
 
 var IFRAME;
 
+HobbyShop_clustermarket_id = 3665;
+
+function clustermarket_bookit_uri(thing) {
+  return "https://app.clustermarket.com/accounts/" +
+    HobbyShop_clustermarket_id +
+    "/equipment/" + thing.clustermarket_id;
+}
+
 // Show thing's description in the description element.  With no
 // thing, just clear the description element.
 //
@@ -251,6 +259,17 @@ function show_description(thing) {
   let d = document.createElement("div");
   d.setAttribute("class", "description");
   desc_elt.appendChild(d);
+  // For now, for simplicity, if the item has a clustermarket_id
+  // property then the BookIt link will be the first element.
+  if (thing.clustermarket_id) {
+    let bookit = document.createElement("div");
+    bookit.setAttribute("class", "bookit");
+    let a = document.createElement("a");
+    a.setAttribute("href", clustermarket_bookit_uri(thing));
+    a.textContent = "BookIt";
+    bookit.appendChild(a);
+    d.appendChild(bookit);
+  }
   function literal_descriprion(thing, desc) {
     // Description is the text of the item's `description` property.
     let name = document.createElement("div");
