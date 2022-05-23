@@ -2,6 +2,7 @@
 
 // Place things onto the floorplan.
 
+// Called to handle the window.onload event
 function load_and_draw_things() {
   let svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   svgdoc.addEventListener("mousemove", Show_event_location);
@@ -240,7 +241,6 @@ var IFRAME;
 // requires that the display box already be sized, this returns a
 // Promise whose resolution can be used to trigger drawing of the
 // selected item indicator.
-
 function show_description(thing) {
   // Clear description:
   let desc_elt = document.getElementById("description");
@@ -328,12 +328,15 @@ function messageHandler(event) {
 
 window.addEventListener("message", messageHandler, false);
 
+// selected_thing is a globalvariable that holds the currently
+// selected item,if there is one.
 var selected_thing = null;
 
 window.onresize = function () {
   select_item(selected_thing);
 };
 
+// select_item is called when an item (or empty space) is selected.
 function select_item(thing) {
   // thing can be an item object or the unique_id of an item.
   // If null than any current selection is unselected.
