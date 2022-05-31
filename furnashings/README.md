@@ -1,5 +1,5 @@
 The JSON files in this directory list and describe the tools,
-machinery and furnashings of MIT's Hobby Shop.  Below we use "item" as
+machinery and furnishings of MIT's Hobby Shop.  Below we use "item" as
 a generic term for any of these.
 
 Each JSON object describes one such item. Each has a number of JSON
@@ -28,13 +28,28 @@ The cssClass property provides a way to control the appearance of the
 item on the floor plan.  The CSS presentation properties associated
 with these classes are defined in the stylesheet thing_styles.css.
 
-Currently we have so few items described that they all have a cssClass
-of "thing".
-
      "cssClass": "thing",
 
 This allows us to define different appearances for machines versus
 workbenches, for example.
+
+The currently defined CSS classes for distinguishing types of items are
+
+machine
+: a piece of heavymachinery
+
+station
+: a place where one might do work, often focused on a particular set
+of tasks, that isn't a heavy machine
+
+storage
+: cabinets, shelves, drawers, wood racks, etc.
+
+furnature
+: desks, couches, shairs, etc.
+
+thing
+: anything else
 
 
 ## unique_id
@@ -169,10 +184,32 @@ the user of the item's back is towards the front wall of the shop.
 ## description
 
 The description is used to provide further information about the item.
-If it is a plain text string then that text is displayed in a
-description box above the map when the item is selected (by clicking
-on it).  If the description is a URL then the target is assumed to be
-an HTML fragment that will be displayed in the description box.
+It should be a plain text string.
+
+
+## description_uri
+
+Alternatively, the item can be described by an external HTML file.
+This property provides the URL for that file.
+
+
+# Properties Related to Clustermarket Booking
+
+## clustermarket_id
+
+This property is a unique identifier used to refer to an item in the
+Clustermarket booking web site.  Because of the way that the Hobby
+Shop is set up, several items might share the same clustermarket_id.
+For example, the entire ewelding area, including the sheet metal break
+and sheer, are booked using a single clustermarket_id for the entire
+welding area.
+
+## booking_note
+
+This property is used to provide information about how the item is
+booked.  Such details might be used, for exampple, in the wood shop,
+where booking any bench allows access to any of the woodworking
+machinery.
 
 
 # Special Purpose Properties

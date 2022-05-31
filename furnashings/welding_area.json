@@ -2,6 +2,7 @@
   {
     "name": "Welding Table",
     "unique_id": "_x_0036",
+    "clustermarket_id": "25534",
     "cssClass": "station",
     "width": 4,
     "depth": 4,
@@ -12,6 +13,7 @@
   {
     "name": "Sheet Metal Shear",
     "unique_id": "_x_0037",
+    "clustermarket_id": "25534",
     "cssClass": "machine",
     "width": 4,
     "depth": 2.5,
@@ -23,6 +25,7 @@
   {
     "name": "Sheet Metal Break",
     "unique_id": "_x_0038",
+    "clustermarket_id": "25534",
     "cssClass": "machine",
     "width": 4,
     "depth": 2.5,
@@ -34,6 +37,7 @@
   {
     "name": "Bench Grinder",
     "unique_id": "_x_0039",
+    "clustermarket_id": "25534",
     "cssClass": "machine",
     "width": 4,
     "depth": 2.5,
@@ -45,6 +49,7 @@
   {
     "name": "Metal Storage",
     "unique_id": "_x_0040",
+    "clustermarket_id": "25534",
     "cssClass": "storage",
     "width": 6,
     "depth": 2,
@@ -54,11 +59,13 @@
   },
   {
     "name": "MIG Welder",
+    "clustermarket_id": "25534",
     "cssClass": "machine",
     "description_uri": "Millermatic_350P_MIG_welder.html"
   },
   {
     "name": "TIG Welder",
+    "clustermarket_id": "25534",
     "cssClass": "machine",
     "description_uri": "MillerDynasty_TIG_welder.html"
   }

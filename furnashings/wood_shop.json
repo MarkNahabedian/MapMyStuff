@@ -41,6 +41,7 @@
     "x": 9,
     "y": 18.5,
     "rotation": 0,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "SawStop_cabinet_saw.html",
     "measured": "2020-06-10"
   },
@@ -58,6 +59,7 @@
   {
     "name": "Cabinet Under Table Saw Outfeed Table",
     "unique_id": "_x_0044",
+    "clustermarket_id": "91217",
     "cssClass": "storage",
     "width": 2.5,
     "depth": 2.25,
@@ -163,6 +165,7 @@
   {
     "name": "CNC Router",
     "unique_id": "_x_0053",
+    "clustermarket_id": "25543",
     "cssClass": "machine",
     "width": 10.75,
     "depth": 6,
@@ -181,12 +184,14 @@
     "x": 9.5,
     "y": 32.5,
     "rotation": 0,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "wood_lathe.html",
     "measured": "2021-06-01"
   },
   {
     "name": "ShopBot Buddy 4 Axis CNC Mill",
     "unique_id": "_x_0055",
+    "clustermarket_id": "25543",
     "cssClass": "machine",
     "width": 8.1,
     "depth": 3.1,
@@ -217,6 +222,7 @@
     "x": 16,
     "y": 34.5,
     "rotation": 0.4,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "wood_mill.html"
   },
   {
@@ -228,6 +234,7 @@
     "x": 16,
     "y": 27.5,
     "rotation": 0.2,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "clausing_drill_press.html"
   },
   {
@@ -251,6 +258,7 @@
     "x": 12.5,
     "y": 28.4,
     "rotation": 0,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "Laguna_mortiser.html",
     "measured": "2021-06_23"
   },
@@ -263,11 +271,13 @@
     "x": 14.5,
     "y": 20.6,
     "rotation": 0.25,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "Tannewitz_band_saw.html"
   },
   {
     "name": "Thickness Sander",
     "unique_id": "_x_0061",
+    "booking_note": "Booking any wood shop workbench allows access.",
     "cssClass": "machine",
     "width": 4,
     "depth": 3,
@@ -290,6 +300,7 @@
   {
     "name": "Work Bench",
     "unique_id": "_x_0063",
+    "clustermarket_id": "25542",
     "cssClass": "furnature",
     "width": 7,
     "depth": 2,
@@ -302,6 +313,7 @@
   {
     "name": "Work Bench",
     "unique_id": "_x_0064",
+    "clustermarket_id": "25541",
     "cssClass": "furnature",
     "width": 6.2,
     "depth": 2,
@@ -312,8 +324,9 @@
     "measured": "2021-06-11"    
   },
   {
-    "name": "Work Bench",
+    "name": "Work Bench 1",
     "unique_id": "_x_0065",
+    "clustermarket_id": "25540",
     "cssClass": "furnature",
     "width": 6.29,
     "depth": 1.98,
@@ -354,6 +367,7 @@
     "x": 40,
     "y": 17.5,
     "rotation": 0.75,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "PorterCable_router_table.html"
   },
   {
@@ -375,6 +389,7 @@
     "x": 26,
     "y": 32,
     "rotation": 0.75,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "Delta_spindle_sander.html"
   },
   {
@@ -397,11 +412,13 @@
     "x": 25.75,
     "y": 29.5,
     "rotation": 0.75,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description": "Leland and Faraday 12 inch disk sander"
   },
   {
     "name": "Belt Sander",
     "unique_id": "_x_0071",
+    "booking_note": "Booking any wood shop workbench allows access.",
     "cssClass": "machine",
     "width": 4,
     "depth": 3,
@@ -419,6 +436,7 @@
     "x": 31,
     "y": 32,
     "rotation": 0.625,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "Northfield_planer.html"
   },
   {
@@ -430,6 +448,7 @@
     "x": 40,
     "y": 26,
     "rotation": 0.75,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "Northfield_jointer.html"
   },
   {
@@ -441,6 +460,7 @@
     "x": 31,
     "y": 20,
     "rotation": 0.25,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "Festool_Kapex_miter_saw.html"
   },
   {
@@ -452,6 +472,7 @@
     "x": 31,
     "y": 26,
     "rotation": 0.25,
+    "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "DeWalt_radial_arm_saw.html"
   },
   {
@@ -579,5 +600,13 @@
       "various systainers"
     ],
     "measured": "2021-06-01"
+  },
+  {
+    "name": "Sewing Machine",
+    "cssClass": "machine",
+    "clustermarket_id": "28469",
+    "width": 4,
+    "depth": 2.5,
+    "rotation": 0,
   }
 ]
