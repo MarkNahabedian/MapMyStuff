@@ -603,10 +603,13 @@
   },
   {
     "name": "Sewing Machine",
-    "cssClass": "machine",
+    "unique_id": "_x_0090",
     "clustermarket_id": "28469",
+    "cssClass": "machine",
     "width": 4,
     "depth": 2.5,
-    "rotation": 0,
+    "x": 33,
+    "y": 39,
+    "rotation": 0
   }
 ]

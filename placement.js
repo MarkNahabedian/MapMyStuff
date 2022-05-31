@@ -261,13 +261,20 @@ function show_description(thing) {
   desc_elt.appendChild(d);
   // For now, for simplicity, if the item has a clustermarket_id
   // property then the BookIt link will be the first element.
-  if (thing.clustermarket_id) {
+  if (thing.clustermarket_id || thing.booking_note) {
     let bookit = document.createElement("div");
     bookit.setAttribute("class", "bookit");
-    let a = document.createElement("a");
-    a.setAttribute("href", clustermarket_bookit_uri(thing));
-    a.textContent = "BookIt";
-    bookit.appendChild(a);
+    if (thing.clustermarket_id) {
+      let a = document.createElement("a");
+      a.setAttribute("href", clustermarket_bookit_uri(thing));
+      a.textContent = "BookIt";
+      bookit.appendChild(a);
+    }
+    if (thing.booking_note) {
+      let p = document.createElement("p");
+      p.textContent = thing.booking_note;
+      bookit.appendChild(p);
+    }
     d.appendChild(bookit);
   }
   function literal_descriprion(thing, desc) {
