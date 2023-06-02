@@ -3,16 +3,10 @@
 // Place things onto the floorplan.
 
 // Called to handle the window.onload event
-function load_and_draw_things() {
+function load_and_draw_things(paths) {
   let svgdoc = document.getElementById("floor_plan_svg").contentDocument;
   svgdoc.addEventListener("mousemove", Show_event_location);
-  Promise.all([
-    fetch_things("furnashings/things.json"),
-    fetch_things("furnashings/metal_shop.json"),
-    fetch_things("furnashings/wood_shop.json"),
-    fetch_things("furnashings/offices.json"),
-    fetch_things("furnashings/welding_area.json")
-  ]).then(function() {
+  Promise.all(paths.map(fetch_things)).then(function() {
     ALL_THINGS.sort(sort_item_item_compare);
     update_items_list(ALL_THINGS);
     if (document.location.hash) {
