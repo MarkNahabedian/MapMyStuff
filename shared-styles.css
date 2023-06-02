@@ -1,0 +1,68 @@
+
+html, body {
+    position: relative;
+    min-height: 100%;
+}
+
+#selection-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: 5;
+    pointer-events: none;
+    stroke: blue;
+    fill: none;
+    stroke-width: 1px;
+}
+
+#description:empty {
+    display: none;
+}
+
+#description {
+    display: block;
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+    margin: 4ex;
+    font-size: smaller;
+}
+
+.description .name {
+    text-align: center;
+    font-weight: bolder;
+}
+
+.bookit {
+    font-sie: larger;
+    font-weight:bolder;
+    margin: 2ex;
+}
+
+.pointer-position span {
+    min-width: 8em;
+}
+
+#filter {
+    margin: 6ex;
+}
+
+#filter input {
+    border-style: solid;
+}
+
+.item {
+    margin-left: 2em;
+}
+
+.hidden-item {
+    display: none;
+}
+
+.container {
+    margin-left: 2em;
+}
