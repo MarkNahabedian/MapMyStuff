@@ -4,6 +4,8 @@
 # file (furnashings/things.json) into a single HTML file which shows
 # and lists the things.
 
+# This script is made obsolete by a working version of placement.js.
+
 import json
 import os.path
 import sys
