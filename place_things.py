@@ -3,6 +3,8 @@
 # floor_plan.svg file.  This is an interim measure until I can get
 # things running as a web service.
 
+# Now that placement.js is working, this script is no longer needed.
+
 import json
 import os.path
 import sys
