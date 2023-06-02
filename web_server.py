@@ -28,7 +28,7 @@ def run(port):
   server_address = ('', port)
   httpd = http.server.HTTPServer(server_address, NoCacheRequestHandler)
   try: 
-    logger().info("Starting Webserver.")
+    logger().info("Starting Webserver on port %d." %  port)
     httpd.serve_forever()
   finally:
     logger().info("Webserver Exited.")
