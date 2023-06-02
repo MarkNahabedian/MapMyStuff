@@ -1,0 +1,11 @@
+[
+  {"name": "Origin",
+   "unique_id": "floor_plan_origin",
+   "cssClass": "monument",
+   "width": 1,
+   "depth": 1,
+   "x": 0,
+   "y": 0,
+   "rotation": 0
+  }
+]
