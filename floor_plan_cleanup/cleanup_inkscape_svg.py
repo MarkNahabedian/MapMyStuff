@@ -537,7 +537,7 @@ parser.add_argument("-scale_relocation", type=float, nargs=2, action="store",
 
 parser.add_argument("-hide_classes", type=str, nargs=None, action="store",
                     default="",
-                    help='''Alter the style rules for these CSS classes o that they are invisible.''')
+                    help='''Alter the style rules for these CSS classes so that they are invisible.''')
 
 parser.add_argument('-show_clip_box',
                     action="store_true",
