@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Shelves 1",
+        "unique_id": "shelf-1",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 211,
+        "y": 226,
+        "rotation": 0
+    },
+    {
+        "name": "Shelves 2",
+        "unique_id": "shelf-2",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 175,
+        "y": 226,
+        "rotation": 0
+    },
+    {
+        "name": "shelves 3",
+        "unique_id": "shelf-3",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 137,
+        "y": 226,
+        "rotation": 0
+    },
+    {
+        "name": "Shelves 4",
+        "unique_id": "shelf-4",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 101,
+        "y": 226,
+        "rotation": 0
+    },
+    {
+        "name": "Shelves 5",
+        "unique_id": "shelf-5",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 65,
+        "y": 226,
+        "rotation": 0
+    }
+]

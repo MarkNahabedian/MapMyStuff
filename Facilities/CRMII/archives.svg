@@ -1,0 +1,56 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+      x="0px" y="0px" width="235px" height="272px"
+     viewBox="-5 -12 230 260">
+  <!-- 
+       Dimensions are in inches. 
+       Y = 0 is the wall along the two bathrooms.
+       X = 0 is the wall that the "basement" dooors are on.
+  -->
+  <style>
+    .wall
+    {
+    fill:none;
+    stroke: green;
+    stroke-width: 4px;
+    }
+
+    .tripping-hazard
+    {
+    fill: none;
+    stroke: red;
+    stroke-width: 2px;
+    }
+
+    .door
+    {
+    fill: none;
+    stroke: brown;
+    }
+
+    ;shelves
+    {
+    fill: blue;
+    stroke: gray;
+    }
+  </style>
+  <g id="real-world">
+    <path class="wall"
+          d="M 0 0 v 240 h 247 v 12"/>
+    <path class="wall"
+          d="M 0 0 h 223 v -12"/>
+    <path class="tripping-hazard"
+          d="M 0 122 h 25 V 172 h -25 z"/>
+    
+    <rect class="tripping-hazard"
+          x="86"
+          y="125"
+          width="66"
+          height="58"/>
+    <rect class="tripping-hazard"
+          x="210"
+          y="126"
+          width="63"
+          height="56"/>
+  </g>
+</svg>
