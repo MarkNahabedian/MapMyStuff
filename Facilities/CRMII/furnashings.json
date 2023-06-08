@@ -16,7 +16,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 175,
+        "x": 174.75,
         "y": 226,
         "rotation": 0,
         "description": "Shelves 2"
@@ -27,7 +27,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 137,
+        "x": 138.5,
         "y": 226,
         "rotation": 0,
         "description": "Shelves 3"
@@ -38,7 +38,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 101,
+        "x": 102.25,
         "y": 226,
         "rotation": 0,
         "description": "Shelves 4"
@@ -49,7 +49,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 65,
+        "x": 66,
         "y": 226,
         "rotation": 0,
         "description": "Shelves 5"
