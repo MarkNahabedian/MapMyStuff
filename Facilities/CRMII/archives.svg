@@ -1,7 +1,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg"
-      x="0px" y="0px" width="235px" height="272px"
-     viewBox="-5 -12 230 260">
+      x="0px" y="0px" width="285px" height="280px"
+     viewBox="-5 -12 285 280">
   <!-- 
        Dimensions are in inches. 
        Y = 0 is the wall along the two bathrooms.
@@ -34,14 +34,16 @@
     stroke: gray;
     }
   </style>
-  <g id="real-world">
+  <g>
     <path class="wall"
           d="M 0 0 v 240 h 247 v 12"/>
     <path class="wall"
           d="M 0 0 h 223 v -12"/>
-    <path class="tripping-hazard"
-          d="M 0 122 h 25 V 172 h -25 z"/>
-    
+    <rect class="tripping-hazard"
+          x="0"
+          y="125"
+          width="25"
+          height="50"/>
     <rect class="tripping-hazard"
           x="86"
           y="125"
@@ -52,5 +54,12 @@
           y="126"
           width="63"
           height="56"/>
+  </g>
+  <!-- g#real-world would normally be added by
+       cleanup_inkscape_svg.py.  The document was hand coded rather
+       than being converted by Inkscape, and we chose for the
+       dimensions in this coordinate space to be inches.
+       -->
+  <g id="real-world">
   </g>
 </svg>
