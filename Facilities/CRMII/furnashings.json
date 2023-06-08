@@ -7,7 +7,8 @@
         "depth": 14,
         "x": 211,
         "y": 226,
-        "rotation": 0
+        "rotation": 0,
+        "description": "Shelves 1"
     },
     {
         "name": "Shelves 2",
@@ -17,7 +18,8 @@
         "depth": 14,
         "x": 175,
         "y": 226,
-        "rotation": 0
+        "rotation": 0,
+        "description": "Shelves 2"
     },
     {
         "name": "shelves 3",
@@ -27,7 +29,8 @@
         "depth": 14,
         "x": 137,
         "y": 226,
-        "rotation": 0
+        "rotation": 0,
+        "description": "Shelves 3"
     },
     {
         "name": "Shelves 4",
@@ -37,7 +40,8 @@
         "depth": 14,
         "x": 101,
         "y": 226,
-        "rotation": 0
+        "rotation": 0,
+        "description": "Shelves 4"
     },
     {
         "name": "Shelves 5",
@@ -47,6 +51,7 @@
         "depth": 14,
         "x": 65,
         "y": 226,
-        "rotation": 0
+        "rotation": 0,
+        "description": "Shelves 5"
     }
 ]
