@@ -5,8 +5,8 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 211,
-        "y": 226,
+        "x": 229,
+        "y": 233,
         "rotation": 0,
         "description": "Shelves 1"
     },
@@ -16,8 +16,8 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 174.75,
-        "y": 226,
+        "x": 192.75,
+        "y": 233,
         "rotation": 0,
         "description": "Shelves 2"
     },
@@ -27,8 +27,8 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 138.5,
-        "y": 226,
+        "x": 156.5,
+        "y": 233,
         "rotation": 0,
         "description": "Shelves 3"
     },
@@ -38,8 +38,8 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 102.25,
-        "y": 226,
+        "x": 120.25,
+        "y": 233,
         "rotation": 0,
         "description": "Shelves 4"
     },
@@ -49,8 +49,8 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 66,
-        "y": 226,
+        "x": 84.0,
+        "y": 233,
         "rotation": 0,
         "description": "Shelves 5"
     }
