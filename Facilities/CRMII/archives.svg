@@ -28,9 +28,9 @@
     stroke: brown;
     }
 
-    ;shelves
+    .shelves
     {
-    fill: blue;
+    fill: tan;
     stroke: gray;
     }
   </style>
