@@ -4,6 +4,8 @@
     <title>CRMII Archive Area</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1">
+    <link href="../../shared-styles.css"
+          rel="st6ylesheet"/>
     <script type="text/javascript"
             src="../../placement.js"></script>
     <script type="text/javascript">
@@ -15,6 +17,33 @@ window.onload = function() {
 };
 
     </script>
+    <style>
+      .selected {
+          animation-name: selected;
+          animation-duration: 200ms;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+      }
+
+      @keyframes selected {
+          50% {
+              fill: orange;
+          }
+      }
+
+      .direction-indicator {
+          fill: none;
+          stroke: black;
+          stroke-width: 2;
+          vector-effect: non-scaling-stroke;
+      }
+
+    .shelves
+    {
+    fill: tan;
+    stroke: gray;
+    }
+    </style>
   </head>
   <body>
     <svg xmlns="http://www.w3.org/2000/svg"
