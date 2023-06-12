@@ -66,3 +66,19 @@ html, body {
 .container {
     margin-left: 2em;
 }
+
+
+/* Animate the selected item. */
+
+.selected {
+  animation-name: selected;
+  animation-duration: 200ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes selected {
+  50% {
+    fill: orange;
+  }
+}
