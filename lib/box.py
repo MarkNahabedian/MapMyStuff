@@ -13,7 +13,7 @@ class Box (object):
     '''Box defines a rectangular region aligned in the viewPort.'''
 
     @classmethod
-    def xywh(x, y, width, height):
+    def xywh(cls, x, y, width, height):
         '''Create a new box given top left X and Y and width and height.'''
         return Box(x, y, x + width, y + height)
 
