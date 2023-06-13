@@ -9,3 +9,9 @@ available.
 
 Inkscape can be used to convert a PDF floor plan to SVG.  A pythn
 script is provided to clean up the Inkscape SVG output.
+
+
+See the map of the
+[old MIT Hobby Shop](https://MarkNahabedian.github.io/MapMyStuff/Facilities/HobbyShop-DuPont/floor_plan.html)
+on GitHub Pages.
+
