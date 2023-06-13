@@ -15,3 +15,5 @@ See the map of the
 [old MIT Hobby Shop](https://MarkNahabedian.github.io/MapMyStuff/Facilities/HobbyShop-DuPont/floor_plan.html)
 on GitHub Pages.
 
+See the map for
+[CRMII](https://MarkNahabedian.github.io/MapMyStuff/Facilities/CRMII/floor_plan.html).
