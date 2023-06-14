@@ -177,6 +177,46 @@
         "y": 116,
         "rotation": 0,
         "description": "shelf around 2nd column, south side, western shelf unit"        
-    }
+    },
     
+    {
+        "name": "cinder block 1 E",
+        "unique_id": "cinder-block-1E",
+        "cssClass": "cinderblock",
+        "width": 8,
+        "depth": 16,
+        "x": 90,
+        "y": 176,
+        "rotation": 0.5
+    },
+    {
+        "name": "cinder block 1 w",
+        "unique_id": "cinder-block-1W",
+        "cssClass": "cinderblock",
+        "width": 8,
+        "depth": 16,
+        "x": 156,
+        "y": 176,
+        "rotation": 0.5
+    },
+    {
+        "name": "cinder block 2 E",
+        "unique_id": "cinder-block-2E",
+        "cssClass": "cinderblock",
+        "width": 8,
+        "depth": 16,
+        "x": 205,
+        "y": 176,
+        "rotation": 0.5
+    },
+    {
+        "name": "cinder block 2 W",
+        "unique_id": "cinder-block-2W",
+        "cssClass": "cinderblock",
+        "width": 8,
+        "depth": 16,
+        "x": 284,
+        "y": 176,
+        "rotation": 0.5
+    }
 ]

@@ -39,6 +39,13 @@
     fill: green;
     stroke: gray;
     }
+
+    .cinderblock
+    {
+    fill: gray;
+    stroke: red;
+    }
+
   </style>
   <g>
     <path class="wall"
