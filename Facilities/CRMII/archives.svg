@@ -58,7 +58,7 @@
       <title>West wall</title>
     </path>
     <path class="wall"
-          d="M 45 -5 v 5 H 223 v -12">
+          d="M 45 -5 v 5 H 231 v -12">
       <title>East wall</title>
     </path>
     <rect class="tripping-hazard"
@@ -67,15 +67,19 @@
           width="25"
           height="50"/>
     <rect class="tripping-hazard"
-          x="86"
+          x="96"
           y="125"
-          width="66"
-          height="58"/>
+          width="56"
+          height="58">
+      <title>column 1</title>
+    </rect>
     <rect class="tripping-hazard"
           x="210"
           y="126"
-          width="63"
-          height="56"/>
+          width="68"
+          height="56">
+      <title>column 2</title>
+    </rect>
   </g>
   <!-- g#real-world would normally be added by
        cleanup_inkscape_svg.py.  The document was hand coded rather
