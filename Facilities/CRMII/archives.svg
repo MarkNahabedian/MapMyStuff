@@ -33,6 +33,12 @@
     fill: tan;
     stroke: gray;
     }
+
+    .table
+    {
+    fill: green;
+    stroke: gray;
+    }
   </style>
   <g>
     <path class="wall"
