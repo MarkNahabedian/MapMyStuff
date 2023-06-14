@@ -1,7 +1,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns="http://www.w3.org/2000/svg"
-      x="0px" y="0px" width="285px" height="280px"
-     viewBox="-5 -12 285 280">
+      x="0px" y="0px" width="1000px"
+     viewBox="-15 -12 340 280">
   <!-- 
        Dimensions are in inches. 
        Y = 0 is the wall along the two bathrooms.
@@ -12,7 +12,7 @@
     {
     fill:none;
     stroke: green;
-    stroke-width: 4px;
+    stroke-width: 1px;
     }
 
     .tripping-hazard
@@ -36,9 +36,25 @@
   </style>
   <g>
     <path class="wall"
-          d="M 0 0 v 240 h 247 v 12"/>
+          d="M 0 0 v 5 h -9">
+      <title>North East corner</title>
+    </path>
     <path class="wall"
-          d="M 0 0 h 223 v -12"/>
+          d="">
+      <title>North wall</title>
+    </path>
+    <path class="wall"
+          d="M -7 88 h 7 V 240">
+      <title>North wall</title>
+    </path>
+    <path class="wall"
+          d="M 0 240 H 223 v -12">
+      <title>West wall</title>
+    </path>
+    <path class="wall"
+          d="M 45 -5 v 5 H 223 v -12">
+      <title>East wall</title>
+    </path>
     <rect class="tripping-hazard"
           x="0"
           y="125"
