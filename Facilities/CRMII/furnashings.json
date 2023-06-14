@@ -8,7 +8,7 @@
         "x": 229,
         "y": 233,
         "rotation": 0,
-        "description": "Shelves 1"
+        "description": "Back wall shelves 1"
     },
     {
         "name": "Shelves 2",
@@ -19,7 +19,7 @@
         "x": 192.75,
         "y": 233,
         "rotation": 0,
-        "description": "Shelves 2"
+        "description": "Back wall shelves 2"
     },
     {
         "name": "shelves 3",
@@ -30,7 +30,7 @@
         "x": 156.5,
         "y": 233,
         "rotation": 0,
-        "description": "Shelves 3"
+        "description": "Back wall shelves 3"
     },
     {
         "name": "Shelves 4",
@@ -41,7 +41,7 @@
         "x": 120.25,
         "y": 233,
         "rotation": 0,
-        "description": "Shelves 4"
+        "description": "Back wall shelves 4"
     },
     {
         "name": "Shelves 5",
@@ -52,6 +52,64 @@
         "x": 84.0,
         "y": 233,
         "rotation": 0,
-        "description": "Shelves 5"
+        "description": "Back wall shelves 5"
     }
+    ,
+
+    {
+        "name": "Shelves 1W",
+        "unique_id": "shelf-1W",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 78,
+        "y": 153,
+        "rotation": 0.25,
+        "description": "shelf around 1st column, east side"        
+    },
+    {
+        "name": "Shelves 1E",
+        "unique_id": "shelf-1E",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 160,
+        "y": 153,
+        "rotation": 0.75,
+        "description": "shelf around 1st column, west side"        
+    },
+    {
+        "name": "Shelves 1S",
+        "unique_id": "shelf-1S",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 110,
+        "y": 116,
+        "rotation": 0,
+        "description": "shelf around ist column, south side"        
+    },
+    {
+        "name": "Shelves 2E",
+        "unique_id": "shelf-2E",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 282,
+        "y": 153,
+        "rotation": 0.75,
+        "description": "shelf around 2nd column, east side"        
+    },
+    {
+        "name": "Shelves 2S",
+        "unique_id": "shelf-2S",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 238,
+        "y": 116,
+        "rotation": 0,
+        "description": "shelf around 2nd column, south side"        
+    }
+    
 ]
