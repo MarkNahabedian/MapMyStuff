@@ -109,7 +109,7 @@
         "depth": 14,
         "x": 88,
         "y": 145,
-        "rotation": 0.25,
+        "rotation": 0.75,
         "description": "shelf around 1st column, east side"        
     },
     {
@@ -120,7 +120,7 @@
         "depth": 14,
         "x": 160,
         "y": 145,
-        "rotation": 0.75,
+        "rotation": 0.25,
         "description": "shelf around 1st column, west side"        
     },
     {
@@ -153,7 +153,7 @@
         "depth": 14,
         "x": 286,
         "y": 145,
-        "rotation": 0.75,
+        "rotation": 0.25,
         "description": "shelf around 2nd column, east side"        
     },
     {
