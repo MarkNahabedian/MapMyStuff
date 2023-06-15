@@ -40,6 +40,12 @@
     stroke: gray;
     }
 
+    .chair
+    {
+    fill: blue;
+    stroke: red;
+    }
+
     .cinderblock
     {
     fill: gray;

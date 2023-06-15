@@ -45,6 +45,43 @@
     },
 
     {
+        "name": "rolling high back chair",
+        "unique_id": "chair-1",
+        "cssClass": "chair",
+        "path_d": "M 0 0 m 16 0 a 16 16 0 1 0 -32 0 a 16 16 0 1 0 32 0",
+        "x": 81,
+        "y": 35,
+        "rotation": 0
+    },
+    {
+        "name": "rolling high back chair",
+        "unique_id": "chair-2",
+        "cssClass": "chair",
+        "path_d": "M 0 0 m 16 0 a 16 16 0 1 0 -32 0 a 16 16 0 1 0 32 0",
+        "x": 122,
+        "y": 53,
+        "rotation": 0
+    },
+    {
+        "name": "rolling chair",
+        "unique_id": "chair-3",
+        "cssClass": "chair",
+        "path_d": "M 0 0 m 14 0 a 14 14 0 1 0 -28 0 a 14 14 0 1 0 28 0",
+        "x": 161,
+        "y": 51,
+        "rotation": 0
+    },
+    {
+        "name": "rolling chair",
+        "unique_id": "chair-4",
+        "cssClass": "chair",
+        "path_d": "M 0 0 m 14 0 a 14 14 0 1 0 -28 0 a 14 14 0 1 0 28 0",
+        "x": 200,
+        "y": 51,
+        "rotation": 0
+    },
+    
+    {
         "name": "Shelves 1",
         "unique_id": "shelf-1",
         "cssClass": "shelves",
