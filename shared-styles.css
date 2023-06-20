@@ -82,3 +82,27 @@ html, body {
     fill: orange;
   }
 }
+
+/* Styles relating to the pop-up item descriptions */
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 120%;
+}
+
+img {
+    object-fit: contain;
+    max-width: 90%;
+    margin-top: 3ex;
+}
+
+/* Direction indicator */
+
+.direction-indicator {
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+    vector-effect: non-scaling-stroke;
+}
+
