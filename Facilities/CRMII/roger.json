@@ -5,7 +5,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 271,
+        "x": 278,
         "y": 222,
         "rotation": 0.25
     },
@@ -26,7 +26,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 221,
+        "x": 228,
         "y": 222,
         "rotation": 0.25
     },
@@ -47,7 +47,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 171,
+        "x": 178,
         "y": 222,
         "rotation": 0.25
     },
@@ -68,7 +68,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 121,
+        "x": 128,
         "y": 222,
         "rotation": 0.25
     },
@@ -89,49 +89,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 71,
-        "y": 222,
-        "rotation": 0.25
-    },
-    {
-        "name": "Shelves 10",
-        "unique_id": "shelf-10",
-        "cssClass": "shelves",
-        "width": 36,
-        "depth": 14,
-        "x": 63,
-        "y": 222,
-        "rotation": 0.75
-    },
-
-    {
-        "name": "Shelves 9",
-        "unique_id": "shelf-9",
-        "cssClass": "shelves",
-        "width": 36,
-        "depth": 14,
-        "x": 71,
-        "y": 222,
-        "rotation": 0.25
-    },
-    {
-        "name": "Shelves 10",
-        "unique_id": "shelf-10",
-        "cssClass": "shelves",
-        "width": 36,
-        "depth": 14,
-        "x": 63,
-        "y": 222,
-        "rotation": 0.75
-    },
-
-    {
-        "name": "Shelves 9",
-        "unique_id": "shelf-9",
-        "cssClass": "shelves",
-        "width": 36,
-        "depth": 14,
-        "x": 71,
+        "x": 78,
         "y": 222,
         "rotation": 0.25
     },
@@ -152,7 +110,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 21,
+        "x": 78,
         "y": 222,
         "rotation": 0.25
     },
@@ -162,12 +120,10 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 13,
+        "x": 63,
         "y": 222,
         "rotation": 0.75
     },
-
-
 
     {
         "name": "Shelves A1",
