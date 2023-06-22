@@ -523,7 +523,7 @@ parser.add_argument("-grid_real_world_size", type=float, nargs=1, action="store"
                     help='''How many real world units (e.g. feet) a single grid line represents.''')
 
 parser.add_argument("-clip_box", type=float, nargs=4, action="store",
-                    help="The following four command line arguments specify the left, top, right, and bottom coordinates of the proposed clip box.")
+                    help="The following four command line arguments specify the left, top, right, and bottom coordinates of the proposed clip box. Defaults to the viewBox of the outer SVG element.")
 
 parser.add_argument("-boxes_file", type=str, nargs=None, action="store",
                     help='''A file, each line of which contains four global coordinates describing a box.
@@ -587,14 +587,15 @@ def main():
     # *** HACK: viewBox could use different delimiters.  Maybe should use a regular expression.
     viewbox = [ int(x) for x in doc.documentElement.getAttribute("viewBox").split()]
     print("viewBox", viewbox)
-    clip_box = Box(*args.clip_box) if args.clip_box else None
+    clip_box = Box(*args.clip_box) if args.clip_box else Box.xywh(*viewbox)
     print(clip_box)
     boxes_to_show = read_box_file(args.boxes_file)
     # Find the drawing elements that show the drawing's scale and
     # capture the transfomation matrix from each's current SVG context
     scale_elements = [
         (elt, svg_context(elt)[0])
-        for elt in tag_boxes(doc, [Box(*args.drawing_scale_box)], False).values()]
+        for elt in ([] if args.drawing_scale_box == None
+                    else tag_boxes(doc, [Box(*args.drawing_scale_box)], False).values())]
     # Remove elements that are outside the clip box.
     if clip_box and args.clip:
         clip_text(doc, clip_box)
@@ -605,6 +606,7 @@ def main():
     if args.clip_svg_viewbox:
         update_svg_viewbox(doc, clip_box, args.increase_viewbox_height[0])
     if args.grid_spacing:
+        print(viewbox)
         # If we're shrinking the SVG viewBox to the useful part of the
         # floor plan then alighn the grid to the top right corner,
         # otherwise to the global coordinate system.
@@ -623,8 +625,9 @@ def main():
     for element, transform in scale_elements:
         scale_group.appendChild(element)
         element.setAttribute("transform", transform.toSVG())
-    scale_group.setAttribute("transform",
-                             Transform.translate(*args.scale_relocation).toSVG())
+    if args.scale_relocation != None:
+        scale_group.setAttribute("transform",
+                                 Transform.translate(*args.scale_relocation).toSVG())
     # Replicate any style rules referenced by the scale group so that
     # we can modify the style rules of the drawiing proper without
     # affecting the sacale graphics.
