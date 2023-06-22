@@ -4,8 +4,6 @@
 
 // Called to handle the window.onload event
 function load_and_draw_things(paths) {
-  let svgdoc = document.getElementById("floor_plan_svg").contentDocument;
-  svgdoc.addEventListener("mousemove", Show_event_location);
   Promise.all(paths.map(fetch_things)).then(function() {
     ALL_THINGS.sort(sort_item_item_compare);
     update_items_list(ALL_THINGS);
@@ -14,6 +12,8 @@ function load_and_draw_things(paths) {
     }
     add_download_link();
   }, console.log);
+  let svgdoc = document.getElementById("floor_plan_svg").contentDocument;
+  svgdoc.addEventListener("mousemove", Show_event_location);
 }
 
 function sort_item_item_compare(item1, item2) {
