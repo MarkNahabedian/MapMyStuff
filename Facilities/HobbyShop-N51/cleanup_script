@@ -1,0 +1,24 @@
+
+# None of these parameters are right yet:
+
+# We don't need -scale_relocation or -drawing_scale_box because the N51
+# drawing has no scale indicator.
+
+# We Don't need -clip_svg_viewbox because the N51 drawing just has the
+# Hobby Shop, not other parts of the floor.  We presumably also don't
+# need -increase_viewbox_height.
+
+# I don't think we need -clip or -clip_box.
+
+# I don't think we need -hide_classes, at least the N51 drawing has no
+# "style4" styles.  Styles could easily have been re-numbered though.
+# In any case, I don't see any extraneous markings in the SVG from
+# Inkscape.
+
+python3 ../../floor_plan_cleanup/cleanup_inkscape_svg.py \
+    -input_file "Floor_Plan_from_inkscape.svg" \
+    -grid_spacing 45 \
+    -show_clip_box \
+    -grid_real_world_size 1.91
+
+

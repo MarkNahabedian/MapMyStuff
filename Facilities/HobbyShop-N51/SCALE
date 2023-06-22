@@ -1,0 +1,14 @@
+We don't know the size of the PDF drawing, so the scale annotations in
+Floor Plan.pdf are not helpful.
+
+On 2023-06-19 I measured the short, leftmostm, exterior wall to be
+29.6 feet.
+
+This corresponds to a deltaY of 244.35 in floor_plan.html.
+
+That comes to 0.1211377122979333 feet per delta-Y.
+
+That wall is almost 15.5 blocks at a grid spacing of 45.  if 15.5 grid
+blocks is 29.6 feet, this suggests a value for -grid_real_world_size
+of 1.91 feet per block.
+
