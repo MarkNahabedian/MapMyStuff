@@ -1,0 +1,278 @@
+[
+    {
+        "name": "Shelves 1",
+        "unique_id": "shelf-1",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 271,
+        "y": 222,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves 2",
+        "unique_id": "shelf-2",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 263,
+        "y": 222,
+        "rotation": 0.75
+    },
+
+    {
+        "name": "Shelves 3",
+        "unique_id": "shelf-3",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 221,
+        "y": 222,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves 4",
+        "unique_id": "shelf-4",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 213,
+        "y": 222,
+        "rotation": 0.75
+    },
+
+    {
+        "name": "Shelves 5",
+        "unique_id": "shelf-5",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 171,
+        "y": 222,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves 6",
+        "unique_id": "shelf-6",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 163,
+        "y": 222,
+        "rotation": 0.75
+    },
+
+    {
+        "name": "Shelves 7",
+        "unique_id": "shelf-7",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 121,
+        "y": 222,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves 8",
+        "unique_id": "shelf-8",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 113,
+        "y": 222,
+        "rotation": 0.75
+    },
+
+    {
+        "name": "Shelves 9",
+        "unique_id": "shelf-9",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 71,
+        "y": 222,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves 10",
+        "unique_id": "shelf-10",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 63,
+        "y": 222,
+        "rotation": 0.75
+    },
+
+    {
+        "name": "Shelves 9",
+        "unique_id": "shelf-9",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 71,
+        "y": 222,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves 10",
+        "unique_id": "shelf-10",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 63,
+        "y": 222,
+        "rotation": 0.75
+    },
+
+    {
+        "name": "Shelves 9",
+        "unique_id": "shelf-9",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 71,
+        "y": 222,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves 10",
+        "unique_id": "shelf-10",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 63,
+        "y": 222,
+        "rotation": 0.75
+    },
+
+    {
+        "name": "Shelves 11",
+        "unique_id": "shelf-11",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 21,
+        "y": 222,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves 12",
+        "unique_id": "shelf-12",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 13,
+        "y": 222,
+        "rotation": 0.75
+    },
+
+
+
+    {
+        "name": "Shelves A1",
+        "unique_id": "shelf-A1",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 186,
+        "y": 164,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves A2",
+        "unique_id": "shelf-A2",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 186,
+        "y": 127,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves B1",
+        "unique_id": "shelf-B1",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 171,
+        "y": 164,
+        "rotation": 0.75
+    },
+    {
+        "name": "Shelves B2",
+        "unique_id": "shelf-B2",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 171,
+        "y": 127,
+        "rotation": 0.75
+    },
+
+    {
+        "name": "Shelves C1",
+        "unique_id": "shelf-C1",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 71,
+        "y": 164,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves C2",
+        "unique_id": "shelf-C2",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 71,
+        "y": 127,
+        "rotation": 0.25
+    },
+    {
+        "name": "Shelves D1",
+        "unique_id": "shelf-D1",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 56,
+        "y": 164,
+        "rotation": 0.75
+    },
+    {
+        "name": "Shelves D2",
+        "unique_id": "shelf-D2",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 56,
+        "y": 127,
+        "rotation": 0.75
+    },
+
+
+    {
+        "name": "Shelves 1S",
+        "unique_id": "shelf-1S",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 120,
+        "y": 116,
+        "rotation": 0,
+        "description": "shelf around ist column, south side, western shelf unit"        
+    },
+    {
+        "name": "Shelves 2S",
+        "unique_id": "shelf-2S",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 240,
+        "y": 116,
+        "rotation": 0,
+        "description": "shelf around ist column, south side, western shelf unit"        
+    }
+
+]

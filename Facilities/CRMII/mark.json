@@ -1,0 +1,259 @@
+[
+    {
+        "name": "Table 1",
+        "unique_id": "table-1",
+        "cssClass": "table",
+        "width": 35.5,
+        "depth": 29.5,
+        "x": 125,
+        "y": 18,
+        "rotation": 0.25,
+        "description": "table 1"        
+    },
+    {
+        "name": "Table 2",
+        "unique_id": "table-2",
+        "cssClass": "table",
+        "width": 35.5,
+        "depth": 29.5,
+        "x": 155,
+        "y": 18,
+        "rotation": 0.25,
+        "description": "table 2"        
+    },
+    {
+        "name": "Table 3",
+        "unique_id": "table-3",
+        "cssClass": "table",
+        "width": 35.5,
+        "depth": 29.5,
+        "x": 185,
+        "y": 18,
+        "rotation": 0.25,
+        "description": "table 3"        
+    },
+    {
+        "name": "Table 4",
+        "unique_id": "table-4",
+        "cssClass": "table",
+        "width": 35.5,
+        "depth": 29.5,
+        "x": 229,
+        "y": 233,
+        "rotation": 0.25,
+        "description": "table 4"        
+    },
+
+    {
+        "name": "rolling high back chair",
+        "unique_id": "chair-1",
+        "cssClass": "chair",
+        "path_d": "M 0 0 m 16 0 a 16 16 0 1 0 -32 0 a 16 16 0 1 0 32 0",
+        "x": 81,
+        "y": 35,
+        "rotation": 0
+    },
+    {
+        "name": "rolling high back chair",
+        "unique_id": "chair-2",
+        "cssClass": "chair",
+        "path_d": "M 0 0 m 16 0 a 16 16 0 1 0 -32 0 a 16 16 0 1 0 32 0",
+        "x": 122,
+        "y": 53,
+        "rotation": 0
+    },
+    {
+        "name": "rolling chair",
+        "unique_id": "chair-3",
+        "cssClass": "chair",
+        "path_d": "M 0 0 m 14 0 a 14 14 0 1 0 -28 0 a 14 14 0 1 0 28 0",
+        "x": 161,
+        "y": 51,
+        "rotation": 0
+    },
+    {
+        "name": "rolling chair",
+        "unique_id": "chair-4",
+        "cssClass": "chair",
+        "path_d": "M 0 0 m 14 0 a 14 14 0 1 0 -28 0 a 14 14 0 1 0 28 0",
+        "x": 200,
+        "y": 51,
+        "rotation": 0
+    },
+    
+    {
+        "name": "Shelves 1",
+        "unique_id": "shelf-1",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 229,
+        "y": 233,
+        "rotation": 0,
+        "description": "Back wall shelves 1"
+    },
+    {
+        "name": "Shelves 2",
+        "unique_id": "shelf-2",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 192.75,
+        "y": 233,
+        "rotation": 0,
+        "description": "Back wall shelves 2"
+    },
+    {
+        "name": "shelves 3",
+        "unique_id": "shelf-3",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 156.5,
+        "y": 233,
+        "rotation": 0,
+        "description": "Back wall shelves 3"
+    },
+    {
+        "name": "Shelves 4",
+        "unique_id": "shelf-4",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 120.25,
+        "y": 233,
+        "rotation": 0,
+        "description": "Back wall shelves 4"
+    },
+    {
+        "name": "Shelves 5",
+        "unique_id": "shelf-5",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 84.0,
+        "y": 233,
+        "rotation": 0,
+        "description": "Back wall Shelves 5"
+    }
+    ,
+
+    {
+        "name": "Shelves 1W",
+        "unique_id": "shelf-1W",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 88,
+        "y": 145,
+        "rotation": 0.75,
+        "description": "shelf around 1st column, east side"        
+    },
+    {
+        "name": "Shelves 1E",
+        "unique_id": "shelf-1E",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 160,
+        "y": 145,
+        "rotation": 0.25,
+        "description": "shelf around 1st column, west side"        
+    },
+    {
+        "name": "Shelves 1S-W",
+        "unique_id": "shelf-1S-W",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 104,
+        "y": 116,
+        "rotation": 0,
+        "description": "shelf around ist column, south side, western shelf unit"        
+    },
+    {
+        "name": "Shelves 1S-E",
+        "unique_id": "shelf-1S-E",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 142,
+        "y": 116,
+        "rotation": 0,
+        "description": "shelf around ist column, south side, eastern shelf unit"        
+    },
+    {
+        "name": "Shelves 2E",
+        "unique_id": "shelf-2E",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 286,
+        "y": 145,
+        "rotation": 0.25,
+        "description": "shelf around 2nd column, east side"        
+    },
+    {
+        "name": "Shelves 2S-E",
+        "unique_id": "shelf-2S-E",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 232,
+        "y": 116,
+        "rotation": 0,
+        "description": "shelf around 2nd column, south side, eastern shelf unit"        
+    },
+    {
+        "name": "Shelves 2S-W",
+        "unique_id": "shelf-2S-W",
+        "cssClass": "shelves",
+        "width": 36,
+        "depth": 14,
+        "x": 272,
+        "y": 116,
+        "rotation": 0,
+        "description": "shelf around 2nd column, south side, western shelf unit"        
+    },
+    
+    {
+        "name": "cinder block 1 E",
+        "unique_id": "cinder-block-1E",
+        "cssClass": "cinderblock",
+        "width": 8,
+        "depth": 16,
+        "x": 90,
+        "y": 176,
+        "rotation": 0.5
+    },
+    {
+        "name": "cinder block 1 w",
+        "unique_id": "cinder-block-1W",
+        "cssClass": "cinderblock",
+        "width": 8,
+        "depth": 16,
+        "x": 156,
+        "y": 176,
+        "rotation": 0.5
+    },
+    {
+        "name": "cinder block 2 E",
+        "unique_id": "cinder-block-2E",
+        "cssClass": "cinderblock",
+        "width": 8,
+        "depth": 16,
+        "x": 205,
+        "y": 176,
+        "rotation": 0.5
+    },
+    {
+        "name": "cinder block 2 W",
+        "unique_id": "cinder-block-2W",
+        "cssClass": "cinderblock",
+        "width": 8,
+        "depth": 16,
+        "x": 284,
+        "y": 176,
+        "rotation": 0.5
+    }
+]

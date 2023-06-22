@@ -11,11 +11,25 @@
     <script type="text/javascript"
             src="../../placement.js"></script>
     <script type="text/javascript">
+
+function show_selected_layout() {
+    let select_layout = document.getElementById("select-layout");
+    let selected = select_layout.value;
+    // Forget everything about the previous layout.  Blank slate.
+    ALL_THINGS = [];
+    let svgdoc = document.getElementById("floor_plan_svg").contentDocument;
+    let rw = svgdoc.getElementById("real-world");
+    while (rw.firstChild) {
+        rw.firstChild.remove()
+    }
+    load_and_draw_things([ selected ]);
+    console.log("switched to " + selected);
+}
+
 window.onload = function() {
-  console.log("onload handler.");
-    load_and_draw_things([
-        "furnashings.json"
-    ]);
+    let select_layout = document.getElementById("select-layout");
+    select_layout.addEventListener("change", show_selected_layout);
+    show_selected_layout();
 };
 
     </script>
@@ -55,11 +69,19 @@ window.onload = function() {
       </a>
       -->
     </div>
+
+    <select id="select-layout">
+      <option value="roger.json">roger</option>
+      <option value="mark.json">mark</option>
+    </select>
+
+    <!--
     <div id="filter">
       Filter items: 
       <input name="filter" type="text" size="40"
              onchange="filter_items_list(this.value)"/>
     </div>
-    <div id="items"></div>
+    -->
+    <div style="disoplay: none" id="items"></div>
   </body>
 </html>
