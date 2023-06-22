@@ -110,7 +110,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 78,
+        "x": 28,
         "y": 222,
         "rotation": 0.25
     },
@@ -120,7 +120,7 @@
         "cssClass": "shelves",
         "width": 36,
         "depth": 14,
-        "x": 63,
+        "x": 13,
         "y": 222,
         "rotation": 0.75
     },
