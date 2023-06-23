@@ -399,6 +399,8 @@ function enptySpaceClicked(event) {
   if (event.target !== this)
     return;
   select_item();
+  xy = real_world_x_y(event);
+  console.log("Empty space: " + xy[0] + " " + xy[1]);
   Show_event_location(event);
 }
 
@@ -440,18 +442,29 @@ function target(item, doit=false) {
   overlay.appendChild(p);
 }
 
-function Show_event_location(event) {
+function real_world_x_y(event) {
   let container = document.getElementById("floor_plan_svg");
   let svgdoc = container.contentDocument;
-  let showX = document.getElementById("show-pointer-x");
-  let showY = document.getElementById("show-pointer-y");
   let g = svgdoc.getElementById("real-world");
   let trans = g.getScreenCTM().inverse();
   let point = new DOMPoint(event.clientX, event.clientY);
   xformed = point.matrixTransform(trans);
-  showX.textContent = xformed.x.toFixed(3);
-  showY.textContent = xformed.y.toFixed(3);
+  return [ 
+    xformed.x.toFixed(3),
+    xformed.y.toFixed(3)
+  ];
+}
+
+function Show_event_location(event) {
+  xy = real_world_x_y(event);
+  let showX = document.getElementById("show-pointer-x");
+  let showY = document.getElementById("show-pointer-y");
+  showX.textContent = xy[0];
+  showY.textContent = xy[1];
   if (LOG_PATHS_AT_POINT) {
+    let container = document.getElementById("floor_plan_svg");
+    let svgdoc = container.contentDocument;
+    let point = new DOMPoint(event.clientX, event.clientY);
     find_surrounding_paths(svgdoc, point, PATHS_AT_POINT_METRIC);
   }
 }
