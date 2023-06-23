@@ -43,7 +43,8 @@
     "rotation": 0,
     "booking_note": "Booking any wood shop workbench allows access.",
     "description_uri": "SawStop_cabinet_saw.html",
-    "measured": "2020-06-10"
+    "measured": "2020-06-10",
+    "new_shop": "yes"
   },
   {
     "name": "Table Saw Outfeed Table",

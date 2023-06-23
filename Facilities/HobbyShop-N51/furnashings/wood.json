@@ -1,0 +1,15 @@
+[
+    {
+        "name": "SawStop Table Saw",
+        "unique_id": "_x_0042",
+        "cssClass": "machine",
+        "width": 7.17,
+        "depth": 3,
+        "x": 114,
+        "y": 58,
+        "rotation": 0,
+        "booking_note": "Booking any wood shop workbench allows access.",
+        "description_uri": "../../HobbyShop-DuPont/furnashings/SawStop_cabinet_saw.html",
+        "measured": "2020-06-10"
+    }
+]
