@@ -1,0 +1,25 @@
+
+http://localhost:8000/Facilities/HobbyShop-N51/floor_plan.html
+
+Measurements in furnashings are in feet.
+
+-grid_spacing
+help='If positive, the spacing of a superimposed reference grid.')
+
+-grid_real_world_size
+help='''How many real world units (e.g. feet) a single grid line represents.''')
+
+
+Floor_Plan_from_inkscape.svg has viewBox="0 0 4032 2880"
+
+What is the angle (as our rotations) of the angled wall?
+point 1		144.505		78.540
+point 2		100.022        107.551
+delta		 44.483	       -29.011
+
+Julia:
+
+atan( -29.011, 44.483) / (2 * pi)
+-0.0919768230039905
+
+
