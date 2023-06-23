@@ -174,7 +174,8 @@
     "y": 44,
     "rotation": 0,
     "description_uri": "Techno_CNC_LC_4896.html",
-    "measured": "2020-06-11"
+    "measured": "2020-06-11",
+    "new_shop": "yes" 
   },
   {
     "name": "Wood Lathe",
@@ -200,7 +201,8 @@
     "y": 43,
     "rotation": 0.75,
     "description_uri": "ShopBotBuddy.html",
-    "measured": "2021-06-01"
+    "measured": "2021-06-01",
+    "new_shop": "yes"
   },
   {
     "name": "ShopBot Console",
