@@ -23,6 +23,107 @@
         "booking_note": "Booking any wood shop workbench allows access.",
         "description_uri": "../../HobbyShop-DuPont/furnashings/SawStop_cabinet_saw.html",
         "measured": "2020-06-10"
+    },
+
+    {
+        "name": "Cabinet/Drawers PLACEHOLDER",
+        "unique_id": "_CDP_5",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 79,
+        "y": 88.1,
+        "rotation": 0.25,
+        "contents": [
+            "Cabinet/Drawers PLACEHOLDER"
+        ],
+        "measured": "2021-06-01"
+    },
+    {
+        "name": "Cabinet/Drawers PLACEHOLDER",
+        "unique_id": "_CDP_4",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 79,
+        "y": 90.6,
+        "rotation": 0.25,
+        "contents": [
+            "Cabinet/Drawers PLACEHOLDER"
+        ],
+        "measured": "2021-06-01"
+    },
+    {
+        "name": "Cabinet/Drawers PLACEHOLDER",
+        "unique_id": "_CDP_3",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 79,
+        "y": 92.85,
+        "rotation": 0.25,
+        "contents": [
+            "Cabinet/Drawers PLACEHOLDER"
+        ],
+        "measured": "2021-06-01"
+    },
+    {
+        "name": "Cabinet/Drawers PLACEHOLDER",
+        "unique_id": "_CDP_2",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 79,
+        "y": 95.10,
+        "rotation": 0.25,
+        "contents": [
+            "Cabinet/Drawers PLACEHOLDER"
+        ],
+        "measured": "2021-06-01"
+    },
+    {
+        "name": "Cabinet/Drawers PLACEHOLDER",
+        "unique_id": "_CDP_1",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 79,
+        "y": 97.35,
+        "rotation": 0.25,
+        "contents": [
+            "Cabinet/Drawers PLACEHOLDER"
+        ],
+        "measured": "2021-06-01"
+    },
+    {
+        "name": "Lateral File",
+        "unique_id": "_x_0084",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 1.5,
+        "x": 79,
+        "y": 99.60,
+        "rotation": 0.25,
+        "contents": [
+            "1st (top) drawer: Hot glue gun, Dremel, Krege jig, soldering iron",
+            "2nd drawer: Micromotor, hot air guin",
+            "3rd drawer: corded drill, saber saw",
+            "4th (bottom) drawer: trim router, biscuit joiner, brad nailer"
+        ],
+        "measured": "2021-06-01"
+    },
+
+    {
+        "name": "OMAX MicroMax Water Jet Machining Center",
+        "unique_id": "_x_0001",
+        "clustermarket_id": "25529",
+        "cssClass": "machine",
+        "width": 6.166,
+        "depth": 7,
+        "x": 57,
+        "y": 104,
+        "rotation": 0.25,
+        "description_uri": "../../HobbyShop-DuPont/furnashings/MicroMax.html"
     }
 
 ]

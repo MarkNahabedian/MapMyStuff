@@ -573,11 +573,12 @@
     "rotation": 0.5,
     "contents": [
       "1st (top) drawer: Hot glue gun, Dremel, Krege jig, soldering iron",
-      "2nd drawer: Micromotor, hot air guin",
+      "2nd drawer: Micromotor, hot air gun",
       "3rd drawer: corded drill, saber saw",
       "4th (bottom) drawer: trim router, biscuit joiner, brad nailer"
     ],
-    "measured": "2021-06-01"
+    "measured": "2021-06-01",
+    "new_shop": "yes"
   },
   {
     "name": "Chisel Cabinet",

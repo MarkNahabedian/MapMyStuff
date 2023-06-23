@@ -32,7 +32,8 @@
     "x": 70,
     "y": 24,
     "rotation": 0.75,
-    "description_uri": "MicroMax.html"
+    "description_uri": "MicroMax.html",
+    "new_shop": "yes"
   },
   {
     "name": "OMAX Mystery Support Box (Pump)",
