@@ -3,9 +3,11 @@
   <!--
 ..\..\floor_plan_cleanup\cleanup_inkscape_svg.py -input_file Floor_Plan_from_inkscape.svg -grid_spacing 45 -show_clip_box -grid_real_world_size 1.91
 -->
-  <style id="thing-styles" type="text/css"><![CDATA[
-@import url(../furnashings/thing_styles.css);
-]]></style>
+  <link xmlns="http://www.w3.org/1999/xhtml"
+        rel="stylesheet"
+        href="../HobbyShop-DuPont/furnashings/thing_styles.css"
+        type="text/css" />
+
   <style id="inkscape_styles" type="text/css">
     
 .style0 {
