@@ -646,7 +646,7 @@ def main():
                              args.grid_real_world_size[0],
                              clip_box)
     # Thing styles
-    thing_styles(doc)
+    // thing_styles(doc)
     # Add comments about processing
     # This is done last so that the comment appears before any other
     # added frontmatter like stylesheets.
