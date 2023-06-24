@@ -226,7 +226,8 @@
     "y": 34.5,
     "rotation": 0.4,
     "booking_note": "Booking any wood shop workbench allows access.",
-    "description_uri": "wood_mill.html"
+    "description_uri": "wood_mill.html",
+    "new_shop": "yes"
   },
   {
     "name": "Drill Press (for wood)",
@@ -311,7 +312,8 @@
     "y": 10,
     "rotation": 0.5,
     "description": "Work bench with rear tool well, square dog holes, 28 inch wide front vise, 18 inches between screws.  35 inches high.",
-    "measured": "2021-06-11"
+    "measured": "2021-06-11",
+    "new_shop": "yes"
   },
   {
     "name": "Work Bench",
@@ -324,7 +326,8 @@
     "y": 10,
     "rotation": 0.5,
     "description": "Work bench with 188 inch wide front vise and full width tail vise, circular dog holes, center tool well. 35 inches high.",
-    "measured": "2021-06-11"    
+    "measured": "2021-06-11",
+    "new_shop": "yes"
   },
   {
     "name": "Work Bench 1",
@@ -337,7 +340,8 @@
     "y": 10,
     "rotation": 0.5,
     "description": "Lee Valley work bench, 34.5 inch high, with 5.25 inch wide tail vise, 22inch wide front fise (12 inch between screws; square dog holes.",
-    "measured": "2021-06-01"
+    "measured": "2021-06-01",
+    "new_shop": "yes"
   },
   {
     "name": "Work Bench",
