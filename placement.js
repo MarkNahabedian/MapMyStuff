@@ -535,6 +535,9 @@ function isNumber(n) {
 
 function isPlaced(thing) {
   return (isNumber(thing.x) && isNumber(thing.y) &&
-          isNumber(thing.width) && isNumber(thing.depth));
+          (
+            (isNumber(thing.width) && isNumber(thing.depth)) ||
+              thing.path_d
+          ));
 }
 
