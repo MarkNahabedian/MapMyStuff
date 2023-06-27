@@ -202,19 +202,18 @@ def add_grid(doc, spacing, box):
         ".viewportGrid", "stroke: yellow; stroke-width: 1px; stroke-opacity: 0.5;")
 
 
-def add_real_world_group(doc, grid_spacing, grid_real_world_size, box):
-    '''Add an SVG group to doc whose coordinate system origin is at the 
-    top right of the clip grid with positive X pointing left and positive
-    Y pointing down, and scaled so that the spacing between grid lines
-    represents grid_real_world_size real world units.'''
-    real_world = doc.createElement("g")
-    doc.documentElement.appendChild(real_world)
-    real_world.setAttribute("id", "real-world")
-    scale = grid_spacing / grid_real_world_size
-    real_world.setAttribute(
-        "transform",
-        Transform.translate(box.maxX, box.minY).toSVG() + " " +
-        Transform.scale(-scale, scale).toSVG())
+def add_real_world_group(doc, scale_factor, box):
+     '''Add an SVG group to doc whose coordinate system origin is at the 
+     top right of the clip grid with positive X pointing left and positive
+    Y pointing down, and scaled by scale_factor.'''
+     real_world = doc.createElement("g")
+     doc.documentElement.appendChild(real_world)
+     real_world.setAttribute("id", "real-world")
+     real_world.setAttribute(
+         "transform",
+         Transform.translate(box.maxX, box.minY).toSVG() + " " +
+         Transform.scale(-scale_factor, scale_factor).toSVG())
+     return real_world
 
 
 ################################################################################
@@ -523,8 +522,9 @@ parser.add_argument('-input_file', type=str, nargs=None, action='store',
 parser.add_argument('-viewbox_grid_spacing', type=float, nargs=1, action='store',
                     help='If positive, the spacing of a superimposed reference grid in SVG viewBox coordinates.')
 
-parser.add_argument("-grid_real_world_size", type=float, nargs=1, action="store",
-                    help='''How many real world units (e.g. feet) a single grid line represents.''')
+parser.add_argument("-scale_factor", type=float, nargs=1, action="store",
+                    default=1.0,
+                    help='''The ratio of top level SVG drawing coordinates to some real world unit (e.g inches or feet).''')
 
 parser.add_argument("-clip_box", type=float, nargs=4, action="store",
                     help="The following four command line arguments specify the left, top, right, and bottom coordinates of the proposed clip box. Defaults to the viewBox of the outer SVG element.")
@@ -648,11 +648,9 @@ def main():
     add_stylesheet(doc, styles_map)
     # Get rid of things we don't need
     do_elements(doc, remove_attributes)
-    if args.grid_real_world_size:
-        add_real_world_group(doc,
-                             args.viewbox_grid_spacing[0],
-                             args.grid_real_world_size[0],
-                             clip_box)
+    real_world_group = add_real_world_group(doc,
+                                            args.scale_factor[0],
+                                            clip_box)
     # Thing styles
     if args.thing_stylesheet_link:
         print("Linking stylesheet ", args.thing_stylesheet_link)

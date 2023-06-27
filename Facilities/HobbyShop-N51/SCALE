@@ -2,13 +2,11 @@ We don't know the size of the PDF drawing, so the scale annotations in
 Floor Plan.pdf are not helpful.
 
 On 2023-06-19 I measured the short, leftmostm, exterior wall to be
-29.6 feet.
+sc29.6 feet.
 
-This corresponds to a deltaY of 244.35 in floor_plan.html.
+This corresponds to a deltaY of about 696 in floor_plan.html if
+cleaned_up.svg is generated with a scale_factor of 1.0.
 
-That comes to 0.1211377122979333 feet per delta-Y.
-
-That wall is almost 15.5 blocks at a grid spacing of 45.  if 15.5 grid
-blocks is 29.6 feet, this suggests a value for -grid_real_world_size
-of 1.91 feet per block.
+This suggests a scale factor of 23.5 global SVG coordinate units per
+foot of real world distance.
 

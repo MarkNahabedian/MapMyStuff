@@ -17,8 +17,8 @@
 
 python3 ../../floor_plan_cleanup/cleanup_inkscape_svg.py \
     -input_file "Floor_Plan_from_inkscape.svg" \
-    -grid_spacing 45 \
+    -viewbox_grid_spacing 100 \
     -show_clip_box \
-    -grid_real_world_size 1.91
-
+    -scale_factor 23.5 \
+    -thing_stylesheet_link "../HobbyShop-DuPont/furnashings/thing_styles.css"
 
