@@ -157,10 +157,14 @@ def hide_classes(styles_map, class_names):
         p.setProperty("stroke-opacity", 0)
 
 
-def thing_styles(doc):
-    stylesheet = ensure_stylesheet(doc, "thing-styles") 
-    stylesheet.appendChild(doc.createCDATASection(
-        "\n@import url(../furnashings/thing_styles.css);\n"))
+def thing_styles(doc, url):
+    link = doc.createElement('link')
+    link.setAttribute("xmlns", "http://www.w3.org/1999/xhtml")
+    link.setAttribute("rel", "stylesheet")
+    link.setAttribute("href", url)
+    link.setAttribute("type", "text/css")
+    root = doc.documentElement
+    root.insertBefore(link, root.childNodes[0])
 
 
 ################################################################################
@@ -555,6 +559,10 @@ parser.add_argument('-clip',
                     action="store_true",
                     help="Clip SVG paths to within the clip box.")
 
+parser.add_argument('-thing_stylesheet_link', type=str, nargs=None, action="store",
+                    help="URL of a CSS stylesheet to include a link for.")
+
+
 
 def show_element_counts(doc):
     element_counts = Counter()
@@ -646,7 +654,9 @@ def main():
                              args.grid_real_world_size[0],
                              clip_box)
     # Thing styles
-    // thing_styles(doc)
+    if args.thing_stylesheet_link:
+        print("Linking stylesheet ", args.thing_stylesheet_link)
+        thing_styles(doc, args.thing_stylesheet_link)
     # Add comments about processing
     # This is done last so that the comment appears before any other
     # added frontmatter like stylesheets.
