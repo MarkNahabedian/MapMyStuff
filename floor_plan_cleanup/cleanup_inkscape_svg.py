@@ -520,8 +520,8 @@ parser.add_argument('-input_file', type=str, nargs=None, action='store',
                     default=INKSCAPE_OUTPUT_FILE,
                     help='the input SVG file as written by Inkscape.')
 
-parser.add_argument('-grid_spacing', type=float, nargs=1, action='store',
-                    help='If positive, the spacing of a superimposed reference grid.')
+parser.add_argument('-viewbox_grid_spacing', type=float, nargs=1, action='store',
+                    help='If positive, the spacing of a superimposed reference grid in SVG viewBox coordinates.')
 
 parser.add_argument("-grid_real_world_size", type=float, nargs=1, action="store",
                     help='''How many real world units (e.g. feet) a single grid line represents.''')
@@ -613,12 +613,12 @@ def main():
         show_element_counts(doc)
     if args.clip_svg_viewbox:
         update_svg_viewbox(doc, clip_box, args.increase_viewbox_height[0])
-    if args.grid_spacing:
+    if args.viewbox_grid_spacing:
         print(viewbox)
         # If we're shrinking the SVG viewBox to the useful part of the
         # floor plan then alighn the grid to the top right corner,
         # otherwise to the global coordinate system.
-        add_grid(doc, args.grid_spacing[0],
+        add_grid(doc, args.viewbox_grid_spacing[0],
                  clip_box if args.clip_svg_viewbox
                  else Box.xywh(*viewbox))
     if clip_box and args.show_clip_box:
@@ -650,7 +650,7 @@ def main():
     do_elements(doc, remove_attributes)
     if args.grid_real_world_size:
         add_real_world_group(doc,
-                             args.grid_spacing[0],
+                             args.viewbox_grid_spacing[0],
                              args.grid_real_world_size[0],
                              clip_box)
     # Thing styles
