@@ -188,18 +188,16 @@ def add_grid(doc, parent, clas, spacing, box):
     grid.appendChild(doc.createComment("Vertical rules"))
     x = box.maxX
     while x >= box.minX:
-        svg_line(doc, grid, x, box.minY, x, box.maxY)
+        line = svg_line(doc, grid, x, box.minY, x, box.maxY)
+        line.setAttribute("class", "grid-line")
         x -= spacing
     # Y coordinates from top to bottom.
     grid.appendChild(doc.createComment("horizontal rules"))
     y = box.minY
     while y <= box.maxY:
-        svg_line(doc, grid, box.minX, y, box.maxX, y)
+        line = svg_line(doc, grid, box.minX, y, box.maxX, y)
+        line.setAttribute("class", "grid-line")
         y += spacing
-    style = ensure_stylesheet(doc, "decorations")
-    add_stylesheet_rule(
-        doc, style,
-        ".viewportGrid", "stroke: yellow; stroke-width: 1px; stroke-opacity: 0.5;")
 
 
 def add_real_world_group(doc, scale_factor, box):
@@ -519,6 +517,9 @@ parser.add_argument('-input_file', type=str, nargs=None, action='store',
                     default=INKSCAPE_OUTPUT_FILE,
                     help='the input SVG file as written by Inkscape.')
 
+parser.add_argument('-realworld_grid_spacing', type=float, nargs=1, action='store',
+                    help='If positive, the spacing of a superimposed reference grid in real world coordinates.')
+
 parser.add_argument('-viewbox_grid_spacing', type=float, nargs=1, action='store',
                     help='If positive, the spacing of a superimposed reference grid in SVG viewBox coordinates.')
 
@@ -583,6 +584,7 @@ def show_css_class_counts(doc):
 
 
 def main():
+    need_grid_styles = False
     args = parser.parse_args()
     doc = load_inkscape(args.input_file)
     # Count elements
@@ -605,7 +607,7 @@ def main():
         for elt in ([] if args.drawing_scale_box == None
                     else tag_boxes(doc, [Box(*args.drawing_scale_box)], False).values())]
     # Remove elements that are outside the clip box.
-    if clip_box and args.clip:
+    if args.clip:
         clip_text(doc, clip_box)
         clip_paths(doc, clip_box)
         remove_empty_groups(doc)
@@ -613,6 +615,10 @@ def main():
         show_element_counts(doc)
     if args.clip_svg_viewbox:
         update_svg_viewbox(doc, clip_box, args.increase_viewbox_height[0])
+    # Show clip box:
+    if  args.show_clip_box:
+        test_viewbox(doc, clip_box)
+    # Viewbox grid:
     if args.viewbox_grid_spacing:
         print(viewbox)
         # If we're shrinking the SVG viewBox to the useful part of the
@@ -620,10 +626,11 @@ def main():
         # otherwise to the global coordinate system.
         add_grid(doc, doc.documentElement, "viewportGrid",
                  args.viewbox_grid_spacing[0],
-                 clip_box if args.clip_svg_viewbox
-                 else Box.xywh(*viewbox))
-    if clip_box and args.show_clip_box:
-        test_viewbox(doc, clip_box)
+                 clip_box)
+        need_grid_styles = True
+        add_stylesheet_rule(
+            doc, ensure_stylesheet(doc, "decorations"),
+            ".viewportGrid", "stroke: yellow;")
     # Show and tag the boxes we've been told to.
     box_elements_map = tag_boxes(doc, boxes_to_show)
     show_boxes(doc, boxes_to_show)
@@ -640,7 +647,7 @@ def main():
     # Replicate any style rules referenced by the scale group so that
     # we can modify the style rules of the drawiing proper without
     # affecting the sacale graphics.
-    scope_styles(doc, scale_group, styles_map, "vector-effect: none; ")
+    scope_styles(doc, scale_group, styles_map, "vector-effect: none;")
     # Now that we've copied whatever styles we need for the scale
     # graphics, we can modify the rules of the hide_styles classes and
     # then write that stylesheet.
@@ -652,6 +659,20 @@ def main():
     real_world_group = add_real_world_group(doc,
                                             args.scale_factor[0],
                                             clip_box)
+    if args.realworld_grid_spacing:
+        rwbox = clip_box.translate(-clip_box.minX, -clip_box.minY
+                                   ).scale(1 / args.scale_factor[0])
+        add_grid(doc, real_world_group, "realworldGrid",
+                 args.realworld_grid_spacing[0],
+                 rwbox)
+        need_grid_styles = True
+        add_stylesheet_rule(
+            doc, ensure_stylesheet(doc, "decorations"),
+            ".realworldGrid", "stroke: green;")
+    if need_grid_styles:
+        add_stylesheet_rule(
+            doc, ensure_stylesheet(doc, "decorations"),
+            ".grid-line", "vector-effect: non-scaling-stroke; stroke-width: 1px;")
     # Thing styles
     if args.thing_stylesheet_link:
         print("Linking stylesheet ", args.thing_stylesheet_link)

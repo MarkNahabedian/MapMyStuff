@@ -1,0 +1,24 @@
+[
+    {
+        "name": "Real World Origin",
+        "unique_id": "RealWorldOrigin",
+        "cssClass": "guide",
+        "width": 1,
+        "depth": 1,
+        "x": 0,
+        "y": 0,
+        "rotation": 0.125,
+        "description": "The origin of the real world coordinate system."
+    },
+    {
+        "name": "Angle Test",
+        "unique_id": "AngleTest",
+        "cssClass": "guide",
+        "width": 40,
+        "depth": 1,
+        "x": 100,
+        "y": 94.25,
+        "rotation": -0.094,
+        "description": "A test to make sure we have a reasonable estimate of the angle of the front wall."
+    }
+]

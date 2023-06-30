@@ -101,4 +101,17 @@ class Box (object):
                 self.point_within(transform.apply(cToV(cb.control2))) or
                 self.point_within(transform.apply(cToV(cb.end))))
 
-    
+    def translate(self, dx, dy):
+        '''Returns a new box that has been translated by the specified dx and dy.'''
+        return Box(self.minX + dx,
+                   self.minY + dy,
+                   self.maxX + dx,
+                   self.maxY + dy)
+
+    def scale(self, scale_factor):
+        return Box(scale_factor * self.minX,
+                   scale_factor * self.minY,
+                   scale_factor * self.maxX,
+                   scale_factor * self.maxX)
+
+

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="1.0 (4035a4fb49, 2020-05-01)" sodipodi:docname="Floor_Plan.svg" viewBox="400.0 0.0 3132.0 2800.0" width="100%" xml:space="preserve" id="svg10" version="1.1">
   <!--
-../../floor_plan_cleanup/cleanup_inkscape_svg.py -input_file Floor_Plan_from_inkscape.svg -viewbox_grid_spacing 100 -show_clip_box -scale_factor 23.5 -thing_stylesheet_link ../HobbyShop-DuPont/furnashings/thing_styles.css -clip_box 400 0 3532 2800 -clip_svg_viewbox
+../../floor_plan_cleanup/cleanup_inkscape_svg.py -input_file Floor_Plan_from_inkscape.svg -realworld_grid_spacing 3 -show_clip_box -scale_factor 23.5 -thing_stylesheet_link ../HobbyShop-DuPont/furnashings/thing_styles.css -clip_box 400 0 3532 2800 -clip_svg_viewbox
 -->
   <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="../HobbyShop-DuPont/furnashings/thing_styles.css" type="text/css"/>
   <style id="inkscape_styles" type="text/css">
@@ -112,14 +112,17 @@
   <style id="drawingScale-styles" type="text/css"/>
   <style id="decorations" type="text/css">
     
-.viewportGrid {
-    stroke: yellow;
-    stroke-width: 1px;
-    stroke-opacity: 0.5;
-    }
-    
 .testViewBoxGroup {
     stroke: green;
+    }
+    
+.realworldGrid {
+    stroke: green;
+    }
+    
+.grid-line {
+    vector-effect: non-scaling-stroke;
+    stroke-width: 1px;
     }
   </style>
   <metadata id="metadata16">
@@ -9598,71 +9601,6 @@
       <tspan id="tspan12702" sodipodi:role="line" y="64.800003" x="0 13.851 27.702 33.291 47.141998 60.993 66.717003 73.035004 88.019997 100.116 115.101 128.62801 139.32001 145.04401 151.362 162.054 167.778 181.629 195.48 209.33099 215.05499 222.588 236.11501 249.642">28.25 inches is 113 feet</tspan>
     </text>
   </g>
-  <g class="viewportGrid">
-    <!--Vertical rules-->
-    <path d="M 3532 0 L 3532 2800"/>
-    <path d="M 3432 0 L 3432 2800"/>
-    <path d="M 3332 0 L 3332 2800"/>
-    <path d="M 3232 0 L 3232 2800"/>
-    <path d="M 3132 0 L 3132 2800"/>
-    <path d="M 3032 0 L 3032 2800"/>
-    <path d="M 2932 0 L 2932 2800"/>
-    <path d="M 2832 0 L 2832 2800"/>
-    <path d="M 2732 0 L 2732 2800"/>
-    <path d="M 2632 0 L 2632 2800"/>
-    <path d="M 2532 0 L 2532 2800"/>
-    <path d="M 2432 0 L 2432 2800"/>
-    <path d="M 2332 0 L 2332 2800"/>
-    <path d="M 2232 0 L 2232 2800"/>
-    <path d="M 2132 0 L 2132 2800"/>
-    <path d="M 2032 0 L 2032 2800"/>
-    <path d="M 1932 0 L 1932 2800"/>
-    <path d="M 1832 0 L 1832 2800"/>
-    <path d="M 1732 0 L 1732 2800"/>
-    <path d="M 1632 0 L 1632 2800"/>
-    <path d="M 1532 0 L 1532 2800"/>
-    <path d="M 1432 0 L 1432 2800"/>
-    <path d="M 1332 0 L 1332 2800"/>
-    <path d="M 1232 0 L 1232 2800"/>
-    <path d="M 1132 0 L 1132 2800"/>
-    <path d="M 1032 0 L 1032 2800"/>
-    <path d="M 932 0 L 932 2800"/>
-    <path d="M 832 0 L 832 2800"/>
-    <path d="M 732 0 L 732 2800"/>
-    <path d="M 632 0 L 632 2800"/>
-    <path d="M 532 0 L 532 2800"/>
-    <path d="M 432 0 L 432 2800"/>
-    <!--horizontal rules-->
-    <path d="M 400 0 L 3532 0"/>
-    <path d="M 400 100 L 3532 100"/>
-    <path d="M 400 200 L 3532 200"/>
-    <path d="M 400 300 L 3532 300"/>
-    <path d="M 400 400 L 3532 400"/>
-    <path d="M 400 500 L 3532 500"/>
-    <path d="M 400 600 L 3532 600"/>
-    <path d="M 400 700 L 3532 700"/>
-    <path d="M 400 800 L 3532 800"/>
-    <path d="M 400 900 L 3532 900"/>
-    <path d="M 400 1000 L 3532 1000"/>
-    <path d="M 400 1100 L 3532 1100"/>
-    <path d="M 400 1200 L 3532 1200"/>
-    <path d="M 400 1300 L 3532 1300"/>
-    <path d="M 400 1400 L 3532 1400"/>
-    <path d="M 400 1500 L 3532 1500"/>
-    <path d="M 400 1600 L 3532 1600"/>
-    <path d="M 400 1700 L 3532 1700"/>
-    <path d="M 400 1800 L 3532 1800"/>
-    <path d="M 400 1900 L 3532 1900"/>
-    <path d="M 400 2000 L 3532 2000"/>
-    <path d="M 400 2100 L 3532 2100"/>
-    <path d="M 400 2200 L 3532 2200"/>
-    <path d="M 400 2300 L 3532 2300"/>
-    <path d="M 400 2400 L 3532 2400"/>
-    <path d="M 400 2500 L 3532 2500"/>
-    <path d="M 400 2600 L 3532 2600"/>
-    <path d="M 400 2700 L 3532 2700"/>
-    <path d="M 400 2800 L 3532 2800"/>
-  </g>
   <g class="testViewBoxGroup">
     <path d="M 400 0 L 3532 0"/>
     <path d="M 400 2800 L 3532 2800"/>
@@ -9670,5 +9608,100 @@
     <path d="M 3532 0 L 3532 2800"/>
   </g>
   <g id="drawingScale"/>
-  <g id="real-world" transform="translate(3532.000000,0.000000) scale(-23.500000,23.500000)"/>
+  <g id="real-world" transform="translate(3532.000000,0.000000) scale(-23.500000,23.500000)">
+    <g class="realworldGrid">
+      <!--Vertical rules-->
+      <path d="M 133 0 L 133 133" class="grid-line"/>
+      <path d="M 130 0 L 130 133" class="grid-line"/>
+      <path d="M 127 0 L 127 133" class="grid-line"/>
+      <path d="M 124 0 L 124 133" class="grid-line"/>
+      <path d="M 121 0 L 121 133" class="grid-line"/>
+      <path d="M 118 0 L 118 133" class="grid-line"/>
+      <path d="M 115 0 L 115 133" class="grid-line"/>
+      <path d="M 112 0 L 112 133" class="grid-line"/>
+      <path d="M 109 0 L 109 133" class="grid-line"/>
+      <path d="M 106 0 L 106 133" class="grid-line"/>
+      <path d="M 103 0 L 103 133" class="grid-line"/>
+      <path d="M 100 0 L 100 133" class="grid-line"/>
+      <path d="M 97 0 L 97 133" class="grid-line"/>
+      <path d="M 94 0 L 94 133" class="grid-line"/>
+      <path d="M 91 0 L 91 133" class="grid-line"/>
+      <path d="M 88 0 L 88 133" class="grid-line"/>
+      <path d="M 85 0 L 85 133" class="grid-line"/>
+      <path d="M 82 0 L 82 133" class="grid-line"/>
+      <path d="M 79 0 L 79 133" class="grid-line"/>
+      <path d="M 76 0 L 76 133" class="grid-line"/>
+      <path d="M 73 0 L 73 133" class="grid-line"/>
+      <path d="M 70 0 L 70 133" class="grid-line"/>
+      <path d="M 67 0 L 67 133" class="grid-line"/>
+      <path d="M 64 0 L 64 133" class="grid-line"/>
+      <path d="M 61 0 L 61 133" class="grid-line"/>
+      <path d="M 58 0 L 58 133" class="grid-line"/>
+      <path d="M 55 0 L 55 133" class="grid-line"/>
+      <path d="M 52 0 L 52 133" class="grid-line"/>
+      <path d="M 49 0 L 49 133" class="grid-line"/>
+      <path d="M 46 0 L 46 133" class="grid-line"/>
+      <path d="M 43 0 L 43 133" class="grid-line"/>
+      <path d="M 40 0 L 40 133" class="grid-line"/>
+      <path d="M 37 0 L 37 133" class="grid-line"/>
+      <path d="M 34 0 L 34 133" class="grid-line"/>
+      <path d="M 31 0 L 31 133" class="grid-line"/>
+      <path d="M 28 0 L 28 133" class="grid-line"/>
+      <path d="M 25 0 L 25 133" class="grid-line"/>
+      <path d="M 22 0 L 22 133" class="grid-line"/>
+      <path d="M 19 0 L 19 133" class="grid-line"/>
+      <path d="M 16 0 L 16 133" class="grid-line"/>
+      <path d="M 13 0 L 13 133" class="grid-line"/>
+      <path d="M 10 0 L 10 133" class="grid-line"/>
+      <path d="M 7 0 L 7 133" class="grid-line"/>
+      <path d="M 4 0 L 4 133" class="grid-line"/>
+      <path d="M 1 0 L 1 133" class="grid-line"/>
+      <!--horizontal rules-->
+      <path d="M 0 0 L 133 0" class="grid-line"/>
+      <path d="M 0 3 L 133 3" class="grid-line"/>
+      <path d="M 0 6 L 133 6" class="grid-line"/>
+      <path d="M 0 9 L 133 9" class="grid-line"/>
+      <path d="M 0 12 L 133 12" class="grid-line"/>
+      <path d="M 0 15 L 133 15" class="grid-line"/>
+      <path d="M 0 18 L 133 18" class="grid-line"/>
+      <path d="M 0 21 L 133 21" class="grid-line"/>
+      <path d="M 0 24 L 133 24" class="grid-line"/>
+      <path d="M 0 27 L 133 27" class="grid-line"/>
+      <path d="M 0 30 L 133 30" class="grid-line"/>
+      <path d="M 0 33 L 133 33" class="grid-line"/>
+      <path d="M 0 36 L 133 36" class="grid-line"/>
+      <path d="M 0 39 L 133 39" class="grid-line"/>
+      <path d="M 0 42 L 133 42" class="grid-line"/>
+      <path d="M 0 45 L 133 45" class="grid-line"/>
+      <path d="M 0 48 L 133 48" class="grid-line"/>
+      <path d="M 0 51 L 133 51" class="grid-line"/>
+      <path d="M 0 54 L 133 54" class="grid-line"/>
+      <path d="M 0 57 L 133 57" class="grid-line"/>
+      <path d="M 0 60 L 133 60" class="grid-line"/>
+      <path d="M 0 63 L 133 63" class="grid-line"/>
+      <path d="M 0 66 L 133 66" class="grid-line"/>
+      <path d="M 0 69 L 133 69" class="grid-line"/>
+      <path d="M 0 72 L 133 72" class="grid-line"/>
+      <path d="M 0 75 L 133 75" class="grid-line"/>
+      <path d="M 0 78 L 133 78" class="grid-line"/>
+      <path d="M 0 81 L 133 81" class="grid-line"/>
+      <path d="M 0 84 L 133 84" class="grid-line"/>
+      <path d="M 0 87 L 133 87" class="grid-line"/>
+      <path d="M 0 90 L 133 90" class="grid-line"/>
+      <path d="M 0 93 L 133 93" class="grid-line"/>
+      <path d="M 0 96 L 133 96" class="grid-line"/>
+      <path d="M 0 99 L 133 99" class="grid-line"/>
+      <path d="M 0 102 L 133 102" class="grid-line"/>
+      <path d="M 0 105 L 133 105" class="grid-line"/>
+      <path d="M 0 108 L 133 108" class="grid-line"/>
+      <path d="M 0 111 L 133 111" class="grid-line"/>
+      <path d="M 0 114 L 133 114" class="grid-line"/>
+      <path d="M 0 117 L 133 117" class="grid-line"/>
+      <path d="M 0 120 L 133 120" class="grid-line"/>
+      <path d="M 0 123 L 133 123" class="grid-line"/>
+      <path d="M 0 126 L 133 126" class="grid-line"/>
+      <path d="M 0 129 L 133 129" class="grid-line"/>
+      <path d="M 0 132 L 133 132" class="grid-line"/>
+    </g>
+  </g>
 </svg>
