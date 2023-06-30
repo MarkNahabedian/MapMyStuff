@@ -20,5 +20,7 @@ python3 ../../floor_plan_cleanup/cleanup_inkscape_svg.py \
     -viewbox_grid_spacing 100 \
     -show_clip_box \
     -scale_factor 23.5 \
-    -thing_stylesheet_link "../HobbyShop-DuPont/furnashings/thing_styles.css"
+    -thing_stylesheet_link "../HobbyShop-DuPont/furnashings/thing_styles.css" \
+    -clip_box 400 0 3532 2800 \
+    -clip_svg_viewbox
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="1.0 (4035a4fb49, 2020-05-01)" sodipodi:docname="Floor_Plan.svg" viewBox="0 0 4032 2880" height="2880" width="4032" xml:space="preserve" id="svg10" version="1.1">
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="1.0 (4035a4fb49, 2020-05-01)" sodipodi:docname="Floor_Plan.svg" viewBox="400.0 0.0 3132.0 2800.0" width="100%" xml:space="preserve" id="svg10" version="1.1">
   <!--
-../../floor_plan_cleanup/cleanup_inkscape_svg.py -input_file Floor_Plan_from_inkscape.svg -viewbox_grid_spacing 100 -show_clip_box -scale_factor 23.5 -thing_stylesheet_link ../HobbyShop-DuPont/furnashings/thing_styles.css
+../../floor_plan_cleanup/cleanup_inkscape_svg.py -input_file Floor_Plan_from_inkscape.svg -viewbox_grid_spacing 100 -show_clip_box -scale_factor 23.5 -thing_stylesheet_link ../HobbyShop-DuPont/furnashings/thing_styles.css -clip_box 400 0 3532 2800 -clip_svg_viewbox
 -->
   <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="../HobbyShop-DuPont/furnashings/thing_styles.css" type="text/css"/>
   <style id="inkscape_styles" type="text/css">
@@ -9600,84 +9600,75 @@
   </g>
   <g class="viewportGrid">
     <!--Vertical rules-->
-    <path d="M 4032 0 L 4032 2880"/>
-    <path d="M 3932 0 L 3932 2880"/>
-    <path d="M 3832 0 L 3832 2880"/>
-    <path d="M 3732 0 L 3732 2880"/>
-    <path d="M 3632 0 L 3632 2880"/>
-    <path d="M 3532 0 L 3532 2880"/>
-    <path d="M 3432 0 L 3432 2880"/>
-    <path d="M 3332 0 L 3332 2880"/>
-    <path d="M 3232 0 L 3232 2880"/>
-    <path d="M 3132 0 L 3132 2880"/>
-    <path d="M 3032 0 L 3032 2880"/>
-    <path d="M 2932 0 L 2932 2880"/>
-    <path d="M 2832 0 L 2832 2880"/>
-    <path d="M 2732 0 L 2732 2880"/>
-    <path d="M 2632 0 L 2632 2880"/>
-    <path d="M 2532 0 L 2532 2880"/>
-    <path d="M 2432 0 L 2432 2880"/>
-    <path d="M 2332 0 L 2332 2880"/>
-    <path d="M 2232 0 L 2232 2880"/>
-    <path d="M 2132 0 L 2132 2880"/>
-    <path d="M 2032 0 L 2032 2880"/>
-    <path d="M 1932 0 L 1932 2880"/>
-    <path d="M 1832 0 L 1832 2880"/>
-    <path d="M 1732 0 L 1732 2880"/>
-    <path d="M 1632 0 L 1632 2880"/>
-    <path d="M 1532 0 L 1532 2880"/>
-    <path d="M 1432 0 L 1432 2880"/>
-    <path d="M 1332 0 L 1332 2880"/>
-    <path d="M 1232 0 L 1232 2880"/>
-    <path d="M 1132 0 L 1132 2880"/>
-    <path d="M 1032 0 L 1032 2880"/>
-    <path d="M 932 0 L 932 2880"/>
-    <path d="M 832 0 L 832 2880"/>
-    <path d="M 732 0 L 732 2880"/>
-    <path d="M 632 0 L 632 2880"/>
-    <path d="M 532 0 L 532 2880"/>
-    <path d="M 432 0 L 432 2880"/>
-    <path d="M 332 0 L 332 2880"/>
-    <path d="M 232 0 L 232 2880"/>
-    <path d="M 132 0 L 132 2880"/>
-    <path d="M 32 0 L 32 2880"/>
+    <path d="M 3532 0 L 3532 2800"/>
+    <path d="M 3432 0 L 3432 2800"/>
+    <path d="M 3332 0 L 3332 2800"/>
+    <path d="M 3232 0 L 3232 2800"/>
+    <path d="M 3132 0 L 3132 2800"/>
+    <path d="M 3032 0 L 3032 2800"/>
+    <path d="M 2932 0 L 2932 2800"/>
+    <path d="M 2832 0 L 2832 2800"/>
+    <path d="M 2732 0 L 2732 2800"/>
+    <path d="M 2632 0 L 2632 2800"/>
+    <path d="M 2532 0 L 2532 2800"/>
+    <path d="M 2432 0 L 2432 2800"/>
+    <path d="M 2332 0 L 2332 2800"/>
+    <path d="M 2232 0 L 2232 2800"/>
+    <path d="M 2132 0 L 2132 2800"/>
+    <path d="M 2032 0 L 2032 2800"/>
+    <path d="M 1932 0 L 1932 2800"/>
+    <path d="M 1832 0 L 1832 2800"/>
+    <path d="M 1732 0 L 1732 2800"/>
+    <path d="M 1632 0 L 1632 2800"/>
+    <path d="M 1532 0 L 1532 2800"/>
+    <path d="M 1432 0 L 1432 2800"/>
+    <path d="M 1332 0 L 1332 2800"/>
+    <path d="M 1232 0 L 1232 2800"/>
+    <path d="M 1132 0 L 1132 2800"/>
+    <path d="M 1032 0 L 1032 2800"/>
+    <path d="M 932 0 L 932 2800"/>
+    <path d="M 832 0 L 832 2800"/>
+    <path d="M 732 0 L 732 2800"/>
+    <path d="M 632 0 L 632 2800"/>
+    <path d="M 532 0 L 532 2800"/>
+    <path d="M 432 0 L 432 2800"/>
     <!--horizontal rules-->
-    <path d="M 0 0 L 4032 0"/>
-    <path d="M 0 100 L 4032 100"/>
-    <path d="M 0 200 L 4032 200"/>
-    <path d="M 0 300 L 4032 300"/>
-    <path d="M 0 400 L 4032 400"/>
-    <path d="M 0 500 L 4032 500"/>
-    <path d="M 0 600 L 4032 600"/>
-    <path d="M 0 700 L 4032 700"/>
-    <path d="M 0 800 L 4032 800"/>
-    <path d="M 0 900 L 4032 900"/>
-    <path d="M 0 1000 L 4032 1000"/>
-    <path d="M 0 1100 L 4032 1100"/>
-    <path d="M 0 1200 L 4032 1200"/>
-    <path d="M 0 1300 L 4032 1300"/>
-    <path d="M 0 1400 L 4032 1400"/>
-    <path d="M 0 1500 L 4032 1500"/>
-    <path d="M 0 1600 L 4032 1600"/>
-    <path d="M 0 1700 L 4032 1700"/>
-    <path d="M 0 1800 L 4032 1800"/>
-    <path d="M 0 1900 L 4032 1900"/>
-    <path d="M 0 2000 L 4032 2000"/>
-    <path d="M 0 2100 L 4032 2100"/>
-    <path d="M 0 2200 L 4032 2200"/>
-    <path d="M 0 2300 L 4032 2300"/>
-    <path d="M 0 2400 L 4032 2400"/>
-    <path d="M 0 2500 L 4032 2500"/>
-    <path d="M 0 2600 L 4032 2600"/>
-    <path d="M 0 2700 L 4032 2700"/>
-    <path d="M 0 2800 L 4032 2800"/>
+    <path d="M 400 0 L 3532 0"/>
+    <path d="M 400 100 L 3532 100"/>
+    <path d="M 400 200 L 3532 200"/>
+    <path d="M 400 300 L 3532 300"/>
+    <path d="M 400 400 L 3532 400"/>
+    <path d="M 400 500 L 3532 500"/>
+    <path d="M 400 600 L 3532 600"/>
+    <path d="M 400 700 L 3532 700"/>
+    <path d="M 400 800 L 3532 800"/>
+    <path d="M 400 900 L 3532 900"/>
+    <path d="M 400 1000 L 3532 1000"/>
+    <path d="M 400 1100 L 3532 1100"/>
+    <path d="M 400 1200 L 3532 1200"/>
+    <path d="M 400 1300 L 3532 1300"/>
+    <path d="M 400 1400 L 3532 1400"/>
+    <path d="M 400 1500 L 3532 1500"/>
+    <path d="M 400 1600 L 3532 1600"/>
+    <path d="M 400 1700 L 3532 1700"/>
+    <path d="M 400 1800 L 3532 1800"/>
+    <path d="M 400 1900 L 3532 1900"/>
+    <path d="M 400 2000 L 3532 2000"/>
+    <path d="M 400 2100 L 3532 2100"/>
+    <path d="M 400 2200 L 3532 2200"/>
+    <path d="M 400 2300 L 3532 2300"/>
+    <path d="M 400 2400 L 3532 2400"/>
+    <path d="M 400 2500 L 3532 2500"/>
+    <path d="M 400 2600 L 3532 2600"/>
+    <path d="M 400 2700 L 3532 2700"/>
+    <path d="M 400 2800 L 3532 2800"/>
   </g>
   <g class="testViewBoxGroup">
-    <path d="M 0 0 L 4032 0"/>
-    <path d="M 0 2880 L 4032 2880"/>
-    <path d="M 0 0 L 0 2880"/>
-    <path d="M 4032 0 L 4032 2880"/>
+    <path d="M 400 0 L 3532 0"/>
+    <path d="M 400 2800 L 3532 2800"/>
+    <path d="M 400 0 L 400 2800"/>
+    <path d="M 3532 0 L 3532 2800"/>
   </g>
   <g id="drawingScale"/>
-  <g id="real-world" transform="translate(4032.000000,0.000000) scale(-23.500000,23.500000)"/>
+  <g id="real-world" transform="translate(3532.000000,0.000000) scale(-23.500000,23.500000)"/>
 </svg>
