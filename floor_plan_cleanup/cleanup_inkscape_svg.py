@@ -168,7 +168,7 @@ def thing_styles(doc, url):
 
 
 ################################################################################
-# Grid
+# Grids
 
 
 def svg_line(doc, parent, x0, y0, x1, y1):
@@ -179,11 +179,11 @@ def svg_line(doc, parent, x0, y0, x1, y1):
     return p
 
 
-def add_grid(doc, spacing, box):
+def add_grid(doc, parent, clas, spacing, box):
     print("GRID BOX", box)
     grid = doc.createElement("g")
-    grid.setAttribute("class", "viewportGrid")
-    doc.documentElement.appendChild(grid)
+    grid.setAttribute("class", clas)
+    parent.appendChild(grid)
     # Draw X coordinates from right tyo left.
     grid.appendChild(doc.createComment("Vertical rules"))
     x = box.maxX
@@ -618,7 +618,8 @@ def main():
         # If we're shrinking the SVG viewBox to the useful part of the
         # floor plan then alighn the grid to the top right corner,
         # otherwise to the global coordinate system.
-        add_grid(doc, args.viewbox_grid_spacing[0],
+        add_grid(doc, doc.documentElement, "viewportGrid",
+                 args.viewbox_grid_spacing[0],
                  clip_box if args.clip_svg_viewbox
                  else Box.xywh(*viewbox))
     if clip_box and args.show_clip_box:
