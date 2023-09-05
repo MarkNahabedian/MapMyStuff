@@ -5,12 +5,32 @@
         "cssClass": "machine",
         "width": 7.17,
         "depth": 3,
-        "x": 92,
+        "x": 88,
         "y": 58,
-        "rotation": 0,
+        "rotation": 0.04,
         "booking_note": "Booking any wood shop workbench allows access.",
         "description_uri": "../../HobbyShop-DuPont/furnashings/SawStop_cabinet_saw.html",
         "measured": "2020-06-10"
+    },
+    {
+        "name": "outfeed table and cabinet",
+        "cssClass": "storage",
+        "width": 5.7,
+        "depth": 3.3,
+        "x": 86.5,
+        "y": 61,
+        "rotation": 0.54,
+        "measured": "2023-09-05 68 inch wide, 40 inch deep"
+    },
+    {
+        "name": "Sliding Table Saw/Router Table",
+        "cssClass": "machine",
+        "width": 5.7,
+        "depth": 6.3,
+        "x": 85,
+        "y": 65.5,
+        "rotation": 0.54,
+        "measured": "2023-09-05 116 inch wide, 76 inch deep"
     },
 
     {
@@ -155,6 +175,7 @@
     },
 
     {
+        "FIXME": "THIS IS IN THE BACK METAL AREA.  THere's another milling machine in this location.",
         "name": "OMAX MicroMax Water Jet Machining Center",
         "unique_id": "_x_0001",
         "clustermarket_id": "25529",
