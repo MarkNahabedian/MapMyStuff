@@ -20,7 +20,7 @@
         "x": 86.5,
         "y": 61,
         "rotation": 0.54,
-        "measured": "2023-09-05 68 inch wide, 40 inch deep"
+        "measured": "2023-09-05; 68 inch wide, 40 inch deep"
     },
     {
         "name": "Sliding Table Saw/Router Table",
@@ -30,7 +30,7 @@
         "x": 85,
         "y": 65.5,
         "rotation": 0.54,
-        "measured": "2023-09-05 116 inch wide, 76 inch deep"
+        "measured": "2023-09-05, 116 inch wide, 76 inch deep"
     },
 
     {
@@ -174,18 +174,100 @@
         "description_uri": "../../HobbyShop-DuPont/furnashings/wood_mill.html"
     },
 
+
+
     {
-        "FIXME": "THIS IS IN THE BACK METAL AREA.  THere's another milling machine in this location.",
-        "name": "OMAX MicroMax Water Jet Machining Center",
-        "unique_id": "_x_0001",
-        "clustermarket_id": "25529",
+        "name": "Bridgeport milling machine (metal)",
         "cssClass": "machine",
-        "width": 6.166,
-        "depth": 7,
-        "x": 35,
+        "width": 4.3,
+        "depth": 6.5,
+        "x": 52,
+        "y": 89,
+        "rotation": 0.65,
+        "measured": "2023-09-05; 52 inch wide, 78 inch deep"        
+    },
+    {
+        "name": "Cabinet/Drawers PLACEHOLDER",
+        "unique_id": "_CDP_6",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 54.5,
+        "y": 94.0,
+        "rotation": 0.75,
+        "contents": [
+            "Cabinet/Drawers PLACEHOLDER"
+        ],
+        "measured": "2021-06-01"
+    },
+        {
+        "name": "Cabinet/Drawers PLACEHOLDER",
+        "unique_id": "_CDP_7",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 54.5,
+        "y": 96.5,
+        "rotation": 0.75,
+        "contents": [
+            "Cabinet/Drawers PLACEHOLDER"
+        ],
+        "measured": "2021-06-01"
+    },
+    {
+        "name": "Cabinet/Drawers PLACEHOLDER",
+        "unique_id": "_CDP_8",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 54.5,
+        "y": 99.0,
+        "rotation": 0.75,
+        "contents": [
+            "Cabinet/Drawers PLACEHOLDER"
+        ],
+        "measured": "2021-06-01"
+    },
+    {
+        "name": "Trak DPM2 milling machine",
+        "cssClass": "machine",
+        "width": 6.2,
+        "depth": 4.4,
+        "x": 52,
+        "y": 107,
+        "rotation": 0.9,
+        "measured": "2023-09-05; 74 inch wide, 53 inch deep"
+    },
+    {
+        "name": "Drill Press (metal)",
+        "unique_id": "_x_0013",
+        "clustermarket_id": "93070",
+        "cssClass": "machine",
+        "width": 2,
+        "depth": 2.5,
+        "x": 44,
+        "y": 108,
+        "rotation": 0,
+        "description_uri": "Jet_20VS_drill_press.html"
+    },
+    {
+        "name": "SuperMini mill",
+        "cssClass": "machine",
+        "width": 4.1,
+        "depth": 5.8,
+        "x": 36,
         "y": 104,
         "rotation": 0.25,
-        "description_uri": "../../HobbyShop-DuPont/furnashings/MicroMax.html"
+        "measured": "2023-09-05; 89 inch wide, 70 inch deep"
+    },
+    {
+        "name": "ProTrak lathe",
+        "cssClass": "machine",
+        "width": 6.25,
+        "depth": 3.75,
+        "x": 36,
+        "y": 90,
+        "rotation": 0.25,
+        "measured": "2023-09-05; 75 inch wide, 45 inch deep"
     }
-    
 ]
