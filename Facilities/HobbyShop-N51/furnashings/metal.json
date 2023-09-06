@@ -1,0 +1,47 @@
+[
+    {
+        "name": "OMAX MicroMax Water Jet Machining Center",
+        "unique_id": "_x_0001",
+        "clustermarket_id": "25529",
+        "cssClass": "machine",
+        "width": 6.166,
+        "depth": 7,
+        "x": 52,
+        "y": 50,
+        "rotation": 0.5,
+        "description_uri": "../../HobbyShop-DuPont/furnashings/MicroMax.html"
+    },
+    {
+        "name": "OMAX Mystery Support Box (Pump)",
+        "unique_id": "_x_0002",
+        "cssClass": "machine",
+        "width": 3,
+        "depth": 2.5,
+        "x": 47,
+        "y": 48,
+        "rotation": 0.5
+    },
+
+    {
+        "name": "DoAll band saw (metal)",
+        "unique_id": "_x_0100",
+        "cssClass": "machine",
+        "width": 5,
+        "depth": 5,
+        "x": 44,
+        "y": 60,
+        "rotation": 0.75,
+        "measured": "2023-09-05; 60 inch wide, 60 inch deep"
+    },
+    {
+        "name": "rolling mill",
+        "unique_id": "_x_0101",
+        "cssClass": "machine",
+        "width": 4.8,
+        "depth": 1.5,
+        "x": 53,
+        "y": 60,
+        "rotation": 0.75,
+        "measured": "2023-09-05; 58 inch wide, 18 inch deep"
+    }
+]
