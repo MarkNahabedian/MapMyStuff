@@ -34,6 +34,38 @@
     },
 
     {
+        "name": "Oliver band saw (wood)",
+        "cssClass": "machine",
+        "width": 4.3,
+        "depth": 2.4,
+        "x": 82.5,
+        "y": 78.5,
+        "rotation": 0.75,
+        "measured": "2023-09-05, 52 inch wide, 29 inch deep"
+    },
+    {
+        "name": "Cantek sander",
+        "cssClass": "machine",
+        "width": 6.8,
+        "depth": 2.17,
+        "x": 78.5,
+        "y": 85.5,
+        "rotation": 0.9,
+        "measured": "2023-09-05, 82 inch wide, 26 inch deep"
+    },
+
+    {
+        "name": "Glue-up table",
+        "cssClass": "station",
+        "width": 5.17,
+        "depth": 5.17,
+        "x": 100,
+        "y": 85,
+        "rotation": 0.9,
+        "measured": "2023-09-05, 62 inch wide, 62 inch deep"        
+    },
+
+    {
         "name": "Cabinet/Drawers PLACEHOLDER",
         "unique_id": "_CDP_5",
         "cssClass": "storage",
