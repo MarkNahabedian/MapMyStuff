@@ -5,7 +5,7 @@
         "cssClass": "machine",
         "width": 7.17,
         "depth": 3,
-        "x": 88,
+        "x": 91,
         "y": 58,
         "rotation": 0.04,
         "booking_note": "Booking any wood shop workbench allows access.",
@@ -15,11 +15,19 @@
     {
         "name": "outfeed table and cabinet",
         "cssClass": "storage",
-        "width": 5.7,
-        "depth": 3.3,
-        "x": 86.5,
+        "width": 3.3,
+        "depth": 5.7,
+        "x": 89.5,
         "y": 61,
-        "rotation": 0.54,
+        "rotation": 0.79,
+        "contents": [
+            "1st (top) drawer: table saw accessories",
+            "2nd drawer: throat plates and dado stacks",
+            "3rd drawer: Sawstop cartridges and extra push sticks",
+            "4th drawer: feather boards",
+            "5th drawer: router bits",
+            "6th (bottom) drawer: table saw blades"
+        ],
         "measured": "2023-09-05; 68 inch wide, 40 inch deep"
     },
     {
@@ -27,12 +35,22 @@
         "cssClass": "machine",
         "width": 5.7,
         "depth": 6.3,
-        "x": 85,
+        "x": 88,
         "y": 65.5,
         "rotation": 0.54,
         "measured": "2023-09-05, 116 inch wide, 76 inch deep"
     },
 
+    {
+        "name": "24 inch disc sander",
+        "cssClass": "machine",
+        "width": 3,
+        "depth": 3.4,
+        "x": 85,
+        "y": 82,
+        "rotation": 0.25,
+        "measured": "2023-09-08, 36 inch wide, 40 inch deep"
+    },
     {
         "name": "Oliver band saw (wood)",
         "cssClass": "machine",
@@ -144,15 +162,30 @@
         "depth": 1.5,
         "x": 57,
         "y": 99.60,
-        "rotation": 0.25,
+        "rotation": 0.5,
         "contents": [
             "1st (top) drawer: Hot glue gun, Dremel, Krege jig, soldering iron",
             "2nd drawer: Micromotor, hot air guin",
-            "3rd drawer: corded drill, saber saw",
+            "3rd drawer: corded drills, saber saw",
             "4th (bottom) drawer: trim router, biscuit joiner, brad nailer"
         ],
         "measured": "2021-06-01"
     },
+
+    {
+        "name": "Mortiser",
+        "unique_id": "_x_0059",
+        "cssClass": "machine",
+        "width": 2,
+        "depth": 3,
+        "x": 61,
+        "y": 109,
+        "rotation": 0,
+        "booking_note": "Booking any wood shop workbench allows access.",
+        "description_uri": "Laguna_mortiser.html",
+        "measured": "2021-06_23"
+    },
+
 
     {
         "name": "Work Bench",
@@ -207,8 +240,39 @@
         "description_uri": "../../HobbyShop-DuPont/furnashings/wood_mill.html"
     },
 
+    {
+        "name": "Scroll Saw",
+        "unique_id": "_x_0062",
+        "cssClass": "machine",
+        "width": 1.46,
+        "depth": 2.375,
+        "x": 81,
+        "y": 102,
+        "rotation": 0.9,
+        "measured": "2021-06-01"
+    },
+    {
+        "name": "TimeSavers SpeedSander thickness sander",
+        "cssClass": "machine",
+        "width": 5.1,
+        "depth": 3.4,
+        "x": 85,
+        "y": 97,
+        "rotation": 0.65,
+        "measured": "2023-09-08; 61 inches wide, 41 inches deep"
+    },
 
-
+    {
+        "name": "blackboard",
+        "cssClass": "furnature",
+        "width": 4,
+        "depth": 0.3,
+        "x": 47,
+        "y": 79.1,
+        "rotation": 0.5,
+        "measured": "2023-09-08; 4 feet wide, 3.4 inches deep"
+    },
+    
     {
         "name": "Bridgeport milling machine (metal)",
         "clustermarket_id": 25535,
@@ -234,7 +298,7 @@
         ],
         "measured": "2021-06-01"
     },
-        {
+    {
         "name": "Cabinet/Drawers PLACEHOLDER",
         "unique_id": "_CDP_7",
         "cssClass": "storage",
@@ -280,10 +344,28 @@
         "cssClass": "machine",
         "width": 2,
         "depth": 2.5,
-        "x": 44,
+        "x": 44.5,
         "y": 108,
         "rotation": 0,
         "description_uri": "Jet_20VS_drill_press.html"
+    },
+    {
+        "name": "Cabinet/Drawers",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 42,
+        "y": 109,
+        "rotation": 0,
+        "contents": [
+            "1st (top) drawer: springs and C clips",
+            "2nd drawer: pins and bearings",
+            "3rd drawer: spring pins and rivets",
+            "4th drawer: hardware",
+            "5th drawer: hardware",
+            "6th (bottom) drawer: hardware"
+        ],
+        "measured": "2021-06-01"
     },
     {
         "name": "SuperMini mill",
