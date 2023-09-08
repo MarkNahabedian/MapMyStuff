@@ -253,6 +253,10 @@ function show_description(thing) {
   let d = document.createElement("div");
   d.setAttribute("class", "description");
   desc_elt.appendChild(d);
+  // Start with the name:
+  let nameElt = document.createElement("div");
+  nameElt.textContent = thing.name;
+  d.appendChild(nameElt);
   // For now, for simplicity, if the item has a clustermarket_id
   // property then the BookIt link will be the first element.
   if (thing.clustermarket_id || thing.booking_note) {
