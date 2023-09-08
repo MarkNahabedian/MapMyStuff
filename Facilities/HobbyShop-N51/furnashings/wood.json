@@ -285,7 +285,7 @@
         "measured": "2023-09-05; 52 inch wide, 78 inch deep"        
     },
     {
-        "name": "Cabinet/Drawers PLACEHOLDER",
+        "name": "Cabinet/Drawer",
         "unique_id": "_CDP_6",
         "cssClass": "storage",
         "width": 2.5,
@@ -294,12 +294,19 @@
         "y": 94.0,
         "rotation": 0.75,
         "contents": [
-            "Cabinet/Drawers PLACEHOLDER"
+            "1st (top) drawer: fractional drill bits",
+            "2nd drawer: letter and number drills",
+            "3rd drawer: flat end mills and counter sinks",
+            "4th drawer: ball end mills",
+            "5th drawer: taper and bull node end mills",
+            "6th drawer: large fractional drills",
+            "7th drawer: reamers",
+            "8th (bottom) drawer: reamers"
         ],
         "measured": "2021-06-01"
     },
     {
-        "name": "Cabinet/Drawers PLACEHOLDER",
+        "name": "Cabinet/Drawers",
         "unique_id": "_CDP_7",
         "cssClass": "storage",
         "width": 2.5,
@@ -308,12 +315,17 @@
         "y": 96.5,
         "rotation": 0.75,
         "contents": [
-            "Cabinet/Drawers PLACEHOLDER"
+            "1st (top) drawer: measuring tools",
+            "2nd drawer:measuring tools",
+            "3rd drawer:",
+            "4th drawer:",
+            "5th drawer: measuring and setup",
+            "6th (bottom) drawer: measuring and setup"
         ],
         "measured": "2021-06-01"
     },
     {
-        "name": "Cabinet/Drawers PLACEHOLDER",
+        "name": "Cabinet/Drawers: hardware",
         "unique_id": "_CDP_8",
         "cssClass": "storage",
         "width": 2.5,
@@ -322,7 +334,14 @@
         "y": 99.0,
         "rotation": 0.75,
         "contents": [
-            "Cabinet/Drawers PLACEHOLDER"
+            "1st (top) drawer: 0 to 8-32",
+            "2nd drawer: 8-32 to 12-32",
+            "3rd drawer: 1/4-20 to 5/26-24",
+            "4th drawer: 3/8-16 to 7/16-14",
+            "5th drawer: 1/2-32 to 3/4-16",
+            "6th drawer: washers",
+            "7th drawer: metric",
+            "8th (bottom) drawer: metric"
         ],
         "measured": "2021-06-01"
     },
@@ -387,5 +406,15 @@
         "y": 90,
         "rotation": 0.25,
         "measured": "2023-09-05; 75 inch wide, 45 inch deep"
+    },
+    {
+        "name": "sewing machine",
+        "cssClass": "machine",
+        "width": 5.625,
+        "depth": 2.2,
+        "x": 39,
+        "y": 76,
+        "rotation": 0.75,
+        "measured": "2023-09-08; 67.5 inches wide, 26 inches deep"
     }
 ]
