@@ -56,6 +56,7 @@
 
     {
         "name": "Glue-up table",
+        "clustermarket_id": 153145,
         "cssClass": "station",
         "width": 5.17,
         "depth": 5.17,
@@ -210,6 +211,7 @@
 
     {
         "name": "Bridgeport milling machine (metal)",
+        "clustermarket_id": 25535,
         "cssClass": "machine",
         "width": 4.3,
         "depth": 6.5,
@@ -262,6 +264,7 @@
     },
     {
         "name": "Trak DPM2 milling machine",
+        "clustermarket_id": 25536,
         "cssClass": "machine",
         "width": 6.2,
         "depth": 4.4,
@@ -294,6 +297,7 @@
     },
     {
         "name": "ProTrak lathe",
+        "clustermarket_id": 153198,
         "cssClass": "machine",
         "width": 6.25,
         "depth": 3.75,
