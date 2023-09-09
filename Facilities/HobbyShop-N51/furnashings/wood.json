@@ -85,7 +85,7 @@
     },
 
     {
-        "name": "Cabinet/Drawers PLACEHOLDER",
+        "name": "Cabinet/Drawers",
         "unique_id": "_CDP_5",
         "cssClass": "storage",
         "width": 2.5,
@@ -94,12 +94,17 @@
         "y": 88.1,
         "rotation": 0.25,
         "contents": [
-            "Cabinet/Drawers PLACEHOLDER"
+            "1st (top) drawer: squares, marking gauges",
+            "2nd drawer: combination squares and bevel gauges",
+            "3rd drawer: gauges",
+            "4th drawer: chisels",
+            "5th drawer: hand saws",
+            "6th (bottom) drawer: planes"
         ],
         "measured": "2021-06-01"
     },
     {
-        "name": "Cabinet/Drawers PLACEHOLDER",
+        "name": "Cabinet/Drawers",
         "unique_id": "_CDP_4",
         "cssClass": "storage",
         "width": 2.5,
@@ -108,12 +113,17 @@
         "y": 90.6,
         "rotation": 0.25,
         "contents": [
-            "Cabinet/Drawers PLACEHOLDER"
+            "1st (top) drawer: hot glue and rubber bands",
+            "2nd drawer: tape",
+            "3rd drawer: strap clamps",
+            "4th drawer: spring clamps and hose clamps",
+            "5th drawer:",
+            "6th (bottom) drawer: misc. clamps"
         ],
         "measured": "2021-06-01"
     },
     {
-        "name": "Cabinet/Drawers PLACEHOLDER",
+        "name": "Cabinet/Drawers",
         "unique_id": "_CDP_3",
         "cssClass": "storage",
         "width": 2.5,
@@ -122,12 +132,17 @@
         "y": 92.85,
         "rotation": 0.25,
         "contents": [
-            "Cabinet/Drawers PLACEHOLDER"
+            "1st (top) drawer: hex keys",
+            "2nd drawer: hex key sets",
+            "3rd drawer:",
+            "4th drawer: hammers",
+            "5th drawer: sanding disks",
+            "6th (bottom) drawer: sand paper"
         ],
         "measured": "2021-06-01"
     },
     {
-        "name": "Cabinet/Drawers PLACEHOLDER",
+        "name": "Cabinet/Drawers",
         "unique_id": "_CDP_2",
         "cssClass": "storage",
         "width": 2.5,
@@ -136,12 +151,18 @@
         "y": 95.10,
         "rotation": 0.25,
         "contents": [
-            "Cabinet/Drawers PLACEHOLDER"
+            "1st (top) drawer: screw drivers",
+            "2nd drawer: knives, scrapers and scissors",
+            "3rd drawer: brushes and applicators",
+            "4th drawer: pliers, snips and pullers",
+            "5th drawer: rasps and files",
+            "6th drawer: wrenches and nut drivers",
+            "7th (bottom) drawer: wrench sets"
         ],
         "measured": "2021-06-01"
     },
     {
-        "name": "Cabinet/Drawers PLACEHOLDER",
+        "name": "Cabinet/Drawers",
         "unique_id": "_CDP_1",
         "cssClass": "storage",
         "width": 2.5,
@@ -150,7 +171,14 @@
         "y": 97.35,
         "rotation": 0.25,
         "contents": [
-            "Cabinet/Drawers PLACEHOLDER"
+            "1st (top) drawer: screws",
+            "2nd drawer: screws",
+            "3rd drawer: screws",
+            "4th drawer: screws",
+            "5th drawer:",
+            "6th drawer: nails and staples",
+            "7th drawer: hinges and slides",
+            "8th (bottom) drawer: mis. hardware"
         ],
         "measured": "2021-06-01"
     },
