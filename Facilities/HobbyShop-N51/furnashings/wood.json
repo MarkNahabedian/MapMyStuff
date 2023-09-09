@@ -294,7 +294,7 @@
 
     {
         "name": "mobile work bench (5)",
-        "cssClass": "station",
+        "cssClass": "furnature",
         "clustermarket_id": 153143,
         "width": 2.21,
         "depth": 3,
@@ -306,7 +306,7 @@
     },
     {
         "name": "mobile work bench (6)",
-        "cssClass": "station",
+        "cssClass": "furnature",
         "width": 2.21,
         "depth": 3,
         "x": 76, 
