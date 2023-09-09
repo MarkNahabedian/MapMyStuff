@@ -1,5 +1,36 @@
 [
     {
+        "name": "Consultation with Hayami",
+        "unique_id": "Hayami",
+        "clustermarket_id": 81712,
+        "cssClass": "consultant",
+        "x": 66,
+        "y": 68,
+        "rotation": 0,
+        "path_d": "M 0 0 m 0 1 a 0.5 0.5 0 1 0 0 -1 a 0.5 0.5 0 1 0 0 1 v 0.3 h 1 m -1 0 h -1 m 1 0 v 1.2 l 0.707107 0.707107 m -0.707107 -0.707107 l -0.707107 0.707107"
+    },
+    {
+        "name": "Consultation with Coby",
+        "unique_id": "Coby",
+        "clustermarket_id": 81713,
+        "cssClass": "consultant",
+        "x": 18,
+        "y": 83,
+        "rotation": 0,
+        "path_d": "M 0 0 m 0 1 a 0.5 0.5 0 1 0 0 -1 a 0.5 0.5 0 1 0 0 1 v 0.3 h 1 m -1 0 h -1 m 1 0 v 1.2 l 0.707107 0.707107 m -0.707107 -0.707107 l -0.707107 0.707107"
+    },
+    {
+        "name": "Consultation with Mud the Dog",
+        "unique_id": "MudDog",
+        "clustermarket_id": 153146,
+        "cssClass": "consultant",
+        "x": 14,
+        "y": 78,
+        "rotation": 0,
+        "path_d": "M 0 0 m 0 1.50 a 0.75 0.30 0 1 0 1.50 0 a 0.75 0.30 0 1 0 -1.50 0 l -0.353553 0.353553 l 1.060660 1.060660 m -1.060660 -1.060660 l -1.060660 1.060660 m 1.060660 -1.060660 h -2 l 1.060660 1.060660 m -1.060660 -1.060660 l -1.060660 1.060660 m 1.060660 -1.060660 v -0.50"
+    },
+
+    {
         "name": "SawStop Table Saw",
         "unique_id": "_x_0042",
         "cssClass": "machine",
@@ -550,6 +581,7 @@
     {
         "name": "sewing machine",
         "cssClass": "machine",
+        "clustermarket_id": 28469,
         "width": 5.625,
         "depth": 2.2,
         "x": 39,

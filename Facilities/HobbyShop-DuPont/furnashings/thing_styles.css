@@ -50,3 +50,11 @@
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
+
+.consultant {
+  stroke: green;
+  fill: none;
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+}
+
