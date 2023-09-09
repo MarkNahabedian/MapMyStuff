@@ -42,6 +42,20 @@
     },
 
     {
+        "name": "Compound Miter Saw",
+        "unique_id": "_x_0074",
+        "cssClass": "machine",
+        "width": 7.25,
+        "depth": 2.75,
+        "x": 74,
+        "y": 69,
+        "rotation": 0.25,
+        "booking_note": "Booking any wood shop workbench allows access.",
+        "description_uri": "Festool_Kapex_miter_saw.html",
+        "measured": "2023-09-08, 87 inch wide, 33 inch deep"
+    },
+
+    {
         "name": "24 inch disc sander",
         "cssClass": "machine",
         "width": 3,
@@ -79,9 +93,20 @@
         "depth": 1.5,
         "x": 83,
         "y": 85,
-        "rotation": 0.5,
+        "rotation": 0.45,
         "booking_note": "Booking any wood shop workbench allows access.",
         "description_uri": "Delta_spindle_sander.html"
+    },
+
+    {
+        "name": "Martin jointer",
+        "cssClass": "machine",
+        "width": 10.84,
+        "depth": 2.9,
+        "x": 97,
+        "y": 81,
+        "rotation": 0.9,
+        "measured": "2023-09-05, 130 inch wide, 35 inch deep"
     },
 
     {
@@ -90,10 +115,10 @@
         "cssClass": "station",
         "width": 5.17,
         "depth": 5.17,
-        "x": 100,
-        "y": 85,
+        "x": 96,
+        "y": 89,
         "rotation": 0.9,
-        "measured": "2023-09-05, 62 inch wide, 62 inch deep"        
+        "measured": "2023-09-05, 62 inch wide, 62 inch deep"
     },
 
     {
