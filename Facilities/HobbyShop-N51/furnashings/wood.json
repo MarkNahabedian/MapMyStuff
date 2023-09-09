@@ -261,20 +261,53 @@
         "cssClass": "machine",
         "width": 5,
         "depth": 4,
-        "x": 74,
-        "y": 105,
+        "x": 69,
+        "y": 108,
         "rotation": -0.094,
         "booking_note": "Booking any wood shop workbench allows access.",
         "description_uri": "../../HobbyShop-DuPont/furnashings/wood_mill.html"
     },
-
+    {
+        "name": "Cabinet/Drawers",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 74,
+        "y": 107,
+        "rotation": 0.9,
+        "contents": [
+        ],
+        "measured": "2021-06-01"
+    },
+    {
+        "name": "Clausing Drill Press (for wood)",
+        "unique_id": "_x_0057",
+        "cssClass": "machine",
+        "width": 2,
+        "depth": 2.5,
+        "x": 77,
+        "y": 105,
+        "rotation": 0.9,
+        "booking_note": "Booking any wood shop workbench allows access.",
+        "description_uri": "clausing_drill_press.html"
+    },
+    {
+        "name": "small work bench",
+        "cssClass": "station",
+        "width": 3,
+        "depth": 1.75,
+        "x": 80,
+        "y": 104,
+        "rotation": 0.9,        
+        "measured": "2023-09-08; 37 inches wide, 21 inches deep"
+    },
     {
         "name": "Scroll Saw",
         "unique_id": "_x_0062",
         "cssClass": "machine",
         "width": 1.46,
         "depth": 2.375,
-        "x": 81,
+        "x": 83,
         "y": 102,
         "rotation": 0.9,
         "measured": "2021-06-01"
