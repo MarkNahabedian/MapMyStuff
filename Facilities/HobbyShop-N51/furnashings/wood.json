@@ -293,6 +293,30 @@
     },
 
     {
+        "name": "mobile work bench (5)",
+        "cssClass": "station",
+        "clustermarket_id": 153143,
+        "width": 2.21,
+        "depth": 3,
+        "x": 76,
+        "y": 93,
+        "rotation": 0,
+        "description": "Please return to its parking place so the next user can find it."
+        "measured": "2023-09-08; 26.5 inches wide, 36 inches deep"
+    },
+    {
+        "name": "mobile work bench (6)",
+        "cssClass": "station",
+        "width": 2.21,
+        "depth": 3,
+        "x": 76, 
+        "y": 97,
+        "rotation": 0,
+        "description": "Please return to its parking place so the next user can find it."
+        "measured": "2023-09-08; 26.5 inches wide, 36 inches deep"
+    },
+
+    {
         "name": "Bridgeport Mill (for wood)",
         "unique_id": "_x_0056",
         "cssClass": "machine",
