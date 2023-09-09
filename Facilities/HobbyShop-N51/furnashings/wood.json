@@ -51,7 +51,7 @@
         "y": 69,
         "rotation": 0.25,
         "booking_note": "Booking any wood shop workbench allows access.",
-        "description_uri": "Festool_Kapex_miter_saw.html",
+        "description_uri": "../../HobbyShop-DuPont/furnashings/Festool_Kapex_miter_saw.html",
         "measured": "2023-09-08, 87 inch wide, 33 inch deep"
     },
 
@@ -95,7 +95,7 @@
         "y": 85,
         "rotation": 0.45,
         "booking_note": "Booking any wood shop workbench allows access.",
-        "description_uri": "Delta_spindle_sander.html"
+        "description_uri": "../../HobbyShop-DuPont/furnashings/Delta_spindle_sander.html"
     },
 
     {
@@ -247,7 +247,7 @@
         "y": 109,
         "rotation": 0,
         "booking_note": "Booking any wood shop workbench allows access.",
-        "description_uri": "Laguna_mortiser.html",
+        "description_uri": "../../HobbyShop-DuPont/furnashings/Laguna_mortiser.html",
         "measured": "2021-06_23"
     },
 
@@ -350,7 +350,7 @@
         "y": 105,
         "rotation": 0.9,
         "booking_note": "Booking any wood shop workbench allows access.",
-        "description_uri": "clausing_drill_press.html"
+        "description_uri": "../../HobbyShop-DuPont/furnashings/clausing_drill_press.html"
     },
     {
         "name": "small work bench",
@@ -488,7 +488,7 @@
         "x": 44.5,
         "y": 108,
         "rotation": 0,
-        "description_uri": "Jet_20VS_drill_press.html"
+        "description_uri": "../../HobbyShop-DuPont/furnashings/Jet_20VS_drill_press.html"
     },
     {
         "name": "Cabinet/Drawers",
