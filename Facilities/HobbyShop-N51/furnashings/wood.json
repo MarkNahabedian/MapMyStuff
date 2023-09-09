@@ -71,6 +71,18 @@
         "rotation": 0.9,
         "measured": "2023-09-05, 82 inch wide, 26 inch deep"
     },
+    {
+        "name": "Spindle Sander",
+        "unique_id": "_x_0069",
+        "cssClass": "machine",
+        "width": 1.5,
+        "depth": 1.5,
+        "x": 83,
+        "y": 85,
+        "rotation": 0.5,
+        "booking_note": "Booking any wood shop workbench allows access.",
+        "description_uri": "Delta_spindle_sander.html"
+    },
 
     {
         "name": "Glue-up table",
@@ -377,7 +389,7 @@
         "rotation": 0.75,
         "contents": [
             "1st (top) drawer: measuring tools",
-            "2nd drawer:measuring tools",
+            "2nd drawer: measuring tools",
             "3rd drawer:",
             "4th drawer:",
             "5th drawer: measuring and setup",
@@ -456,6 +468,24 @@
         "y": 104,
         "rotation": 0.25,
         "measured": "2023-09-05; 89 inch wide, 70 inch deep"
+    },
+    {
+        "name": "Cabinet/Drawer",
+        "unique_id": "_CDP_9",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2.25,
+        "x": 37,
+        "y": 85.5,
+        "rotation": 0.25,
+        "contents": [
+            "1st (top) lathe tooling inserts",
+            "2nd drawer: chuck keys",
+            "3rd drawer: lathe tools and collets",
+            "4th drawer: lathe accessories",
+            "5th (bottom) drawer: chucks and accessories"
+        ],
+        "measured": "2021-06-01"
     },
     {
         "name": "ProTrak lathe",
