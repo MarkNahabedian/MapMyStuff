@@ -54,6 +54,32 @@
         "rotation": 0,
         "measured": "2023-09-08; 19 inch wide, 23 inch deep"
     },
+
+    {
+        "name": "Sheet Metal Break",
+        "unique_id": "_x_0038",
+        "clustermarket_id": "25534",
+        "cssClass": "machine",
+        "width": 4,
+        "depth": 2.5,
+        "x": 64,
+        "y": 61,
+        "rotation": 0,
+        "description_uri": "Baileigh_sheet_metal_brake.html"
+    },
+    {
+        "name": "Sheet Metal Shear",
+        "unique_id": "_x_0037",
+        "clustermarket_id": "25534",
+        "cssClass": "machine",
+        "width": 4,
+        "depth": 2.5,
+        "x": 70,
+        "y": 61,
+        "rotation": 0,
+        "description_uri": "PSW36_sheet_metal_shear.html"
+    },
+
     {
         "name": "Laser Cutter",
         "unique_id": "_x_0005",
