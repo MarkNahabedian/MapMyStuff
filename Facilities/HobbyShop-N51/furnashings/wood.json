@@ -282,45 +282,55 @@
         "measured": "2021-06_23"
     },
 
-
     {
-        "name": "Work Bench",
+        "name": "Work Bench 1",
         "unique_id": "_x_0063",
-        "clustermarket_id": "25542",
+        "clustermarket_id": "25540",
         "cssClass": "furnature",
         "width": 7,
         "depth": 2,
         "x": 68,
         "y": 86,
         "rotation": 0,
-        "description": "Work bench with rear tool well, square dog holes, 28 inch wide front vise, 18 inches between screws.  35 inches high.",
+        "description": "Work bench with rear tool well (filled in), square dog holes, 28 inch wide front vise, 18 inches between screws.  35 inches high.",
         "measured": "2021-06-11"
     },
     {
-        "name": "Work Bench",
-        "unique_id": "_x_0064",
-        "clustermarket_id": "25541",
-        "cssClass": "furnature",
-        "width": 6.2,
-        "depth": 2,
-        "x": 68,
-        "y": 91,
-        "rotation": 0,
-        "description": "Work bench with 188 inch wide front vise and full width tail vise, circular dog holes, center tool well. 35 inches high.",
-        "measured": "2021-06-11"    
-    },
-    {
-        "name": "Work Bench 1",
+        "name": "Work Bench 2",
         "unique_id": "_x_0065",
-        "clustermarket_id": "25540",
+        "clustermarket_id": "25541",
         "cssClass": "furnature",
         "width": 6.29,
         "depth": 1.98,
         "x": 68,
-        "y": 96,
+        "y": 91,
         "rotation": 0,
-        "description": "Lee Valley work bench, 34.5 inch high, with 5.25 inch wide tail vise, 22inch wide front fise (12 inch between screws; square dog holes.",
+        "description": "Lee Valley work bench, 34.5 inch high, with 5.25 inch wide L shaped tail vise, 22inch wide front fise (12 inch between screws; square dog holes.",
         "measured": "2021-06-01"
+    },
+    {
+        "name": "Work Bench 3",
+        "unique_id": "_x_0064",
+        "clustermarket_id": "25542",
+        "cssClass": "furnature",
+        "width": 6.2,
+        "depth": 2,
+        "x": 68,
+        "y": 96,
+        "rotation": 0.5,
+        "description": "Work bench with 188 inch wide front vise and full width tail vise, circular dog holes, center tool well (filled in). 35 inches high.",
+        "measured": "2021-06-11"    
+    },
+    {
+        "name": "Work Bench 4",
+        "clustermarket_id": "91217",
+        "cssClass": "furnature",
+        "width": 4.5,
+        "depth": 2.66,
+        "x": 67,
+        "y": 101,
+        "rotation": 0.5,
+        "measured": "2023-09-11; 54 inches wide, 32 inches deep"
     },
 
     {
