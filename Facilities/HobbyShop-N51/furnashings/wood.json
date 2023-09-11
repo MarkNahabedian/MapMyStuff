@@ -1,5 +1,16 @@
 [
     {
+        "name": "First Aid kit and Protective wear: vision, hearing and breating ",
+        "cssClass": "storage",
+        "width": 2,
+        "depth": 0.8,
+        "x": 31,
+        "y": 87,
+        "description_uri": "other-photos/safty_and_first_aid-smaller.jpg",
+        "rotation": 0.625
+    },
+
+    {
         "name": "Consultation with Hayami",
         "unique_id": "Hayami",
         "clustermarket_id": 81712,
@@ -28,6 +39,21 @@
         "y": 78,
         "rotation": 0,
         "path_d": "M 0 0 m 0 1.50 a 0.75 0.30 0 1 0 1.50 0 a 0.75 0.30 0 1 0 -1.50 0 l -0.353553 0.353553 l 1.060660 1.060660 m -1.060660 -1.060660 l -1.060660 1.060660 m 1.060660 -1.060660 h -2 l 1.060660 1.060660 m -1.060660 -1.060660 l -1.060660 1.060660 m 1.060660 -1.060660 v -0.50"
+    },
+
+    {
+        "name": "Oneway 2436 Wood Lathe",
+        "unique_id": "_x_0054",
+        "clustermarket_id": 25544,
+        "cssClass": "machine",
+        "width": 6.83,
+        "depth": 2.6,
+        "x": 107,
+        "y": 61,
+        "rotation": 0.5,
+        "booking_note": "Booking any wood shop workbench allows access.",
+        "description_uri": "wood_lathe.html",
+        "measured": "2021-06-01"
     },
 
     {
@@ -152,6 +178,35 @@
         "measured": "2023-09-05, 62 inch wide, 62 inch deep"
     },
 
+    {
+        "name": "Systainer shelves",
+        "cssClass": "storage",
+        "width": 6,
+        "depth": 1.875,
+        "x": 58.5,
+        "y": 88,
+        "rotation": 0.25,
+        "contents": [
+            "Left hand side: dust pans and brooms",
+            "1st (leftmost) column: top: stereo",
+            "1st (leftmost) column: 1st(top) shelf: Festool Domino",
+            "1st (leftmost) column: 2nd shelf: Festool ETS 125 random orbital sander",
+            "1st (leftmost) column: 3nd shelf: Festool C12 CE-NC-C45 1/2 inch Cordless Drill",
+            "1st (leftmost) column: 4th shelf: Festool Psc 421 Carvex cordless pendulum jigsaw",
+            "1st (leftmost) column: 5th shelf: Festool OF1010 router",
+            "1st (leftmost) column: 6th (bottom) shelf: ???",
+            "2nd column: top:",
+            "2nd column: 1st (top) shelf): Festool BHC 18 rotary hammer",
+            "2nd column: 2nd shelf: Fstool MFK700 edge router, Festool ETS 150/3 random orbital sander",
+            "2nd column: 3rd (bottom shelf: Shaper Origin",
+            "3rd column: 1st: top:",
+            "3rd column: 1st (top) shelf: cordless drills",
+            "4th (rightmost) column: top: yard sticks and long T square",
+            "4th (rightmost) column: 1st (top) shelf: Festool compact cleaning set, vacuum cleaner hoses",
+            "4th (rightmost) column: 2nd (bottom) shelf: Festool vacuum"
+        ],
+        "measured": "2023-09-11; 6 feet wide, 22.5 inches deep"
+    },
     {
         "name": "Cabinet/Drawers",
         "unique_id": "_CDP_5",
@@ -348,6 +403,7 @@
     {
         "name": "mobile work bench (6)",
         "cssClass": "furnature",
+        "clustermarket_id": 154387,
         "width": 2.21,
         "depth": 3,
         "x": 76, 
@@ -378,6 +434,11 @@
         "y": 107,
         "rotation": 0.9,
         "contents": [
+            "1st (top) drawer: brad point and specialty drills",
+            "2nd drawer: plug cutters and spade bits",
+            "3rd drawer: forstner bits",
+            "4th drawer",
+            "5th (bottom) drawer: holecutters"
         ],
         "measured": "2021-06-01"
     },
@@ -508,6 +569,31 @@
         ],
         "measured": "2021-06-01"
     },
+
+    {
+        "name": "Tap Drill Press",
+        "unique_id": "_x_0017",
+        "clustermarket_id": "93070",
+        "cssClass": "machine",
+        "width": 2,
+        "depth": 2,
+        "x": 44,
+        "y": 91,
+        "rotation": 0
+    },
+    {
+        "name": "Tapping and Filing Bench",
+        "unique_id": "_x_0018",
+        "cssClass": "station",
+        "width": 7,
+        "depth": 2.5,
+        "x": 44,
+        "y": 97,
+        "rotation": 0.25,
+        "description": "Filing and tapping bench with two metal vises",
+        "measured": "2021-06-23"
+    },
+
     {
         "name": "Trak DPM2 milling machine",
         "clustermarket_id": 25536,
