@@ -21,6 +21,26 @@
         "y": 48,
         "rotation": 0.5
     },
+    {
+        "name": "MicroMax console and accessoried cart",
+        "cssClass": "station",
+        "width": 2.5,
+        "depth": 1.5,
+        "x": 46,
+        "y": 52,
+        "rotation": 0.4,
+        "contents": [
+            "Top: water jet controlconsole",
+            "1st (top) drawer",
+            "2dn drawer",
+            "3rd drawer",
+            "4th drawer",
+            "5th drawer",
+            "6th drawer",
+            "7th (bottom) drawer"
+        ],
+        "measured": "2023-09-11; 30 inches wide, 18 inches deep."
+    },
 
     {
         "name": "DoAll band saw (metal)",
@@ -91,5 +111,33 @@
         "y": 52,
         "rotation": 0.5,
         "description_uri": "../../HobbyShop-DuPont/furnashings/Epilog_laser_cutter.html"
+    },
+    {
+        "name": "Laser Cutter desk",
+        "cssClass": "storage",
+        "width": 5,
+        "depth": 3,
+        "x": 61,
+        "y": 52,
+        "rotation": 0.5,
+        "contents": [
+            "1st (top) drawer: laser lenses and cleaning",
+            "2nd drawer: gaskets",
+            "3rd drawer: plumbing parts",
+            "4th drawer: electronics",
+            "5th drawer: electronics",
+            "6th (bottom) drawer:"
+        ],
+        "measured": "2023-09-11; 5 feet wide, 35 inches inches deep."
+    },
+    {
+        "name": "metal and plastic stock storage",
+        "cssClass": "storage",
+        "width": 3,
+        "depth": 1,
+        "x": 57,
+        "y": 51.5,
+        "rotation": 0.5,
+        "measured": "2023-09-11; 3 feet wide, 1 foot deep."
     }
 ]
