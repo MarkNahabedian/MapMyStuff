@@ -121,6 +121,7 @@
     }
     
 .grid-line {
+    stroke: none;
     vector-effect: non-scaling-stroke;
     stroke-width: 1px;
     }
