@@ -139,5 +139,15 @@
         "y": 51.5,
         "rotation": 0.5,
         "measured": "2023-09-11; 3 feet wide, 1 foot deep."
+    },
+    {
+        "name": "scrap wood storage",
+        "cssClass": "storage",
+        "width": 4,
+        "depth": 1,
+        "x": 72,
+        "y": 51,
+        "rotation": 0.5,
+        "measured": "2023-09-11; 4 feet wide, 1 foot deep."
     }
 ]
