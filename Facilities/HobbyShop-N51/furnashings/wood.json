@@ -754,6 +754,45 @@
         "y": 74.7,
         "rotation": 0.5,
         "measured": "2023-09-15; 95 inches wide, 18 inches deep"
+    },
+    {
+        "name": "table for 3dprinters",
+        "cssClass": "furnature",
+        "width": 4,
+        "depth": 2,
+        "x": 10,
+        "y": 80,
+        "rotation": 0.25,
+        "measured": "2023-09-15; 4 feet wide, 2 feet deep"
+    },
+    {
+        "name": "Stratasys 3de printer",
+        "cssClass": "machine",
+        "width": 2.17,
+        "depth": 2.08,
+        "x": 10,
+        "y": 79,
+        "rotation": 0.25,
+        "measured": "2023-09-15; 26 inches deep, 25 inches wide"
+    },
+    {
+        "name": "Stratasys 3de printer",
+        "cssClass": "machine",
+        "width": 2.17,
+        "depth": 2.08,
+        "x": 10,
+        "y": 81,
+        "rotation": 0.25,
+        "measured": "2023-09-15; 26 inches deep, 25 inches wide"
+    },
+    {
+        "name": "3d printer console cart",
+        "css_class": "furnature",
+        "width": 2.33,
+        "depth": 1.67,
+        "x":10,
+        "y": 84,
+        "rotation": 0.25,
+        "measured": "2023-09-15; 28 inches deep, 20 inches wide"
     }
-
 ]
