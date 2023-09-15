@@ -35,7 +35,7 @@
         "unique_id": "MudDog",
         "clustermarket_id": 153146,
         "cssClass": "consultant",
-        "x": 14,
+        "x": 17,
         "y": 78,
         "rotation": 0,
         "path_d": "M 0 0 m 0 1.50 a 0.75 0.30 0 1 0 1.50 0 a 0.75 0.30 0 1 0 -1.50 0 l -0.353553 0.353553 l 1.060660 1.060660 m -1.060660 -1.060660 l -1.060660 1.060660 m 1.060660 -1.060660 h -2 l 1.060660 1.060660 m -1.060660 -1.060660 l -1.060660 1.060660 m 1.060660 -1.060660 v -0.50"
@@ -161,9 +161,19 @@
         "width": 10.84,
         "depth": 2.9,
         "x": 97,
-        "y": 81,
+        "y": 71,
         "rotation": 0.9,
         "measured": "2023-09-05, 130 inch wide, 35 inch deep"
+    },
+    {
+        "name": "Thickness planer",
+        "cssClass": "machine",
+        "width": 4,
+        "depth": 9.42,
+        "x": 98,
+        "y": 77,
+        "rotation": 0.65,
+        "measured": "2023-09-15, 48 inch wide, 113 inch deep"
     },
 
     {
@@ -177,7 +187,26 @@
         "rotation": 0.9,
         "measured": "2023-09-05, 62 inch wide, 62 inch deep"
     },
-
+    {
+        "name": "clamp rack(tall)",
+        "cssClass": "storage",
+        "width": 2.5,
+        "depth": 2,
+        "x": 106,
+        "y": 84,
+        "rotation": 0,
+        "measured": "2023-09-15, 30 by 24 inches"
+    },
+    {
+        "name": "clamp rack(tall)",
+        "cssClass": "storage",
+        "width": 2.67,
+        "depth": 2.75,
+        "rotation": 0,
+        "x": 102,
+        "y": 86,
+        "measured": "2023-09-15, 32 by 44 inches"
+    },
     {
         "name": "Systainer shelves",
         "cssClass": "storage",
@@ -194,7 +223,7 @@
             "1st (leftmost) column: 3nd shelf: Festool C12 CE-NC-C45 1/2 inch Cordless Drill",
             "1st (leftmost) column: 4th shelf: Festool Psc 421 Carvex cordless pendulum jigsaw",
             "1st (leftmost) column: 5th shelf: Festool OF1010 router",
-            "1st (leftmost) column: 6th (bottom) shelf: ???",
+            "1st (leftmost) column: 6th (bottom) shelf: circular saw",
             "2nd column: top:",
             "2nd column: 1st (top) shelf): Festool BHC 18 rotary hammer",
             "2nd column: 2nd shelf: Fstool MFK700 edge router, Festool ETS 150/3 random orbital sander",
@@ -593,6 +622,16 @@
         "description": "Filing and tapping bench with two metal vises",
         "measured": "2021-06-23"
     },
+    {
+        "name": "surface plate",
+        "cssClass": "station",
+        "width": 1.5,
+        "depth": 2,
+        "x": 44,
+        "y": 96,
+        "rotation": 0.25,
+        "measured": "2023-09-15; 18 inches wide, 24 inches deep"
+    },
 
     {
         "name": "Trak DPM2 milling machine",
@@ -684,5 +723,37 @@
         "y": 76,
         "rotation": 0.75,
         "measured": "2023-09-08; 67.5 inches wide, 26 inches deep"
+    },
+    
+    {
+        "name": "lockers",
+        "cssClass": "storage",
+        "width": 6.1,
+        "depth": 1.5,
+        "x": 25.5,
+        "y": 71,
+        "rotation": 0.25,
+        "measured": "2023-09-15; 73 inches wide, 18 inches deep"
+    },
+    {
+        "name": "lockers",
+        "cssClass": "storage",
+        "width": 3,
+        "depth": 1.5,
+        "x": 25,
+        "y": 74.7,
+        "rotation": 0.5,
+        "measured": "2023-09-15; 36 inches wide, 18 inches deep"
+    },
+    {
+        "name":"bookshelbs/library",
+        "cssClass": "storage",
+        "width": 7.9,
+        "depth": 1.5,
+        "x": 18,
+        "y": 74.7,
+        "rotation": 0.5,
+        "measured": "2023-09-15; 95 inches wide, 18 inches deep"
     }
+
 ]
