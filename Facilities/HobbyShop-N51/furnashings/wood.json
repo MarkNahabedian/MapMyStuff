@@ -773,6 +773,7 @@
         "x": 10,
         "y": 79,
         "rotation": 0.25,
+        "description": "SendCoby an STL file and he'll print it for you."
         "measured": "2023-09-15; 26 inches deep, 25 inches wide"
     },
     {
@@ -783,6 +784,7 @@
         "x": 10,
         "y": 81,
         "rotation": 0.25,
+        "description": "SendCoby an STL file and he'll print it for you."
         "measured": "2023-09-15; 26 inches deep, 25 inches wide"
     },
     {
