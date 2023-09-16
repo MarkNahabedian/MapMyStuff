@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Arbor Press",
+        "unique_id": "_x_0024",
+        "clustermarket_id": "93070",
+        "cssClass": "machine",
+        "width": 2,
+        "depth": 2,
+        "x": 54,
+        "y": 30,
+        "rotation": 0.675,
+        "description": "12 Ton Arbor Press (old model)"
+    },
+    {
+        "name": "Welding Table",
+        "unique_id": "_x_0036",
+        "clustermarket_id": "25534",
+        "cssClass": "station",
+        "width": 4,
+        "depth": 4,
+        "x": 51,
+        "y": 36,
+        "rotation": 0
+    },
+    {
+        "name": "BaileighCold Saw",
+        "unique_id": "_x_0023",
+        "clustermarket_id": "93070",
+        "cssClass": "machine",
+        "width": 4,
+        "depth": 2,
+        "x": 47,
+        "y": 44,
+        "rotation": 0,
+        "description_uri": "Baileigh_cold_saw.html"
+    },
+    {
+        "name": "metal cabinet -- What's in here?",
+        "cssClass": "storage",
+        "width": 3.58,
+        "depth": 1.58,
+        "x": 42,
+        "y": 33,
+        "rotation": 0.25,
+        "measured": "2023-09-15; 43 inches wide, 19 inches deep"
+    }
+]
