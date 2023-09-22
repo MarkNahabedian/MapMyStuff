@@ -1,6 +1,7 @@
 [
     {
         "name": "First Aid kit and Protective wear: vision, hearing and breating ",
+        "unique_id": "_x_0108",
         "cssClass": "storage",
         "width": 2,
         "depth": 0.8,
@@ -71,6 +72,7 @@
     },
     {
         "name": "outfeed table and cabinet",
+        "unique_id": "_x_0109",
         "cssClass": "storage",
         "width": 3.3,
         "depth": 5.7,
@@ -89,6 +91,7 @@
     },
     {
         "name": "Sliding Table Saw/Router Table",
+        "unique_id": "_x_0110",
         "cssClass": "machine",
         "width": 5.7,
         "depth": 6.3,
@@ -114,6 +117,7 @@
 
     {
         "name": "24 inch disc sander",
+        "unique_id": "_x_0111",
         "cssClass": "machine",
         "width": 3,
         "depth": 3.4,
@@ -124,6 +128,7 @@
     },
     {
         "name": "Oliver band saw (wood)",
+        "unique_id": "_x_0112",
         "cssClass": "machine",
         "width": 4.3,
         "depth": 2.4,
@@ -134,6 +139,7 @@
     },
     {
         "name": "Cantek sander",
+        "unique_id": "_x_0113",
         "cssClass": "machine",
         "width": 6.8,
         "depth": 2.17,
@@ -157,6 +163,7 @@
 
     {
         "name": "Martin jointer",
+        "unique_id": "_x_0114",
         "cssClass": "machine",
         "width": 10.84,
         "depth": 2.9,
@@ -167,6 +174,7 @@
     },
     {
         "name": "Thickness planer",
+        "unique_id": "_x_0115",
         "cssClass": "machine",
         "width": 4,
         "depth": 9.42,
@@ -178,6 +186,7 @@
 
     {
         "name": "Glue-up table",
+        "unique_id": "_x_0116",
         "clustermarket_id": 153145,
         "cssClass": "station",
         "width": 5.17,
@@ -189,6 +198,7 @@
     },
     {
         "name": "clamp rack(tall)",
+        "unique_id": "_x_0117",
         "cssClass": "storage",
         "width": 2.5,
         "depth": 2,
@@ -199,6 +209,7 @@
     },
     {
         "name": "clamp rack(tall)",
+        "unique_id": "_x_0118",
         "cssClass": "storage",
         "width": 2.67,
         "depth": 2.75,
@@ -209,6 +220,7 @@
     },
     {
         "name": "Systainer shelves",
+        "unique_id": "_x_0119",
         "cssClass": "storage",
         "width": 6,
         "depth": 1.875,
@@ -403,10 +415,11 @@
         "y": 96,
         "rotation": 0.5,
         "description": "Work bench with 188 inch wide front vise and full width tail vise, circular dog holes, center tool well (filled in). 35 inches high.",
-        "measured": "2021-06-11"    
+        "measured": "2021-06-11"
     },
     {
         "name": "Work Bench 4",
+        "unique_id": "_x_0120",
         "clustermarket_id": "91217",
         "cssClass": "furnature",
         "width": 4.5,
@@ -419,6 +432,7 @@
 
     {
         "name": "mobile work bench (5)",
+        "unique_id": "_x_0121",
         "cssClass": "furnature",
         "clustermarket_id": 153143,
         "width": 2.21,
@@ -431,11 +445,12 @@
     },
     {
         "name": "mobile work bench (6)",
+        "unique_id": "_x_0122",
         "cssClass": "furnature",
         "clustermarket_id": 154387,
         "width": 2.21,
         "depth": 3,
-        "x": 76, 
+        "x": 76,
         "y": 97,
         "rotation": 0,
         "description": "Please return to its parking place so the next user can find it.",
@@ -456,6 +471,7 @@
     },
     {
         "name": "Cabinet/Drawers",
+        "unique_id": "_x_0123",
         "cssClass": "storage",
         "width": 2.5,
         "depth": 2.25,
@@ -485,12 +501,13 @@
     },
     {
         "name": "small work bench",
+        "unique_id": "_x_0124",
         "cssClass": "station",
         "width": 3,
         "depth": 1.75,
         "x": 80,
         "y": 104,
-        "rotation": 0.9,        
+        "rotation": 0.9,
         "measured": "2023-09-08; 37 inches wide, 21 inches deep"
     },
     {
@@ -506,6 +523,7 @@
     },
     {
         "name": "TimeSavers SpeedSander thickness sander",
+        "unique_id": "_x_0125",
         "cssClass": "machine",
         "width": 5.1,
         "depth": 3.4,
@@ -517,6 +535,7 @@
 
     {
         "name": "blackboard",
+        "unique_id": "_x_0126",
         "cssClass": "furnature",
         "width": 4,
         "depth": 0.3,
@@ -525,9 +544,10 @@
         "rotation": 0.5,
         "measured": "2023-09-08; 4 feet wide, 3.4 inches deep"
     },
-    
+
     {
         "name": "Bridgeport milling machine (metal)",
+        "unique_id": "_x_0127",
         "clustermarket_id": 25535,
         "cssClass": "machine",
         "width": 4.3,
@@ -535,7 +555,7 @@
         "x": 52,
         "y": 89,
         "rotation": 0.65,
-        "measured": "2023-09-05; 52 inch wide, 78 inch deep"        
+        "measured": "2023-09-05; 52 inch wide, 78 inch deep"
     },
     {
         "name": "Cabinet/Drawer",
@@ -624,6 +644,7 @@
     },
     {
         "name": "surface plate",
+        "unique_id": "_x_0128",
         "cssClass": "station",
         "width": 1.5,
         "depth": 2,
@@ -635,6 +656,7 @@
 
     {
         "name": "Trak DPM2 milling machine",
+        "unique_id": "_x_0129",
         "clustermarket_id": 25536,
         "cssClass": "machine",
         "width": 6.2,
@@ -658,6 +680,7 @@
     },
     {
         "name": "Cabinet/Drawers",
+        "unique_id": "_x_0130",
         "cssClass": "storage",
         "width": 2.5,
         "depth": 2.25,
@@ -676,6 +699,7 @@
     },
     {
         "name": "SuperMini mill",
+        "unique_id": "_x_0131",
         "cssClass": "machine",
         "width": 4.1,
         "depth": 5.8,
@@ -704,6 +728,7 @@
     },
     {
         "name": "ProTrak lathe",
+        "unique_id": "_x_0132",
         "clustermarket_id": 153198,
         "cssClass": "machine",
         "width": 6.25,
@@ -715,6 +740,7 @@
     },
     {
         "name": "sewing machine",
+        "unique_id": "_x_0133",
         "cssClass": "machine",
         "clustermarket_id": 28469,
         "width": 5.625,
@@ -724,9 +750,10 @@
         "rotation": 0.75,
         "measured": "2023-09-08; 67.5 inches wide, 26 inches deep"
     },
-    
+
     {
         "name": "lockers",
+        "unique_id": "_x_0134",
         "cssClass": "storage",
         "width": 6.1,
         "depth": 1.5,
@@ -737,6 +764,7 @@
     },
     {
         "name": "lockers",
+        "unique_id": "_x_0135",
         "cssClass": "storage",
         "width": 3,
         "depth": 1.5,
@@ -746,7 +774,8 @@
         "measured": "2023-09-15; 36 inches wide, 18 inches deep"
     },
     {
-        "name":"bookshelbs/library",
+        "name": "bookshelbs/library",
+        "unique_id": "_x_0136",
         "cssClass": "storage",
         "width": 7.9,
         "depth": 1.5,
@@ -757,6 +786,7 @@
     },
     {
         "name": "table for 3dprinters",
+        "unique_id": "_x_0137",
         "cssClass": "furnature",
         "width": 4,
         "depth": 2,
@@ -791,10 +821,11 @@
     },
     {
         "name": "3d printer console cart",
-        "css_class": "furnature",
+        "unique_id": "_x_0138",
+        "cssClass": "furnature",
         "width": 2.33,
         "depth": 1.67,
-        "x":10,
+        "x": 10,
         "y": 84,
         "rotation": 0.25,
         "measured": "2023-09-15; 28 inches deep, 20 inches wide"

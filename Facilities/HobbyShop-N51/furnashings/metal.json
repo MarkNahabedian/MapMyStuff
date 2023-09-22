@@ -23,6 +23,7 @@
     },
     {
         "name": "MicroMax console and accessoried cart",
+        "unique_id": "_x_0102",
         "cssClass": "station",
         "width": 2.5,
         "depth": 1.5,
@@ -66,6 +67,7 @@
     },
     {
         "name": "bending jig",
+        "unique_id": "_x_0103",
         "cssClass": "station",
         "width": 1.58,
         "depth": 1.9,
@@ -114,6 +116,7 @@
     },
     {
         "name": "Laser Cutter desk",
+        "unique_id": "_x_0104",
         "cssClass": "storage",
         "width": 5,
         "depth": 3,
@@ -132,6 +135,7 @@
     },
     {
         "name": "metal and plastic stock storage",
+        "unique_id": "_x_0105",
         "cssClass": "storage",
         "width": 3,
         "depth": 1,
@@ -142,6 +146,7 @@
     },
     {
         "name": "scrap wood storage",
+        "unique_id": "_x_0106",
         "cssClass": "storage",
         "width": 4,
         "depth": 1,

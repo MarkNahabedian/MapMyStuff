@@ -36,6 +36,7 @@
     },
     {
         "name": "metal cabinet -- What's in here?",
+        "unique_id": "_x_0107",
         "cssClass": "storage",
         "width": 3.58,
         "depth": 1.58,
