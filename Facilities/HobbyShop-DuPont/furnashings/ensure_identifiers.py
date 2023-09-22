@@ -1,5 +1,5 @@
 
-# Assign unique identifiers to any items that done have one.
+# Assign unique identifiers to any items that don't have one.
 
 import glob
 import json
@@ -42,8 +42,7 @@ def main():
       for item in items:
         if not is_item(item):
           print("Not an item: %r" % item)
-          break
-          # continue
+          continue
         uid = item.get(UNIQUE_ID_FIELD_NAME, "")
         if uid == "":
           any = True
@@ -54,7 +53,7 @@ def main():
           try:
             parsed = parse.parse(UID_FORMAT, uid)
           except Exception as e:
-            print("%s: %s" % (e, uid))
+            print("alternate unique_id: %s: %s:\n%s\n" % (e, uid, item))
             continue
           if parsed:
             this_id = parsed["uid"]
