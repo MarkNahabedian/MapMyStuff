@@ -767,6 +767,7 @@
     },
     {
         "name": "Stratasys 3de printer",
+        "unique_id": "MIT-0493893",
         "cssClass": "machine",
         "width": 2.17,
         "depth": 2.08,
@@ -778,6 +779,7 @@
     },
     {
         "name": "Stratasys 3de printer",
+        "unique_id": "MIT-0492378",
         "cssClass": "machine",
         "width": 2.17,
         "depth": 2.08,
