@@ -46,6 +46,7 @@
     {
         "name": "DoAll band saw (metal)",
         "unique_id": "_x_0100",
+        "clustermarket_id": "93070",
         "cssClass": "machine",
         "width": 5,
         "depth": 5,
