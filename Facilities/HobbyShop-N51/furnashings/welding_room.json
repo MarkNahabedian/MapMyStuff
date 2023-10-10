@@ -1,7 +1,7 @@
 [
     {
         "name": "bench",
-        "clustermarket_id": "93070",
+        "clustermarket_id": "25534",
         "cssClass": "station",
         "width": 6,
         "depth": 2,
@@ -22,7 +22,7 @@
     {
         "name": "Arbor Press",
         "unique_id": "_x_0024",
-        "clustermarket_id": "93070",
+        "clustermarket_id": "25534",
         "cssClass": "machine",
         "width": 2,
         "depth": 2,
@@ -56,7 +56,7 @@
     {
         "name": "Baileigh Cold Saw",
         "unique_id": "_x_0023",
-        "clustermarket_id": "93070",
+        "clustermarket_id": "25534",
         "cssClass": "machine",
         "width": 4,
         "depth": 2,
