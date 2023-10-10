@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:version="1.0 (4035a4fb49, 2020-05-01)" sodipodi:docname="Floor_Plan.svg" viewBox="400.0 0.0 3132.0 2800.0" width="100%" xml:space="preserve" id="svg10" version="1.1">
   <!--
-../../floor_plan_cleanup/cleanup_inkscape_svg.py -input_file Floor_Plan_from_inkscape.svg -realworld_grid_spacing 3 -show_clip_box -scale_factor 23.5 -thing_stylesheet_link ../HobbyShop-DuPont/furnashings/thing_styles.css -clip_box 400 0 3532 2800 -clip_svg_viewbox
+../../floor_plan_cleanup/cleanup_inkscape_svg.py -input_file Floor_Plan_from_inkscape.svg -realworld_grid_spacing 3 -show_clip_box -scale_factor 23.5 -thing_stylesheet_link furnashings/thing_styles.css -clip_box 400 0 3532 2800 -clip_svg_viewbox
 -->
-  <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="../HobbyShop-DuPont/furnashings/thing_styles.css" type="text/css"/>
+  <link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="furnashings/thing_styles.css" type="text/css"/>
   <style id="inkscape_styles" type="text/css">
     
 .style0 {

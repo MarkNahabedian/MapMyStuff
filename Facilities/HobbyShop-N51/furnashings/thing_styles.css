@@ -1,0 +1,67 @@
+
+.direction-indicator {
+  fill: none;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Definitions for the classes referred to by the "cssClass" property
+   in our JSON files.
+*/
+
+.thing {
+  stroke: red;
+  fill: lightgray;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.safety {
+  stroke: red;
+  fill: mediumvioletred;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;  
+}
+
+.machine {
+  stroke: red;
+  fill: cornflowerblue;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.station {
+  stroke: blue;
+  fill: cyan;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;    
+}
+
+.storage {
+  stroke: red;
+  fill: lightgray;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.furnature {
+  stroke: red;
+  fill: gray;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.guide {
+  stroke: yellow;
+  fill: none;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.consultant {
+  stroke: green;
+  fill: none;
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+}
+
