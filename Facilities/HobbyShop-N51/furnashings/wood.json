@@ -2,7 +2,7 @@
     {
         "name": "First Aid kit and Protective wear: vision, hearing and breating ",
         "unique_id": "_x_0108",
-        "cssClass": "storage",
+        "cssClass": "safety",
         "width": 2,
         "depth": 0.8,
         "x": 31,
@@ -42,6 +42,16 @@
         "path_d": "M 0 0 m 0 1.50 a 0.75 0.30 0 1 0 1.50 0 a 0.75 0.30 0 1 0 -1.50 0 l -0.353553 0.353553 l 1.060660 1.060660 m -1.060660 -1.060660 l -1.060660 1.060660 m 1.060660 -1.060660 h -2 l 1.060660 1.060660 m -1.060660 -1.060660 l -1.060660 1.060660 m 1.060660 -1.060660 v -0.50"
     },
 
+    {
+        "name": "sharpening station",
+        "cssClass": "machine",
+        "width": 2.1,
+        "depth": 2.125,
+        "x": 99.7,
+        "y": 61,
+        "rotation": 0.75,
+        "measured": "2023-09-30: 25 inches wide, 25.5 inches deep"
+    },
     {
         "name": "Oneway 2436 Wood Lathe",
         "unique_id": "_x_0054",
@@ -218,6 +228,28 @@
         "y": 86,
         "measured": "2023-09-15, 32 by 44 inches"
     },
+    {
+        "name": "wall clamp rack",
+        "cssClass": "storage",
+        "width": 1.83,
+        "depth": 1,
+        "x": 110,
+        "y": 84.8,
+        "rotation": 0.65,
+        "measured": "2023-10-10, 22 inches wide, 12 inches deep"
+    },
+    {
+        "name": "eye wash booth",
+        "cssClass": "safety",
+        "width": 4.08,
+        "depth": 1.1875,
+        "x": 108,
+        "y": 82,
+        "rotation": 0.65,
+        "measured": "2023-10-10, 49 inches wide, 14.25 inches deep"
+    },
+
+
     {
         "name": "Systainer shelves",
         "unique_id": "_x_0119",
@@ -414,7 +446,7 @@
         "x": 68,
         "y": 96,
         "rotation": 0.5,
-        "description": "Work bench with 188 inch wide front vise and full width tail vise, circular dog holes, center tool well (filled in). 35 inches high.",
+        "description": "Work bench with 188 inch wide front vise and full width tail vise, circular dog holes, center tool well (filled in). 35 inches high.  Coat hook atthe end that has the front vise.",
         "measured": "2021-06-11"
     },
     {
@@ -424,9 +456,9 @@
         "cssClass": "furnature",
         "width": 4.5,
         "depth": 2.66,
-        "x": 67,
+        "x": 80,
         "y": 101,
-        "rotation": 0.5,
+        "rotation": 0.65,
         "measured": "2023-09-11; 54 inches wide, 32 inches deep"
     },
 
@@ -500,13 +532,13 @@
         "description_uri": "../../HobbyShop-DuPont/furnashings/clausing_drill_press.html"
     },
     {
-        "name": "small work bench",
+        "name": "small work bench (moves around)",
         "unique_id": "_x_0124",
         "cssClass": "station",
         "width": 3,
         "depth": 1.75,
-        "x": 80,
-        "y": 104,
+        "x": 93,
+        "y": 95,
         "rotation": 0.9,
         "measured": "2023-09-08; 37 inches wide, 21 inches deep"
     },
@@ -516,8 +548,8 @@
         "cssClass": "machine",
         "width": 1.46,
         "depth": 2.375,
-        "x": 83,
-        "y": 102,
+        "x": 85,
+        "y": 101,
         "rotation": 0.9,
         "measured": "2021-06-01"
     },
@@ -527,12 +559,22 @@
         "cssClass": "machine",
         "width": 5.1,
         "depth": 3.4,
-        "x": 85,
-        "y": 97,
+        "x": 87,
+        "y": 96.5,
         "rotation": 0.65,
         "measured": "2023-09-08; 61 inches wide, 41 inches deep"
     },
 
+    {
+        "name": "pencil sharpener, pencils, pens",
+        "cssClass": "storage",
+        "width": 1.2,
+        "depth": 0.42,
+        "x": 50,
+        "y": 79,
+        "rotation": 0.5,
+        "measured": "2023-10-10: 14 inches wide, 5 inches deep"
+    },
     {
         "name": "blackboard",
         "unique_id": "_x_0126",
@@ -804,7 +846,7 @@
         "x": 10,
         "y": 79,
         "rotation": 0.25,
-        "description": "SendCoby an STL file and he'll print it for you.",
+        "description": "Send Coby an STL file and he'll print it for you.  Specify units when submitting an STL file.",
         "measured": "2023-09-15; 26 inches deep, 25 inches wide"
     },
     {
