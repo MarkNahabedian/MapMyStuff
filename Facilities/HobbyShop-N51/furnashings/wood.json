@@ -816,7 +816,7 @@
         "measured": "2023-09-15; 36 inches wide, 18 inches deep"
     },
     {
-        "name": "bookshelbs/library",
+        "name": "bookshelves/library",
         "unique_id": "_x_0136",
         "cssClass": "storage",
         "width": 7.9,
@@ -827,7 +827,7 @@
         "measured": "2023-09-15; 95 inches wide, 18 inches deep"
     },
     {
-        "name": "table for 3dprinters",
+        "name": "table for 3d printers",
         "unique_id": "_x_0137",
         "cssClass": "furnature",
         "width": 4,
