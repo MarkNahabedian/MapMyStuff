@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Finishing Room",
+        "unique_id": "FinishingRoom",
+        "clustermarket_id": 160987,
+        "cssClass": "station",
+        "x": 108,
+        "y": 54,
+        "rotation": 0,
+        "path_d": "m 2, 0 a 2,2 0 1,0 -4,0 a 2,2 0 1,0  4,0"
+    }
+]
