@@ -42,7 +42,7 @@
           d="M 0 0 h 654 v 582 h -20 v 20 h 64 v 416 v 210 H 396"/>
 
     <path style="stroke-width: 1pk; stroke: blue; vector-effect: non-scaling-stroke;    "
-          d="M 396 1020 h 358"/>
+          d="M 396 1020 h 310"/>
 
 
     <path class="wall"
