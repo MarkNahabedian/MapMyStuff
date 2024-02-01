@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     version="1.1"
+     viewBox="-12 -12 700 1500"
+     width="90%" >
+  <style>
+    .wall {
+        stroke: black;
+        fill: none;
+        vector-effect: non-scaling-stroke;
+    }
+    .wood_column {
+        stroke: black;
+        fill: brown;
+        stroke-width: 1px;
+        vector-effect: non-scaling-stroke;    
+    }
+    .brick_column {
+        stroke: black;
+        fill: red;
+        stroke-width: 1px;
+        vector-effect: non-scaling-stroke;
+    }
+    .flue {
+        stroke: black;
+        fill: none;
+        stroke-width: 1px;
+        vector-effect: non-scaling-stroke;    
+    }
+  </style>
+  <g transform="scale(1 -1) translate(0 -1400)">
+    <!-- linear dimensions are in inches -->
+
+    <!-- starting from 0, 0 at corner near CRMII watch galery door: -->
+    <path class="wall"
+          d="M 0 0 h 654 v 582 h -20 v 20 h 64 v 416 v 210 H 396"/>
+
+    <path class="wall"
+          d="M 396 1018 h 358"/>
+
+
+    <path class="wall"
+          d="M 396 602 v 416 v 210"/>
+    <path class="wall"
+          d="M 422 582 h -422"/>
+    <path class="wall"
+          d="M 0 582 V 0"/>
+
+    <rect class="brick_column"
+          x="380"
+          y="582"
+          width="42"
+          height="20"/>
+    <rect class="brick_column"
+          x="509"
+          y="582"
+          width="42"
+          height="20"/>
+    <rect class="brick_column"
+          x="638"
+          y="582"
+          width="64"
+          height="20"/>
+
+    <circle class="wood_column"
+            r="4.5"
+            cx="400.5"
+            cy="1018"/>
+    <circle class="wood_column"
+            r="4.5"
+            cx="532"
+            cy="1018"/>
+    <circle class="wood_column"
+            r="4.5"
+            cx="664"
+            cy="1018"/>
+
+    <rect class="flue"
+          x="102"
+          y="527"
+          width="48"
+          height="36"
+          rx="17"/>
+  </g>
+</svg>
+    
