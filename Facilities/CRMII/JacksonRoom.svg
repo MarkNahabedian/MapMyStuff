@@ -12,6 +12,7 @@
     .wall {
         stroke: black;
         fill: none;
+        stroke-width: 2px;
         vector-effect: non-scaling-stroke;
     }
     .wood_column {
@@ -40,8 +41,8 @@
     <path class="wall"
           d="M 0 0 h 654 v 582 h -20 v 20 h 64 v 416 v 210 H 396"/>
 
-    <path class="wall"
-          d="M 396 1018 h 358"/>
+    <path style="stroke-width: 1pk; stroke: blue; vector-effect: non-scaling-stroke;    "
+          d="M 396 1020 h 358"/>
 
 
     <path class="wall"
@@ -148,4 +149,3 @@
 
   </g>
 </svg>
-    
