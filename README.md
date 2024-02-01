@@ -18,5 +18,5 @@ on GitHub Pages.
 See the map for
 [the new MIT Hobby Shop in N51](https://MarkNahabedian.github.io/MapMyStuff/Facilities/HobbyShop-N51/floor_plan.html)
 
-See the map for
-[CRMII](https://MarkNahabedian.github.io/MapMyStuff/Facilities/CRMII/floor_plan.html).
+See the maps for
+[CRMII](https://MarkNahabedian.github.io/MapMyStuff/Facilities/CRMII).
