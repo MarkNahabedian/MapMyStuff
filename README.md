@@ -7,7 +7,7 @@ locator.
 It could be applied to other facilities if an SVG floor plan is
 available.
 
-Inkscape can be used to convert a PDF floor plan to SVG.  A pythn
+Inkscape can be used to convert a PDF floor plan to SVG.  A python
 script is provided to clean up the Inkscape SVG output.
 
 
