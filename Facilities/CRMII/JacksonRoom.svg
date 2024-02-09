@@ -3,6 +3,12 @@
      viewBox="-12 -12 800 1500"
      width="90%" >
   <style>
+    .point {
+        fill: none;
+        stroke: none;
+        stroke-width: 1px;        
+        vector-effect: non-scaling-stroke;
+    }
     .grid {
         stroke: green;
         fill: none;
@@ -28,27 +34,59 @@
         stroke-width: 1px;
         vector-effect: non-scaling-stroke;
     }
-    .flue {
+    .flue, .plumbing {
         stroke: black;
         fill: none;
         stroke-width: 1px;
         vector-effect: non-scaling-stroke;    
     }
-  </style>
+    </style>
   <g transform="scale(1 -1) translate(0 -1400)">
+    <!-- corners, etc -->
+    <circle class="point" cx="0"   cy="0" r="12"/>
+    <circle class="point" cx="654" cy="0" r="12"/>
+    <circle class="point" cx="654" cy="582" r="12"/>
+    <circle class="point" cx="634" cy="582" r="12"/>
+    <circle class="point" cx="634" cy="602" r="12"/>
+    <circle class="point" cx="698" cy="602" r="12"/>
+    <circle class="point" cx="698" cy="808" r="12"/>
+    <circle class="point" cx="698" cy="1018" r="12"/>
+    <circle class="point" cx="396" cy="1018" r="12"/>
+    <circle class="point" cx="396" cy="957" r="12"/>
+    <circle class="point" cx="396" cy="602" r="12"/>
+    <circle class="point" cx="422" cy="582" r="12"/>
+    <circle class="point" cx="0"   cy="582" r="12"/>
+    <circle class="point" cx="0"   cy="0" r="12"/>
+
     <!-- linear dimensions are in inches -->
 
     <!-- starting from 0, 0 at corner near CRMII watch galery door: -->
-    <path class="wall"
-          d="M 0 0 h 654 v 582 h -20 v 20 h 64 v 206 v 210 H 396"/>
+    <line class="wall" x1="0" y1="0" x2="654" y2="0">
+      <!-- Wall to the right of CRMII door -->
+    </line>
+    <line class="wall" x1="654" y1="0" x2="654" y2="393.5">
+      <!-- far wall, up to fire exit -->
+    </line>
+    <!-- 6'10.5" (82.5") gap in wall for fire exit -->
+    <line class="wall" x1="654" y1="476" x2="654" y2="582">
+      <!-- From fire exit to brick column -->
+    </line>
+    <!-- brick column (rect below) -->
+    <line class="wall" x1="698" y1="582" x2="698" y2="1018">
+      <!-- wall overlooking footpath -->
+    </line>
+    <line class="wall" x1="698" y1="1018" x2="396" y2="1018">
+      <!-- wall overlooking river -->
+    </line>
     <!-- 5'1" gap in wall leading to bathrooms. -->
-
-    <path class="wall"
-          d="M 396 957 v -355"/>
-    <path class="wall"
-          d="M 422 582 h -422"/>
-    <path class="wall"
-          d="M 0 582 V 0"/>
+    <line class="wall" x1="396" y1="957" x2="396" y2="602">
+      <!-- wall from bathrooms to brick column -->
+    </line>
+    <line class="wall" x1="422" y1="582" x2="0" y2="582">
+    </line>
+    <line class="wall" x1="0" y1="582" x2="0" y2="0">
+      <!-- wall to the left of the CRMII door -->
+    </line>
 
     <rect class="brick_column"
           x="380"
@@ -85,7 +123,11 @@
           width="48"
           height="36"
           rx="17"/>
-
+    <rect class="plumbing"
+          x="144"
+          y="0"
+          width="96"
+          height="24"/>
     <g>
       <!--
           for y in 0:48:1300
