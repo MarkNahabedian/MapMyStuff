@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>2024 NEMS Layout, CRMII Jachson Room</title>
+    <meta http-equiv="Permissions-Policy"
+          content="interest-cohort=()">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <link href="../../shared-styles.css"
+          rel="stylesheet"/>
+    <script type="text/javascript"
+            src="../../placement.js"></script>
+    <script type="text/javascript">
+
+window.onload = function() {
+    setTimeout(function() {
+        load_and_draw_things([
+            "NEMS-layout-2024.json"
+        ]);
+    }, 500);
+};
+    </script>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg"
+         id="selection-overlay">
+    </svg>
+
+    <h1>2024 NEMS Layout, CRMII Jachson Room</h1>
+    <p>
+
+    </p>
+    <div>
+      <div id="description"></div>
+      <div class="pointer-position">
+        X: <span id="show-pointer-x"></span>,
+        Y: <span id="show-pointer-y"></span>
+      </div>
+      <!-- 
+        We use object instead of img so that code in placement.js can
+        get access to the loaded SVG document.
+      -->
+      <object id="floor_plan_svg"
+              data="JacksonRoom.svg"
+              type="image/svg+xml"
+              alt="CRMII Jackson Room.">
+        The floor plan of the CRMII Jackson Room should appear below
+      </object>
+    </div>
+    <div id="controls">
+      <!--
+      <a id="download_floor_plan"
+         download="archives.svg"
+         href="">
+        Download the floor plan as an SVG file
+      </a>
+      -->
+    </div>
+
+    <!--
+    <div id="filter">
+      Filter items: 
+      <input name="filter" type="text" size="40"
+             onchange="filter_items_list(this.value)"/>
+    </div>
+    -->
+    <div style="display: none" id="items"></div>
+  </body>
+</html>
