@@ -8,7 +8,7 @@
         "x": 480,
         "y": 590,
         "rotation": 0,
-        "description": "food table 1"        
+        "description": "food table 1"
     },
     {
         "name": "Food Table 2",
@@ -19,9 +19,8 @@
         "x": 527,
         "y": 640,
         "rotation": 0.25,
-        "description": "food table 1"        
+        "description": "food table 1"
     },
-
     {
         "name": "Exhibit Table 1",
         "unique_id": "table-1",
@@ -31,7 +30,7 @@
         "x": 120,
         "y": 96,
         "rotation": 0.75,
-        "description": "exhibit table 1"        
+        "description": "exhibit table 1"
     },
     {
         "name": "Exhibit Table 2",
@@ -42,7 +41,7 @@
         "x": 192,
         "y": 136,
         "rotation": 0.5,
-        "description": "exhibit table 2"        
+        "description": "exhibit table 2"
     },
     {
         "name": "Exhibit Table 3",
@@ -53,7 +52,7 @@
         "x": 260,
         "y": 96,
         "rotation": 0.25,
-        "description": "exhibit table 3"        
+        "description": "exhibit table 3"
     },
     {
         "name": "Exhibit Table 4",
@@ -64,7 +63,7 @@
         "x": 327,
         "y": 60,
         "rotation": 0.5,
-        "description": "exhibit table 4"        
+        "description": "exhibit table 4"
     },
     {
         "name": "Exhibit Table 5",
@@ -75,7 +74,7 @@
         "x": 426,
         "y": 60,
         "rotation": 0.5,
-        "description": "exhibit table 5"        
+        "description": "exhibit table 5"
     },
     {
         "name": "Exhibit Table 6",
@@ -86,7 +85,7 @@
         "x": 524,
         "y": 60,
         "rotation": 0.5,
-        "description": "exhibit table 6"        
+        "description": "exhibit table 6"
     },
     {
         "name": "Exhibit Table 7",
@@ -97,7 +96,7 @@
         "x": 590,
         "y": 94,
         "rotation": 0.75,
-        "description": "exhibit table 7"        
+        "description": "exhibit table 7"
     },
     {
         "name": "Exhibit Table 7",
@@ -108,7 +107,7 @@
         "x": 590,
         "y": 192,
         "rotation": 0.75,
-        "description": "exhibit table 7"        
+        "description": "exhibit table 7"
     },
     {
         "name": "Exhibit Table 8",
@@ -119,9 +118,8 @@
         "x": 590,
         "y": 288,
         "rotation": 0.75,
-        "description": "exhibit table 8"        
+        "description": "exhibit table 8"
     },
-
     {
         "name": "Exhibit Table 94",
         "unique_id": "table-94",
@@ -131,7 +129,7 @@
         "x": 336,
         "y": 494,
         "rotation": 0,
-        "description": "exhibit table 94"        
+        "description": "exhibit table 94"
     },
     {
         "name": "Exhibit Table 95",
@@ -142,7 +140,7 @@
         "x": 238,
         "y": 494,
         "rotation": 0,
-        "description": "exhibit table 95"        
+        "description": "exhibit table 95"
     },
     {
         "name": "Exhibit Table 96",
@@ -153,7 +151,7 @@
         "x": 140,
         "y": 494,
         "rotation": 0,
-        "description": "exhibit table 96"        
+        "description": "exhibit table 96"
     },
     {
         "name": "Exhibit Table 97",
@@ -164,7 +162,7 @@
         "x": 72,
         "y": 462,
         "rotation": 0.25,
-        "description": "exhibit table 97"        
+        "description": "exhibit table 97"
     },
     {
         "name": "Exhibit Table 98",
@@ -175,7 +173,7 @@
         "x": 72,
         "y": 364,
         "rotation": 0.25,
-        "description": "exhibit table 98"        
+        "description": "exhibit table 98"
     },
     {
         "name": "Exhibit Table 99",
@@ -186,20 +184,18 @@
         "x": 72,
         "y": 268,
         "rotation": 0.25,
-        "description": "exhibit table 99"        
+        "description": "exhibit table 99"
     },
-
-
     {
         "name": "Exhibit Table A",
         "unique_id": "table-A",
         "cssClass": "table",
         "width": 96,
         "depth": 30,
-        "x": 250,
+        "x": 274,
         "y": 234,
         "rotation": 0,
-        "description": "exhibit table A"        
+        "description": "exhibit table A"
     },
     {
         "name": "Exhibit Table B",
@@ -207,12 +203,11 @@
         "cssClass": "table",
         "width": 96,
         "depth": 30,
-        "x": 348,
+        "x": 372,
         "y": 234,
         "rotation": 0,
-        "description": "exhibit table B"        
+        "description": "exhibit table B"
     },
-
     {
         "name": "Exhibit Table C",
         "unique_id": "table-C",
@@ -222,7 +217,7 @@
         "x": 472,
         "y": 366,
         "rotation": 0.25,
-        "description": "exhibit table C"        
+        "description": "exhibit table C"
     },
     {
         "name": "Exhibit Table D",
@@ -233,20 +228,18 @@
         "x": 472,
         "y": 268,
         "rotation": 0.25,
-        "description": "exhibit table D"        
+        "description": "exhibit table D"
     },
-
-
     {
         "name": "Exhibit Table G",
         "unique_id": "table-G",
         "cssClass": "table",
         "width": 96,
         "depth": 30,
-        "x": 168,
+        "x": 204,
         "y": 366,
         "rotation": 0.75,
-        "description": "exhibit table G"        
+        "description": "exhibit table G"
     },
     {
         "name": "Exhibit Table H",
@@ -254,10 +247,9 @@
         "cssClass": "table",
         "width": 96,
         "depth": 30,
-        "x": 168,
+        "x": 204,
         "y": 268,
         "rotation": 0.75,
-        "description": "exhibit table H"        
+        "description": "exhibit table H"
     }
-
 ]
