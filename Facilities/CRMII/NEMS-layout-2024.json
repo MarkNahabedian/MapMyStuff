@@ -231,6 +231,28 @@
         "description": "exhibit table D"
     },
     {
+        "name": "Exhibit Table E",
+        "unique_id": "table-E",
+        "cssClass": "table",
+        "width": 96,
+        "depth": 30,
+        "x": 306,
+        "y": 402,
+        "rotation": 0.5,
+        "description": "exhibit table E"
+    },
+    {
+        "name": "Exhibit Table F",
+        "unique_id": "table-F",
+        "cssClass": "table",
+        "width": 96,
+        "depth": 30,
+        "x": 404,
+        "y": 402,
+        "rotation": 0.5,
+        "description": "exhibit table D"
+    },
+    {
         "name": "Exhibit Table G",
         "unique_id": "table-G",
         "cssClass": "table",
