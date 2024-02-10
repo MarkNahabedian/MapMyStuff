@@ -49,14 +49,14 @@ parser.add_argument(
 
 def move_item(item, args):
     if args.x != None:
-        item["x"] = atgs.x
+        item["x"] = args.x
     elif args.dx != None:
         item["x"] += args.dx
         pass
     if args.y != None:
         item["y"] = args.y
     elif args.dy != None:
-        item["y"] += args.y
+        item["y"] += args.dy
         pass
     pass
 
