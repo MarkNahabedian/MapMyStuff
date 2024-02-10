@@ -132,6 +132,72 @@
         "description": "exhibit table 94"
     },
     {
+        "name": "Exhibit Table 51",
+        "unique_id": "table-51",
+        "cssClass": "table",
+        "width": 96,
+        "depth": 30,
+        "x": 640,
+        "y": 670,
+        "rotation": 0.75,
+        "description": "exhibit table 51"
+    },
+    {
+        "name": "Exhibit Table 52",
+        "unique_id": "table-52",
+        "cssClass": "table",
+        "width": 96,
+        "depth": 30,
+        "x": 640,
+        "y": 768,
+        "rotation": 0.75,
+        "description": "exhibit table 52"
+    },
+    {
+        "name": "Exhibit Table 53",
+        "unique_id": "table-53",
+        "cssClass": "table",
+        "width": 96,
+        "depth": 30,
+        "x": 640,
+        "y": 866,
+        "rotation": 0.75,
+        "description": "exhibit table 53"
+    },
+    {
+        "name": "Exhibit Table 54",
+        "unique_id": "table-54",
+        "cssClass": "table",
+        "width": 96,
+        "depth": 30,
+        "x": 570,
+        "y": 940,
+        "rotation": 0,
+        "description": "exhibit table 54"
+    },
+    {
+        "name": "Exhibit Table 55",
+        "unique_id": "table-55",
+        "cssClass": "table",
+        "width": 96,
+        "depth": 30,
+        "x": 460,
+        "y": 866,
+        "rotation": 0.25,
+        "description": "exhibit table 55"
+    },
+    {
+        "name": "Exhibit Table 56",
+        "unique_id": "table-56",
+        "cssClass": "table",
+        "width": 96,
+        "depth": 30,
+        "x": 460,
+        "y": 770,
+        "rotation": 0.25,
+        "description": "exhibit table 56"
+    },
+    {
         "name": "Exhibit Table 95",
         "unique_id": "table-95",
         "cssClass": "table",
