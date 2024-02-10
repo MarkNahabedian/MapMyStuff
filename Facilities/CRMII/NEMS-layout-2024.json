@@ -94,7 +94,7 @@
         "width": 96,
         "depth": 30,
         "x": 590,
-        "y": 94,
+        "y": 154,
         "rotation": 0.75,
         "description": "exhibit table 7"
     },
@@ -105,7 +105,7 @@
         "width": 96,
         "depth": 30,
         "x": 590,
-        "y": 192,
+        "y": 252,
         "rotation": 0.75,
         "description": "exhibit table 7"
     },
@@ -116,7 +116,7 @@
         "width": 96,
         "depth": 30,
         "x": 590,
-        "y": 288,
+        "y": 348,
         "rotation": 0.75,
         "description": "exhibit table 8"
     },
