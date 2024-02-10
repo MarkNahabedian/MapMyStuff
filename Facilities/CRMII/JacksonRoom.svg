@@ -40,6 +40,13 @@
         stroke-width: 1px;
         vector-effect: non-scaling-stroke;    
     }
+
+    .table {
+        stroke: black;
+        fill: gray;
+        stroke-width: 1px;
+        vector-effect: non-scaling-stroke;    
+    }
     </style>
   <g transform="scale(1 -1) translate(0 -1400)">
     <!-- corners, etc -->
@@ -186,6 +193,8 @@
       <line class="grid" x1="720" x2="720" y1="0" y2="1248"/>
       <line class="grid" x1="768" x2="768" y1="0" y2="1248"/>
     </g>
-
+    <g id="real-world">
+      <!-- This is where we put the furnature -->
+    </g>
   </g>
 </svg>
