@@ -88,7 +88,7 @@ def main():
             updated_item[k] = v
         items[i] = updated_item
     with open(filename, "w") as f:
-      json.dump(items, f, indent=2)
+      json.dump(items, f, indent=4)
     print("%d ids assigned in %s" % (count, filename))
           
 
