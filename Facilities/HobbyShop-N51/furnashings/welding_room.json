@@ -1,79 +1,81 @@
 [
-    {
-        "name": "bench",
-        "clustermarket_id": "25534",
-        "cssClass": "station",
-        "width": 6,
-        "depth": 2,
-        "x": 49,
-        "y": 28,
-        "rotation": 0.5,
-        "contents": [
-            "top: vise, glove box, flex shaft tool, mini belt sander",
-            "1st (top) drawer: polishing",
-            "2nd drawer: flex shaft tools",
-            "3rd drawer: grindinga nd wire brushes",
-            "4th drawer: weding accessories",
-            "5th drawer: bolt cutters, etc.",
-            "6th (bottom) drawer: welding wire and pedals"
-        ],
-        "measured": "2023-10-10: 72 inches wide by 24 inches deep."
-    },
-    {
-        "name": "Arbor Press",
-        "unique_id": "_x_0024",
-        "clustermarket_id": "25534",
-        "cssClass": "machine",
-        "width": 2,
-        "depth": 2,
-        "x": 54,
-        "y": 29.5,
-        "rotation": 0.675,
-        "description": "12 Ton Arbor Press (old model)"
-    },
-    {
-        "name": "belt sander",
-        "clustermarket_id": "25534",
-        "cssClass": "machine",
-        "width": 1.4,
-        "depth": 1.4,
-        "x": 54,
-        "y": 32,
-        "rotation": 0.75,
-        "measured": "2023-10-10: 17 inches wide, 17 inches deep"        
-    },
-    {
-        "name": "Welding Table",
-        "unique_id": "_x_0036",
-        "clustermarket_id": "25534",
-        "cssClass": "station",
-        "width": 4,
-        "depth": 4,
-        "x": 50,
-        "y": 40,
-        "rotation": 0
-    },
-    {
-        "name": "Baileigh Cold Saw",
-        "unique_id": "_x_0023",
-        "clustermarket_id": "25534",
-        "cssClass": "machine",
-        "width": 4,
-        "depth": 2,
-        "x": 42,
-        "y": 40,
-        "rotation": 0.25,
-        "description_uri": "Baileigh_cold_saw.html"
-    },
-    {
-        "name": "metal cabinet -- What's in here?",
-        "unique_id": "_x_0107",
-        "cssClass": "storage",
-        "width": 3.58,
-        "depth": 1.58,
-        "x": 42,
-        "y": 33,
-        "rotation": 0.25,
-        "measured": "2023-09-15; 43 inches wide, 19 inches deep"
-    }
+  {
+    "name": "bench",
+    "unique_id": "_x_0139",
+    "clustermarket_id": "25534",
+    "cssClass": "station",
+    "width": 6,
+    "depth": 2,
+    "x": 49,
+    "y": 28,
+    "rotation": 0.5,
+    "contents": [
+      "top: vise, glove box, flex shaft tool, mini belt sander",
+      "1st (top) drawer: polishing",
+      "2nd drawer: flex shaft tools",
+      "3rd drawer: grindinga nd wire brushes",
+      "4th drawer: weding accessories",
+      "5th drawer: bolt cutters, etc.",
+      "6th (bottom) drawer: welding wire and pedals"
+    ],
+    "measured": "2023-10-10: 72 inches wide by 24 inches deep."
+  },
+  {
+    "name": "Arbor Press",
+    "unique_id": "_x_0024",
+    "clustermarket_id": "25534",
+    "cssClass": "machine",
+    "width": 2,
+    "depth": 2,
+    "x": 54,
+    "y": 29.5,
+    "rotation": 0.675,
+    "description": "12 Ton Arbor Press (old model)"
+  },
+  {
+    "name": "belt sander",
+    "unique_id": "_x_0140",
+    "clustermarket_id": "25534",
+    "cssClass": "machine",
+    "width": 1.4,
+    "depth": 1.4,
+    "x": 54,
+    "y": 32,
+    "rotation": 0.75,
+    "measured": "2023-10-10: 17 inches wide, 17 inches deep"
+  },
+  {
+    "name": "Welding Table",
+    "unique_id": "_x_0036",
+    "clustermarket_id": "25534",
+    "cssClass": "station",
+    "width": 4,
+    "depth": 4,
+    "x": 50,
+    "y": 40,
+    "rotation": 0
+  },
+  {
+    "name": "Baileigh Cold Saw",
+    "unique_id": "_x_0023",
+    "clustermarket_id": "25534",
+    "cssClass": "machine",
+    "width": 4,
+    "depth": 2,
+    "x": 42,
+    "y": 40,
+    "rotation": 0.25,
+    "description_uri": "Baileigh_cold_saw.html"
+  },
+  {
+    "name": "metal cabinet -- What's in here?",
+    "unique_id": "_x_0107",
+    "cssClass": "storage",
+    "width": 3.58,
+    "depth": 1.58,
+    "x": 42,
+    "y": 33,
+    "rotation": 0.25,
+    "measured": "2023-09-15; 43 inches wide, 19 inches deep"
+  }
 ]
