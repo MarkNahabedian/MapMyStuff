@@ -590,6 +590,7 @@
     },
     {
         "name": "control station for Menig Automation CNC Mill",
+        "unique_id": "_x_0145",
         "cssClass": "machine",
         "width": 1.8,
         "depth": 1.5,
@@ -600,6 +601,7 @@
     },
     {
         "name": "Menig Automation 0350 CNC Mill",
+        "unique_id": "_x_0146",
         "cssClass": "machine",
         "width": 4.75,
         "depth": 3.17,
