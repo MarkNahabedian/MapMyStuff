@@ -32,11 +32,6 @@ window.onload = function() {
 
     <h1>Hobby Shop Floor Plan (N51)</h1>
     <div>
-      <div id="description"></div>
-      <div class="pointer-position">
-        X: <span id="show-pointer-x"></span>,
-        Y: <span id="show-pointer-y"></span>
-      </div>
       <!-- 
         We use object instead of img so that code in placement.js can
         get access to the loaded SVG document.
@@ -49,6 +44,11 @@ window.onload = function() {
                    machines, furnature, tools, etc.">
         The Hobby Shop floor plan should appear here.
       </object>
+      <div class="pointer-position">
+        X: <span id="show-pointer-x"></span>,
+        Y: <span id="show-pointer-y"></span>
+      </div>
+      <div id="description"></div>
     </div>
     <div id="controls">
       <a id="download_floor_plan"

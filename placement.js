@@ -435,7 +435,12 @@ function target(item, doit=false) {
   c.setAttribute("r", radius);
   overlay.appendChild(c);
   let anchorX = window.scrollX + ((desc_bbox.left + desc_bbox.right) / 2);
+  // Is the description element above or below the floor_plan_svg
+  // element on the web page?
   let anchorY = window.scrollY + desc_bbox.bottom;
+  if (desc_bbox.top > obj_bbox.bottom) {
+    anchorY = window.scrollY + desc_bbox.top;
+  }
   let cpp = circle_perimeter_point(centerX, centerY, radius, anchorX, anchorY)
   let p = document.createElementNS(overlay.namespaceURI, "path");
   p.setAttribute("d",
