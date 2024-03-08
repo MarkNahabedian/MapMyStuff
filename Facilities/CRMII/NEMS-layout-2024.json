@@ -121,6 +121,18 @@
         "description": "exhibit table 8"
     },
     {
+        "name": "Exhibit Table 9",
+        "unique_id": "table-9",
+        "cssClass": "table",
+        "width": 96,
+        "depth": 30,
+        "x": 610,
+        "y": 530,
+        "rotation": 0.75,
+        "description": "exhibit table 9"
+    },
+
+    {
         "name": "Exhibit Table 94",
         "unique_id": "table-94",
         "cssClass": "table",
@@ -152,28 +164,6 @@
         "y": 768,
         "rotation": 0.75,
         "description": "exhibit table 52"
-    },
-    {
-        "name": "Exhibit Table 53",
-        "unique_id": "table-53",
-        "cssClass": "table",
-        "width": 96,
-        "depth": 30,
-        "x": 640,
-        "y": 866,
-        "rotation": 0.75,
-        "description": "exhibit table 53"
-    },
-    {
-        "name": "Exhibit Table 54",
-        "unique_id": "table-54",
-        "cssClass": "table",
-        "width": 96,
-        "depth": 30,
-        "x": 570,
-        "y": 940,
-        "rotation": 0,
-        "description": "exhibit table 54"
     },
     {
         "name": "Exhibit Table 55",
