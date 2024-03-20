@@ -609,6 +609,7 @@
     {
         "name": "Menig Automation 0350 CNC Mill",
         "unique_id": "_x_0146",
+        "clustermarket_id": "165266",
         "cssClass": "machine",
         "width": 4.75,
         "depth": 3.17,
