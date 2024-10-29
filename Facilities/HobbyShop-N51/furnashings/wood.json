@@ -855,7 +855,7 @@
         "x": 10,
         "y": 81,
         "rotation": 0.25,
-        "description": "Send Charlotte an STL file and she'll print it for you.  Specify units when submitting an STL file.",
+        "description": "Send Charlotte an STL file and she'll print it for you.  Specify units when submitting an STL file.  Consult with Charlotte for design and other assistance with design file preparation.",
         "measured": "2023-09-15; 26 inches deep, 25 inches wide"
     },
     {
