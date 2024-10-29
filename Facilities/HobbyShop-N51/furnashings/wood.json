@@ -21,24 +21,14 @@
         "path_d": "M 0 0 m 0 1 a 0.5 0.5 0 1 0 0 -1 a 0.5 0.5 0 1 0 0 1 v 0.3 h 1 m -1 0 h -1 m 1 0 v 1.2 l 0.707107 0.707107 m -0.707107 -0.707107 l -0.707107 0.707107"
     },
     {
-        "name": "Consultation with Coby",
-        "unique_id": "Coby",
+        "name": "Consultation with Charlotte",
+        "unique_id": "Charlotte",
         "clustermarket_id": 81713,
         "cssClass": "consultant",
         "x": 18,
         "y": 83,
         "rotation": 0,
         "path_d": "M 0 0 m 0 1 a 0.5 0.5 0 1 0 0 -1 a 0.5 0.5 0 1 0 0 1 v 0.3 h 1 m -1 0 h -1 m 1 0 v 1.2 l 0.707107 0.707107 m -0.707107 -0.707107 l -0.707107 0.707107"
-    },
-    {
-        "name": "Consultation with Mud the Dog",
-        "unique_id": "MudDog",
-        "clustermarket_id": 153146,
-        "cssClass": "consultant",
-        "x": 17,
-        "y": 78,
-        "rotation": 0,
-        "path_d": "M 0 0 m 0 1.50 a 0.75 0.30 0 1 0 1.50 0 a 0.75 0.30 0 1 0 -1.50 0 l -0.353553 0.353553 l 1.060660 1.060660 m -1.060660 -1.060660 l -1.060660 1.060660 m 1.060660 -1.060660 h -2 l 1.060660 1.060660 m -1.060660 -1.060660 l -1.060660 1.060660 m 1.060660 -1.060660 v -0.50"
     },
     {
         "name": "sharpening station",
@@ -843,27 +833,29 @@
         "measured": "2023-09-15; 4 feet wide, 2 feet deep"
     },
     {
-        "name": "Stratasys 3de printer",
+        "name": "Stratasys UPrint SE 3D printer",
         "unique_id": "MIT-0493893",
         "cssClass": "machine",
+        "clustermarket_id": 175249,
         "width": 2.17,
         "depth": 2.08,
         "x": 10,
         "y": 79,
         "rotation": 0.25,
-        "description": "Send Coby an STL file and he'll print it for you.  Specify units when submitting an STL file.",
+        "description": "Send Charlotte an STL file and she'll print it for you.  Specify units when submitting an STL file.  Consult with Charlotte for design and other assistance with design file preparation.",
         "measured": "2023-09-15; 26 inches deep, 25 inches wide"
     },
     {
-        "name": "Stratasys 3de printer",
+        "name": "Stratasys UPrint SE Plus 3D printer",
         "unique_id": "MIT-0492378",
         "cssClass": "machine",
+        "clustermarket_id": 175248,
         "width": 2.17,
         "depth": 2.08,
         "x": 10,
         "y": 81,
         "rotation": 0.25,
-        "description": "SendCoby an STL file and he'll print it for you.",
+        "description": "Send Charlotte an STL file and she'll print it for you.  Specify units when submitting an STL file.",
         "measured": "2023-09-15; 26 inches deep, 25 inches wide"
     },
     {
