@@ -3,6 +3,7 @@
 import sys
 assert sys.version_info >= (3, 2)
 
+import socket
 import http.server
 import html
 import logging
@@ -26,6 +27,7 @@ class NoCacheRequestHandler (http.server.SimpleHTTPRequestHandler):
 
 def run(port):
   server_address = ('', port)
+  logger().info("http://%s:%d/" % (socket.gethostname(), port))
   httpd = http.server.HTTPServer(server_address, NoCacheRequestHandler)
   try: 
     logger().info("Starting Webserver on port %d." %  port)
