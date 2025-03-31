@@ -61,9 +61,9 @@
         "cssClass": "machine",
         "width": 4.8,
         "depth": 1.5,
-        "x": 53,
-        "y": 60,
-        "rotation": 0.75,
+        "x": 63,
+        "y": 61,
+        "rotation": 0,
         "measured": "2023-09-05; 58 inch wide, 18 inch deep"
     },
     {
@@ -72,7 +72,7 @@
         "cssClass": "station",
         "width": 1.58,
         "depth": 1.9,
-        "x": 60,
+        "x": 59,
         "y": 61,
         "rotation": 0,
         "measured": "2023-09-08; 19 inch wide, 23 inch deep"
@@ -85,7 +85,7 @@
         "cssClass": "machine",
         "width": 4,
         "depth": 2.5,
-        "x": 64,
+        "x": 68,
         "y": 61,
         "rotation": 0,
         "description_uri": "Baileigh_sheet_metal_brake.html"
@@ -97,12 +97,22 @@
         "cssClass": "machine",
         "width": 4,
         "depth": 2.5,
-        "x": 70,
+        "x": 53,
         "y": 61,
         "rotation": 0,
         "description_uri": "PSW36_sheet_metal_shear.html"
     },
 
+    {
+        "name": "Vacuum former",
+        "cssClass": "machine",
+        "width": 2.75,
+        "depth": 6,
+        "x": 72,
+        "y": 53,
+        "rotation": 0.5,
+        "measured": "2025-03-28; 33 inch wide, 73 inch deep"
+    },
     {
         "name": "Laser Cutter",
         "unique_id": "_x_0005",
@@ -151,7 +161,7 @@
         "cssClass": "storage",
         "width": 4,
         "depth": 1,
-        "x": 72,
+        "x": 76,
         "y": 51,
         "rotation": 0.5,
         "measured": "2023-09-11; 4 feet wide, 1 foot deep."
