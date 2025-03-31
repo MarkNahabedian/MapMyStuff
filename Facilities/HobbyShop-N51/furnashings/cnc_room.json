@@ -19,9 +19,9 @@
         "cssClass": "machine",
         "width": 8.1,
         "depth": 3.1,
-        "x": 114,
+        "x": 111,
         "y": 80,
-        "rotation": -0.094,
+        "rotation": 0.156,
         "description_uri": "ShopBotBuddy.html",
         "measured": "2021-06-01"
     }
