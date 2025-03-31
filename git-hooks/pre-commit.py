@@ -74,8 +74,16 @@ def check_json(filename):
     pass
 
 
+def repo_root():
+    f = os.path.dirname(os.path.abspath(__file__))
+    while os.path.split(f)[1] in ["hooks", ".git", "git-hooks"]:
+        f = os.path.dirname(f)
+    return f
+
+
 def main():
-    os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    os.chdir(repo_root())
+    print(os.getcwd())
     if len(sys.argv) > 1:
         files = sys.argv[1:]
     else:
