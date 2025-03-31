@@ -5,7 +5,7 @@
 
 # To use this pre-commit hook in your local clone of the repository,
 # from your repository root do (on unix)
-#   ln -s git-hooks/pre-commit.py .git/hooks/pre-commit
+#   ln -s `pwd`/git-hooks/pre-commit.py .git/hooks/pre-commit
 
 import os
 import sys
@@ -30,6 +30,8 @@ SUPPORTED_PROPERTIES = [
     'measured'
     ]
 
+# Return a list of properties that appear in a JSON item description
+# but are not in SUPPORTED_PROPERTIES.
 def check_json_properties(data):
     unknown = []
     for d in data:
@@ -52,28 +54,28 @@ def get_files():
      pass
 
 
+# Return True for failure.
 def check_json(filename):
     if os.path.splitext(filename)[1] != ".json":
-        return True
+        return False
     with open(filename, 'r') as file:
         try:
             data = json.load(file)
             unsupported = check_json_properties(data)
             if unsupported:
                 print("%s: unsupported properties: %s" % (filename, unsupported))
-                return False
+                return True
         except Exception as e:
             print("%s: %s" % (filename, e))
-            return False
+            return True
             pass
         pass
-    return True
+    return False
     pass
 
 
 def main():
     os.chdir(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    print(os.getcwd())
     if len(sys.argv) > 1:
         files = sys.argv[1:]
     else:
