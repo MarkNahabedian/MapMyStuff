@@ -788,18 +788,6 @@
         "measured": "2023-09-05; 75 inch wide, 45 inch deep"
     },
     {
-        "name": "sewing machine",
-        "unique_id": "*_x_0133",
-        "cssClass": "machine",
-        "clustermarket_id": 28469,
-        "width": 5.625,
-        "depth": 2.2,
-        "x": 26,
-        "y": 71,
-        "rotation": 0.25,
-        "measured": "2023-09-08; 67.5 inches wide, 26 inches deep"
-    },
-    {
         "name": "lockers",
         "unique_id": "_x_0135",
         "cssClass": "storage",
@@ -820,6 +808,19 @@
         "y": 74.7,
         "rotation": 0.5,
         "measured": "2023-09-15; 95 inches wide, 18 inches deep"
+    },
+    {
+        "name": "Singer Heavy Duty portable sewing machine",
+        "unique_id": "singer_sewing_machine",
+        "cssClass": "machine",
+        "clustermarket_id": 28469,
+        "width": 1.3,
+        "depth": 0.58,
+        "x": 15,
+        "y": 75,
+        "rotation": 0.5,
+        "description_uri": "singer_portable_sewing_machine.html",
+        "measured": "2025-04-01; 16 inches wide, 7 inches deep"
     },
     {
         "name": "table for 3d printers",

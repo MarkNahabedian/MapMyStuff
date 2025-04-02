@@ -1,0 +1,15 @@
+[
+    "Items that have been removed from the Hobby Shop.",
+    {
+        "name": "sewing machine",
+        "unique_id": "*_x_0133",
+        "cssClass": "machine",
+        "clustermarket_id": 28469,
+        "width": 5.625,
+        "depth": 2.2,
+        "x": 26,
+        "y": 71,
+        "rotation": 0.25,
+        "measured": "2023-09-08; 67.5 inches wide, 26 inches deep"
+    }
+]
