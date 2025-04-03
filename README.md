@@ -108,7 +108,7 @@ testing, and debugging.
 
 ### web_server.py
 
-`web_server.py` is a python script that runs a web server locally.
+`web_server.py` is a python3 script that runs a web server locally.
 This allows the floor plans to be viewed locally, before changes are
 committed or pushed.
 
@@ -167,4 +167,13 @@ property names can be checked:
 git-hooks/pre-commit.py  Facilities/HobbyShop-N51/furnashings/wood.json
 Facilities/HobbyShop-N51/furnashings/wood.json: unsupported properties: ['dept']
 ```
+
+
+### ensure_identifiers.py
+
+`ensure_identifiers.py` is a python3 script that will ensure that each
+item has a `unique_id` property.  Missing unique identifiers will be
+added.  The unique ids generated will be of the form `_x_*0000*`,
+where `*0000*` is a four digit number greater than any other generated
+unique id in any JSON file in the current working directory.
 
