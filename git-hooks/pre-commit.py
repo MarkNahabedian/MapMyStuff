@@ -83,7 +83,6 @@ def repo_root():
 
 def main():
     os.chdir(repo_root())
-    print(os.getcwd())
     if len(sys.argv) > 1:
         files = sys.argv[1:]
     else:
