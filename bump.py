@@ -1,9 +1,11 @@
+#!/usr/bin/python3
 
 import argparse
 import json
 
 parser = argparse.ArgumentParser(
     prog='bump',
+    add_help=True,
     description='Adjust the x and y properties of the specified items in the specified JSON files')
 
 parser.add_argument(
