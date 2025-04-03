@@ -31,7 +31,7 @@ See the maps for
 
 The floor plan of each facility is rooted in an SVG file.
 
-Each furnashing that are layed out on the floor plan is deascribed by
+Each furnashing that is layed out on the floor plan is deascribed by
 a record in a JSON file.  That record should have these properties:
 
 <dl>
@@ -98,4 +98,73 @@ units as the SVG floor plan drawing, which is typically feet.
 would then be converted to feet for `x`, `y`, `width` and `depth`.
 `measured` provides a record of the measurements actually taken from
 the item.
+
+
+## Tools
+
+This repository also includes some tools for local maintenance,
+testing, and debugging.
+
+
+### web_server.py
+
+`web_server.py` is a python script that runs a web server locally.
+This allows the floor plans to be viewed locally, before changes are
+committed or pushed.
+
+
+### bump.py
+
+`bump.py` provides a command line tool for adjusting the `x` and `y`
+coordinates of a furnashing in a floor plan.
+
+It finds the items specified by `unique_id` in the specified JSON
+files and adjusts their `x` and `y` positions as specified.
+
+```
+./bump.py --help
+usage: bump [-h] [-x X] [-y Y] [-dx DX] [-dy DY] [-file FILES] items [items ...]
+
+Adjust the x and y properties of the specified items in the specified JSON files
+
+positional arguments:
+  items        unique_id of the items to modify
+
+optional arguments:
+  -h, --help   show this help message and exit
+  -x X         Specify an absolute X coordinate for the specified items
+  -y Y         Specify an absolute Y coordinate for the specified items
+  -dx DX       Specify a change for the X coordinate for the specified items
+  -dy DY       Specify a change for the Y coordinate for the specified items
+  -file FILES  Specifies a JSON file to modify. Can be specified multiple times.
+```
+
+
+### git-hooks/pre-commit.py
+
+`git-hooks/pre-commit.py` is a python3 script that can serve as a git
+`pre-commit` hook which verifies the syntax of a JSON file and warns
+if any of the properties in it are not recognized, perhaps due to a
+typo.
+
+It can be installed as your clone's pre-commit hook
+
+```
+ln -s -F `pwd`/git-hooks/pre-commit.py .git/hooks/pre-commit
+```
+
+or used on the command line:
+
+```
+git-hooks/pre-commit.py  Facilities/HobbyShop-N51/furnashings/wood.json
+Facilities/HobbyShop-N51/furnashings/wood.json: Expecting ',' delimiter: line 823 column 9 (char 24704)
+```
+
+Note that a JSON file must be syntactically correct before the
+property names can be checked:
+
+```
+git-hooks/pre-commit.py  Facilities/HobbyShop-N51/furnashings/wood.json
+Facilities/HobbyShop-N51/furnashings/wood.json: unsupported properties: ['dept']
+```
 
