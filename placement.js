@@ -408,38 +408,65 @@ function enptySpaceClicked(event) {
   Show_event_location(event);
 }
 
+function page_coordinates(elt) {
+  bbox = elt.getBoundingClientRect();
+  return [ window.scrollX + bbox.left,
+           window.scrollY + bbox.top ];
+}
+
 // Make it easy to find the selected item on the floor plan.
 function target(item, doit=false) {
   let overlay = document.getElementById("selection-overlay");
   make_empty(overlay);
   if (!doit) {
+    // No item selected:
     return;
   }
-  let desc_box = document.getElementById("description");
-  let desc_bbox = desc_box.getBoundingClientRect();
+  let overlay_pageXY = page_coordinates(overlay);
+  let desc_bbox = document.getElementById("description").getBoundingClientRect();
+  let desc_pageXY = page_coordinates(document.getElementById("description"));
+  // #floor_plan_svg is the object element that contains the floor plan SVG.
   let obj_bbox = document.getElementById("floor_plan_svg").getBoundingClientRect();
+  let obj_pageXY = page_coordinates(document.getElementById("floor_plan_svg"));
+  let overlay2objectXY = [ obj_pageXY[0] - overlay_pageXY[0],
+                           obj_pageXY[1] - overlay_pageXY[1] ];
+  /*
+  // This gives us a rectangle with a stable position regardless of scrolling:
+  let rectangle = document.createElementNS(overlay.namespaceURI, "rect")
+  rectangle.setAttribute("x", 200 + overlay2objectXY[0]);
+  rectangle.setAttribute("y", 200 + overlay2objectXY[1]);
+  rectangle.setAttribute("width", 50);
+  rectangle.setAttribute("height", 50);
+  rectangle.setAttribute("style", "fill: green; stroke: blue; stroke-wodth: 1px;");
+  overlay.appendChild(rectangle);
+  */
+  // let overlay_bbox = overlay.getBoundingClientRect();
   // selected_bbox is in a different document (contained within an
   // object element).  We need to offset by the edges of the object
   // element.
   let selected_bbox = item.svg_element.getBoundingClientRect();
   let sel_centerX = (selected_bbox.left + selected_bbox.right) / 2;
   let sel_centerY = (selected_bbox.top + selected_bbox.bottom) / 2;
-  let centerX = window.scrollX + sel_centerX; // + obj_bbox.left;   WHY DOES ADDIING THIS NOT GIVE THE RIGHT X?
-  let centerY = window.scrollY + sel_centerY + obj_bbox.top;
-  // WHY DO WE NEED THIS KLUDGE TO GET THE Y COORDINATE RIGHT
-  centerY -= 20;
+  // centerX and centerY are the coordinates of the circle that is
+  // drawn around the selected item:
+  let centerX = sel_centerX + overlay2objectXY[0];
+  let centerY = sel_centerY + overlay2objectXY[1];
   let radius = 1.2 * bbox_radius(selected_bbox);
   let c = document.createElementNS(overlay.namespaceURI, "circle");
   c.setAttribute("cx", centerX);
   c.setAttribute("cy", centerY);
   c.setAttribute("r", radius);
   overlay.appendChild(c);
-  let anchorX = window.scrollX + ((desc_bbox.left + desc_bbox.right) / 2);
+  // anchorX and anchorY are the coordinates of the description box
+  // end of the line whose other end is on the selection circle.
+  let anchorX = window.scrollX + ((desc_bbox.left + desc_bbox.right) / 2) + overlay_pageXY[0];  //  + obj_Xoffset;
   // Is the description element above or below the floor_plan_svg
   // element on the web page?
-  let anchorY = window.scrollY + desc_bbox.bottom;
-  if (desc_bbox.top > obj_bbox.bottom) {
-    anchorY = window.scrollY + desc_bbox.top;
+  let anchorY = window.scrollY - overlay_pageXY[1];
+  if (desc_bbox.top > (obj_bbox.top + obj_bbox.bottom) / 2) {
+    anchorY += desc_bbox.top;
+  } else {
+    anchorY += desc_bbox.bottom;
   }
   let cpp = circle_perimeter_point(centerX, centerY, radius, anchorX, anchorY)
   let p = document.createElementNS(overlay.namespaceURI, "path");
