@@ -42,7 +42,7 @@
         "measured": "2023-09-30: 25 inches wide, 25.5 inches deep"
     },
     {
-        "name": "Oneway 2436 Wood Lathe",
+        "name": "Oneway 2436 Wood Lathe #1",
         "unique_id": "_x_0054",
         "clustermarket_id": 25544,
         "cssClass": "machine",
@@ -51,9 +51,19 @@
         "x": 107,
         "y": 61,
         "rotation": 0.5,
-        "booking_note": "Booking any wood shop workbench allows access.",
-        "description_uri": "wood_lathe.html",
         "measured": "2021-06-01"
+    },
+    {
+        "name": "Oneway Wood Lathe #2",
+        "unique_id": "_x_0148",
+        "clustermarket_id": 185445,
+        "cssClass": "machine",
+        "width": 7.9,
+        "depth": 2.6,
+        "x": 103,
+        "y": 57,
+        "rotation": 0,
+        "measured": "2025-05-30, 95 inched wide, 31 inches deep"
     },
     {
         "name": "SawStop Table Saw",
