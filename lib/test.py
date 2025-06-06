@@ -1,5 +1,5 @@
 
-# Ru7n with
+# Run with
 #  python -m unittest test
 
 import unittest
